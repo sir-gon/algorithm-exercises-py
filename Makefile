@@ -16,7 +16,7 @@ upgrade:
 	pip3 install --upgrade -r requirements.txt
 
 test: dependencies
-	python3 -m unittest discover -s src -p '*_test.py'
+	python3 -m unittest discover -s src -p '*_test.py' --verbose
 
 coverage: test
 	python3 -m coverage run -m unittest discover -s src -p '*_test.py' --verbose
