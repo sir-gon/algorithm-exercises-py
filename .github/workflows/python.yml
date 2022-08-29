@@ -1,0 +1,46 @@
+name: Python
+
+on:
+  push:
+    branches: [ "main", "feature/*" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  LOG_LEVEL: WARN
+
+jobs:
+
+  build:
+    name: "Run CI"
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [
+          "windows-latest",
+          "ubuntu-latest",
+          "macOS-latest"
+        ]
+        python: ["3.10"]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@master
+      with:
+        python-version: ${{ matrix.python }}
+
+    - name: Install
+      run: pip3 install --upgrade -r requirements.txt
+
+    - name: Test
+      run: |
+        python3 -m coverage run -m unittest discover -s src -p '*_test.py' --verbose
+
+    - name: Coverage
+      run: |
+        python3 -m coverage report
+
+    - name: Upload coverage reports to Codecov with GitHub Action
+      uses: codecov/codecov-action@v3
