@@ -34,6 +34,10 @@ jobs:
     - name: Install
       run: pip3 install --upgrade -r requirements.txt
 
+    - name: Lint
+      run: |
+        python3 -m pylint --verbose --recursive yes src/
+
     - name: Test
       run: |
         python3 -m coverage run -m unittest discover -s src -p '*_test.py' --verbose

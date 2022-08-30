@@ -15,6 +15,9 @@ update:
 upgrade:
 	pip3 install --upgrade -r requirements.txt
 
+lint: dependencies
+	python3 -m pylint --verbose --recursive yes src/
+
 test: dependencies
 	python3 -m unittest discover -s src -p '*_test.py' --verbose
 
@@ -32,4 +35,4 @@ clean:
 	rm -fr src/__pycache__
 	rm .coverage
 
-all: test coverage
+all: lint test coverage
