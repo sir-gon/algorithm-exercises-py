@@ -21,7 +21,10 @@ lint: dependencies
 	pylint --verbose --recursive yes src/
 
 test: dependencies
-	pytest --verbose src/
+	pytest --verbose -o log_cli=true --log-cli-level=INFO src/
+
+test/debug: dependencies
+	pytest --verbose -o log_cli=true --log-cli-level=DEBUG src/
 
 coverage: dependencies
 	coverage run -m pytest --verbose src/

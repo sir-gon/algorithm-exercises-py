@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 env:
-  LOG_LEVEL: WARN
+  LOG_LEVEL: INFO
 
 jobs:
 
@@ -41,7 +41,7 @@ jobs:
 
     - name: Test
       run: |
-        coverage run -m pytest --verbose src/
+        coverage run -m pytest --verbose -o log_cli=true --log-cli-level=INFO src/
 
     - name: Coverage
       run: |
