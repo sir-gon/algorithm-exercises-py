@@ -18,7 +18,7 @@ upgrade:
 	pip3 install --upgrade -r requirements.txt
 
 lint: dependencies
-	pylint --verbose --recursive yes src/
+	python3 -m pylint --verbose --recursive yes src/
 
 test: dependencies
 	pytest --verbose -o log_cli=true --log-cli-level=INFO src/
