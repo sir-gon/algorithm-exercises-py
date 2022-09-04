@@ -6,8 +6,10 @@ help: list
 list:
 	@LC_ALL=C $(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
 
+install: dependencies
+
 dependencies:
-	pip3 install -r requirements.txt
+	pip3 install --user -r requirements.txt
 
 update:
 	pip3 freeze > requirements.txt
@@ -16,17 +18,17 @@ upgrade:
 	pip3 install --upgrade -r requirements.txt
 
 lint: dependencies
-	python3 -m pylint --verbose --recursive yes src/
+	pylint --verbose --recursive yes src/
 
 test: dependencies
-	python3 -m unittest discover -s src -p '*_test.py' --verbose
+	pytest --verbose src/
 
-coverage: test
-	python3 -m coverage run -m unittest discover -s src -p '*_test.py' --verbose
-	python3 -m coverage report
+coverage: dependencies
+	coverage run -m pytest --verbose src/
+	coverage report
 
 coverage/html: coverage
-	python3 -m coverage html
+	coverage html
 
 clean:
 	pip3 freeze > unins ; pip3 uninstall -y -r unins ; rm unins
@@ -35,4 +37,4 @@ clean:
 	rm -fr src/__pycache__
 	rm .coverage
 
-all: lint test coverage
+all: lint coverage
