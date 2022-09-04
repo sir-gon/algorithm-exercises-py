@@ -21,7 +21,7 @@ jobs:
           "ubuntu-latest",
           "macOS-latest"
         ]
-        python: ["3.10"]
+        python: ['3.9', '3.10']
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
@@ -32,19 +32,20 @@ jobs:
         python-version: ${{ matrix.python }}
 
     - name: Install
-      run: pip3 install --upgrade -r requirements.txt
+      run: |
+        pip3 install -r requirements.txt
 
     - name: Lint
       run: |
-        python3 -m pylint --verbose --recursive yes src/
+        pylint --verbose --recursive yes src/
 
     - name: Test
       run: |
-        python3 -m coverage run -m unittest discover -s src -p '*_test.py' --verbose
+        coverage run -m pytest --verbose src/
 
     - name: Coverage
       run: |
-        python3 -m coverage report
+        coverage report
 
     - name: Upload coverage reports to Codecov with GitHub Action
       uses: codecov/codecov-action@v3
