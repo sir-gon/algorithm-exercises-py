@@ -24,7 +24,7 @@ test: dependencies
 	pytest --verbose -o log_cli=true --log-cli-level=INFO src/
 
 test/debug: dependencies
-	pytest --verbose -o log_cli=true --log-cli-level=DEBUG src/
+	pytest --verbose -o log_cli=true --log-cli-level=DEBUG --full-trace src/
 
 coverage: dependencies
 	coverage run -m pytest --verbose src/
