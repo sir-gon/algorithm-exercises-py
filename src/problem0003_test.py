@@ -26,3 +26,10 @@ class TestProblem0003(unittest.TestCase):
         _input_top = 13195
 
         self.assertEqual(problem0003(_input_top), _expected_found)
+
+    def test_problem0003_odd_divisors(self):
+
+        _expected_found = 2
+        _input_top = 16
+
+        self.assertEqual(problem0003(_input_top), _expected_found)
