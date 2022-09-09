@@ -24,11 +24,14 @@ def problem0004(_bottom, _top):
     large_found_palindrome = None
 
     # Find all cases
+    count = 0
     i = _top
     while i >= _bottom:
 
-        j = _top
+        j = i
         while j >= _bottom:
+
+            count += 1
 
             if is_palindrome(i * j):
 
@@ -44,8 +47,8 @@ def problem0004(_bottom, _top):
 
         i -= 1
 
-    LOGGER.info("Problem 0004 Largest Palindrome => %s 𝗑 %s = %s",
-        str(foundi), str(foundj), str(large_found_palindrome)
+    LOGGER.info("Problem 0004 Largest Palindrome => %s 𝗑 %s = %s in %s cycles",
+        str(foundi), str(foundj), str(large_found_palindrome), str(count)
     )
 
     return large_found_palindrome
