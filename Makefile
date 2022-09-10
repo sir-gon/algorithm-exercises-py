@@ -35,9 +35,12 @@ coverage/html: coverage
 
 clean:
 	pip3 freeze > unins ; pip3 uninstall -y -r unins ; rm unins
+	rm .coverage
 	rm -fr .pytest_cache
 	rm -fr htmlcov
-	rm -fr src/__pycache__
-	rm .coverage
+	find . -path "*/*.pyc" -delete -print
+	find . -path "*/*.pyo" -delete -print
+	find . -path "*/__pycache__" -type d -print -exec rm -r {} ';'
+
 
 all: lint coverage
