@@ -69,15 +69,17 @@ def factor_find(_target):
 
 def prime_factors(target):
     factors = []
+    cycles = 0
 
     if target == 1:
-        return [1]
+        return {'factors': [1], 'cycles': 1}
 
     factor = target
     while factor != 1:
         partial = factor_find(factor)
+        cycles += partial['cycles']
 
         factors.append(partial['factor'])
         factor = partial['carry']
 
-    return factors
+    return {'factors': factors, 'cycles': cycles}
