@@ -21,10 +21,8 @@ def problem0003(_top):
     divs = divisors(_top)
     LOGGER.debug('Divisors of %d: %s', _top, divs)
 
-    if 0 == len(divs) % 2:
-        middle = int(len(divs) / 2 - 1)
-    else:
-        middle = int(len(divs) - 1)
+    # not-unique divisors are always even, then the middle term is:
+    middle = int(len(divs) / 2 - 1)
 
     LOGGER.debug('Middle position of %d: %d | Middle divisor %d',
                  _top, middle, divs[middle])
