@@ -60,13 +60,6 @@ def factor_find(_target):
             }
         i += 1
 
-    # Is prime:
-    return {
-      'factor': top,
-      'carry': 1,
-      'cycles': cycles
-    }
-
 def prime_factors(target):
     factors = []
     cycles = 0
