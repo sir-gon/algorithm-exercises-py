@@ -12,7 +12,7 @@
 
 import math
 import logging
-from .helpers.divisors import divisors, prime_factors
+from .helpers.divisors import prime_factors
 
 LOGGER = logging.getLogger(__name__)
 
