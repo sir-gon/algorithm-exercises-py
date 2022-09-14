@@ -38,9 +38,9 @@ def divisors_unique(target):
 
     return divs
 
-def factor_find(_target):
+def next_prime_factor(_target):
     top = abs(_target)
-    cycles = 1
+    cycles = 0
 
     if top == 1:
         return {
@@ -69,7 +69,7 @@ def prime_factors(target):
 
     factor = target
     while factor != 1:
-        partial = factor_find(factor)
+        partial = next_prime_factor(factor)
         cycles += partial['cycles']
 
         factors.append(partial['factor'])

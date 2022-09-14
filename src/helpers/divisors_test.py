@@ -1,7 +1,7 @@
 import unittest
 from .divisors import divisors
 from .divisors import divisors_unique
-from .divisors import factor_find
+from .divisors import next_prime_factor
 from .divisors import prime_factors
 
 
@@ -24,10 +24,12 @@ class TestDivisors(unittest.TestCase):
         self.assertEqual(divisors_unique(6008514751),
         [1, 1747, 3439333, 6008514751])
 
-    def test_factor_find(self):
-        self.assertEqual(factor_find(1), { 'factor': 1, 'carry': 1, 'cycles': 1})
-        self.assertEqual(factor_find(2), { 'factor': 2, 'carry': 1, 'cycles': 2})
-        self.assertEqual(factor_find(4), { 'factor': 2, 'carry': 2, 'cycles': 2})
+    def test_next_prime_factor(self):
+        self.assertEqual(next_prime_factor(1), { 'factor': 1, 'carry': 1, 'cycles': 0})
+        self.assertEqual(next_prime_factor(2), { 'factor': 2, 'carry': 1, 'cycles': 1})
+        self.assertEqual(next_prime_factor(4), { 'factor': 2, 'carry': 2, 'cycles': 1})
+        self.assertEqual(next_prime_factor(9), { 'factor': 3, 'carry': 3, 'cycles': 2})
+        self.assertEqual(next_prime_factor(7), { 'factor': 7, 'carry': 1, 'cycles': 6})
 
     def test_prime_factors(self):
 
