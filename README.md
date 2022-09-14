@@ -103,5 +103,5 @@ Python 3.10.6
 
 ## Coverage
 
-[![FOSSA Status](https://codecov.io/gh/sir-gon/projecteuler-py/branch/main/graphs/sunburst.svg?token=VMH4I0MDFR)](https://codecov.io/gh/sir-gon/projecteuler-py)
+[![Coverage](https://codecov.io/gh/sir-gon/projecteuler-py/branch/main/graphs/tree.svg?token=VMH4I0MDFR)](https://codecov.io/gh/sir-gon/projecteuler-py)
 
