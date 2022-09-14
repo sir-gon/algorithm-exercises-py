@@ -55,7 +55,7 @@ def problem0005_alt(_bottom, _top, _start_from = 0):
         cycles += primes['cycles']
 
         factors = prime_factors_collection(primes['factors'])
-        cycles += len(primes)
+        cycles += len(primes['factors'])
 
         LOGGER.info('Prime Factors of %d list    => %s', i, str(primes))
         LOGGER.info('Prime Factors of %d grouped => %s', i, str(factors))
