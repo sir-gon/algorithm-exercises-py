@@ -34,7 +34,7 @@ class TestDivisors(unittest.TestCase):
     def test_prime_factors(self):
 
         self.assertEqual(prime_factors(1), {'factors': [1], 'cycles': 1})
-        self.assertEqual(prime_factors(2), {'factors': [2], 'cycles': 2})
-        self.assertEqual(prime_factors(6), {'factors': [2, 3], 'cycles': 5})
-        self.assertEqual(prime_factors(12), {'factors': [2, 2, 3], 'cycles': 7})
-        self.assertEqual(prime_factors(120), {'factors': [2, 2, 2, 3, 5], 'cycles': 14})
+        self.assertEqual(prime_factors(2), {'factors': [2], 'cycles': 1})
+        self.assertEqual(prime_factors(6), {'factors': [2, 3], 'cycles': 3})
+        self.assertEqual(prime_factors(12), {'factors': [2, 2, 3], 'cycles': 4})
+        self.assertEqual(prime_factors(120), {'factors': [2, 2, 2, 3, 5], 'cycles': 9})
