@@ -42,7 +42,7 @@ def prime_factors_collection(factors: list):
 
     return collection
 
-def problem0005_alt(_bottom, _top, _start_from = 0):
+def problem0005_alt(_bottom, _top):
 
     minimum_prime_factors = {}
     result = None
