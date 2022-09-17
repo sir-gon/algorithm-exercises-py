@@ -5,7 +5,6 @@ LOGGER = logging.getLogger(__name__)
 
 class NaturalNumber:
     __cycles_of_divisors = 0
-    __cycles_of_prime = 0
 
     __prime_factor = None
     __divisor = None
@@ -27,7 +26,7 @@ class NaturalNumber:
         return self.__cycles_of_divisors
 
     def get_prime_cycles(self):
-        return self.__cycles_of_prime
+        return self.__cycles_of_prime_factor
 
     def get_prime_factors_cycles(self):
         return self.__cycles_of_prime_factors
@@ -100,9 +99,9 @@ class NaturalNumber:
 
         prime_factor = self.__calculate_next_prime_factor().get_prime_factor()
 
-        result = self.num != 1 and prime_factor == self.num
+        self.prime = self.num != 1 and prime_factor == self.num
 
-        return result
+        return self.prime
 
     def __calculate_next_prime_factor(self) -> NaturalNumber:
         top = abs(self.num)
