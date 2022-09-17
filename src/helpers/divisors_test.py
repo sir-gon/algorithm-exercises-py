@@ -1,40 +1,95 @@
 import unittest
-from .divisors import divisors
-from .divisors import divisors_unique
-from .divisors import next_prime_factor
-from .divisors import prime_factors
 
-
+from .natural_number import NaturalNumber
 class TestDivisors(unittest.TestCase):
 
     def test_divisors(self):
-        self.assertEqual(divisors(1), [1])
-        self.assertEqual(divisors(2), [1, 2])
-        self.assertEqual(divisors(9), [1, 3, 3, 9])
-        self.assertEqual(divisors(16), [1, 2, 4, 4, 8, 16])
 
-    def test_divisors_unique(self):
+        tests = [
+          {'input': 1, 'answer': [1]},
+          {'input': 2, 'answer': [1, 2]},
+          {'input': 10, 'answer': [1, 2, 5, 10]},
+          {'input': 16, 'answer': [1, 2, 4, 4, 8, 16]}
+        ]
 
-        self.assertEqual(divisors_unique(1), [1])
-        self.assertEqual(divisors_unique(2), [1, 2])
-        self.assertEqual(divisors_unique(10), [1, 2, 5, 10])
-        self.assertEqual(divisors_unique(16), [1, 2, 4, 8, 16])
+        for _, _tt in enumerate(tests):
+            to_test = NaturalNumber(_tt['input'])
 
-    def test_divisors_unique_large(self):
-        self.assertEqual(divisors_unique(6008514751),
-        [1, 1747, 3439333, 6008514751])
+            self.assertEqual( to_test.divisors(), _tt['answer'],
+              f"{_} | NaturalNumber({_tt['input']}).divisors() must be => {_tt['answer']}")
 
-    def test_next_prime_factor(self):
-        self.assertEqual(next_prime_factor(1), { 'factor': 1, 'carry': 1, 'cycles': 0})
-        self.assertEqual(next_prime_factor(2), { 'factor': 2, 'carry': 1, 'cycles': 1})
-        self.assertEqual(next_prime_factor(4), { 'factor': 2, 'carry': 2, 'cycles': 1})
-        self.assertEqual(next_prime_factor(9), { 'factor': 3, 'carry': 3, 'cycles': 2})
-        self.assertEqual(next_prime_factor(7), { 'factor': 7, 'carry': 1, 'cycles': 6})
+    def test_unique_divisors(self):
+
+        tests = [
+          {'input': 1, 'answer': [1]},
+          {'input': 2, 'answer': [1, 2]},
+          {'input': 9, 'answer': [1, 3, 9]},
+          {'input': 16, 'answer': [1, 2, 4, 8, 16]}
+        ]
+
+        for _, _tt in enumerate(tests):
+            to_test = NaturalNumber(_tt['input'])
+
+            self.assertEqual( to_test.divisors_unique(), _tt['answer'],
+              f"{_} | NaturalNumber({_tt['input']}).divisors() must be => {_tt['answer']}")
+
+    def test_prime_factor(self):
+        tests = [
+          {'input': 1, 'answer': 1, 'divisor': 1, 'cycles': 0},
+          {'input': 2, 'answer': 2, 'divisor': 1, 'cycles': 1},
+          {'input': 4, 'answer': 2, 'divisor': 2, 'cycles': 1},
+          {'input': 9, 'answer': 3, 'divisor': 3, 'cycles': 2},
+          {'input': 7, 'answer': 7, 'divisor': 1, 'cycles': 6},
+        ]
+
+        for _, _tt in enumerate(tests):
+            to_test = NaturalNumber(_tt['input'])
+
+            message =  f"{_} | NaturalNumber({_tt['input']}).get_prime_factor() must be => {_tt['answer']}"
+            self.assertEqual( to_test.get_prime_factor(), _tt['answer'], message)
+
+            message = f"{_} | NaturalNumber({_tt['input']}).get_divisor() must be => {_tt['divisor']}"
+            self.assertEqual( to_test.get_divisor(), _tt['divisor'], message)
+
+            message = f"{_} | NaturalNumber({_tt['input']}).get_prime_factor() must be => {_tt['cycles']}"
+            self.assertEqual(to_test.get_prime_factor_cycles(), _tt['cycles'], message)
+
+    def test_prime(self):
+        tests = [
+          {'input': 2, 'answer': True},
+          {'input': 5, 'answer': True},
+          {'input': 7, 'answer': True}
+        ]
+
+        for _, _tt in enumerate(tests):
+            to_test = NaturalNumber(_tt['input'])
+
+            message = f"{_} | NaturalNumber({_tt['input']}).is_prime() must be => {_tt['answer']}"
+            self.assertEqual( to_test.is_prime(), _tt['answer'], message)
+
+
+    def test_not_prime(self):
+        tests = [
+          {'input': 1, 'answer': False},
+          {'input': 10, 'answer': False},
+          {'input': 16, 'answer': False}
+        ]
+
+        for _, _tt in enumerate(tests):
+            to_test = NaturalNumber(_tt['input'])
+
+            message = f"{_} | NaturalNumber({_tt['input']}).is_prime() must be => {_tt['answer']}"
+            self.assertEqual( to_test.is_prime(), _tt['answer'], message)
 
     def test_prime_factors(self):
+        tests = [
+          {'input': 1, 'answer': [1], 'cycles': 1},
+          {'input': 2, 'answer': [2], 'cycles': 1},
+          {'input': 6, 'answer': [2, 3], 'cycles': 3}
+        ]
 
-        self.assertEqual(prime_factors(1), {'factors': [1], 'cycles': 1})
-        self.assertEqual(prime_factors(2), {'factors': [2], 'cycles': 1})
-        self.assertEqual(prime_factors(6), {'factors': [2, 3], 'cycles': 3})
-        self.assertEqual(prime_factors(12), {'factors': [2, 2, 3], 'cycles': 4})
-        self.assertEqual(prime_factors(120), {'factors': [2, 2, 2, 3, 5], 'cycles': 9})
+        for _, _tt in enumerate(tests):
+            to_test = NaturalNumber(_tt['input'])
+
+            message = f"{_} | NaturalNumber({_tt['input']}).prime_factors() must be => {_tt['answer']}"
+            self.assertEqual( to_test.prime_factors(), _tt['answer'], message)
