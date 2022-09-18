@@ -4,17 +4,20 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 class NaturalNumber:
-    __cycles_of_divisors = 0
 
-    __prime_factor = None
-    __divisor = None
-    __cycles_of_prime_factor = None
-
-    __cycles_of_prime_factors = None
+    # pylint: disable=too-many-instance-attributes
+    # Eight is reasonable in this case.
 
     num = 0
     prime = None
+
+    __prime_factor = None
+    __divisor = None
     __prime_factors = None
+
+    __cycles_of_divisors = 0
+    __cycles_of_prime_factor = None
+    __cycles_of_prime_factors = None
 
     def __init__(self, num: int):
         self.num = num
