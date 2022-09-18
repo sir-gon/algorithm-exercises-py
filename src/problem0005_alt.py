@@ -12,7 +12,7 @@
 
 import math
 import logging
-from .helpers.divisors import prime_factors
+from .helpers.natural_number import NaturalNumber
 
 LOGGER = logging.getLogger(__name__)
 
@@ -51,11 +51,12 @@ def problem0005_alt(_bottom, _top):
 
     for i in range(_bottom, _top + 1):
 
-        primes = prime_factors(i)
-        cycles += primes['cycles']
+        number = NaturalNumber(i)
+        primes = number.prime_factors()
+        cycles += number.get_prime_factors_cycles()
 
-        factors = prime_factors_collection(primes['factors'])
-        cycles += len(primes['factors'])
+        factors = prime_factors_collection(primes)
+        cycles += len(primes)
 
         LOGGER.info('Prime Factors of %d list    => %s', i, str(primes))
         LOGGER.info('Prime Factors of %d grouped => %s', i, str(factors))
