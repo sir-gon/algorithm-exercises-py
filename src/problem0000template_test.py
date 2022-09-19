@@ -14,6 +14,12 @@ class TestProblem0000(unittest.TestCase):
 
     def test_problem0000(self):
 
-        _expected_found = 0
+        tests = [
+          {'input': 0, 'answer': 0}
+        ]
 
-        self.assertEqual(problem0000(), _expected_found)
+        for _, _tt in enumerate(tests):
+
+            self.assertEqual( problem0000(_tt['input']), _tt['answer'],
+              f"{_} | problem0000({_tt['input']}) must be "\
+              f"=> {_tt['answer']}")
