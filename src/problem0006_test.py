@@ -24,10 +24,30 @@ from .problem0006 import problem0006
 
 class TestProblem0006(unittest.TestCase):
 
-    def test_problem0006(self):
+    def test_problem0006_basic(self):
 
-        _expected_found = 25164150
-        _input_bottom = 1
-        _input_top = 100
+        tests = [
+          {'input_bottom': 1, 'input_top': 10, 'answer': 3025 - 385}
+        ]
 
-        self.assertEqual(problem0006(_input_bottom, _input_top), _expected_found)
+        for _, _tt in enumerate(tests):
+
+            self.assertEqual(
+                problem0006(_tt['input_bottom'], _tt['input_top']),
+                _tt['answer'],
+                f"{_} | problem0006({_tt['input_bottom']}, {_tt['input_top']}) must be "\
+                f"=> {_tt['answer']}")
+
+    def test_problem0006_full(self):
+
+        tests = [
+          {'input_bottom': 1, 'input_top': 100, 'answer': 25164150}
+        ]
+
+        for _, _tt in enumerate(tests):
+
+            self.assertEqual(
+                problem0006(_tt['input_bottom'], _tt['input_top']),
+                _tt['answer'],
+                f"{_} | problem0006({_tt['input_bottom']}, {_tt['input_top']}) must be "\
+                f"=> {_tt['answer']}")

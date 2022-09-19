@@ -18,34 +18,60 @@ class TestProblem0005(unittest.TestCase):
 
     def test_problem0005_basic(self):
 
-        solution_found = 2520
-        bottom = 1
-        top = 10
-        start_from = 1
+        tests = [
+          {'input_bottom': 1, 'input_top': 10, 'start_from': 1, 'answer': 2520}
+        ]
 
-        self.assertEqual(problem0005(bottom, top, start_from), solution_found)
+        for _, _tt in enumerate(tests):
+
+            self.assertEqual(
+                problem0005(_tt['input_bottom'], _tt['input_top'], _tt['start_from']),
+                _tt['answer'],
+                f"{_} | problem0005({_tt['input_bottom']}, {_tt['input_top']}) must be "\
+                f"=> {_tt['answer']}")
 
     def test_problem0005_full(self):
 
         solution_found = 232792560
-        bottom = 1
-        top = 20
         start_from = solution_found - 1000
 
-        self.assertEqual(problem0005(bottom, top, start_from), solution_found)
+        tests = [
+          {'input_bottom': 1, 'input_top': 20, 'start_from': start_from, 'answer': solution_found}
+        ]
+
+        for _, _tt in enumerate(tests):
+
+            self.assertEqual(
+                problem0005(_tt['input_bottom'], _tt['input_top'], _tt['start_from']),
+                _tt['answer'],
+                f"{_} | problem0005({_tt['input_bottom']}, {_tt['input_top']}) must be "\
+                f"=> {_tt['answer']}")
+
 
     def test_problem0005_alt_basic(self):
 
-        solution_found = 2520
-        bottom = 1
-        top = 10
+        tests = [
+          {'input_bottom': 1, 'input_top': 10, 'answer': 2520}
+        ]
 
-        self.assertEqual(problem0005_alt(bottom, top), solution_found)
+        for _, _tt in enumerate(tests):
+
+            self.assertEqual(
+                problem0005_alt(_tt['input_bottom'], _tt['input_top']),
+                _tt['answer'],
+                f"{_} | problem0005_alt({_tt['input_bottom']}, {_tt['input_top']}) must be "\
+                f"=> {_tt['answer']}")
 
     def test_problem0005_alt_full(self):
 
-        solution_found = 232792560
-        bottom = 1
-        top = 20
+        tests = [
+          {'input_bottom': 1, 'input_top': 20, 'answer': 232792560}
+        ]
 
-        self.assertEqual(problem0005_alt(bottom, top), solution_found)
+        for _, _tt in enumerate(tests):
+
+            self.assertEqual(
+                problem0005_alt(_tt['input_bottom'], _tt['input_top']),
+                _tt['answer'],
+                f"{_} | problem0005_alt({_tt['input_bottom']}, {_tt['input_top']}) must be "\
+                f"=> {_tt['answer']}")

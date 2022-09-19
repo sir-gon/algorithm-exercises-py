@@ -17,12 +17,12 @@ class TestProblem0004(unittest.TestCase):
 
     def test_problem0004(self):
 
-        _solution_found = 906609
-        _input_bottom = 111
-        _input_top = 999
+        tests = [
+          {'input_bottom': 111, 'input_top': 999, 'answer': 906609}
+        ]
 
-        self.assertEqual(
-          problem0004(
-            _input_bottom,
-            _input_top),
-          _solution_found)
+        for _, _tt in enumerate(tests):
+
+            self.assertEqual( problem0004(_tt['input_bottom'], _tt['input_top']), _tt['answer'],
+              f"{_} | problem0004({_tt['input_bottom']}, {_tt['input_top']}) must be "\
+              f"=> {_tt['answer']}")

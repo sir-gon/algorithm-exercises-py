@@ -15,21 +15,37 @@ class TestProblem0003(unittest.TestCase):
 
     def test_problem0003(self):
 
-        _expected_found = 6857
-        _top = 600851475143
+        tests = [
+          {'input': 600851475143, 'answer': 6857}
+        ]
 
-        self.assertEqual(problem0003(_top), _expected_found)
+        for _, _tt in enumerate(tests):
+
+            self.assertEqual( problem0003(_tt['input']), _tt['answer'],
+              f"{_} | problem0003({_tt['input']}) must be "\
+              f"=> {_tt['answer']}")
+
 
     def test_problem0003_basic(self):
 
-        _expected_found = 29
-        _input_top = 13195
+        tests = [
+          {'input': 13195, 'answer': 29}
+        ]
 
-        self.assertEqual(problem0003(_input_top), _expected_found)
+        for _, _tt in enumerate(tests):
+
+            self.assertEqual( problem0003(_tt['input']), _tt['answer'],
+              f"{_} | problem0003({_tt['input']}) must be "\
+              f"=> {_tt['answer']}")
 
     def test_problem0003_odd_divisors(self):
 
-        _expected_found = 2
-        _input_top = 16
+        tests = [
+          {'input': 16, 'answer': 2}
+        ]
 
-        self.assertEqual(problem0003(_input_top), _expected_found)
+        for _, _tt in enumerate(tests):
+
+            self.assertEqual( problem0003(_tt['input']), _tt['answer'],
+              f"{_} | problem0003({_tt['input']}) must be "\
+              f"=> {_tt['answer']}")
