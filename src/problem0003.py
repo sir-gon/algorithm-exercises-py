@@ -9,16 +9,15 @@
 ###############################################################################
 
 import logging
-from .helpers.divisors import divisors
-from .helpers.prime import is_prime
-
+from .helpers.natural_number import NaturalNumber
 
 LOGGER = logging.getLogger(__name__)
 
 
 def problem0003(_top):
 
-    divs = divisors(_top)
+    number = NaturalNumber(_top)
+    divs = number.divisors()
     LOGGER.debug('Divisors of %d: %s', _top, divs)
 
     # not-unique divisors are always even, then the middle term is:
@@ -35,7 +34,8 @@ def problem0003(_top):
     check = True
 
     while check:
-        prime = is_prime(divs[i])
+        test_factor = NaturalNumber(divs[i])
+        prime = test_factor.is_prime()
 
         LOGGER.debug('%d is Prime? %s', divs[i], prime)
 
