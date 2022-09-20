@@ -26,6 +26,9 @@ test: dependencies
 test/debug: dependencies
 	pytest --verbose -o log_cli=true --log-cli-level=DEBUG --full-trace src/
 
+test/bruteforce: dependencies
+	BRUTEFORCE=true pytest --verbose -o log_cli=true --log-cli-level=DEBUG --full-trace src/
+
 coverage: dependencies
 	coverage run -m pytest --verbose src/
 	coverage report
