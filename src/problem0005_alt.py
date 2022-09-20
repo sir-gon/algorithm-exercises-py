@@ -58,14 +58,14 @@ def problem0005_alt(_bottom, _top):
         factors = prime_factors_collection(primes)
         cycles += len(primes)
 
-        LOGGER.info('Prime Factors of %d list    => %s', i, str(primes))
-        LOGGER.info('Prime Factors of %d grouped => %s', i, str(factors))
+        LOGGER.debug('Prime Factors of %d list    => %s', i, str(primes))
+        LOGGER.debug('Prime Factors of %d grouped => %s', i, str(factors))
 
         for factor, quantity in factors.items():
             cycles += 1
             _replace_maximum(factor, quantity, minimum_prime_factors)
 
-        LOGGER.info('Prime Factors of %d grouped => %s', i, str(minimum_prime_factors))
+        LOGGER.debug('Prime Factors of %d grouped => %s', i, str(minimum_prime_factors))
 
     result = 1
 
