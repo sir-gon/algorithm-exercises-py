@@ -1,5 +1,6 @@
 {
   "python.linting.enabled": true,
+  "python.linting.pylintArgs":[ " --load-plugins"],
   "python.testing.pytestArgs": [
     "src"
   ],
