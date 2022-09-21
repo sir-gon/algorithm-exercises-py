@@ -30,24 +30,6 @@ class TestProblem0005(unittest.TestCase):
                 f"{_} | problem0005({_tt['input_bottom']}, {_tt['input_top']}) must be "\
                 f"=> {_tt['answer']}")
 
-    def test_problem0005_full(self):
-
-        solution_found = 232792560
-        start_from = solution_found - 1000
-
-        tests = [
-          {'input_bottom': 1, 'input_top': 20, 'start_from': start_from, 'answer': solution_found}
-        ]
-
-        for _, _tt in enumerate(tests):
-
-            self.assertEqual(
-                problem0005(_tt['input_bottom'], _tt['input_top'], _tt['start_from']),
-                _tt['answer'],
-                f"{_} | problem0005({_tt['input_bottom']}, {_tt['input_top']}) must be "\
-                f"=> {_tt['answer']}")
-
-
     def test_problem0005_alt_basic(self):
 
         tests = [
