@@ -12,6 +12,7 @@ FROM development as builder
 COPY ./src ${WORKDIR}/src
 COPY ./requirements.txt ${WORKDIR}/
 COPY ./Makefile ${WORKDIR}/
+RUN ls -alh
 
 RUN pip install -r requirements.txt
 
@@ -19,6 +20,8 @@ FROM builder as testing
 
 WORKDIR /app
 
+COPY ./.pylintrc ${WORKDIR}/
+COPY ./.coveragerc ${WORKDIR}/
 RUN ls -alh
 
 CMD ["make", "all"]
