@@ -38,7 +38,7 @@ You must install dependencies:
 pip3 install -r requirements.txt
 ```
 
-Or using make 
+Or using make
 
 ```
 make dependencies
@@ -95,7 +95,15 @@ Developed with runtime:
 
 ```
 python3 --version
-Python 3.10.6
+Python 3.11.0
+```
+
+## Minimal dependencies
+
+Third party libraries for CI/CD pipeline and TDD cycle (not used in runtime):
+
+```
+pip3 install coverage pylint pytest
 ```
 
 ## License
