@@ -5,7 +5,8 @@ services:
       context: .
       target: testing
     environment:
-      _DEBUG: ${_DEBUG}
+      DEBUG: ${DEBUG:-INFO} ## (1) ## INFO | DEBUG
+      BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
     volumes:
       - ./coverage:/app/coverage
     profiles: ["testing"]
@@ -16,7 +17,13 @@ services:
       context: .
       target: development
     environment:
-      _DEBUG: ${_DEBUG}
+      DEBUG: ${DEBUG:-INFO}
+      BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
     volumes:
       - ./:/app
     profiles: ["development"]
+
+## REFERENCES:
+## (1) Passing Environment variable with fallback value:
+##    https://stackoverflow.com/a/70772707/6366150
+##
