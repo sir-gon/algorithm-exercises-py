@@ -18,10 +18,13 @@ RUN pip install -r requirements.txt
 
 FROM builder as testing
 
+ENV DEBUG=INFO
+ENV BRUTEFORCE=false
+
 WORKDIR /app
 
 COPY ./.pylintrc ${WORKDIR}/
 COPY ./.coveragerc ${WORKDIR}/
 RUN ls -alh
 
-CMD ["make", "all"]
+CMD ["make", "test", "-e", "{DEBUG}"]

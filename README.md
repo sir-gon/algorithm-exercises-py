@@ -62,6 +62,29 @@ Or using make:
 make test coverage
 ```
 
+### Enable all large BRUTEFORCE tests
+
+Direct in host using a make:
+
+```
+make test -e BRUTEFORCE=true
+```
+
+### Enable all DEBUG outputs
+
+
+```
+make test -e DEBUG=DEBUG
+```
+
+### Enable all large BRUTEFORCE tests and all DEBUG outputs
+
+
+```
+make test -e DEBUG=DEBUG -e BRUTEFORCE=true
+```
+
+
 # Running with Docker 🐳
 
 ## Build a complete image with and run all tests
@@ -76,6 +99,18 @@ docker-compose build projecteuler-py
 docker-compose run --rm projecteuler-py make test coverage
 ```
 
+## Enable BRUTEFORCE tests with full DEBUG output
+
+With docker-compose
+
+```
+docker-compose --profile testing run --rm projecteuler-py make test -e DEBUG=DEBUG -e BRUTEFORCE=true
+```
+
+Using make:
+```
+make docker/compose-run -e DEBUG=DEBUG -e BRUTEFORCE=true
+```
 
 ## Build and run a development image
 
