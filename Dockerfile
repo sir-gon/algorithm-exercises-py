@@ -21,10 +21,15 @@ FROM builder as testing
 ENV DEBUG=INFO
 ENV BRUTEFORCE=false
 
+RUN adduser -D worker
+RUN mkdir -p /app
+RUN chown worker:worker /app
+
 WORKDIR /app
 
 COPY ./.pylintrc ${WORKDIR}/
 COPY ./.coveragerc ${WORKDIR}/
 RUN ls -alh
 
+USER worker
 CMD ["make", "test", "-e", "{DEBUG}"]
