@@ -58,6 +58,9 @@ clean:
 	find . -path "*/__pycache__" -type d -print -exec rm -r {} ';'
 
 docker/build:
+	BUILDKIT_PROGRESS=plain docker-compose --profile testing build
+
+docker/rebuild:
 	BUILDKIT_PROGRESS=plain docker-compose --profile testing build --no-cache
 
 docker/compose-run: docker/build
