@@ -52,14 +52,21 @@ Unit test has test cases and input data to solve the problem.
 Run all tests:
 
 ```
-python3 -m unittest discover -s src -p '*_test.py' --verbose
-python3 -m coverage report
+pytest --verbose -o log_cli=true --log-cli-level=INFO --full-trace src/
 ```
 
-Or using make:
+### Testing with full logs
+
+Run all tests with debug outputs:
 
 ```
-make test coverage
+pytest --verbose -o log_cli=true --log-cli-level=DEBUG --full-trace src/
+```
+
+## Testing using make
+
+```
+make test
 ```
 
 ### Enable all large BRUTEFORCE tests
@@ -74,16 +81,14 @@ make test -e BRUTEFORCE=true
 
 
 ```
-make test -e DEBUG=DEBUG
+make test -e LOG_LEVEL=debug
 ```
 
 ### Enable all large BRUTEFORCE tests and all DEBUG outputs
 
-
 ```
-make test -e DEBUG=DEBUG -e BRUTEFORCE=true
+make test -e LOG_LEVEL=debug -e BRUTEFORCE=true
 ```
-
 
 # Running with Docker 🐳
 
@@ -101,15 +106,15 @@ docker-compose run --rm projecteuler-py make test coverage
 
 ## Enable BRUTEFORCE tests with full DEBUG output
 
-With docker-compose
+With docker-compose:
 
 ```
-docker-compose --profile testing run --rm projecteuler-py make test -e DEBUG=DEBUG -e BRUTEFORCE=true
+docker-compose --profile testing run --rm projecteuler-py make test -e LOG_LEVEL=debug -e BRUTEFORCE=true
 ```
 
 Using make:
 ```
-make docker/compose-run -e DEBUG=DEBUG -e BRUTEFORCE=true
+make docker/compose-run -e LOG_LEVEL=DEBUG -e BRUTEFORCE=true
 ```
 
 ## Build and run a development image
@@ -122,6 +127,8 @@ Dependencies should be installed to run (not present in this target) so, you mus
 # install dependencies using docker runtime and store them in host directory
 docker-compose build projecteuler-py-dev
 docker-compose run --rm projecteuler-py-dev make dependencies
+docker-compose run --rm projecteuler-py-dev make test
+
 ```
 
 # About development

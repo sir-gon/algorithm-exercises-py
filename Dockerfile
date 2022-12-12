@@ -18,7 +18,7 @@ RUN pip install -r requirements.txt
 
 FROM builder as testing
 
-ENV DEBUG=INFO
+ENV LOG_LEVEL=INFO
 ENV BRUTEFORCE=false
 
 RUN adduser -D worker
