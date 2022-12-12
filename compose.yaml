@@ -5,7 +5,7 @@ services:
       context: .
       target: testing
     environment:
-      DEBUG: ${DEBUG:-INFO} ## (1) ## INFO | DEBUG
+      LOG_LEVEL: ${LOG_LEVEL:-INFO} ## (1) ## INFO | DEBUG
       BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
     volumes:
       - ./coverage:/app/coverage
@@ -17,7 +17,7 @@ services:
       context: .
       target: development
     environment:
-      DEBUG: ${DEBUG:-INFO}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
       BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
     volumes:
       - ./:/app
