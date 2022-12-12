@@ -3,7 +3,7 @@ attrs==22.1.0
 coverage==6.5.0
 dill==0.3.6
 iniconfig==1.1.1
-isort==5.10.1
+isort==5.11.0
 lazy-object-proxy==1.8.0
 mccabe==0.7.0
 packaging==22.0
