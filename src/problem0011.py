@@ -1,7 +1,7 @@
 ###############################################################################
 # Largest product in a grid
 #
-# https://projecteuler.net/problem=11
+# https:#projecteuler.net/problem=11
 #
 # In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
 #
@@ -33,21 +33,80 @@
 ################################################################################
 
 import logging
+from src.helpers.minmax import maximum
 
-LOGGER = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
-def problem0011(_square_matrix):
-    result = 0
+def problem0011(_square_matrix, _step):
 
     top = len(_square_matrix)
+    result = 0
+    acum = 0
 
     for i in range (0, top):
         if top != len(_square_matrix[i]):
             raise Exception("Not a square matrix")
 
         for j in range (0, top):
-            LOGGER.debug('i: %i, j: %i', i, j)
+            logger.debug('i: %i, j: %i', i, j)
 
+            acum = 1
 
-    LOGGER.info('Problem 0011 result: %i', result)
+            if i < top - (_step - 1) and j < top:
+                logger.debug('---- VERTICAL ------------------------------------------')
+                # vertical
+
+                for k in range (0, _step):
+                    logger.debug(
+                      'row: i %i, column: %i, step %i => %i',
+                      i + k, j, k, _square_matrix[i + k][j]
+                      )
+
+                    acum *= _square_matrix[i + k][j]
+
+            result = maximum(acum, result)
+
+            acum = 1
+            if i < top and j < top - (_step - 1):
+                logger.debug('---- HORIZONTAL ----------------------------------------')
+                # horizontal
+                for k in range(0, _step):
+                    logger.debug(
+                      'row: i %i, column: %i, step %i => %i',
+                      i, j + k, k, _square_matrix[i][j + k]
+                      )
+                    acum *= _square_matrix[i][j + k]
+
+            result = maximum(acum, result)
+
+            acum = 1
+            if i + (_step - 1) < top and j + (_step - 1) < top:
+                # diagonal top left -> bottom right
+                logger.debug('---- DIAG \\ ---------------------------------------------')
+                for k in range(0, _step):
+                    logger.debug(
+                            'row: i %i, column: %i, step %i => %i',
+                            i + k, j + k, k, _square_matrix[i + k][j + k]
+                    )
+                    acum *= _square_matrix[i + k][j + k]
+
+            result = maximum(acum, result)
+
+            acum = 1
+            if i + (_step - 1) < top and j + (_step - 1) < top:
+                # diagonal top rigth -> bottom left
+                logger.debug('---- DIAG / ---------------------------------------------')
+                for k in range(0, _step):
+                    logger.debug(
+                        'row: i %i, column: %i, step %i => %i',
+                        i + k,
+                        j + (_step - 1) - k,
+                        _step,
+                        _square_matrix[i + k][j + (_step - 1) - k]
+                    )
+                    acum *= _square_matrix[i + k][j + (_step - 1) - k]
+
+            result = maximum(acum, result)
+
+    logger.info('Problem 0011 result: %i', result)
     return result
