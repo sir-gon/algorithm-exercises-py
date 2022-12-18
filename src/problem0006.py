@@ -40,5 +40,16 @@ def problem0006(_bottom: int, _top: int):
 
     answer = square_of_sum - sum_of_squares
 
+    LOGGER.debug('Sum of first %i squares = %i', _top, sum_of_squares);
+    LOGGER.debug(
+        'Base for Square Of Sum of first %i = %i',
+        _top,
+        base_for_square_of_sum
+    );
+    LOGGER.debug('Square Of Sum of first %i = %i',
+        _top,
+        square_of_sum
+    );
+
     LOGGER.info('Problem 0006 result: %i', answer)
     return answer

@@ -43,15 +43,15 @@ class TestProblem0011(unittest.TestCase):
     def test_problem0011(self):
 
         answer = 70600674
-        input_step = 4
+        input_interval = 4
 
-        self.assertEqual( problem0011(problem0011Data, input_step), answer,
+        self.assertEqual( problem0011(problem0011Data, input_interval), answer,
             f"problem0011({problem0011Data}) must be "\
             f"=> {answer}")
 
     def test_problem0011_wrong_data(self):
 
-        input_step = 0
+        input_interval = 0
 
         with pytest.raises(Exception):
-            problem0011(problem0011WrongData, input_step)
+            problem0011(problem0011WrongData, input_interval)
