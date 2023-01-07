@@ -2,7 +2,7 @@ astroid==2.12.13
 attrs==22.2.0
 coverage==7.0.3
 dill==0.3.6
-iniconfig==1.1.1
+iniconfig==2.0.0
 isort==5.11.4
 lazy-object-proxy==1.9.0
 mccabe==0.7.0
