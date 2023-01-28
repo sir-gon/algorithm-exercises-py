@@ -9,7 +9,7 @@ mccabe==0.7.0
 packaging==23.0
 platformdirs==2.6.2
 pluggy==1.0.0
-pylint==2.15.9
+pylint==2.15.10
 pyparsing==3.0.9
 pytest==7.2.0
 tomlkit==0.11.6
