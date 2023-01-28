@@ -1,6 +1,6 @@
 astroid==2.13.3
 attrs==22.2.0
-coverage==7.0.3
+coverage==7.1.0
 dill==0.3.6
 iniconfig==2.0.0
 isort==5.11.4
