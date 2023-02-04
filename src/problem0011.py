@@ -45,7 +45,7 @@ def problem0011(_square_matrix, _interval):
 
     for i in range (0, top):
         if top != len(_square_matrix[i]):
-            raise Exception("Not a square matrix")
+            raise AttributeError("Not a square matrix")
 
         for j in range (0, top):
             logger.debug('i: %i, j: %i', i, j)
