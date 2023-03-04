@@ -11,7 +11,7 @@ packaging==23.0
 platformdirs==3.1.0
 pluggy==1.0.0
 pylint==2.16.2
-pytest==7.2.1
+pytest==7.2.2
 tomli==2.0.1
 tomlkit==0.11.6
 typing_extensions==4.5.0
