@@ -13,6 +13,6 @@ pluggy==1.0.0
 pylint==2.17.2
 pytest==7.2.2
 tomli==2.0.1
-tomlkit==0.11.6
+tomlkit==0.11.7
 typing_extensions==4.5.0
 wrapt==1.15.0
