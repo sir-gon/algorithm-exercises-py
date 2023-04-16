@@ -15,4 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag projecteuler-py:${{ github.sha }}
+      run: make compose/rebuild
+    - name: Run test in Docker image
+      run: make compose/run
+    - name: Tag Docker image
+      run: docker tag projecteuler-py:latest projecteuler-py:${{ github.sha }}
