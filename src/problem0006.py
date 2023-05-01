@@ -32,7 +32,7 @@ def problem0006(_bottom: int, _top: int):
     base_for_square_of_sum = 0
     square_of_sum = 0
 
-    for i in range(_bottom, _top +1):
+    for i in range(_bottom, _top + 1):
         sum_of_squares += math.pow(i, 2)
         base_for_square_of_sum += i
 
@@ -46,7 +46,8 @@ def problem0006(_bottom: int, _top: int):
         _top,
         base_for_square_of_sum
     )
-    LOGGER.debug('Square Of Sum of first %i = %i',
+    LOGGER.debug(
+        'Square Of Sum of first %i = %i',
         _top,
         square_of_sum
     )

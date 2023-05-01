@@ -45,7 +45,7 @@ def problem0008(_number, _interval):
     bottom = 0
     maximum = 0
 
-    for i in range(bottom, top - _interval +1):
+    for i in range(bottom, top - _interval + 1):
 
         digit_set = []
 

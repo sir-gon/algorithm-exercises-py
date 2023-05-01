@@ -2,6 +2,7 @@ import unittest
 
 from .product import product
 
+
 class TestProduct(unittest.TestCase):
 
     def test_product(self):
@@ -16,6 +17,7 @@ class TestProduct(unittest.TestCase):
         for _, _tt in enumerate(tests):
             to_test = product(_tt['input'])
 
-            self.assertEqual( to_test, _tt['answer'],
-              f"{_} | product({_tt['input']}) must be "\
-                        f"=> {_tt['answer']}")
+            self.assertEqual(
+                to_test, _tt['answer'],
+                f"{_} | product({_tt['input']}) must be "
+                f"=> {_tt['answer']}")

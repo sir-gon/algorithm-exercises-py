@@ -1,6 +1,8 @@
 import unittest
 
 from .natural_number import NaturalNumber
+
+
 class TestDivisors(unittest.TestCase):
 
     def test_value(self):
@@ -15,9 +17,10 @@ class TestDivisors(unittest.TestCase):
         for _, _tt in enumerate(tests):
             to_test = NaturalNumber(_tt['input'])
 
-            self.assertEqual( to_test.get_value(), _tt['answer'],
-              f"{_} | NaturalNumber({_tt['input']}).get_value() must be "\
-                        f"=> {_tt['answer']}")
+            self.assertEqual(
+                to_test.get_value(), _tt['answer'],
+                f"{_} | NaturalNumber({_tt['input']}).get_value() must be "
+                f"=> {_tt['answer']}")
 
     def test_divisors(self):
 
@@ -31,13 +34,15 @@ class TestDivisors(unittest.TestCase):
         for _, _tt in enumerate(tests):
             to_test = NaturalNumber(_tt['input'])
 
-            self.assertEqual( to_test.divisors(), _tt['answer'],
-              f"{_} | NaturalNumber({_tt['input']}).divisors() must be "\
-                        f"=> {_tt['answer']}")
+            self.assertEqual(
+                to_test.divisors(), _tt['answer'],
+                f"{_} | NaturalNumber({_tt['input']}).divisors() must be "
+                f"=> {_tt['answer']}")
 
-            self.assertEqual( to_test.get_divisors_cycles(), _tt['cycles'],
-              f"{_} | NaturalNumber({_tt['input']}).get_divisors_cycles() "\
-              f"must be => {_tt['cycles']}")
+            self.assertEqual(
+                to_test.get_divisors_cycles(), _tt['cycles'],
+                f"{_} | NaturalNumber({_tt['input']}).get_divisors_cycles() "
+                f"must be => {_tt['cycles']}")
 
     def test_unique_divisors(self):
 
@@ -51,9 +56,10 @@ class TestDivisors(unittest.TestCase):
         for _, _tt in enumerate(tests):
             to_test = NaturalNumber(_tt['input'])
 
-            self.assertEqual( to_test.divisors_unique(), _tt['answer'],
-              f"{_} | NaturalNumber({_tt['input']}).divisors() must be "\
-                        f"=> {_tt['answer']}")
+            self.assertEqual(
+                to_test.divisors_unique(), _tt['answer'],
+                f"{_} | NaturalNumber({_tt['input']}).divisors() must be "
+                f"=> {_tt['answer']}")
 
     def test_prime_factor(self):
         tests = [
@@ -69,11 +75,11 @@ class TestDivisors(unittest.TestCase):
 
             message = f"{_} | NaturalNumber({_tt['input']}).get_prime_factor() "\
                       f"must be => {_tt['answer']}"
-            self.assertEqual( to_test.get_prime_factor(), _tt['answer'], message)
+            self.assertEqual(to_test.get_prime_factor(), _tt['answer'], message)
 
             message = f"{_} | NaturalNumber({_tt['input']}).get_divisor() "\
                       f"must be => {_tt['divisor']}"
-            self.assertEqual( to_test.get_divisor(), _tt['divisor'], message)
+            self.assertEqual(to_test.get_divisor(), _tt['divisor'], message)
 
             message = f"{_} | NaturalNumber({_tt['input']}).get_prime_factor_cycles() "\
                       f"must be => {_tt['cycles']}"
@@ -93,7 +99,7 @@ class TestDivisors(unittest.TestCase):
 
             message = f"{_} | NaturalNumber({_tt['input']}).get_divisor() "\
                       f"must be => {_tt['divisor']}"
-            self.assertEqual( to_test.get_divisor(), _tt['divisor'], message)
+            self.assertEqual(to_test.get_divisor(), _tt['divisor'], message)
 
     def test_prime_factor_cycles_without_cache(self):
         tests = [
@@ -121,13 +127,13 @@ class TestDivisors(unittest.TestCase):
         for _, _tt in enumerate(tests):
             to_test = NaturalNumber(_tt['input'])
 
-            message = f"{_} | NaturalNumber({_tt['input']}).is_prime() first time must be "\
-                      f"=> {_tt['answer']}"
-            self.assertEqual( to_test.is_prime(), _tt['answer'], message)
+            message = f"{_} | NaturalNumber({_tt['input']}).is_prime()"\
+                      f" first time must be => {_tt['answer']}"
+            self.assertEqual(to_test.is_prime(), _tt['answer'], message)
 
-            message = f"{_} | NaturalNumber({_tt['input']}).is_prime() with cache must be "\
-                      f"=> {_tt['answer']}"
-            self.assertEqual( to_test.is_prime(), _tt['answer'], message)
+            message = f"{_} | NaturalNumber({_tt['input']}).is_prime()"\
+                      f" with cache must be => {_tt['answer']}"
+            self.assertEqual(to_test.is_prime(), _tt['answer'], message)
 
             message = f"{_} | NaturalNumber({_tt['input']}).get_prime_cycles() must be "\
                       f"=> {_tt['cycles']}"
@@ -145,7 +151,7 @@ class TestDivisors(unittest.TestCase):
 
             message = f"{_} | NaturalNumber({_tt['input']}).is_prime() must be "\
                       f"=> {_tt['answer']}"
-            self.assertEqual( to_test.is_prime(), _tt['answer'], message)
+            self.assertEqual(to_test.is_prime(), _tt['answer'], message)
 
     def test_prime_factors_and_cache(self):
         tests = [
@@ -158,14 +164,14 @@ class TestDivisors(unittest.TestCase):
         for _, _tt in enumerate(tests):
             to_test = NaturalNumber(_tt['input'])
 
-            message = f"{_} | NaturalNumber({_tt['input']}).prime_factors() fisrt time must be "\
-                      f"=> {_tt['answer']}"
-            self.assertEqual( to_test.prime_factors(), _tt['answer'], message)
+            message = f"{_} | NaturalNumber({_tt['input']}).prime_factors()"\
+                      f" fisrt time must be => {_tt['answer']}"
+            self.assertEqual(to_test.prime_factors(), _tt['answer'], message)
 
-            message = f"{_} | NaturalNumber({_tt['input']}).prime_factors() with cache must be "\
-                      f"=> {_tt['answer']}"
-            self.assertEqual( to_test.prime_factors(), _tt['answer'], message)
+            message = f"{_} | NaturalNumber({_tt['input']}).prime_factors()"\
+                      f" with cache must be => {_tt['answer']}"
+            self.assertEqual(to_test.prime_factors(), _tt['answer'], message)
 
-            message = f"{_} | NaturalNumber({_tt['input']}).get_prime_factors_cycles() must be "\
-                      f"=> {_tt['cycles']}"
+            message = f"{_} | NaturalNumber({_tt['input']}).get_prime_factors_cycles()"\
+                      f" must be => {_tt['cycles']}"
             self.assertEqual(to_test.get_prime_factors_cycles(), _tt['cycles'], message)

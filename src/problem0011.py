@@ -37,17 +37,18 @@ from src.helpers.minmax import maximum
 
 logger = logging.getLogger(__name__)
 
+
 def problem0011(_square_matrix, _interval):
 
     top = len(_square_matrix)
     result = 0
     acum = 0
 
-    for i in range (0, top):
+    for i in range(0, top):
         if top != len(_square_matrix[i]):
             raise AttributeError("Not a square matrix")
 
-        for j in range (0, top):
+        for j in range(0, top):
             logger.debug('i: %i, j: %i', i, j)
 
             acum = 1
@@ -56,7 +57,7 @@ def problem0011(_square_matrix, _interval):
                 logger.debug('---- VERTICAL ------------------------------------------')
                 # vertical
 
-                for k in range (0, _interval):
+                for k in range(0, _interval):
                     logger.debug(
                       'row: i %i, column: %i, step %i => %i',
                       i + k, j, k, _square_matrix[i + k][j]

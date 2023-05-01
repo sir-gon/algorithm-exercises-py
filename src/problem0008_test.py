@@ -57,6 +57,7 @@ NUMBER = \
   '05886116467109405077541002256983155200055935729725'\
   '71636269561882670428252483600823257530420752963450'
 
+
 class TestProblem0008(unittest.TestCase):
 
     def test_problem0008(self):
@@ -68,6 +69,7 @@ class TestProblem0008(unittest.TestCase):
 
         for _, _tt in enumerate(tests):
 
-            self.assertEqual( problem0008(_tt['inputNumber'], _tt['inputInterval']), _tt['answer'],
-              f"{_} | problem0008({_tt['inputNumber']}, {_tt['inputInterval']}) must be "\
-              f"=> {_tt['answer']}")
+            self.assertEqual(
+                problem0008(_tt['inputNumber'], _tt['inputInterval']), _tt['answer'],
+                f"{_} | problem0008({_tt['inputNumber']}, {_tt['inputInterval']})"
+                f" must be => {_tt['answer']}")

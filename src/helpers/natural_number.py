@@ -3,6 +3,7 @@ import logging
 
 LOGGER = logging.getLogger(__name__)
 
+
 class NaturalNumber:
 
     # pylint: disable=too-many-instance-attributes

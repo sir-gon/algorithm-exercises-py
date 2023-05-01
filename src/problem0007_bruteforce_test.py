@@ -16,6 +16,7 @@ from .problem0007 import problem0007
 BRUTEFORCE = os.getenv('BRUTEFORCE')
 BRUTEFORCE = BRUTEFORCE.upper() == "TRUE" if BRUTEFORCE is not None else False
 
+
 class TestProblem0007BruteForce(unittest.TestCase):
 
     @unittest.skipIf(not BRUTEFORCE, "skipping due a is a large BRUTEFORCE test")

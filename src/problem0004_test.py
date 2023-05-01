@@ -13,6 +13,7 @@
 import unittest
 from .problem0004 import problem0004
 
+
 class TestProblem0004(unittest.TestCase):
 
     def test_problem0004(self):
@@ -23,6 +24,8 @@ class TestProblem0004(unittest.TestCase):
 
         for _, _tt in enumerate(tests):
 
-            self.assertEqual( problem0004(_tt['input_bottom'], _tt['input_top']), _tt['answer'],
-              f"{_} | problem0004({_tt['input_bottom']}, {_tt['input_top']}) must be "\
-              f"=> {_tt['answer']}")
+            self.assertEqual(
+                problem0004(_tt['input_bottom'], _tt['input_top']),
+                _tt['answer'],
+                f"{_} | problem0004({_tt['input_bottom']}, {_tt['input_top']}) must be "
+                f"=> {_tt['answer']}")

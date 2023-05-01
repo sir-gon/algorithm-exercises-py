@@ -16,6 +16,7 @@ from .problem0007 import problem0007
 BRUTEFORCE = os.getenv('BRUTEFORCE')
 BRUTEFORCE = BRUTEFORCE.upper() == "TRUE" if BRUTEFORCE is not None else False
 
+
 class TestProblem0007(unittest.TestCase):
 
     def test_problem0007(self):

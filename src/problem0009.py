@@ -15,17 +15,16 @@
 
 import logging
 
-from tomlkit import integer
-
 LOGGER = logging.getLogger(__name__)
+
 
 class Triplet:
 
-    n_a = None
-    n_b = None
-    n_c = None
+    n_a = 0
+    n_b = 0
+    n_c = 0
 
-    def __init__(self, _a: integer, _b: integer, _c: integer):
+    def __init__(self, _a: int, _b: int, _c: int):
         self.n_a = _a
         self.n_b = _b
         self.n_c = _c
@@ -35,6 +34,7 @@ class Triplet:
 
     def product(self):
         return self.n_a * self.n_b * self.n_c
+
 
 def problem0009(_limit: int):
 
@@ -59,13 +59,17 @@ def problem0009(_limit: int):
 
             if test_triplet.is_pythagorean():
                 found = test_triplet
-                LOGGER.info("FOUND: a = %i, b = %i, c =%i", found.n_a, found.n_b, found.n_c)
+                LOGGER.info(
+                    "FOUND: a = %i, b = %i, c =%i",
+                    found.n_a,
+                    found.n_b,
+                    found.n_c
+                )
 
             t_b += 1
             t_c = _limit - t_b - t_a
 
         t_a += 1
-
 
     LOGGER.info("FOUND: a = %i, b = %i, c =%i", found.n_a, found.n_b, found.n_c)
     LOGGER.info("PRODUCT: a * b * c = %i ", found.product())

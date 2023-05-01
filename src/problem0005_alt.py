@@ -16,6 +16,7 @@ from .helpers.natural_number import NaturalNumber
 
 LOGGER = logging.getLogger(__name__)
 
+
 def _increase(element, group: dict):
     elem = group.get(element, None)
     if elem is None:
@@ -25,14 +26,16 @@ def _increase(element, group: dict):
 
     return group
 
+
 def _replace_maximum(element, count, group: dict):
     elem = group.get(element, None)
     if elem is None:
         group.update({element: count})
     else:
-        group.update({element: count if count > elem else elem })
+        group.update({element: count if count > elem else elem})
 
     return group
+
 
 def prime_factors_collection(factors: list):
     collection = {}
@@ -41,6 +44,7 @@ def prime_factors_collection(factors: list):
         collection = _increase(factor, collection)
 
     return collection
+
 
 def problem0005_alt(_bottom, _top):
 
