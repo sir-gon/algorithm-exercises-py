@@ -35,9 +35,17 @@ jobs:
       run: |
         pip3 install -r requirements.txt
 
-    - name: Lint
+    - name: Lint (pylint)
       run: |
         pylint --verbose --recursive yes src/
+
+    - name: Lint (flake8)
+      run: |
+        python3 -m flake8 --verbose
+
+    - name: Lint static type checker
+      run: |
+        python3 -m pyright --verbose
 
     - name: Test
       run: |
