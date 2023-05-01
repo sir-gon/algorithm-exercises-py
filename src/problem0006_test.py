@@ -36,8 +36,8 @@ class TestProblem0006(unittest.TestCase):
             self.assertEqual(
                 problem0006(_tt['input_bottom'], _tt['input_top']),
                 _tt['answer'],
-                f"{_} | problem0006({_tt['input_bottom']}, {_tt['input_top']}) must be "\
-                f"=> {_tt['answer']}")
+                f"{_} | problem0006({_tt['input_bottom']}, {_tt['input_top']})"
+                f" must be => {_tt['answer']}")
 
     def test_problem0006_full(self):
 
@@ -50,5 +50,5 @@ class TestProblem0006(unittest.TestCase):
             self.assertEqual(
                 problem0006(_tt['input_bottom'], _tt['input_top']),
                 _tt['answer'],
-                f"{_} | problem0006({_tt['input_bottom']}, {_tt['input_top']}) must be "\
-                f"=> {_tt['answer']}")
+                f"{_} | problem0006({_tt['input_bottom']}, {_tt['input_top']})"
+                f" must be => {_tt['answer']}")
