@@ -14,6 +14,7 @@ from .helpers.prime import is_prime
 
 LOGGER = logging.getLogger(__name__)
 
+
 def problem0007(_top):
 
     primes = []
@@ -33,6 +34,11 @@ def problem0007(_top):
 
     cycles = i
 
-    LOGGER.info("Problem0007 asnwer => %d prime number is: %d in %d", _top, answer, cycles)
+    LOGGER.info(
+        "Problem0007 asnwer => %d prime number is: %d in %d",
+        _top,
+        answer,
+        cycles
+    )
 
     return answer

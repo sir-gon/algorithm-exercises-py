@@ -22,6 +22,7 @@
 import unittest
 from .problem0006 import problem0006
 
+
 class TestProblem0006(unittest.TestCase):
 
     def test_problem0006_basic(self):

@@ -46,7 +46,8 @@ def problem0006(_bottom: int, _top: int):
         _top,
         base_for_square_of_sum
     )
-    LOGGER.debug('Square Of Sum of first %i = %i',
+    LOGGER.debug(
+        'Square Of Sum of first %i = %i',
         _top,
         square_of_sum
     )

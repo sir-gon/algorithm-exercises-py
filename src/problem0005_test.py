@@ -14,6 +14,7 @@ import unittest
 from .problem0005 import problem0005
 from .problem0005_alt import problem0005_alt
 
+
 class TestProblem0005(unittest.TestCase):
 
     def test_problem0005_basic(self):
@@ -55,5 +56,5 @@ class TestProblem0005(unittest.TestCase):
             self.assertEqual(
                 problem0005_alt(_tt['input_bottom'], _tt['input_top']),
                 _tt['answer'],
-                f"{_} | problem0005_alt({_tt['input_bottom']}, {_tt['input_top']}) must be "\
-                f"=> {_tt['answer']}")
+                f"{_} | problem0005_alt({_tt['input_bottom']}, {_tt['input_top']})"
+                f" must be => {_tt['answer']}")
