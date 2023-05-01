@@ -11,6 +11,7 @@
 import unittest
 from .problem0003 import problem0003
 
+
 class TestProblem0003(unittest.TestCase):
 
     def test_problem0003(self):
@@ -21,10 +22,10 @@ class TestProblem0003(unittest.TestCase):
 
         for _, _tt in enumerate(tests):
 
-            self.assertEqual( problem0003(_tt['input']), _tt['answer'],
-              f"{_} | problem0003({_tt['input']}) must be "\
-              f"=> {_tt['answer']}")
-
+            self.assertEqual(
+                problem0003(_tt['input']), _tt['answer'],
+                f"{_} | problem0003({_tt['input']}) must be "
+                f"=> {_tt['answer']}")
 
     def test_problem0003_basic(self):
 
@@ -34,9 +35,10 @@ class TestProblem0003(unittest.TestCase):
 
         for _, _tt in enumerate(tests):
 
-            self.assertEqual( problem0003(_tt['input']), _tt['answer'],
-              f"{_} | problem0003({_tt['input']}) must be "\
-              f"=> {_tt['answer']}")
+            self.assertEqual(
+                problem0003(_tt['input']), _tt['answer'],
+                f"{_} | problem0003({_tt['input']}) must be "
+                f"=> {_tt['answer']}")
 
     def test_problem0003_odd_divisors(self):
 
@@ -46,6 +48,7 @@ class TestProblem0003(unittest.TestCase):
 
         for _, _tt in enumerate(tests):
 
-            self.assertEqual( problem0003(_tt['input']), _tt['answer'],
-              f"{_} | problem0003({_tt['input']}) must be "\
-              f"=> {_tt['answer']}")
+            self.assertEqual(
+                problem0003(_tt['input']), _tt['answer'],
+                f"{_} | problem0003({_tt['input']}) must be "
+                f"=> {_tt['answer']}")
