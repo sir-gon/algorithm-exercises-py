@@ -71,7 +71,11 @@ def problem0009(_limit: int):
 
         t_a += 1
 
-    LOGGER.info("FOUND: a = %i, b = %i, c =%i", found.n_a, found.n_b, found.n_c)
-    LOGGER.info("PRODUCT: a * b * c = %i ", found.product())
+    if found is not None:
 
-    return found.n_a * found.n_b * found.n_c
+        LOGGER.info("FOUND: a = %i, b = %i, c =%i", found.n_a, found.n_b, found.n_c)
+        LOGGER.info("PRODUCT: a * b * c = %i ", found.product())
+
+        return found.n_a * found.n_b * found.n_c
+
+    return None

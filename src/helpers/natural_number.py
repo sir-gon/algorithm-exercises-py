@@ -12,13 +12,14 @@ class NaturalNumber:
     num = 0
     prime = None
 
-    __prime_factor = None
-    __divisor = None
+    __initialized = None
+    __prime_factor = 1
+    __divisor = 1
     __prime_factors = None
 
     __cycles_of_divisors = 0
-    __cycles_of_prime_factor = None
-    __cycles_of_prime_factors = None
+    __cycles_of_prime_factor = 0
+    __cycles_of_prime_factors = 0
 
     def __init__(self, num: int):
         self.num = num
@@ -79,19 +80,17 @@ class NaturalNumber:
         return divs
 
     def get_divisor(self) -> int:
-        if self.__divisor is None:
+        if self.__initialized is None:
             self.__calculate_next_prime_factor()
-
         return self.__divisor
 
     def get_prime_factor(self) -> int:
-        if self.__prime_factor is None:
+        if self.__initialized is None:
             self.__calculate_next_prime_factor()
-
         return self.__prime_factor
 
     def get_prime_factor_cycles(self) -> int:
-        if self.__cycles_of_prime_factor is None:
+        if self.__cycles_of_prime_factor == 0:
             self.__calculate_next_prime_factor()
 
         return self.__cycles_of_prime_factor
@@ -108,6 +107,7 @@ class NaturalNumber:
         return self.prime
 
     def __calculate_next_prime_factor(self) -> NaturalNumber:
+        self.__initialized = True
         top = abs(self.num)
 
         if top == 1:
@@ -131,6 +131,8 @@ class NaturalNumber:
         return self
 
     def prime_factors(self) -> list:
+        self.__initialized = True
+
         if self.__prime_factors is not None:
             return self.__prime_factors
 

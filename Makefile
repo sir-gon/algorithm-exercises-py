@@ -57,6 +57,7 @@ upgrade:
 lint: dependencies
 	python3 -m pylint --verbose --recursive yes src/
 	python3 -m flake8 --verbose
+	python3 -m pyright --verbose
 
 test: env dependencies
 	python3 -m pytest --verbose -o log_cli=true --log-cli-level=$(LOG_LEVEL) --full-trace src/
