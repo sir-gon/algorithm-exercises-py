@@ -82,13 +82,11 @@ class NaturalNumber:
     def get_divisor(self) -> int:
         if self.__initialized is None:
             self.__calculate_next_prime_factor()
-
         return self.__divisor
 
     def get_prime_factor(self) -> int:
         if self.__initialized is None:
             self.__calculate_next_prime_factor()
-
         return self.__prime_factor
 
     def get_prime_factor_cycles(self) -> int:
@@ -109,6 +107,7 @@ class NaturalNumber:
         return self.prime
 
     def __calculate_next_prime_factor(self) -> NaturalNumber:
+        self.__initialized = True
         top = abs(self.num)
 
         if top == 1:
