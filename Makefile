@@ -59,20 +59,22 @@ lint: dependencies
 	python3 -m flake8 --verbose
 
 test: env dependencies
-	pytest --verbose -o log_cli=true --log-cli-level=$(LOG_LEVEL) --full-trace src/
+	python3 -m pytest --verbose -o log_cli=true --log-cli-level=$(LOG_LEVEL) --full-trace src/
 
 coverage: dependencies
-	coverage run -m pytest --verbose src/
-	coverage report
+	python3 -m coverage run -m pytest --verbose src/
+	python3 -m coverage lcov -o coverage/lcov.info
+	python3 -m coverage report
 
 coverage/html: coverage
-	coverage html
+	python3 -m coverage html
 
 clean:
 	pip3 freeze > unins ; pip3 uninstall -y -r unins ; rm unins
 	rm .coverage
 	rm -fr .pytest_cache
 	rm -fr htmlcov
+	rm -fr coverage
 	find . -path "*/*.pyc" -delete -print
 	find . -path "*/*.pyo" -delete -print
 	find . -path "*/__pycache__" -type d -print -exec rm -r {} ';'
