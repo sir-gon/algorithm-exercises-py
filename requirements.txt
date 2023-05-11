@@ -10,7 +10,7 @@ lazy-object-proxy==1.9.0
 mccabe==0.7.0
 nodeenv==1.7.0
 packaging==23.1
-platformdirs==3.5.0
+platformdirs==3.5.1
 pluggy==1.0.0
 pycodestyle==2.10.0
 pyflakes==3.0.1
