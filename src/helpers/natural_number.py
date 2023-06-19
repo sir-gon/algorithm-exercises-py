@@ -41,23 +41,31 @@ class NaturalNumber:
         top = target
         divs = []
 
+        divs.append(1)
+
         if top == 1:
-            divs.append(1)
             return divs
 
         LOGGER.debug("Find divisors of %s", top)
 
         # fast divisors finding loop
-        i = 1
+        init = 2
+        i = init
         while i <= top:
-            if 0 == target % i:
-                divs.append(i)
-                divs.append(int(target / i))
+            top = int(target / i)
+            remainder = int(target % i)
+
+            if top > 2 and remainder == 0:
+                if i <= top:
+                    divs.append(i)
+                if i < top:
+                    divs.append(top)
 
             i += 1
-            top = int(target / i)
 
-        self.__cycles_of_divisors = i
+        divs.append(target)
+
+        self.__cycles_of_divisors = i - init
         LOGGER.debug("collected divisors %s in %d cycles", divs, i)
 
         divs.sort()
@@ -67,15 +75,6 @@ class NaturalNumber:
             self.prime = True
         else:
             self.prime = False
-
-        return divs
-
-    def divisors_unique(self) -> list:
-        divs = self.divisors()
-        divs = [*set(divs)]
-        divs.sort()
-
-        LOGGER.debug("unique divisors %s", divs)
 
         return divs
 
