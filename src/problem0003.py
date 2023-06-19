@@ -8,6 +8,7 @@
 # What is the largest prime factor of the number 600851475143 ?
 ###############################################################################
 
+import math
 import logging
 from .helpers.natural_number import NaturalNumber
 
@@ -20,8 +21,8 @@ def problem0003(_top):
     divs = number.divisors()
     LOGGER.debug('Divisors of %d: %s', _top, divs)
 
-    # not-unique divisors are always even, then the middle term is:
-    middle = int(len(divs) / 2 - 1)
+    # middle position for odd and even cases
+    middle = math.ceil(len(divs) / 2) - 1
 
     LOGGER.debug('Middle position of %d: %d | Middle divisor %d',
                  _top, middle, divs[middle])
