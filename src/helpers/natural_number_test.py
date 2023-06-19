@@ -22,13 +22,10 @@ class TestDivisors(unittest.TestCase):
                 f"{_} | NaturalNumber({_tt['input']}).get_value() must be "
                 f"=> {_tt['answer']}")
 
-    def test_divisors(self):
+    def test_divisors_of_one(self):
 
         tests = [
           {'input': 1, 'answer': [1], 'cycles': 0},
-          {'input': 2, 'answer': [1, 2], 'cycles': 2},
-          {'input': 10, 'answer': [1, 2, 5, 10], 'cycles': 4},
-          {'input': 16, 'answer': [1, 2, 4, 4, 8, 16], 'cycles': 5}
         ]
 
         for _, _tt in enumerate(tests):
@@ -44,22 +41,27 @@ class TestDivisors(unittest.TestCase):
                 f"{_} | NaturalNumber({_tt['input']}).get_divisors_cycles() "
                 f"must be => {_tt['cycles']}")
 
-    def test_unique_divisors(self):
+    def test_divisors(self):
 
         tests = [
-          {'input': 1, 'answer': [1]},
-          {'input': 2, 'answer': [1, 2]},
-          {'input': 9, 'answer': [1, 3, 9]},
-          {'input': 16, 'answer': [1, 2, 4, 8, 16]}
+          {'input': 2, 'answer': [1, 2], 'cycles': 1},
+          {'input': 8, 'answer': [1, 2, 4, 8], 'cycles': 2},
+          {'input': 10, 'answer': [1, 2, 5, 10], 'cycles': 2},
+          {'input': 16, 'answer': [1, 2, 4, 8, 16], 'cycles': 3}
         ]
 
         for _, _tt in enumerate(tests):
             to_test = NaturalNumber(_tt['input'])
 
             self.assertEqual(
-                to_test.divisors_unique(), _tt['answer'],
+                to_test.divisors(), _tt['answer'],
                 f"{_} | NaturalNumber({_tt['input']}).divisors() must be "
                 f"=> {_tt['answer']}")
+
+            self.assertEqual(
+                to_test.get_divisors_cycles(), _tt['cycles'],
+                f"{_} | NaturalNumber({_tt['input']}).get_divisors_cycles() "
+                f"must be => {_tt['cycles']}")
 
     def test_prime_factor(self):
         tests = [
