@@ -8,7 +8,7 @@
 ################################################################################
 
 import unittest
-from .problem0000template import problem0000
+from .problem0000 import problem0000
 
 
 class TestProblem0000(unittest.TestCase):
