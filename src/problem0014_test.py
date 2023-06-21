@@ -29,8 +29,11 @@ class TestProblem0014(unittest.TestCase):
 
     def test_problem0014(self):
 
+        epsilon = 10000
+        found = 837799
+
         tests = [
-          {'bottom': 837799, 'top': 1000000, 'answer': 837799}
+          {'bottom': found - epsilon, 'top': found + epsilon, 'answer': found}
         ]
 
         for _, _tt in enumerate(tests):
