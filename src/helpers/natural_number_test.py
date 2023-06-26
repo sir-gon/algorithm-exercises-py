@@ -1,6 +1,11 @@
 import unittest
 
-from .natural_number import NaturalNumber
+from .natural_number import (
+    NaturalNumber,
+    ___DIVISORS_ABUNDANT___,
+    ___DIVISORS_DEFICIENT___,
+    ___DIVISORS_PERFECT___
+)
 
 
 class TestDivisors(unittest.TestCase):
@@ -200,3 +205,51 @@ class TestDivisors(unittest.TestCase):
             message = f"{_} | NaturalNumber({_tt['input']}).get_prime_factors_cycles()"\
                       f" must be => {_tt['cycles']}"
             self.assertEqual(to_test.get_prime_factors_cycles(), _tt['cycles'], message)
+
+    def test_abundance(self):
+
+        self.assertEqual(
+            NaturalNumber(10).abundance().value,
+            ___DIVISORS_DEFICIENT___,
+            f"NaturalNumber({10}).abundance() must be "
+            f"=> {___DIVISORS_DEFICIENT___}"
+        )
+
+        self.assertEqual(
+            NaturalNumber(12).abundance().value,
+            ___DIVISORS_ABUNDANT___,
+            f"NaturalNumber({12}).abundance() must be "
+            f"=> {___DIVISORS_ABUNDANT___}"
+        )
+
+        self.assertEqual(
+            NaturalNumber(28).abundance().value,
+            ___DIVISORS_PERFECT___,
+            f"NaturalNumber({28}).abundance() must be "
+            f"=> {___DIVISORS_PERFECT___}"
+        )
+
+    def test_abundance_of_first_12(self):
+        for i in range(1, 12):
+            self.assertNotEqual(
+                NaturalNumber(i).abundance().value,
+                ___DIVISORS_ABUNDANT___,
+                f"NaturalNumber({i}).abundance() must be "
+                f"=> {___DIVISORS_ABUNDANT___}"
+            )
+
+    def test_abundance_conflict(self):
+
+        self.assertNotEqual(
+            NaturalNumber(110).abundance().value,
+            ___DIVISORS_ABUNDANT___,
+            f"NaturalNumber({110}).abundance() must be "
+            f"=> {___DIVISORS_ABUNDANT___}"
+        )
+
+        self.assertNotEqual(
+            NaturalNumber(18632).abundance().value,
+            ___DIVISORS_ABUNDANT___,
+            f"NaturalNumber({18632}).abundance() must be "
+            f"=> {___DIVISORS_ABUNDANT___}"
+        )
