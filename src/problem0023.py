@@ -39,9 +39,8 @@ def problem0023(_under_limit: int, _super_limit: int) -> int:
         if abundancy_of.value == DivisorsAbundance.DIVISORS_ABUNDANT.value:
             abundant_number_list.append(i)
 
-    LOGGER.debug(
-        "abundant nums list: %i => %s", len(abundant_number_list), abundant_number_list
-    )
+    LOGGER.info("abundant nums list size => %i", len(abundant_number_list))
+    LOGGER.debug("abundant nums list result: => %s", abundant_number_list)
 
     sums_abundant_nums = []
 
@@ -56,12 +55,14 @@ def problem0023(_under_limit: int, _super_limit: int) -> int:
 
     result = 0
 
+    LOGGER.info("sumsAbundantNums size => %s", len(sums_abundant_nums))
+    LOGGER.debug("sumsAbundantNums => %s", sums_abundant_nums)
+
     # filter duplicates
     sums_abundant_nums = [*set(sums_abundant_nums)]
 
-    LOGGER.info("sumsAbundantNums size: %i. result => %s",
-                len(sums_abundant_nums),
-                sums_abundant_nums)
+    LOGGER.info("filtered sumsAbundantNums size => %s", len(sums_abundant_nums))
+    LOGGER.debug("filtered sumsAbundantNums => %s", sums_abundant_nums)
 
     # All numbers below limit that not present in list of sums of pair of abundant numbers
     found = []
@@ -69,7 +70,8 @@ def problem0023(_under_limit: int, _super_limit: int) -> int:
         if i not in sums_abundant_nums:
             found.append(i)
 
-    LOGGER.info("found size: %i, found => %s", len(found), found)
+    LOGGER.info("found size => %i", len(found))
+    LOGGER.debug("found result => %s", found)
 
     result = sum(found)
 
