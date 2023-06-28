@@ -53,7 +53,7 @@ def problem0011(_square_matrix, _interval):
 
             acum = 1
 
-            if i < top - (_interval - 1) and j < top:
+            if i < top - (_interval - 1):
                 logger.debug('---- VERTICAL ------------------------------------------')
                 # vertical
 
@@ -68,7 +68,7 @@ def problem0011(_square_matrix, _interval):
             result = maximum(acum, result)
 
             acum = 1
-            if i < top and j < top - (_interval - 1):
+            if j < top - (_interval - 1):
                 logger.debug('---- HORIZONTAL ----------------------------------------')
                 # horizontal
                 for k in range(0, _interval):
