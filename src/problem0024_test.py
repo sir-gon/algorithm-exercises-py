@@ -23,8 +23,8 @@ class TestProblem0024(unittest.TestCase):
 
     def test_problem0024_empty_case(self):
 
-        solution_found = []
-        input_elements = []
+        solution_found = ''
+        input_elements = ''
         input_permutation_to_find = 6
 
         self.assertEqual(
@@ -35,8 +35,8 @@ class TestProblem0024(unittest.TestCase):
 
     def test_problem0024_small_case(self):
 
-        solution_found = ['A', 'D', 'C', 'B']
-        input_elements = list('ABCD')
+        solution_found = 'ADCB'
+        input_elements = 'ABCD'
         input_permutation_to_find = 6
 
         self.assertEqual(
@@ -47,8 +47,8 @@ class TestProblem0024(unittest.TestCase):
 
     def test_problem0024_full_case(self):
 
-        solution_found = ['2', '7', '8', '3', '9', '1', '5', '4', '6', '0']
-        input_elements = list('0123456789')
+        solution_found = '2783915460'
+        input_elements = '0123456789'
         input_permutation_to_find = 1000000
 
         self.assertEqual(
