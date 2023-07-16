@@ -24,7 +24,7 @@
 ################################################################################
 
 import logging
-from src.helpers.natural_number import NaturalNumber
+from .helpers.natural_number import NaturalNumber
 
 LOGGER = logging.getLogger(__name__)
 

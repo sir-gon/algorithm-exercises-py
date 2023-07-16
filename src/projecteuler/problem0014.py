@@ -22,7 +22,7 @@
 ################################################################################
 
 import logging
-from src.helpers.collatz import collatz
+from .helpers.collatz import collatz
 
 LOGGER = logging.getLogger(__name__)
 

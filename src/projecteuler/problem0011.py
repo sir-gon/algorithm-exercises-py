@@ -33,7 +33,7 @@
 ################################################################################
 
 import logging
-from src.helpers.minmax import maximum
+from .helpers.minmax import maximum
 
 logger = logging.getLogger(__name__)
 
