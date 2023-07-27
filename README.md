@@ -153,5 +153,5 @@ pip3 install coverage pylint pytest
 
 ## Coverage
 
-[![Coverage](https://codecov.io/gh/sir-gon/projecteuler-py/branch/main/graphs/tree.svg?token=VMH4I0MDFR)](https://codecov.io/gh/sir-gon/projecteuler-py)
+[![Coverage](https://codecov.io/gh/sir-gon/algorithm-exercises-py/branch/main/graphs/tree.svg?token=VMH4I0MDFR)](https://app.codecov.io/gh/sir-gon/algorithm-exercises-py)
 
