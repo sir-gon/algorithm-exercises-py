@@ -1,12 +1,3 @@
-###############################################################################
-# <TITLE>
-#
-# https://projecteuler.net/problem=XX
-#
-# <DESCRIPTION>
-#
-################################################################################
-
 import re
 import logging
 from .helpers.number_to_word import number_to_word
