@@ -8,7 +8,7 @@ ROOT_COORDINATE_J = 0
 ROOT_VALUE = 0
 
 
-def problem0018(_triangle):
+def problem0018(_triangle: list[int]):
 
     leaves = []
     tree = BinaryNodeBuilder[int]().build_binary_node_tree_weigth(

@@ -17,7 +17,7 @@ from .helpers.natural_number import NaturalNumber
 LOGGER = logging.getLogger(__name__)
 
 
-def problem0010(_top_limit):
+def problem0010(_top_limit: int) -> int:
     primes = []
     i = 2
 

@@ -3,9 +3,9 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def problem0005(_bottom, _top, _start_from=0):
+def problem0005(_bottom: int, _top: int, _start_from=0) -> int:
 
-    found = None
+    found: None | int = None
     fail = None
     test = _start_from
 

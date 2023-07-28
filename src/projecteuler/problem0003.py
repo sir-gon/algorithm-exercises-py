@@ -5,7 +5,7 @@ from .helpers.natural_number import NaturalNumber
 LOGGER = logging.getLogger(__name__)
 
 
-def problem0003(_top):
+def problem0003(_top: int) -> 'None | int':
 
     number = NaturalNumber(_top)
     divs = number.divisors()

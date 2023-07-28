@@ -4,7 +4,7 @@ from .helpers.matrix import matrix
 LOGGER = logging.getLogger(__name__)
 
 
-def problem0015(_grid_side: int = 20):
+def problem0015(_grid_side: int = 20) -> int:
     vertex_matrix = matrix(_grid_side + 1, _grid_side + 1, 1)
 
     for i in range(1, _grid_side + 1):

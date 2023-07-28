@@ -8,7 +8,7 @@ def problem0019(
   _day_of_week: int = __SUNDAY__,
   _since_year: int = 1901,
   _until_year: int = 2000
-):
+) -> int:
     result_count = 0
     accumulated_remainder = 0
     excess = 0

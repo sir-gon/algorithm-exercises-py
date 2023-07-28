@@ -12,7 +12,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def problem0020(_input) -> int:
+def problem0020(_input: int) -> int:
 
     big_number = [int(i) for i in str(math.factorial(_input))]
     result = sum(big_number)

@@ -4,7 +4,7 @@ from .helpers.collatz import collatz
 LOGGER = logging.getLogger(__name__)
 
 
-def problem0014(_bottom=1, _top=10) -> int:
+def problem0014(_bottom: int = 1, _top: int = 10) -> int:
     if _bottom < 1:
         raise ValueError('bottom must be a positive integer')
     if _bottom >= _top:

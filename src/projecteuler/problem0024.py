@@ -4,7 +4,7 @@ import math
 LOGGER = logging.getLogger(__name__)
 
 
-def permute(symbols: str, target: int):
+def permute(symbols: str, target: int) -> str:
     choices = list(symbols)
     answer = ""
     minimum = 0
