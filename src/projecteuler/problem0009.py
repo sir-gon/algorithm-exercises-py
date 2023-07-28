@@ -14,14 +14,14 @@ class Triplet:
         self.n_b = _b
         self.n_c = _c
 
-    def is_pythagorean(self):
+    def is_pythagorean(self) -> bool:
         return pow(self.n_a, 2) + pow(self.n_b, 2) == pow(self.n_c, 2)
 
-    def product(self):
+    def product(self) -> int:
         return self.n_a * self.n_b * self.n_c
 
 
-def problem0009(_limit: int):
+def problem0009(_limit: int) -> 'None | int':
 
     result = 0
 

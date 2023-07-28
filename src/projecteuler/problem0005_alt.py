@@ -5,7 +5,7 @@ from .helpers.natural_number import NaturalNumber
 LOGGER = logging.getLogger(__name__)
 
 
-def _increase(element, group: dict):
+def _increase(element: int, group: dict[int, int]) -> dict[int, int]:
     elem = group.get(element, None)
     if elem is None:
         group.update({element: 1})
@@ -15,7 +15,7 @@ def _increase(element, group: dict):
     return group
 
 
-def _replace_maximum(element, count, group: dict):
+def _replace_maximum(element: int, count: int, group: dict[int, int]) -> dict[int, int]:
     elem = group.get(element, None)
     if elem is None:
         group.update({element: count})
@@ -25,7 +25,7 @@ def _replace_maximum(element, count, group: dict):
     return group
 
 
-def prime_factors_collection(factors: list):
+def prime_factors_collection(factors: list[int]) -> dict[int, int]:
     collection = {}
 
     for factor in factors:
@@ -34,10 +34,10 @@ def prime_factors_collection(factors: list):
     return collection
 
 
-def problem0005_alt(_bottom, _top):
+def problem0005_alt(_bottom: int, _top: int) -> 'None | float':
 
     minimum_prime_factors = {}
-    result = None
+    result: None | float = None
 
     cycles = 0
 

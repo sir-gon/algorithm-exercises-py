@@ -4,7 +4,7 @@ from .helpers.minmax import maximum
 logger = logging.getLogger(__name__)
 
 
-def problem0011(_square_matrix, _interval):
+def problem0011(_square_matrix: list[list[int]], _interval: int) -> int:
 
     top = len(_square_matrix)
     result = 0

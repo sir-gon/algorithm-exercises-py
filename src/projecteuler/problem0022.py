@@ -6,7 +6,7 @@ from .helpers.word_score import word_score
 LOGGER = logging.getLogger(__name__)
 
 
-def problem0022(list_of_names: List[str]):
+def problem0022(list_of_names: List[str]) -> int:
 
     names = list_of_names.copy()
     names.sort()

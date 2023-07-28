@@ -3,7 +3,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def problem0001(_top):
+def problem0001(_top: int) -> int:
     total = 0
 
     for i in range(0, _top):

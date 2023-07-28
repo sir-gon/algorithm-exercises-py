@@ -4,7 +4,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def problem0006(_bottom: int, _top: int):
+def problem0006(_bottom: int, _top: int) -> float:
     answer = 0
 
     sum_of_squares = 0

@@ -4,7 +4,7 @@ from .helpers.prime import is_prime
 LOGGER = logging.getLogger(__name__)
 
 
-def problem0007(_top):
+def problem0007(_top: int) -> int:
 
     primes = []
 

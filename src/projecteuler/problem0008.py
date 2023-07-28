@@ -4,7 +4,7 @@ from .helpers.product import product
 LOGGER = logging.getLogger(__name__)
 
 
-def problem0008(_number, _interval):
+def problem0008(_number: str, _interval):
 
     digits = list(_number)
     top = len(digits)

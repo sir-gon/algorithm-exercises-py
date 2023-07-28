@@ -3,7 +3,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def problem0025(_top: int):
+def problem0025(_top: int) -> int:
 
     top = 10 ** (_top - 1)
     last1 = 1

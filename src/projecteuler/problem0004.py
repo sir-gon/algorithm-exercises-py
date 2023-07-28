@@ -4,7 +4,7 @@ from .helpers.palindrome import is_palindrome
 LOGGER = logging.getLogger(__name__)
 
 
-def problem0004(_bottom, _top):
+def problem0004(_bottom: int, _top: int) -> 'None | int':
 
     foundi = None
     foundj = None
