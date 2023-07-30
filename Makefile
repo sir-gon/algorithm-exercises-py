@@ -52,7 +52,10 @@ update:
 	pip3 freeze > requirements.txt
 
 upgrade:
-	pip3 install --upgrade -r requirements.txt
+	pip3 list --outdated | cut -f1 -d' ' | tr " " "\n" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip3 install -U
+
+outdated:
+	pip3 list --outdated
 
 lint: dependencies
 	python3 -m pylint --verbose --recursive yes src/
