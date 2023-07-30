@@ -1,18 +1,17 @@
 # Algorithm Exercises (Python 3)
 
-[![Python CI](https://github.com/sir-gon/projecteuler-py/actions/workflows/python.yml/badge.svg)](https://github.com/sir-gon/projecteuler-py/actions/workflows/python.yml)
-[![codecov](https://codecov.io/gh/sir-gon/projecteuler-py/branch/main/graph/badge.svg?token=U3N3HSC3YC)](https://codecov.io/gh/sir-gon/projecteuler-py)
+[![Python CI](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/python.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/python.yml)
+[![codecov](https://codecov.io/gh/sir-gon/algorithm-exercises-py/branch/main/graph/badge.svg?token=U3N3HSC3YC)](https://codecov.io/gh/sir-gon/algorithm-exercises-py)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py?ref=badge_shield)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6404/badge)](https://bestpractices.coreinfrastructure.org/projects/6404)
 
-![GitHub](https://img.shields.io/github/license/sir-gon/projecteuler-py)
-![GitHub language count](https://img.shields.io/github/languages/count/sir-gon/projecteuler-py)
-![GitHub top language](https://img.shields.io/github/languages/top/sir-gon/projecteuler-py)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/sir-gon/projecteuler-py.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sir-gon/projecteuler-py/alerts/)
+![GitHub](https://img.shields.io/github/license/sir-gon/algorithm-exercises-py)
+![GitHub language count](https://img.shields.io/github/languages/count/sir-gon/algorithm-exercises-py)
+![GitHub top language](https://img.shields.io/github/languages/top/sir-gon/algorithm-exercises-py)
 
 ## What is this?
 
-[Project Euler](https://projecteuler.net/) provide some algorithms and
+[Project Euler](https://algorithm-exercises.net/) provide some algorithms and
  mathematical problems to solve to be used as experience tests.
 
 Use this answers to learn some tip and tricks for algorithms tests.
@@ -21,7 +20,7 @@ Use this answers to learn some tip and tricks for algorithms tests.
 
 As Project Euler says:
 
-<https://projecteuler.net/about#publish>
+<https://algorithm-exercises.net/about#publish>
 
 ```text
 I learned so much solving problem XXX, so is it okay to publish my solution elsewhere?
@@ -114,8 +113,8 @@ Coverage results will be stored in host **/coverage** directory (mounted as volu
 
 ```text
 # Build a complete image
-docker-compose build projecteuler-py
-docker-compose run --rm projecteuler-py make test coverage
+docker-compose build algorithm-exercises-py
+docker-compose run --rm algorithm-exercises-py make test coverage
 ```
 
 ### Enable BRUTEFORCE tests with full DEBUG output
@@ -123,7 +122,7 @@ docker-compose run --rm projecteuler-py make test coverage
 With docker-compose:
 
 ```text
-docker-compose --profile testing run --rm projecteuler-py make test -e LOG_LEVEL=debug -e BRUTEFORCE=true
+docker-compose --profile testing run --rm algorithm-exercises-py make test -e LOG_LEVEL=debug -e BRUTEFORCE=true
 ```
 
 Using make:
@@ -142,9 +141,9 @@ must install dependencies before run (or after a dependency add/change).
 
 ```text
 # install dependencies using docker runtime and store them in host directory
-docker-compose build projecteuler-py-dev
-docker-compose run --rm projecteuler-py-dev make dependencies
-docker-compose run --rm projecteuler-py-dev make test
+docker-compose build algorithm-exercises-py-dev
+docker-compose run --rm algorithm-exercises-py-dev make dependencies
+docker-compose run --rm algorithm-exercises-py-dev make test
 
 ```
 
@@ -159,7 +158,7 @@ Python 3.11.0
 
 ### License
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsir-gon%2Falgorithm-exercises-py.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsir-gon%2Falgorithm-exercises-py?ref=badge_large)
 
 ### Coverage
 

@@ -1,5 +1,5 @@
 [project]
-name = "projecteuler_py"
+name = "algorithm-exercises_py"
 version = "0.0.1"
 authors = [
   { name="Gonzalo Diaz", email="devel@gon.cl" },
@@ -15,5 +15,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/sir-gon/projecteuler-py"
-"Bug Tracker" = "https://github.com/sir-gon/projecteuler-py/issues"
+"Homepage" = "https://github.com/sir-gon/algorithm-exercises-py"
+"Bug Tracker" = "https://github.com/sir-gon/algorithm-exercises-py/issues"

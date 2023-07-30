@@ -90,6 +90,6 @@ compose/rebuild: env
 	docker-compose --profile testing build --no-cache
 
 compose/run: compose/build
-	docker-compose --profile testing run --rm projecteuler-py make test
+	docker-compose --profile testing run --rm algorithm-exercises-py make test
 
 all: lint coverage

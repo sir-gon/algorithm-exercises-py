@@ -1,6 +1,6 @@
 services:
-  projecteuler-py:
-    image: projecteuler-py:latest
+  algorithm-exercises-py:
+    image: algorithm-exercises-py:latest
     build:
       context: .
       target: testing
@@ -11,8 +11,8 @@ services:
       - ./coverage:/app/coverage
     profiles: ["testing"]
 
-  projecteuler-py-dev:
-    image: projecteuler-py:dev
+  algorithm-exercises-py-dev:
+    image: algorithm-exercises-py:dev
     build:
       context: .
       target: development
