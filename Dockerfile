@@ -3,6 +3,18 @@ FROM python:3.11.3-alpine3.16 as base
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
+FROM node:20.2.0-alpine3.16 as lint
+
+ENV WORKDIR=/app
+WORKDIR ${WORKDIR}
+
+COPY ./src ${WORKDIR}/src
+RUN apk add --update --no-cache make
+RUN npm install -g markdownlint-cli
+
+RUN apk add --update --no-cache nodejs npm
+RUN npm install -g pyright
+
 FROM base as development
 
 RUN apk add --update --no-cache make
@@ -12,6 +24,7 @@ FROM development as builder
 COPY ./src ${WORKDIR}/src
 COPY ./requirements.txt ${WORKDIR}/
 COPY ./Makefile ${WORKDIR}/
+COPY ./setup.cfg ${WORKDIR}/
 RUN ls -alh
 
 RUN pip install -r requirements.txt
