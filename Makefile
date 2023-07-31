@@ -48,16 +48,13 @@ dependencies:
 	@echo "################################################################################"
 	pip3 install --user -r requirements.txt
 	@echo "################################################################################"
-update:
-	pip3 freeze > requirements.txt
 
-upgrade:
-	pip3 list --outdated | cut -f1 -d' ' | tr " " "\n" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip3 install -U
+mdlint:
+	markdownlint '**/*.md' --ignore node_modules && echo '✔  Your code looks good.'
 
-outdated:
-	pip3 list --outdated
+lint: test/static mdlint
 
-lint: dependencies
+test/static: dependencies
 	python3 -m pylint --verbose --recursive yes src/
 	python3 -m flake8 --verbose
 	python3 -m pyright --verbose
@@ -73,6 +70,15 @@ coverage: dependencies
 coverage/html: coverage
 	python3 -m coverage html
 
+outdated:
+	pip3 list --outdated
+
+update:
+	pip3 freeze > requirements.txt
+
+upgrade:
+	pip3 list --outdated | cut -f1 -d' ' | tr " " "\n" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip3 install -U
+
 clean:
 	pip3 freeze > unins ; pip3 uninstall -y -r unins ; rm unins
 	rm .coverage
@@ -87,7 +93,17 @@ compose/build: env
 	docker-compose --profile testing build
 
 compose/rebuild: env
+	docker-compose --profile lint build --no-cache
 	docker-compose --profile testing build --no-cache
+
+compose/mdlint: env
+	docker-compose --profile lint build
+	docker-compose --profile lint run --rm algorithm-exercises-py-mdlint make mdlint
+
+compose/test/static: compose/build
+	docker-compose --profile testing run --rm algorithm-exercises-py make test/static
+
+compose/lint: compose/test/static compose/mdlint
 
 compose/run: compose/build
 	docker-compose --profile testing run --rm algorithm-exercises-py make test

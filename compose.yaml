@@ -11,6 +11,18 @@ services:
       - ./coverage:/app/coverage
     profiles: ["testing"]
 
+  algorithm-exercises-ts-mdlint:
+    image: algorithm-exercises-ts:mdlint
+    build:
+      context: .
+      target: lint
+    # environment:
+      # LOG_LEVEL: ${LOG_LEVEL:-info} ## (1) ## info | debug
+      # BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
+    volumes:
+      - ./:/app
+    profiles: ["lint"]
+
   algorithm-exercises-py-dev:
     image: algorithm-exercises-py:dev
     build:
