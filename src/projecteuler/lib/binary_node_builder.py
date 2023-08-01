@@ -65,9 +65,8 @@ class BinaryNodeBuilder(BinaryNode[T]):
                     )
                 )
 
-            if result_node.is_leaf():
-                if leaves_collector is not None:
-                    leaves_collector.append(current_value)
+            if result_node.is_leaf() and leaves_collector is not None:
+                leaves_collector.append(current_value)
 
             return result_node
 

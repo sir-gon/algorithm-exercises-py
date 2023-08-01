@@ -1,9 +1,9 @@
-FROM python:3.11.3-alpine3.16 as base
+FROM python:3.11.3-alpine3.16 AS base
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-FROM node:20.2.0-alpine3.16 as lint
+FROM node:20.2.0-alpine3.16 AS lint
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
@@ -15,11 +15,11 @@ RUN npm install -g markdownlint-cli
 RUN apk add --update --no-cache nodejs npm
 RUN npm install -g pyright
 
-FROM base as development
+FROM base AS development
 
 RUN apk add --update --no-cache make
 
-FROM development as builder
+FROM development AS builder
 
 COPY ./src ${WORKDIR}/src
 COPY ./requirements.txt ${WORKDIR}/
@@ -34,7 +34,7 @@ RUN pip install -r requirements.txt
 ##
 ## https://docs.github.com/en/actions/creating-actions/dockerfile-support-for-github-actions
 ##
-FROM builder as testing
+FROM builder AS testing
 
 ENV LOG_LEVEL=INFO
 ENV BRUTEFORCE=false
@@ -51,7 +51,7 @@ CMD ["make", "test", "-e", "{DEBUG}"]
 ## in the production phase, "good practices" such as
 ## WORKSPACE and USER are maintained
 ##
-FROM builder as production
+FROM builder AS production
 
 ENV LOG_LEVEL=INFO
 ENV BRUTEFORCE=false
