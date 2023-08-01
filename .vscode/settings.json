@@ -11,5 +11,9 @@
   "python.linting.pylintArgs": [
     "--rcfile",
     "${workspaceFolder}/.pylintrc"
-  ]
+  ],
+  "sonarlint.connectedMode.project": {
+    "connectionId": "sir-gon",
+    "projectKey": "sir-gon_algorithm-exercises-py"
+  }
 }
