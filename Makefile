@@ -81,13 +81,13 @@ upgrade:
 
 clean:
 	pip3 freeze > unins ; pip3 uninstall -y -r unins ; rm unins
-	rm .coverage
+	rm -f .coverage
 	rm -fr .pytest_cache
 	rm -fr htmlcov
 	rm -fr coverage
 	find . -path "*/*.pyc" -delete -print
 	find . -path "*/*.pyo" -delete -print
-	find . -path "*/__pycache__" -type d -print -exec rm -r {} ';'
+	find . -path "*/__pycache__" -type d -print -exec rm -fr {} ';'
 
 compose/build: env
 	docker-compose --profile testing build
