@@ -4,6 +4,7 @@
 [![codecov](https://codecov.io/gh/sir-gon/algorithm-exercises-py/branch/main/graph/badge.svg?token=U3N3HSC3YC)](https://codecov.io/gh/sir-gon/algorithm-exercises-py)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py?ref=badge_shield)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6404/badge)](https://bestpractices.coreinfrastructure.org/projects/6404)
+[![Markdown Lint](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/markdown-lint.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/markdown-lint.yml)
 
 ![GitHub](https://img.shields.io/github/license/sir-gon/algorithm-exercises-py)
 ![GitHub language count](https://img.shields.io/github/languages/count/sir-gon/algorithm-exercises-py)
@@ -82,7 +83,7 @@ pytest --verbose -o log_cli=true --log-cli-level=DEBUG --full-trace src/
 make test
 ```
 
-#### Enable all large BRUTEFORCE tests
+### Enable all large BRUTEFORCE tests
 
 Direct in host using a make:
 
@@ -90,7 +91,7 @@ Direct in host using a make:
 make test -e BRUTEFORCE=true
 ```
 
-#### Enable all DEBUG outputs
+### Enable all DEBUG outputs
 
 ```text
 make test -e LOG_LEVEL=debug
@@ -158,7 +159,7 @@ Python 3.11.0
 
 ### License
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsir-gon%2Falgorithm-exercises-py.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsir-gon%2Falgorithm-exercises-py?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py?ref=badge_large)
 
 ### Coverage
 
