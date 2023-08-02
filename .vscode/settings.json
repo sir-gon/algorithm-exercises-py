@@ -1,19 +1,8 @@
 {
-  // "python.envFile": "${workspaceFolder}/.env",
-  "python.analysis.typeCheckingMode": "basic",
-  "python.testing.pytestArgs": [
-      "src"
-    ],
-  "python.testing.unittestEnabled": false,
-  "python.testing.pytestEnabled": true,
-  "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true,
-  "python.linting.pylintArgs": [
-    "--rcfile",
-    "${workspaceFolder}/.pylintrc"
-  ],
-  "sonarlint.connectedMode.project": {
-    "connectionId": "sir-gon",
-    "projectKey": "sir-gon_algorithm-exercises-py"
-  }
+    "sonarlint.connectedMode.project": {
+        "connectionId": "sir-gon",
+        "projectKey": "sir-gon_algorithm-exercises-py"
+    },
+    "python.testing.pytestEnabled": true,
+    "python.analysis.typeCheckingMode": "basic"
 }
