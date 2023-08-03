@@ -8,72 +8,57 @@ def problem0011(_square_matrix: list[list[int]], _interval: int) -> int:
 
     top = len(_square_matrix)
     result = 0
-    acum = 0
 
-    for i in range(0, top):
+    quadrant_size = _interval
+    matrix_limit = len(_square_matrix) - (_interval - 1)
+
+    for i in range(0, matrix_limit):
         if top != len(_square_matrix[i]):
             raise AttributeError("Not a square matrix")
 
-        for j in range(0, top):
-            logger.debug('i: %i, j: %i', i, j)
+        for j in range(0, matrix_limit):
+            logger.debug('start point => i: %i, j: %i', i, j)
 
-            acum = 1
+            # reset diagonals
+            diag1_acum = 1
+            diag2_acum = 1
+            for k in range(0, quadrant_size):
+                logger.debug(
+                    'diag1 coordinate: (i, j) = (%i, %i)',
+                    i + k,
+                    j + k
+                )
+                logger.debug(
+                    'diag2 coordinate: (i, j) = (%i, %i)',
+                    i + k,
+                    j + (quadrant_size - 1) - k
+                )
 
-            if i < top - (_interval - 1):
-                logger.debug('---- VERTICAL ------------------------------------------')
-                # vertical
+                diag1_acum *= _square_matrix[i + k][j + k]
+                diag2_acum *= _square_matrix[i + k][j + (quadrant_size - 1) - k]
+                result = maximum(diag1_acum, result)
+                result = maximum(diag2_acum, result)
 
-                for k in range(0, _interval):
+                # reset lines
+                vertical_acum = 1
+                horizontal_acum = 1
+                for t_l in range(0, quadrant_size):
                     logger.debug(
-                      'row: i %i, column: %i, step %i => %i',
-                      i + k, j, k, _square_matrix[i + k][j]
-                      )
-
-                    acum *= _square_matrix[i + k][j]
-
-            result = maximum(acum, result)
-
-            acum = 1
-            if j < top - (_interval - 1):
-                logger.debug('---- HORIZONTAL ----------------------------------------')
-                # horizontal
-                for k in range(0, _interval):
-                    logger.debug(
-                      'row: i %i, column: %i, step %i => %i',
-                      i, j + k, k, _square_matrix[i][j + k]
-                      )
-                    acum *= _square_matrix[i][j + k]
-
-            result = maximum(acum, result)
-
-            acum = 1
-            if i + (_interval - 1) < top and j + (_interval - 1) < top:
-                # diagonal top left -> bottom right
-                logger.debug('---- DIAG \\ ---------------------------------------------')
-                for k in range(0, _interval):
-                    logger.debug(
-                            'row: i %i, column: %i, step %i => %i',
-                            i + k, j + k, k, _square_matrix[i + k][j + k]
-                    )
-                    acum *= _square_matrix[i + k][j + k]
-
-            result = maximum(acum, result)
-
-            acum = 1
-            if i + (_interval - 1) < top and j + (_interval - 1) < top:
-                # diagonal top rigth -> bottom left
-                logger.debug('---- DIAG / ---------------------------------------------')
-                for k in range(0, _interval):
-                    logger.debug(
-                        'row: i %i, column: %i, step %i => %i',
+                        'vertical coordinate: (i, j) = (%i, %i)',
                         i + k,
-                        j + (_interval - 1) - k,
-                        _interval,
-                        _square_matrix[i + k][j + (_interval - 1) - k]
+                        j + t_l
                     )
-                    acum *= _square_matrix[i + k][j + (_interval - 1) - k]
+                    logger.debug(
+                        'horizontal coordinate: (i, j) = (%i, %i)',
+                        i,
+                        j + k
+                    )
 
-            result = maximum(acum, result)
+                    vertical_acum *= _square_matrix[i + k][j + t_l]
+                    horizontal_acum *= _square_matrix[i + t_l][j + k]
+
+                    result = maximum(vertical_acum, result)
+                    result = maximum(horizontal_acum, result)
 
     logger.info('Problem 0011 result: %i', result)
     return result
