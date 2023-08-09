@@ -4,7 +4,7 @@ from .num_cells import num_cells
 
 class TestNumCells(unittest.TestCase):
 
-    def test_get_total_x_case_0(self):
+    def test_num_cells_case_0(self):
 
         grid = [
             [1, 2, 7],
@@ -15,5 +15,5 @@ class TestNumCells(unittest.TestCase):
 
         self.assertEqual(
             num_cells(grid), solution_found,
-            f"get_total_x({grid}) must be "
+            f"num_cells({grid}) must be "
             f"=> {solution_found}")
