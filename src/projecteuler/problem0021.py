@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0021.md]]
+
 ###############################################################################
 # Result found: 31626
 # Amicable numbers found:

@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0017.md]]
+
 import re
 import logging
 from .helpers.number_to_word import number_to_word

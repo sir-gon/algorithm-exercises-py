@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0002.md]]
+
 import logging
 
 LOGGER = logging.getLogger(__name__)

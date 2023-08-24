@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0019.md]]
+
 import logging
 from .constants.datetime import __DAYS_IN_MONTH__, __SUNDAY__
 

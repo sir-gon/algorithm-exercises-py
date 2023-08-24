@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0015.md]]
+
 import logging
 from .helpers.matrix import matrix
 

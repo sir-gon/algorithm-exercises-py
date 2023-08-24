@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0008.md]]
+
 import logging
 from .helpers.product import product
 

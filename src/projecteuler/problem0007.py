@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0007.md]]
+
 import logging
 from .helpers.prime import is_prime
 
