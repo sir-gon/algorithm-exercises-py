@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/hackerrank/warmup/diagonal_difference.md]]
+
 import logging
 
 LOGGER = logging.getLogger(__name__)

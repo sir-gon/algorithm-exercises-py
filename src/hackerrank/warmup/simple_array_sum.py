@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/hackerrank/warmup/simple_array_sum.md]]
+
 import logging
 
 LOGGER = logging.getLogger(__name__)

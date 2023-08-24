@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/hackerrank/warmup/a_very_big_sum.md]]
+
 import logging
 
 LOGGER = logging.getLogger(__name__)

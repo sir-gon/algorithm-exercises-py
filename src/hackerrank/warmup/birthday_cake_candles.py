@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/hackerrank/warmup/birthday_cake_candles.md]]
+
 import logging
 
 LOGGER = logging.getLogger(__name__)
