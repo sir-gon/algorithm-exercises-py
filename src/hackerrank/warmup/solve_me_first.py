@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/hackerrank/warmup/solve_me_first.md]]
+
 import logging
 
 LOGGER = logging.getLogger(__name__)

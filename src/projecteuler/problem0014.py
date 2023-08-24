@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0014.md]]
+
 import logging
 from .helpers.collatz import collatz
 

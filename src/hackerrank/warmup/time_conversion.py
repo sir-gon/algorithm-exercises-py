@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/hackerrank/warmup/time_conversion.md]]
+
 import logging
 
 LOGGER = logging.getLogger(__name__)

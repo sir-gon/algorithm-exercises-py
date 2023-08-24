@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/hackerrank/warmup/compare_triplets.md]]
+
 import logging
 
 LOGGER = logging.getLogger(__name__)

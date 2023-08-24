@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0022.md]]
+
 import logging
 from typing import List
 

@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0011.md]]
+
 import logging
 from .helpers.minmax import maximum
 

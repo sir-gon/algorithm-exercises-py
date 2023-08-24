@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/problem0000.md]]
+
 import logging
 
 LOGGER = logging.getLogger(__name__)

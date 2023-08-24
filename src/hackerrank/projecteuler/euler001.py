@@ -1,3 +1,4 @@
+# @link Problem definition [[docs/hackerrank/projecteuler/euler001.md]]
 # pylint: disable=C0103:invalid-name
 
 import math

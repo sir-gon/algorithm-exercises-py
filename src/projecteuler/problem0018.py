@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0018.md]]
+
 import logging
 from .lib.binary_node_builder import BinaryNodeBuilder
 

@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0012.md]]
+
 import logging
 from .helpers.natural_number import NaturalNumber
 

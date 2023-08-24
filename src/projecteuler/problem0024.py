@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0024.md]]
+
 import logging
 import math
 

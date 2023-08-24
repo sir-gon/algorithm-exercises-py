@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/projecteuler/problem0004.md]]
+
 import logging
 from .helpers.palindrome import is_palindrome
 
