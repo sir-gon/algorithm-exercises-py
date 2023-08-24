@@ -1,3 +1,4 @@
+# @link Problem definition [[docs/hackerrank/projecteuler/euler002.md]]
 # pylint: disable=C0103:invalid-name
 
 def fibo_even_sum(n: int) -> int:
