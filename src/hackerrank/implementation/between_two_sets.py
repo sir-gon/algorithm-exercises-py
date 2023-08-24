@@ -1,3 +1,5 @@
+# @link Problem definition [[docs/hackerrank/implementation/between_two_sets.md]]
+
 import logging
 
 LOGGER = logging.getLogger(__name__)
