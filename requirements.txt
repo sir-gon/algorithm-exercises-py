@@ -19,7 +19,7 @@ pyright==1.1.333
 pytest==7.4.3
 pytest-cov==4.1.0
 tomli==2.0.1
-tomlkit==0.12.1
+tomlkit==0.12.2
 typing_extensions==4.8.0
 wrapt==1.15.0
 setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
