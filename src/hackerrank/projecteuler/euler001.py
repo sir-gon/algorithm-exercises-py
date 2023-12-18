@@ -5,7 +5,7 @@ import math
 
 
 # Function to find sum of Arithmetic Progression series
-def sum_ap(n: int, d: int):
+def sum_of_arithmetic_progression(n: int, d: int):
 
     # Number of terms
     n = n//d
@@ -20,6 +20,6 @@ def euler001(a, b, n):
     n = n-1
     lcm = (a*b)//math.gcd(a, b)
 
-    return sum_ap(n, a) + \
-        sum_ap(n, b) - \
-        sum_ap(n, lcm)
+    return sum_of_arithmetic_progression(n, a) + \
+        sum_of_arithmetic_progression(n, b) - \
+        sum_of_arithmetic_progression(n, lcm)
