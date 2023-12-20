@@ -14,7 +14,7 @@
 
 import logging
 
-from .helpers.natural_number import NaturalNumber
+from .lib.natural_number import NaturalNumber
 
 LOGGER = logging.getLogger(__name__)
 

@@ -1,7 +1,7 @@
 # @link Problem definition [[docs/projecteuler/problem0023.md]]
 
 import logging
-from .helpers.natural_number import NaturalNumber, DivisorsAbundance
+from .lib.natural_number import NaturalNumber, DivisorsAbundance
 
 LOGGER = logging.getLogger(__name__)
 
