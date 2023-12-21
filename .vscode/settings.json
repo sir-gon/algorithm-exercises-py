@@ -4,5 +4,6 @@
         "projectKey": "sir-gon_algorithm-exercises-py"
     },
     "python.testing.pytestEnabled": true,
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true
 }
