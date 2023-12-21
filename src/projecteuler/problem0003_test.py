@@ -17,6 +17,21 @@ class TestProblem0003(unittest.TestCase):
                 f"{_} | problem0003({_tt['input']}) must be "
                 f"=> {_tt['answer']}")
 
+    def test_problem0003_small_cases(self):
+
+        tests = [
+          {'input': 6, 'answer': 3},
+          {'input': 10, 'answer': 5},
+          {'input': 17, 'answer': 17}
+        ]
+
+        for _, _tt in enumerate(tests):
+
+            self.assertEqual(
+                problem0003(_tt['input']), _tt['answer'],
+                f"{_} | problem0003({_tt['input']}) must be "
+                f"=> {_tt['answer']}")
+
     def test_problem0003_basic(self):
 
         tests = [
