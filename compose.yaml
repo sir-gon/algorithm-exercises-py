@@ -11,7 +11,7 @@ services:
       - ./coverage:/app/coverage
     profiles: ["testing"]
 
-  algorithm-exercises-ts-mdlint:
+  algorithm-exercises-py-mdlint:
     image: algorithm-exercises-ts:mdlint
     build:
       context: .
