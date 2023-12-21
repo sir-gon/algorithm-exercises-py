@@ -154,7 +154,7 @@ Developed with runtime:
 
 ```text
 python3 --version
-Python 3.11.0
+Python 3.12.1
 ```
 
 ### License
