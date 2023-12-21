@@ -1,4 +1,4 @@
-FROM python:3.11.3-alpine3.16 AS base
+FROM python:3.12.1-alpine3.19 AS base
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
@@ -10,10 +10,10 @@ WORKDIR ${WORKDIR}
 
 COPY ./src ${WORKDIR}/src
 RUN apk add --update --no-cache make
-RUN npm install -g markdownlint-cli
+RUN npm install -g --ignore-scripts markdownlint-cli
 
 RUN apk add --update --no-cache nodejs npm
-RUN npm install -g pyright
+RUN npm install -g --ignore-scripts pyright
 
 FROM base AS development
 

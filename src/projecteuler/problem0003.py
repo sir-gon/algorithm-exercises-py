@@ -1,8 +1,7 @@
 # @link Problem definition [[docs/projecteuler/problem0003.md]]
 
-import math
 import logging
-from .helpers.natural_number import NaturalNumber
+from .lib.natural_number import NaturalNumber
 
 LOGGER = logging.getLogger(__name__)
 
@@ -10,34 +9,12 @@ LOGGER = logging.getLogger(__name__)
 def problem0003(_top: int) -> 'None | int':
 
     number = NaturalNumber(_top)
-    divs = number.divisors()
-    LOGGER.debug('Divisors of %d: %s', _top, divs)
+    prime_factors = number.prime_factors()
+    LOGGER.debug('Prime factors of %d: %s', _top, prime_factors)
 
-    # middle position for odd and even cases
-    middle = math.ceil(len(divs) / 2) - 1
+    prime_factors.sort()
 
-    LOGGER.debug('Middle position of %d: %d | Middle divisor %d',
-                 _top, middle, divs[middle])
-
-    # check half divisors, each is Prime? wich is largest?
-    max_prime_factor = None
-
-    i = middle
-
-    check = True
-
-    while check:
-        test_factor = NaturalNumber(divs[i])
-        prime = test_factor.is_prime()
-
-        LOGGER.debug('%d is Prime? %s', divs[i], prime)
-
-        if prime:
-            max_prime_factor = divs[i]
-
-        # end of cycle
-        i -= 1
-        check = i >= 0 and max_prime_factor is None
+    max_prime_factor = prime_factors[len(prime_factors) - 1]
 
     LOGGER.info('Problem 0003 result: %d', max_prime_factor)
     return max_prime_factor

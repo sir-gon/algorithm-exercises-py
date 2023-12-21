@@ -1,7 +1,7 @@
 # @link Problem definition [[docs/projecteuler/problem0023.md]]
 
 import logging
-from .helpers.natural_number import NaturalNumber, DivisorsAbundance
+from .lib.natural_number_abundance import NaturalNumberAbundance, DivisorsAbundance
 
 LOGGER = logging.getLogger(__name__)
 
@@ -11,7 +11,7 @@ def problem0023(_under_limit: int, _super_limit: int) -> int:
 
     # Produce a list of abundant numbers below limit
     for i in range(_under_limit, _super_limit):
-        abundancy_of = NaturalNumber(i).abundance()
+        abundancy_of = NaturalNumberAbundance(i).abundance()
 
         if abundancy_of.value == DivisorsAbundance.DIVISORS_ABUNDANT.value:
             abundant_number_list.append(i)
