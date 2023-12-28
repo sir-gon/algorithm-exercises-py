@@ -1,6 +1,6 @@
 astroid==3.0.2
 attrs==23.1.0
-coverage==7.3.4
+coverage==7.4.0
 dill==0.3.7
 exceptiongroup==1.2.0
 flake8==6.1.0
