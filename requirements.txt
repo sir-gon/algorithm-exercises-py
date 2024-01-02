@@ -1,5 +1,5 @@
 astroid==3.0.2
-attrs==23.1.0
+attrs==23.2.0
 coverage==7.4.0
 dill==0.3.7
 exceptiongroup==1.2.0
