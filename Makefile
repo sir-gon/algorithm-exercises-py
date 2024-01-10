@@ -28,7 +28,16 @@ BUILDKIT_PROGRESS=plain
 .PHONY: all clean dependencies help list test
 .EXPORT_ALL_VARIABLES: # (2)
 
+RUNTIME_TOOL=python3
+PACKAGE_TOOL=pip3
+
+
 help: list
+	@echo ""
+	@echo "Note: create and activate the environment in your local shell type:"
+	@echo "See: "
+	@echo "   https://docs.python.org/3/library/venv.html#creating-virtual-environments"
+	@echo "   https://docs.python.org/3/library/venv.html#how-venvs-work"
 
 list:
 	@LC_ALL=C $(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
@@ -38,7 +47,13 @@ env:
 	@echo "## Environment: ################################################################"
 	@echo "################################################################################"
 	@printenv | grep -E "LOG_LEVEL|BRUTEFORCE|BUILDKIT_PROGRESS"
+	@echo ""
 	@echo "################################################################################"
+	@echo "## Runtime: ####################################################################"
+	@echo "################################################################################"
+	@which $(PACKAGE_TOOL)
+	@which $(RUNTIME_TOOL)
+	@echo ""
 
 install: dependencies
 
@@ -46,7 +61,7 @@ dependencies:
 	@echo "################################################################################"
 	@echo "## Dependencies: ###############################################################"
 	@echo "################################################################################"
-	pip3 install --user -r requirements.txt
+	${PACKAGE_TOOL} install -r requirements.txt
 	@echo "################################################################################"
 
 mdlint:
@@ -55,32 +70,32 @@ mdlint:
 lint: test/static mdlint
 
 test/static: dependencies
-	python3 -m pylint --verbose --recursive yes src/
-	python3 -m flake8 --verbose
-	python3 -m pyright --verbose
+	${RUNTIME_TOOL} -m pylint --verbose --recursive yes src/
+	${RUNTIME_TOOL} -m flake8 --verbose src/
+	${RUNTIME_TOOL} -m pyright --verbose src/
 
 test: env dependencies
-	python3 -m pytest --verbose -o log_cli=true --log-cli-level=$(LOG_LEVEL) --full-trace src/
+	${RUNTIME_TOOL} -m pytest --verbose -o log_cli=true --log-cli-level=${LOG_LEVEL} --full-trace src/
 
 coverage: dependencies
-	python3 -m coverage run -m pytest --verbose src/
-	python3 -m coverage lcov -o coverage/lcov.info
-	python3 -m coverage report
+	${RUNTIME_TOOL} -m coverage run -m pytest --verbose src/
+	${RUNTIME_TOOL} -m coverage lcov -o coverage/lcov.info
+	${RUNTIME_TOOL} -m coverage report
 
 coverage/html: coverage
-	python3 -m coverage html
+	${RUNTIME_TOOL} -m coverage html
 
 outdated:
-	pip3 list --outdated
+	${RUNTIME_TOOL} list --outdated
 
 update:
-	pip3 freeze > requirements.txt
+	${RUNTIME_TOOL} freeze > requirements.txt
 
 upgrade:
-	pip3 list --outdated | cut -f1 -d' ' | tr " " "\n" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip3 install -U
+	${RUNTIME_TOOL} list --outdated | cut -f1 -d' ' | tr " " "\n" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip3 install -U
 
 clean:
-	pip3 freeze > unins ; pip3 uninstall -y -r unins ; rm unins
+	${RUNTIME_TOOL} freeze > unins ; pip3 uninstall -y -r unins ; rm unins
 	rm -f .coverage
 	rm -fr .pytest_cache
 	rm -fr htmlcov
