@@ -15,7 +15,7 @@ pluggy==1.4.0
 pycodestyle==2.11.1
 pyflakes==3.2.0
 pylint==3.0.3
-pyright==1.1.348
+pyright==1.1.349
 pytest==8.0.0
 pytest-cov==4.1.0
 tomli==2.0.1
