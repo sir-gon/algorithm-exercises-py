@@ -34,7 +34,9 @@ PACKAGE_TOOL=pip3
 
 help: list
 	@echo ""
-	@echo "Note: create and activate the environment in your local shell type:"
+	@echo "Note: create and activate the environment in your local shell type (example):"
+	@echo "   python3 -m venv ./.venv"
+	@echo "   source .venv/bin/activate"
 	@echo "See: "
 	@echo "   https://docs.python.org/3/library/venv.html#creating-virtual-environments"
 	@echo "   https://docs.python.org/3/library/venv.html#how-venvs-work"
