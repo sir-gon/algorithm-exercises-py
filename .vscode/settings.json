@@ -12,4 +12,5 @@
         "src"
     ],
     "python.testing.unittestEnabled": false,
+    "snyk.advanced.additionalParameters": "--command=.venv/bin/python",
 }
