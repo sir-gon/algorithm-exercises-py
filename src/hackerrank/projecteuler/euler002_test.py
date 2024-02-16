@@ -2,9 +2,9 @@ import unittest
 from .euler002 import euler002
 
 
-class TestEuler001(unittest.TestCase):
+class TestEuler002(unittest.TestCase):
 
-    def test_euler001(self):
+    def test_euler002(self):
 
         tests = [
           {'n': 10, 'answer': 10},
@@ -15,5 +15,5 @@ class TestEuler001(unittest.TestCase):
 
             self.assertEqual(
                 euler002(_tt['n']), _tt['answer'],
-                f"{_} | euler001({_tt['n']}) must be "
+                f"{_} | euler002({_tt['n']}) must be "
                 f"=> {_tt['answer']}")
