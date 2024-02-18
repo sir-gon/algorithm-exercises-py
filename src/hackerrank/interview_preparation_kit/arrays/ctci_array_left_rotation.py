@@ -8,10 +8,10 @@ LOGGER = logging.getLogger(__name__)
 
 def rot_left_one(group: list[int]) -> list[int]:
 
-    result = group[1:len(group)]
-    result = result + [group[0]]
+    first = group.pop(0)
+    group.append(first)
 
-    return result
+    return group
 
 
 def rot_left(group: list[int], d: int) -> list[int]:
