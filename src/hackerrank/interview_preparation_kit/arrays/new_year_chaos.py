@@ -1,5 +1,5 @@
 # @link Problem definition
-# [[docs/hackerrank/interview_preparation_kit/arrays/ctci_array_left_rotation.md]]
+# [[docs/hackerrank/interview_preparation_kit/arrays/new_year_chaos.md]]
 
 import logging
 
