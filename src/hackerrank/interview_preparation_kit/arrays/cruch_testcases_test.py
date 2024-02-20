@@ -1,12 +1,4 @@
-import unittest
-from .cruch import array_manipulation
-
-
-class TestCrush(unittest.TestCase):
-
-    def test_array_manipulation(self):
-
-        tests = [
+CRUCH_TEST_CASES = tests = [
             {
                 'title': "Sample Test Case 0",
                 'n': 5,
@@ -33,10 +25,3 @@ class TestCrush(unittest.TestCase):
                 'answer': 31
             },
         ]
-
-        for _, _tt in enumerate(tests):
-
-            self.assertEqual(
-                array_manipulation(_tt['n'], _tt['queries']), _tt['answer'],
-                f"{_} | array_manipulation({_tt['n']}, {_tt['queries']}) must be "
-                f"=> {_tt['answer']}")
