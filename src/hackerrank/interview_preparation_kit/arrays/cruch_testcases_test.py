@@ -1,4 +1,4 @@
-CRUCH_TEST_CASES = tests = [
+CRUCH_SMALL_TEST_CASES = tests = [
             {
                 'title': "Sample Test Case 0",
                 'n': 5,
