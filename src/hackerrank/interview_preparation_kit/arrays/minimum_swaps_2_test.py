@@ -2,9 +2,9 @@ import unittest
 from .minimum_swaps_2 import minimum_swaps
 
 
-class TestArrayLeftRotation(unittest.TestCase):
+class TestMinimumSwaps(unittest.TestCase):
 
-    def test_rot_left_one(self):
+    def test_minimum_swaps(self):
 
         tests = [
           {'title': 'Sample input 0', 'input': [4, 3, 1, 2], 'answer': 3},
