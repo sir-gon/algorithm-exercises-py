@@ -2,7 +2,7 @@ import unittest
 from .new_year_chaos import minimum_bribes_transform, TOO_CHAOTIC_ERROR
 
 
-class TestArrayLeftRotation(unittest.TestCase):
+class TestMinimumBribes(unittest.TestCase):
 
     def test_minimum_bribes(self):
 
