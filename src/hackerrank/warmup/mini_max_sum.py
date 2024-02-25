@@ -16,11 +16,8 @@ def mini_max_sum(arr: list[int]) -> str:
     for _, value in enumerate(arr):
         tsum += value
 
-        if value < tmin:
-            tmin = value
-
-        if value > tmax:
-            tmax = value
+        tmin = min(tmin, value)
+        tmax = max(tmax, value)
 
     result = f"{tsum - tmax} {tsum - tmin}"
 

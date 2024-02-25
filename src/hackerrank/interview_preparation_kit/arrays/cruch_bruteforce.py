@@ -19,7 +19,6 @@ def array_manipulation(n: int, queries: list[list[int]]) -> int:
             LOGGER.debug("result -> %s", result)
 
     for value in result:
-        if value > maximum:
-            maximum = value
+        maximum = max(value, maximum)
 
     return maximum
