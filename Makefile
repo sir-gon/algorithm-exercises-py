@@ -88,16 +88,16 @@ coverage/html: coverage
 	${RUNTIME_TOOL} -m coverage html
 
 outdated:
-	${RUNTIME_TOOL} list --outdated
+	${PACKAGE_TOOL} list --outdated
 
 update:
-	${RUNTIME_TOOL} freeze > requirements.txt
+	${PACKAGE_TOOL} freeze > requirements.txt
 
 upgrade:
-	${RUNTIME_TOOL} list --outdated | cut -f1 -d' ' | tr " " "\n" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip3 install -U
+	${PACKAGE_TOOL} list --outdated | cut -f1 -d' ' | tr " " "\n" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip3 install -U
 
 clean:
-	${RUNTIME_TOOL} freeze > unins ; pip3 uninstall -y -r unins ; rm unins
+	${PACKAGE_TOOL} freeze > unins ; pip3 uninstall -y -r unins ; rm unins
 	rm -f .coverage
 	rm -fr .pytest_cache
 	rm -fr htmlcov
