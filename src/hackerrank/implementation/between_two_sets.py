@@ -40,8 +40,7 @@ def factor_of(_n: int, group: list[int]):
 def get_total_x(_a: list[int], _b: list[int]) -> int:
     _max_ = 0
     for _, j in enumerate(_b):
-        if j > _max_:
-            _max_ = j
+        _max_ = max(_max_, j)
 
     result: list[int] = []
 
