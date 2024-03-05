@@ -1,6 +1,6 @@
 import unittest
 
-from .singly_linked_list import SinglyLinkedList, singly_linked_list_to_text
+from .lib.singly_linked_list import SinglyLinkedList, singly_linked_list_to_text
 from .insert_a_node_at_a_specific_position_in_a_linked_list import insert_node_at_position
 
 
