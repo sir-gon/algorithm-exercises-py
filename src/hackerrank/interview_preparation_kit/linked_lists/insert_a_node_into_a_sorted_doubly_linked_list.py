@@ -36,9 +36,8 @@ def sorted_insert(
             else:
                 llist = new_node
 
-            if current:
-                new_node.next = current
-                current.prev = new_node
+            new_node.next = current
+            current.prev = new_node
 
             resume = False
 

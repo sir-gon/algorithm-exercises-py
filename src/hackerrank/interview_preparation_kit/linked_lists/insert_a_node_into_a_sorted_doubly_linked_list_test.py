@@ -57,7 +57,7 @@ class TestMakeAnagramt(unittest.TestCase):
 
     def test_sorted_insert_edge_case(self):
 
-        llist = DoublyLinkedList().insert_node(2)
+        llist = DoublyLinkedList()
         data = 1
 
         head = sorted_insert(
@@ -66,7 +66,7 @@ class TestMakeAnagramt(unittest.TestCase):
 
         result = double_linked_list_to_text(head, ' ')
 
-        answer = '1 2'
+        answer = '1'
 
         self.assertEqual(
             result,
