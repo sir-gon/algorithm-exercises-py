@@ -1,7 +1,7 @@
 # Given by problem:
 # https://www.hackerrank.com/challenges/insert-a-node-at-a-specific-position-in-a-linked-list/
 
-# pylint: disable=too-few-public-methods
+# pylint: disable=too-few-public-methods,duplicate-code
 # pyright: reportOptionalMemberAccess=none
 
 from __future__ import annotations
