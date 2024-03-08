@@ -81,16 +81,16 @@ class TestBinaryNode(unittest.TestCase):
         test_node_a.set_left(test_node_b)
         test_node_a.set_right(test_node_c)
 
-        self.assertEqual(
-            test_node_a.is_leaf(), False,
+        self.assertFalse(
+            test_node_a.is_leaf(),
             f"BinaryNode({value_a}).is_leaf() must be => {False}")
 
-        self.assertEqual(
-            test_node_b.is_leaf(), True,
+        self.assertTrue(
+            test_node_b.is_leaf(),
             f"BinaryNode({'B'}).is_leaf() must be => {True}")
 
-        self.assertEqual(
-            test_node_c.is_leaf(), True,
+        self.assertTrue(
+            test_node_c.is_leaf(),
             f"BinaryNode({'C'}).is_leaf() must be => {True}")
 
     def test_binary_node_equality(self):
