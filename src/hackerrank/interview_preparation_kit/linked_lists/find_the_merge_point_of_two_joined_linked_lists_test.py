@@ -53,7 +53,7 @@ TEST_CASES = [
 ]
 
 
-class TestHasCycle(unittest.TestCase):
+class TestFindMergeNode(unittest.TestCase):
 
     def test_find_merge_node(self):
 

@@ -45,9 +45,9 @@ TEST_CASES = [
 ]
 
 
-class TestBubleSort(unittest.TestCase):
+class TestSherlockAndAnagrams(unittest.TestCase):
 
-    def test_sorts(self):
+    def test_sherlock_and_anagrams(self):
 
         for _, testset in enumerate(TEST_CASES):
 

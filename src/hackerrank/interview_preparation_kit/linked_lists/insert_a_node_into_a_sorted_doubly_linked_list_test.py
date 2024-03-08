@@ -35,7 +35,7 @@ TEST_CASES = [
 ]
 
 
-class TestMakeAnagramt(unittest.TestCase):
+class TestSortedInsert(unittest.TestCase):
 
     def test_sorted_insert(self):
 

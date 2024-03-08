@@ -2,9 +2,9 @@ import unittest
 from .mark_and_toys import maximum_toys
 
 
-class TestBubleSort(unittest.TestCase):
+class TestMarkAndToys(unittest.TestCase):
 
-    def test_sorts(self):
+    def test_maximum_toys(self):
 
         tests = [
             {

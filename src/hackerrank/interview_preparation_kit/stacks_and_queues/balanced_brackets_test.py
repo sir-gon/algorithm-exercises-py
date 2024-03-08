@@ -57,9 +57,9 @@ TEST_CASES = [
 ]
 
 
-class TestBubleSort(unittest.TestCase):
+class TestBalancedBrackets(unittest.TestCase):
 
-    def test_sorts(self):
+    def test_is_balanced(self):
 
         for _, testset in enumerate(TEST_CASES):
 

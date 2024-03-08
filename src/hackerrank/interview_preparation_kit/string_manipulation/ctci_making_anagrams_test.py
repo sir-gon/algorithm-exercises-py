@@ -24,7 +24,7 @@ TEST_CASES = [
             ]
 
 
-class TestMakeAnagramt(unittest.TestCase):
+class TestMakeAnagram(unittest.TestCase):
 
     def test_make_anagram(self):
 
