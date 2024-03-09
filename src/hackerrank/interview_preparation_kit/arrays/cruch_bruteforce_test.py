@@ -4,7 +4,7 @@ from .cruch_bruteforce import array_manipulation
 from .cruch_testcases_test import CRUCH_SMALL_TEST_CASES
 
 
-class TestCrushBruteForce(unittest.TestCase):
+class TestCruchBruteForce(unittest.TestCase):
 
     def test_array_manipulation(self):
 

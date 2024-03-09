@@ -18,7 +18,7 @@ TEST_CASES = [
 ]
 
 
-class TestMakeAnagramt(unittest.TestCase):
+class TestInsertNodeAtPosition(unittest.TestCase):
 
     def test_insert_node_at_position(self):
 

@@ -20,7 +20,7 @@ TEST_CASES = [
 ]
 
 
-class TestMakeAnagramt(unittest.TestCase):
+class TestMinimumAbsoluteDifference(unittest.TestCase):
 
     def test_minimum_absolute_difference(self):
 
