@@ -32,5 +32,5 @@ class TestSherlockAndAnagrams(unittest.TestCase):
 
             self.assertEqual(
                 check_magazine(_tt['magazine'], _tt['note']), _tt['answer'],
-                f"{_} | sherlock_and_anagrams({_tt['magazine']}, {_tt['note']}) must be "
+                f"{_} | check_magazine({_tt['magazine']}, {_tt['note']}) must be "
                 f"=> {_tt['answer']}")
