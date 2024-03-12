@@ -3,8 +3,6 @@
 - Difficulty:  `#easy`
 - Category: `#ProblemSolvingBasic`
 
-TODO: complete problem definition
-
 ## Clarification
 
 The problem asks to find if there is a substring between 2 words,
