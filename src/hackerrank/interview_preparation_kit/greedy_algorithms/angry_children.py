@@ -1,4 +1,6 @@
-
+# pylint: disable=line-too-long
+# @link Problem definition [[docs/hackerrank/interview_preparation_kit/greedy_algorithms/angry-children.md]] # noqa
+# pylint: enable=line-too-long
 
 def max_min(k: int, arr: list[int]):
 
