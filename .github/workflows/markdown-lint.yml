@@ -29,6 +29,9 @@ jobs:
     - name: Install dependencies
       run: npm install -g markdownlint-cli
 
+    - name: Version
+      run: markdownlint --version
+
     - name: Lint
       run: markdownlint '**/*.md' --ignore node_modules && echo '✔  Your code looks good.'
 
