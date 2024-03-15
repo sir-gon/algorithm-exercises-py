@@ -23,7 +23,7 @@ TEST_CASES = [
 ]
 
 
-class TestLuckBalance(unittest.TestCase):
+class TestGreedyFlorist(unittest.TestCase):
 
     def test_get_minimum_cost(self):
 
