@@ -1,3 +1,7 @@
+# pylint: disable=line-too-long
+# @link Problem definition [[docs/hackerrank/interview_preparation_kit/miscellaneous/friend-circle-queries.md]] # noqa
+# pylint: enable=line-too-long
+
 from typing import Dict
 
 
@@ -41,7 +45,7 @@ class GroupingFriends:
         return self._large_friendship
 
 
-def max_circle(queries):
+def max_circle(queries) -> list[int]:
     result: list[int] = []
     friends = GroupingFriends()
 
