@@ -49,12 +49,37 @@ TEST_CASES = [
     }
 ]
 
+TEST_CASES_BORDER_CASES = [
+    {
+        'title': 'Sample Test Case 0',
+        'tests':
+        [
+            {
+                'costs': [1, 4, 5, 3, 2],
+                'money': 90,
+                'answer': None
+            }
+        ]
+    }
+]
+
 
 class TestIceCreamParlor(unittest.TestCase):
 
     def test_what_flavors(self):
 
         for _, testset in enumerate(TEST_CASES):
+
+            for _, _tt in enumerate(testset['tests']):
+
+                self.assertEqual(
+                    what_flavors(_tt['costs'], _tt['money']), _tt['answer'],
+                    f"{_} | what_flavors({_tt['costs']}, {_tt['money']}) must be "
+                    f"=> {_tt['answer']}")
+
+    def test_what_flavors_border_case(self):
+
+        for _, testset in enumerate(TEST_CASES_BORDER_CASES):
 
             for _, _tt in enumerate(testset['tests']):
 
