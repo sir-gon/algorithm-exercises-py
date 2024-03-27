@@ -2,26 +2,25 @@ import unittest
 from .ctci_making_anagrams import make_anagram
 
 TEST_CASES = [
-                {
-                    'title': 'Sample Test case 0',
-                    'a': 'cde',
-                    'b': 'abc',
-                    'answer': 4
-                },
-                {
-                    'title': 'Sample Test case 1',
-                    'a': 'fcrxzwscanmligyxyvym',
-                    'b': 'jxwtrhvujlmrpdoqbisbwhmgpmeoke',
-                    'answer': 30
-                },
-                {
-                    'title': 'Sample Test case 2',
-                    'a': 'showman',
-                    'b': 'woman',
-                    'answer': 2
-                }
-
-            ]
+    {
+        'title': 'Sample Test case 0',
+        'a': 'cde',
+        'b': 'abc',
+        'answer': 4
+    },
+    {
+        'title': 'Sample Test case 1',
+        'a': 'fcrxzwscanmligyxyvym',
+        'b': 'jxwtrhvujlmrpdoqbisbwhmgpmeoke',
+        'answer': 30
+    },
+    {
+        'title': 'Sample Test case 2',
+        'a': 'showman',
+        'b': 'woman',
+        'answer': 2
+    }
+]
 
 
 class TestMakeAnagram(unittest.TestCase):
