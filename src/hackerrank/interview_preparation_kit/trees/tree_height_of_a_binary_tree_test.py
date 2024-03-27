@@ -1,5 +1,6 @@
 import unittest
-from .tree_height_of_a_binary_tree import BinarySearchTree, height
+from ...lib.tree import BinarySearchTree
+from .tree_height_of_a_binary_tree import height
 
 TEST_CASES = [
     {
