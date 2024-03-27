@@ -18,8 +18,11 @@ class Node:
 
 
 class BinarySearchTree:
-    def __init__(self):
+    def __init__(self, nodes: list[int] | None = None):
         self.root = None
+        if nodes is not None:
+            for x in nodes:
+                self.create(x)
 
     def create(self, val):
         if self.root is None:
