@@ -8,7 +8,7 @@ class Node:
     left: Node | None = None
 
     def __init__(self, info):
-        self.info = info
+        self.data = info
         self.left = None
         self.right = None
 # End given code
