@@ -2,17 +2,6 @@ import unittest
 from ...lib.node import Node
 from .ctci_is_binary_search_tree import check_bst
 
-# code to dump tree structures from examples:
-
-# if root is not None:
-#     left = None
-#     if(root.left is not None):
-#         left = root.left.data
-#     right = None
-#     if(root.right is not None):
-#         right = root.right.data
-#     print(f"parent: {root.data} | left: {left} | right: {right}")
-
 
 class TestIsBinarySearchTree(unittest.TestCase):
 
