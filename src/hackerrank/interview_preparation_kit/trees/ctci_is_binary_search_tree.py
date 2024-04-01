@@ -27,13 +27,13 @@ def check_bst_failed_try(root: Node | None) -> bool:
     return check_bst_failed_try(root.left) and check_bst_failed_try(root.right)
 
 
-def traverse_bst(node: Node | None, collect: list[int]) -> list[int] | None:
-    if node is not None:
-        traverse_bst(node.left, collect)
+def traverse_bst(root: Node | None, collect: list[int]) -> list[int] | None:
+    if root is not None:
+        traverse_bst(root.left, collect)
 
-        collect.append(node.data)
+        collect.append(root.data)
 
-        traverse_bst(node.right, collect)
+        traverse_bst(root.right, collect)
 
 
 def check_bst(root: Node | None) -> bool:
@@ -47,9 +47,11 @@ def check_bst(root: Node | None) -> bool:
     if nodes_count > 1:
         last = plaint_tree[0]
         for i in range(1, nodes_count):
-            if plaint_tree[i] < last:
+            if plaint_tree[i] <= last:
                 return False
 
             last = plaint_tree[i]
+    else:
+        return False
 
     return result
