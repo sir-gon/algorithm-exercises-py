@@ -16,6 +16,17 @@ from .ctci_is_binary_search_tree import check_bst
 
 class TestIsBinarySearchTree(unittest.TestCase):
 
+    def test_check_bst_edge_case(self):
+        root: Node | None = None
+
+        answer = True
+
+        self.assertTrue(
+            check_bst(root),
+            f"check_bst({root}) must be "
+            f"=> {answer}"
+        )
+
     def test_check_bst_test_example(self):
         ref: Node | None = Node(3)
         root: Node | None = ref

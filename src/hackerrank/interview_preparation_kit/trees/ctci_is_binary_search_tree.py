@@ -5,28 +5,6 @@
 from ...lib.node import Node
 
 
-def check_bst_failed_try(root: Node | None) -> bool:
-    if root is not None:
-        left = None
-        if root.left is not None:
-            left = root.left.data
-        right = None
-        if root.right is not None:
-            right = root.right.data
-        print(f"parent: {root.data} | left: {left} | right: {right}")
-
-    if root is None:
-        return True
-
-    if root.left is not None and root.left.data > root.data:
-        return False
-
-    if root.right is not None and root.right.data < root.data:
-        return False
-
-    return check_bst_failed_try(root.left) and check_bst_failed_try(root.right)
-
-
 def traverse_bst(root: Node | None, collect: list[int]) -> list[int] | None:
     if root is not None:
         traverse_bst(root.left, collect)
@@ -51,7 +29,5 @@ def check_bst(root: Node | None) -> bool:
                 return False
 
             last = plaint_tree[i]
-    else:
-        return False
 
     return result
