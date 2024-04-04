@@ -13,9 +13,8 @@ def super_digit_compute(p: int):
         return p
 
     partial = 0
-    if len(word) > 1:
-        for x in word:
-            partial += int(x)
+    for x in word:
+        partial += int(x)
 
     return super_digit_compute(partial)
 
