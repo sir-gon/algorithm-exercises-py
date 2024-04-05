@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 def char_to_dict(a: str) -> dict:
     a_map = {char: (a.count(char)) for char in ''.join(sorted(a[:]))}
 
@@ -10,29 +13,22 @@ def is_valid(s: str) -> bool:
         return True
 
     string_map = char_to_dict(s)
-    sorted_string_map = dict(sorted(string_map.items(), key=lambda x: x[1]))
+    frequencies = Counter(string_map.values())
+    frequencies = dict(sorted(frequencies.items(), key=lambda x: x[1]))
+    frequencies_size = len(frequencies)
 
-    tolerance_range = 1
-    tolerance_times = 1
+    if frequencies_size == 1:
+        return True
 
-    last = 0
+    if frequencies_size > 2:
+        return False
 
-    for _, x in sorted_string_map.items():
-        if last == 0:
-            last = x
-            continue
+    if frequencies_size == 2:
+        frequencies_list = list(frequencies.keys())
 
-        if x != last:
-            if tolerance_times > 0:
-                tolerance_times -= 1
-            else:
-                return False
+        if frequencies[frequencies_list[0]] == 1 and \
+            (frequencies_list[0] - 1 == 0 or
+             frequencies_list[0] - 1 == frequencies_list[1]):
+            return True
 
-            diff = x - tolerance_range
-            if diff == 0:
-                continue
-
-            if diff != last:
-                return False
-
-    return True
+    return False
