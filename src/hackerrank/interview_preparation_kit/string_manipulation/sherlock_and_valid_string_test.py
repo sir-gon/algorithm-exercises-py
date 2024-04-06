@@ -3,7 +3,7 @@ from .sherlock_and_valid_string import is_valid
 
 TEST_CASES = [
     {
-        'title': 'Sample Test case 0',
+        'title': 'counterexample',
         'input': 'aabbccc',
         'answer': True
     },

@@ -1,10 +1,8 @@
+# pylint: disable=line-too-long
+# @link Problem definition [[docs/hackerrank/interview_preparation_kit/string_manipulation/sherlock-and-valid-string.md]] # noqa
+# pylint: enable=line-too-long
+
 from collections import Counter
-
-
-def char_to_dict(a: str) -> dict:
-    a_map = {char: (a.count(char)) for char in ''.join(sorted(a[:]))}
-
-    return a_map
 
 
 def is_valid(s: str) -> bool:
@@ -12,7 +10,10 @@ def is_valid(s: str) -> bool:
     if len(s) <= 1:
         return True
 
-    string_map = char_to_dict(s)
+    string_map = {}
+    for c in s:
+        string_map[c] = 1 + string_map.get(c, 0)
+
     frequencies = Counter(string_map.values())
     frequencies = dict(sorted(frequencies.items(), key=lambda x: x[1]))
     frequencies_size = len(frequencies)
