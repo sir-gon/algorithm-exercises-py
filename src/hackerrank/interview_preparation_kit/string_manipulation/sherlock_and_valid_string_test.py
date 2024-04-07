@@ -8,6 +8,26 @@ TEST_CASES = [
         'answer': True
     },
     {
+        'title': 'counterexample',
+        'input': 'a',
+        'answer': True
+    },
+    {
+        'title': 'counterexample',
+        'input': 'aaa',
+        'answer': True
+    },
+    {
+        'title': 'counterexample',
+        'input': 'abbccc',
+        'answer': False
+    },
+    {
+        'title': 'counterexample',
+        'input': 'bbccc',
+        'answer': False
+    },
+    {
         'title': 'Sample Test case 0',
         'input': 'aabbcd',
         'answer': False

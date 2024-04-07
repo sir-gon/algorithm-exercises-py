@@ -21,9 +21,6 @@ def is_valid(s: str) -> bool:
     if frequencies_size == 1:
         return True
 
-    if frequencies_size > 2:
-        return False
-
     if frequencies_size == 2:
         frequencies_list = list(frequencies.keys())
 
