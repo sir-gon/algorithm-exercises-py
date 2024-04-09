@@ -41,11 +41,11 @@ jobs:
 
     - name: Lint (flake8)
       run: |
-        python3 -m flake8 --verbose
+        python3 -m flake8 --verbose src/
 
     - name: Lint static type checker
       run: |
-        python3 -m pyright --verbose
+        python3 -m pyright --verbose src/
 
     - name: Test
       run: |
