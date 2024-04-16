@@ -1,5 +1,8 @@
+import logging
 from typing import Dict, List, Callable
 from ...lib.node import Node
+
+LOGGER = logging.getLogger(__name__)
 
 __INITIAL_LEVEL__: int = 1
 __ROOT_VALUE__: int = 1
@@ -10,7 +13,7 @@ def callback_collect_nodes(
         collect: Dict[int, list[Node]],
         level: int
 ) -> None:
-    if root is not None and root.left is None and root.right is None:
+    if root is not None:
         if level not in collect:
             collect[level] = [root]
         else:
@@ -31,18 +34,6 @@ def callback_collect_plain(
             collect[_level].append(root)
 
 
-def callback_swap_nodes(
-        root: Node | None,
-        level: int,
-        level_comparing: int
-
-) -> None:
-    if root is not None and level % level_comparing == 0:
-        temp: Node | None = root.left
-        root.left = root.right
-        root.right = temp
-
-
 def traverse_in_order_collector(
             root: Node | None,
             collect: Dict[int, list[Node]],
@@ -57,29 +48,6 @@ def traverse_in_order_collector(
         callback(root, collect, level)
 
         traverse_in_order_collector(root.right, collect,  level + 1, callback)
-
-
-def traverse_in_order_level_comparator(
-            root: Node | None,
-            level: int,
-            level_comparing: int,
-            callback: Callable[[Node | None, int, int], None]
-        ) -> list[int] | None:
-    if root is not None:
-
-        traverse_in_order_level_comparator(
-            root.left,
-            level + 1,
-            level_comparing,
-            callback)
-
-        callback(root, level, level_comparing)
-
-        traverse_in_order_level_comparator(
-            root.right,
-            level + 1,
-            level_comparing,
-            callback)
 
 
 def build_tree(indexes: List[List[int]]) -> Node:
@@ -130,24 +98,41 @@ def plain_tree(root: Node) -> List[int]:
     return output
 
 
-def swap_nodes(indexes: List[List[int]], queries: List[int]) -> List[List[int]]:
-    # Write your code here
-    # print(indexes)
-    # print('------')
-    # print(queries)
+def swap_branch(root: Node | None) -> Node | None:
+    if root is not None:
+        temp: Node | None = root.left
+        root.left = root.right
+        root.right = temp
 
+    return root
+
+
+def swap_nodes(indexes: List[List[int]], queries: List[int]) -> List[List[int]]:
     tree: Node = build_tree(indexes)
 
     plain: List[int]
     output: List[List[int]] = []
 
+    node_collector: Dict[int, list[Node]] = {}
+
+    traverse_in_order_collector(
+        tree,
+        node_collector,
+        __INITIAL_LEVEL__,
+        callback_collect_nodes)
+
+    node_collector = dict(sorted(node_collector.items()))
+
+    plain = plain_tree(tree)  # original
+
+    LOGGER.debug('Triangle: %s', plain)
+
     for query in queries:
-        traverse_in_order_level_comparator(
-            tree,
-            __INITIAL_LEVEL__,
-            query,
-            callback_swap_nodes
-        )
+        for level, node_list in node_collector.items():
+            if level % query == 0:
+                for x in node_list:
+                    swap_branch(x)
+
         plain = plain_tree(tree)
         output.append(plain)
 
