@@ -43,9 +43,13 @@ jobs:
       run: |
         python3 -m flake8 --verbose src/
 
-    - name: Lint static type checker
+    - name: Lint (pyright) static type checker
       run: |
         python3 -m pyright --verbose src/
+
+    - name: Styling (pycodestyle)
+      run: |
+        python3 -m pycodestyle --statistics src/
 
     - name: Test
       run: |
