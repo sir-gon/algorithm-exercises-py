@@ -2,33 +2,47 @@
 # @link Problem definition [[docs/hackerrank/interview_preparation_kit/search/swap-nodes-algo.md]] # noqa
 # pylint: enable=line-too-long
 
-from typing import Dict, List
+from typing import Dict, List, Callable
 from ...lib.node import Node
 
+__INITIAL_LEVEL__: int = 1
+__ROOT_VALUE__: int = 1
 
-def traverse_leaves(
+
+def callback_collect_nodes(
         root: Node | None,
         collect: Dict[int, list[Node]],
-        level: int = 1) -> list[int] | None:
+        level: int
+):
+    if root is not None and root.left is None and root.right is None:
+        if level not in collect:
+            collect[level] = [root]
+        else:
+            collect[level].append(root)
+
+
+def traverse_in_order(
+            root: Node | None,
+            collect: Dict[int, list[Node]],
+            level: int,
+            callback: Callable[[Node | None, Dict[int, list[Node]], int], None]
+        ) -> list[int] | None:
     if root is not None:
 
-        traverse_leaves(root.left, collect, level + 1)
+        traverse_in_order(root.left, collect, level + 1, callback)
 
-        if root.left is None and root.right is None:
-            if level not in collect:
-                collect[level] = [root]
-            else:
-                collect[level].append(root)
+        callback(root, collect, level)
 
-        traverse_leaves(root.right, collect,  level + 1)
+        traverse_in_order(root.right, collect,  level + 1, callback)
 
 
 def build_tree(indexes: List[List[int]]) -> Node:
-    root: Node = Node(1)
+
+    root: Node = Node(__ROOT_VALUE__)
     leaves = {}
 
     while len(indexes) > 0:
-        traverse_leaves(root, leaves)
+        traverse_in_order(root, leaves, __INITIAL_LEVEL__, callback_collect_nodes)
 
         last_level: List[Node] = list(leaves)[-1]
 
