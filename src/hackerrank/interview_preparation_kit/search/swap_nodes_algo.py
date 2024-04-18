@@ -2,14 +2,24 @@
 # @link Problem definition [[docs/hackerrank/interview_preparation_kit/search/swap-nodes-algo.md]] # noqa
 # pylint: enable=line-too-long
 
+
 import logging
+import sys
 from typing import Dict, List, Callable
 from ...lib.node import Node
 
 LOGGER = logging.getLogger(__name__)
 
+# CONSTANTS
 __INITIAL_LEVEL__: int = 1
 __ROOT_VALUE__: int = 1
+__HIGH_RECURSION_LIMIT__: int = 3000
+
+LOGGER = logging.getLogger(__name__)
+
+# Next line avoid hit python error:
+# RecursionError: maximum recursion depth exceeded
+sys.setrecursionlimit(__HIGH_RECURSION_LIMIT__)
 
 
 def callback_collect_nodes(
