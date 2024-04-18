@@ -69,12 +69,15 @@ dependencies:
 mdlint:
 	markdownlint '**/*.md' --ignore node_modules && echo '✔  Your code looks good.'
 
-lint: test/static mdlint
+lint: test/static test/styling mdlint
 
 test/static: dependencies
 	${RUNTIME_TOOL} -m pylint --verbose --recursive yes src/
 	${RUNTIME_TOOL} -m flake8 --verbose src/
 	${RUNTIME_TOOL} -m pyright --verbose src/
+
+test/styling: dependencies
+	${RUNTIME_TOOL} -m pycodestyle --statistics src/
 
 test: env dependencies
 	${RUNTIME_TOOL} -m pytest --verbose -o log_cli=true --log-cli-level=${LOG_LEVEL} --full-trace src/
