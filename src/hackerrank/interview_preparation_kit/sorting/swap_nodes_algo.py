@@ -9,45 +9,46 @@ __ROOT_VALUE__: int = 1
 
 
 def callback_collect_nodes(
-        root: Node | None,
+        root: Node,
         collect: Dict[int, list[Node]],
         level: int
 ) -> None:
-    if root is not None:
-        if level not in collect:
-            collect[level] = [root]
-        else:
-            collect[level].append(root)
+    if level not in collect:
+        collect[level] = [root]
+    else:
+        collect[level].append(root)
 
 
 def callback_collect_plain(
-        root: Node | None,
+        root: Node,
         collect: Dict[int, list[Node]],
         level: int
 ) -> None:
 
     _level = 0 * level  # set a unique key to use dict as a list
-    if root is not None:
-        if _level not in collect:
-            collect[_level] = [root]
-        else:
-            collect[_level].append(root)
+
+    if _level not in collect:
+        collect[_level] = [root]
+    else:
+        collect[_level].append(root)
 
 
 def traverse_in_order_collector(
-            root: Node | None,
+            root: Node,
             collect: Dict[int, list[Node]],
             level: int,
-            callback: Callable[[Node | None, Dict[int, list[Node]], int], None] =
-            lambda _, __, ___: None
-        ) -> list[int] | None:
-    if root is not None:
+            callback: Callable[[Node, Dict[int, list[Node]], int], None]
+        ) -> Dict[int, list[Node]]:
 
+    if root.left is not None:
         traverse_in_order_collector(root.left, collect, level + 1, callback)
 
-        callback(root, collect, level)
+    callback(root, collect, level)
 
-        traverse_in_order_collector(root.right, collect,  level + 1, callback)
+    if root.right is not None:
+        traverse_in_order_collector(root.right, collect, level + 1, callback)
+
+    return collect
 
 
 def build_tree(indexes: List[List[int]]) -> Node:
@@ -64,16 +65,14 @@ def build_tree(indexes: List[List[int]]) -> Node:
 
         last_level: int = list(node_collector)[-1]
 
-        for leaf in node_collector[last_level]:
-            if len(indexes) > 0:
-                element: List[int] = indexes.pop(0)
-                print(element)
-                if element[0] != -1:
-                    leaf.left = Node(element[0])
-                if element[1] != -1:
-                    leaf.right = Node(element[1])
-            else:
-                return root
+        for i in range(0, min(len(indexes), len(node_collector[last_level]))):
+            current_node: Node = node_collector[last_level][i]
+            new_element: List[int] = indexes.pop(0)
+
+            if new_element[0] != -1:
+                current_node.left = Node(new_element[0])
+            if new_element[1] != -1:
+                current_node.right = Node(new_element[1])
 
     return root
 
@@ -81,19 +80,19 @@ def build_tree(indexes: List[List[int]]) -> Node:
 def plain_tree(root: Node) -> List[int]:
     node_collector: Dict[int, list[Node]] = {}
 
-    traverse_in_order_collector(root,
-                                node_collector,
-                                __INITIAL_LEVEL__,
-                                callback_collect_plain
-                                )
+    node_collector = traverse_in_order_collector(
+        root,
+        node_collector,
+        __INITIAL_LEVEL__,
+        callback_collect_plain
+    )
 
     output: List[int] = []
 
-    if len(node_collector) > 0:
-        last_level: int = list(node_collector)[-1]
-        # transform:
-        for node in node_collector[last_level]:
-            output.append(node.data)
+    last_level: int = list(node_collector)[-1]
+    # transform:
+    for node in node_collector[last_level]:
+        output.append(node.data)
 
     return output
 
@@ -125,7 +124,7 @@ def swap_nodes(indexes: List[List[int]], queries: List[int]) -> List[List[int]]:
 
     plain = plain_tree(tree)  # original
 
-    LOGGER.debug('Triangle: %s', plain)
+    LOGGER.debug('Plain tree: %s', plain)
 
     for query in queries:
         for level, node_list in node_collector.items():
