@@ -11,8 +11,8 @@ Perform m operations on an array and print the maximum of the values.
 
 The first solution attempt is based on the idea of going through:
 
->     -> each row and then,
->         -> each sub-set of elements affected by the operation.
+> each row and then,
+> > each sub-set of elements affected by the operation.
 
 With this principle, the algorithm becomes O(N^2)
 
