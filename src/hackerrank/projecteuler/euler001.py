@@ -5,7 +5,7 @@ import math
 
 
 # Function to find sum of Arithmetic Progression series
-def sum_of_arithmetic_progression(n: int, d: int):
+def sum_of_arithmetic_progression(n: int, d: int) -> int:
 
     # Number of terms
     n = n//d
@@ -14,7 +14,7 @@ def sum_of_arithmetic_progression(n: int, d: int):
 
 
 # Function to find the sum of all multiples of a and b below n
-def euler001(a, b, n):
+def euler001(a, b, n) -> int:
 
     # Since, we need the sum of multiples less than N
     n = n-1
