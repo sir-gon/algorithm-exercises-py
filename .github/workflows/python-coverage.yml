@@ -1,4 +1,4 @@
-name: Python CI Tests
+name: Python CI Coverage
 
 on:
   push:
@@ -16,12 +16,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [
-          "windows-latest",
-          "ubuntu-latest",
-          "macOS-latest"
-        ]
-        python: ['3.10', '3.11', '3.12']
+        os: ["ubuntu-latest"]
+        python: ['3.12']
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
@@ -35,22 +31,6 @@ jobs:
       run: |
         pip3 install -r requirements.txt
 
-    - name: Lint (pylint)
-      run: |
-        pylint --verbose --recursive yes src/
-
-    - name: Lint (flake8)
-      run: |
-        python3 -m flake8 --verbose src/
-
-    - name: Lint (pyright) static type checker
-      run: |
-        python3 -m pyright --verbose src/
-
-    - name: Styling (pycodestyle)
-      run: |
-        python3 -m pycodestyle --statistics src/
-
     - name: Test
       run: |
         coverage run -m pytest --verbose -o log_cli=true --log-cli-level=INFO src/
@@ -58,3 +38,9 @@ jobs:
     - name: Coverage
       run: |
         coverage report
+
+    - name: Upload coverage reports to Codecov with GitHub Action
+      uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }} # required
+        verbose: true # optional (default = false)
