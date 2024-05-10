@@ -10,6 +10,12 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/sir-gon/algorithm-exercises-py)
 ![GitHub top language](https://img.shields.io/github/languages/top/sir-gon/algorithm-exercises-py)
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-py&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-py)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-py&metric=coverage)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-py)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-py&metric=bugs)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-py)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-py&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-py)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-py&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-py)
+
 ## What is this?
 
 [Project Euler](https://algorithm-exercises.net/) provide some algorithms and
