@@ -4,6 +4,9 @@ from typing import Generic, TypeVar
 T = TypeVar("T")
 
 
+# Recommended way to define Generics in python >= 3.12:
+#   https://peps.python.org/pep-0695/
+#   https://docs.python.org/3.12/whatsnew/3.12.html#pep-695-type-parameter-syntax
 class BinaryNode(Generic[T]):
     def __init__(
         self,
