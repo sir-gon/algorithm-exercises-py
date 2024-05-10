@@ -4,6 +4,10 @@ from typing import Generic, TypeVar
 T = TypeVar("T")
 
 
+# pragma warning disable python:S6792.
+# Recommended way to define Generics in python >= 3.12:
+#   https://peps.python.org/pep-0695/
+#   https://docs.python.org/3.12/whatsnew/3.12.html#pep-695-type-parameter-syntax
 class BinaryNode(Generic[T]):
     def __init__(
         self,
@@ -72,3 +76,5 @@ class BinaryNode(Generic[T]):
 
     def is_leaf(self) -> bool:
         return self.get_left() is None and self.get_right() is None
+
+# pragma warning restore python:S6792.
