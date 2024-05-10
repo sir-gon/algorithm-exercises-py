@@ -21,6 +21,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+      with:
+        fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
     - name: Setup Python
       uses: actions/setup-python@master
@@ -31,16 +33,30 @@ jobs:
       run: |
         pip3 install -r requirements.txt
 
-    - name: Test
+    - name: Test an coverage collect
       run: |
-        coverage run -m pytest --verbose -o log_cli=true --log-cli-level=INFO src/
+        python3 -m coverage run -m pytest --verbose -o log_cli=true --log-cli-level=INFO src/
 
-    - name: Coverage
+    - name: Coverage Report
       run: |
-        coverage report
+        python3 -m coverage report
+
+    - name: Coverage lcov
+      run: |
+        python3 -m coverage lcov -o coverage/lcov.info
 
     - name: Upload coverage reports to Codecov with GitHub Action
       uses: codecov/codecov-action@v4
       with:
         token: ${{ secrets.CODECOV_TOKEN }} # required
         verbose: true # optional (default = false)
+
+    - name: Coverage XML
+      run: |
+        python3 -m coverage xml
+
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
