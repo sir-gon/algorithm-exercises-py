@@ -1,4 +1,4 @@
-name: Python
+name: Python CI Tests
 
 on:
   push:
@@ -58,9 +58,3 @@ jobs:
     - name: Coverage
       run: |
         coverage report
-
-    - name: Upload coverage reports to Codecov with GitHub Action
-      uses: codecov/codecov-action@v4
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }} # required
-        verbose: true # optional (default = false)
