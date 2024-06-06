@@ -1,9 +1,11 @@
-FROM python:3.12.3-alpine3.19 AS base
+###############################################################################
+FROM python:3.12.3-alpine3.20 AS base
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-FROM node:20.2.0-alpine3.16 AS lint
+###############################################################################
+FROM node:20.14.0-alpine3.20 AS lint
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
@@ -15,10 +17,12 @@ RUN npm install -g --ignore-scripts markdownlint-cli
 RUN apk add --update --no-cache nodejs npm
 RUN npm install -g --ignore-scripts pyright
 
+###############################################################################
 FROM base AS development
 
 RUN apk add --update --no-cache make
 
+###############################################################################
 FROM development AS builder
 
 COPY ./src ${WORKDIR}/src
@@ -29,6 +33,7 @@ RUN ls -alh
 
 RUN pip install -r requirements.txt
 
+###############################################################################
 ### In testing stage, can't use USER, due permissions issue
 ## in github actions environment:
 ##
@@ -47,6 +52,7 @@ RUN ls -alh
 
 CMD ["make", "test", "-e", "{DEBUG}"]
 
+###############################################################################
 ### In production stage
 ## in the production phase, "good practices" such as
 ## WORKSPACE and USER are maintained
