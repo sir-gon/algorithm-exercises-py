@@ -1,5 +1,5 @@
 ###############################################################################
-FROM python:3.12.3-alpine3.20 AS base
+FROM python:3.12.4-alpine3.20 AS base
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
