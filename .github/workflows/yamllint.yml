@@ -1,0 +1,23 @@
+---
+name: YAML lint
+
+on: # yamllint disable-line rule:truthy
+  push:
+    branches: ["main", "develop", "feature/*"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+
+      - name: Install yamllint
+        run: pip install yamllint
+
+      - name: Lint YAML files
+        run: >
+          yamllint --strict .
+          && echo '✔  Your code looks good.'
