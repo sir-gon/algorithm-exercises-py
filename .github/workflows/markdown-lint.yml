@@ -1,37 +1,39 @@
+---
 name: Markdown Lint
 
-on:
+on: # yamllint disable-line rule:truthy
   push:
-    branches: [ "main", "develop", "feature/*" ]
+    branches: ["main", "develop", "feature/*"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         os: ["ubuntu-latest"]
         node-version: [20.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        # See supported Node.js release
+        # schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+      - name: Checkout repository
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
 
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
-      run: npm install -g markdownlint-cli
+      - name: Install dependencies
+        run: npm install -g markdownlint-cli
 
-    - name: Version
-      run: markdownlint --version
+      - name: Version
+        run: markdownlint --version
 
-    - name: Lint
-      run: markdownlint '**/*.md' --ignore node_modules && echo '✔  Your code looks good.'
-
+      - name: Lint
+        run: >
+          markdownlint '**/*.md' --ignore node_modules
+          && echo '✔  Your code looks good.'

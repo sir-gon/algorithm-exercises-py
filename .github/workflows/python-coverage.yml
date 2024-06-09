@@ -1,62 +1,67 @@
+---
 name: Python CI Coverage
 
-on:
+on: # yamllint disable-line rule:truthy
   push:
-    branches: [ "main", "develop", "feature/*" ]
+    branches: ["main", "develop", "feature/*"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 env:
   LOG_LEVEL: INFO
 
 jobs:
-
   build:
     name: "Run CI"
     strategy:
       fail-fast: false
       matrix:
         os: ["ubuntu-latest"]
-        python: ['3.12']
+        python: ["3.12"]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
-      with:
-        fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        with:
+          # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0
 
-    - name: Setup Python
-      uses: actions/setup-python@master
-      with:
-        python-version: ${{ matrix.python }}
+      - name: Setup Python
+        uses: actions/setup-python@master
+        with:
+          python-version: ${{ matrix.python }}
 
-    - name: Install
-      run: |
-        pip3 install -r requirements.txt
+      - name: Install
+        run: |
+          pip3 install -r requirements.txt
 
-    - name: Test an coverage collect
-      run: |
-        python3 -m coverage run -m pytest --verbose -o log_cli=true --log-cli-level=INFO src/
+      - name: Test an coverage collect
+        run: >
+          python3 -m coverage run -m pytest --verbose
+          -o log_cli=true
+          --log-cli-level=INFO
+          src/
 
-    - name: Coverage Report
-      run: |
-        python3 -m coverage report
+      - name: Coverage Report
+        run: |
+          python3 -m coverage report
 
-    - name: Coverage lcov
-      run: |
-        python3 -m coverage lcov -o coverage/lcov.info
+      - name: Coverage lcov
+        run: |
+          python3 -m coverage lcov -o coverage/lcov.info
 
-    - name: Upload coverage reports to Codecov with GitHub Action
-      uses: codecov/codecov-action@v4
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }} # required
-        verbose: true # optional (default = false)
+      - name: Upload coverage reports to Codecov with GitHub Action
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # required
+          verbose: true # optional (default = false)
 
-    - name: Coverage XML
-      run: |
-        python3 -m coverage xml
+      - name: Coverage XML
+        run: |
+          python3 -m coverage xml
 
-    - name: SonarCloud Scan
-      uses: SonarSource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

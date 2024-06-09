@@ -1,0 +1,19 @@
+---
+extends: default
+
+ignore-from-file: .yamlignore
+
+rules:
+  comments:
+    min-spaces-from-content: 1
+
+# yamllint disable rule:line-length
+#
+# References:
+# False positive: interpreting GitHub actions "on:" as a truthy value #430
+# https://github.com/adrienverge/yamllint/issues/430
+#
+# YAML formatting not compliant with yamllint "spaces before comments" requirement #433
+# https://github.com/redhat-developer/vscode-yaml/issues/433#issuecomment-1235681987
+#
+# yamllint enable rule:line-length
