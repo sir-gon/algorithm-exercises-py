@@ -1,43 +1,50 @@
+---
 name: Docker Image CI
 
-on:
+on: # yamllint disable-line rule:truthy
   push:
-    branches: [ "main", "develop", "feature/*" ]
+    branches: ["main", "develop", "feature/*"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
-
   build:
     name: "Build & Test in Docker"
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
-    - name: Build the Docker image
-      run: make compose/rebuild
-    - name: Run static checks in Docker image
-      run: make compose/lint
-    - name: Run test in Docker image
-      run: make compose/run
-    - name: Tag Docker image
-      run: docker tag algorithm-exercises-py:latest algorithm-exercises-py:${{ github.sha }}
-
-    - name: Run Snyk to check Docker image for vulnerabilities
-      # Snyk can be used to break the build when it detects vulnerabilities.
-      # In this case we want to upload the issues to GitHub Code Scanning
-      continue-on-error: true
-      uses: snyk/actions/docker@master
-      env:
-        # In order to use the Snyk Action you will need to have a Snyk API token.
-        # See https://docs.snyk.io/integrations/ci-cd-integrations/github-actions-integration#getting-your-snyk-token
-        # or you can sign up for free at https://snyk.io/login
-        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      with:
-        image: algorithm-exercises-py:latest
-        args: --file=Dockerfile
-    # - name: Upload result to GitHub Code Scanning
-    #   uses: github/codeql-action/upload-sarif@v2
-    #   with:
-    #     sarif_file: snyk.sarif
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+      - name: Build the Docker image
+        run: make compose/rebuild
+      - name: Run static checks in Docker image
+        run: make compose/lint
+      - name: Run test in Docker image
+        run: make compose/run
+      - name: Tag Docker image
+        run: >
+          docker tag
+          algorithm-exercises-py:latest
+          algorithm-exercises-py:${{ github.sha }}
+      - name: Run Snyk to check Docker image for vulnerabilities
+        # Snyk can be used to break the build when it detects vulnerabilities.
+        # In this case we want to upload the issues to GitHub Code Scanning
+        continue-on-error: true
+        uses: snyk/actions/docker@master
+        env:
+          # yamllint disable rule:line-length
+          # In order to use the Snyk Action you will need to have
+          #  a Snyk API token.
+          # See https://docs.snyk.io/integrations/ci-cd-integrations/github-actions-integration#getting-your-snyk-token
+          # or you can sign up for free at https://snyk.io/login
+          # yamllint enable rule:line-length
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          image: algorithm-exercises-py:latest
+          args: --file=Dockerfile
+      # yamllint disable rule:comments-indentation
+      # - name: Upload result to GitHub Code Scanning
+      #   uses: github/codeql-action/upload-sarif@v2
+      #   with:
+      #     sarif_file: snyk.sarif
+      # yamllint enable rule:comments-indentation

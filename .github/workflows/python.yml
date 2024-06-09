@@ -1,60 +1,59 @@
+---
 name: Python CI Tests
 
-on:
+on: # yamllint disable-line rule:truthy
   push:
-    branches: [ "main", "develop", "feature/*" ]
+    branches: ["main", "develop", "feature/*"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 env:
   LOG_LEVEL: INFO
 
 jobs:
-
   build:
     name: "Run CI"
     strategy:
       fail-fast: false
       matrix:
-        os: [
-          "windows-latest",
-          "ubuntu-latest",
-          "macOS-latest"
-        ]
-        python: ['3.10', '3.11', '3.12']
+        os: ["windows-latest", "ubuntu-latest", "macOS-latest"]
+        python: ["3.10", "3.11", "3.12"]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
 
-    - name: Setup Python
-      uses: actions/setup-python@master
-      with:
-        python-version: ${{ matrix.python }}
+      - name: Setup Python
+        uses: actions/setup-python@master
+        with:
+          python-version: ${{ matrix.python }}
 
-    - name: Install
-      run: |
-        pip3 install -r requirements.txt
+      - name: Install
+        run: |
+          pip3 install -r requirements.txt
 
-    - name: Lint (pylint)
-      run: |
-        pylint --verbose --recursive yes src/
+      - name: Lint (pylint)
+        run: |
+          pylint --verbose --recursive yes src/
 
-    - name: Lint (flake8)
-      run: |
-        python3 -m flake8 --verbose src/
+      - name: Lint (flake8)
+        run: |
+          python3 -m flake8 --verbose src/
 
-    - name: Lint (pyright) static type checker
-      run: |
-        python3 -m pyright --verbose src/
+      - name: Lint (pyright) static type checker
+        run: |
+          python3 -m pyright --verbose src/
 
-    - name: Styling (pycodestyle)
-      run: |
-        python3 -m pycodestyle --statistics src/
+      - name: Styling (pycodestyle)
+        run: |
+          python3 -m pycodestyle --statistics src/
 
-    - name: Test
-      run: |
-        coverage run -m pytest --verbose -o log_cli=true --log-cli-level=INFO src/
+      - name: Test
+        run: >
+          coverage run -m pytest --verbose
+          -o log_cli=true
+          --log-cli-level=INFO
+          src/
 
-    - name: Coverage
-      run: |
-        coverage report
+      - name: Coverage
+        run: |
+          coverage report

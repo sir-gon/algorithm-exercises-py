@@ -1,5 +1,7 @@
+---
 name: gitleaks
-on:
+
+on: # yamllint disable-line rule:truthy
   pull_request:
   push:
   workflow_dispatch:
@@ -16,4 +18,5 @@ jobs:
       - uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE}} # Only required for Organizations, not personal accounts.
+          # Only required for Organizations, not personal accosunts.
+          # GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE}}

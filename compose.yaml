@@ -1,3 +1,5 @@
+---
+
 services:
   algorithm-exercises-py:
     image: algorithm-exercises-py:latest
@@ -5,8 +7,8 @@ services:
       context: .
       target: testing
     environment:
-      LOG_LEVEL: ${LOG_LEVEL:-INFO} ## (1) ## INFO | DEBUG
-      BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}  ## (1) ## INFO | DEBUG
+      BRUTEFORCE: ${BRUTEFORCE:-false}  ## (1) ## true | false
     volumes:
       - ./coverage:/app/coverage
     profiles: ["testing"]
@@ -17,8 +19,8 @@ services:
       context: .
       target: lint
     # environment:
-      # LOG_LEVEL: ${LOG_LEVEL:-info} ## (1) ## info | debug
-      # BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
+    #   LOG_LEVEL: ${LOG_LEVEL:-info} ## (1) ## info | debug
+    #   BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
     volumes:
       - ./:/app
     profiles: ["lint"]
@@ -30,7 +32,7 @@ services:
       target: development
     environment:
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
-      BRUTEFORCE: ${BRUTEFORCE:-false} ## (1) ## true | false
+      BRUTEFORCE: ${BRUTEFORCE:-false}  ## (1) ## true | false
     volumes:
       - ./:/app
     profiles: ["development"]
