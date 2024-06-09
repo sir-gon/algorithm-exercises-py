@@ -5,16 +5,15 @@ ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
 ###############################################################################
-FROM node:20.14.0-alpine3.20 AS lint
+FROM base AS lint
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
 COPY ./src ${WORKDIR}/src
-RUN apk add --update --no-cache make
-RUN npm install -g --ignore-scripts markdownlint-cli
+RUN apk add --update --no-cache make nodejs npm
 
-RUN apk add --update --no-cache nodejs npm
+RUN npm install -g --ignore-scripts markdownlint-cli
 RUN npm install -g --ignore-scripts pyright
 
 ###############################################################################

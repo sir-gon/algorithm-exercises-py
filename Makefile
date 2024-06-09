@@ -110,6 +110,7 @@ clean:
 	find . -path "*/__pycache__" -type d -print -exec rm -fr {} ';'
 
 compose/build: env
+	docker-compose --profile lint build
 	docker-compose --profile testing build
 
 compose/rebuild: env
@@ -118,10 +119,10 @@ compose/rebuild: env
 
 compose/mdlint: env
 	docker-compose --profile lint build
-	docker-compose --profile lint run --rm algorithm-exercises-py-mdlint make mdlint
+	docker-compose --profile lint run --rm algorithm-exercises-py-lint make mdlint
 
 compose/test/static: compose/build
-	docker-compose --profile testing run --rm algorithm-exercises-py make test/static
+	docker-compose --profile lint run --rm algorithm-exercises-py-lint make test/static
 
 compose/lint: compose/test/static compose/mdlint
 
