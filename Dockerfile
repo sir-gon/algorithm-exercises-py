@@ -12,6 +12,7 @@ WORKDIR ${WORKDIR}
 
 COPY ./src ${WORKDIR}/src
 RUN apk add --update --no-cache make nodejs npm
+RUN apk add --update --no-cache yamllint
 
 RUN npm install -g --ignore-scripts markdownlint-cli
 RUN npm install -g --ignore-scripts pyright
