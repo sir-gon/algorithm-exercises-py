@@ -66,10 +66,12 @@ dependencies:
 	${PACKAGE_TOOL} install -r requirements.txt
 	@echo "################################################################################"
 
-mdlint:
+lint/markdown:
 	markdownlint '**/*.md' --ignore node_modules && echo '✔  Your code looks good.'
+lint/yaml:
+	yamllint --stric . && echo '✔  Your code looks good.'
 
-lint: test/static test/styling mdlint
+lint: lint/markdown lint/yaml test/styling test/static
 
 test/static: dependencies
 	${RUNTIME_TOOL} -m pylint --verbose --recursive yes src/
@@ -117,14 +119,19 @@ compose/rebuild: env
 	docker-compose --profile lint build --no-cache
 	docker-compose --profile testing build --no-cache
 
-compose/mdlint: env
-	docker-compose --profile lint build
-	docker-compose --profile lint run --rm algorithm-exercises-py-lint make mdlint
+compose/lint/markdown: compose/build
+	docker-compose --profile lint run --rm algorithm-exercises-py-lint make lint/markdown
+
+compose/lint/yaml: compose/build
+	docker-compose --profile lint run --rm algorithm-exercises-py-lint make lint/yaml
+
+compose/test/styling: compose/build
+	docker-compose --profile lint run --rm algorithm-exercises-py-lint make test/styling
 
 compose/test/static: compose/build
 	docker-compose --profile lint run --rm algorithm-exercises-py-lint make test/static
 
-compose/lint: compose/test/static compose/mdlint
+compose/lint: compose/lint/markdown compose/lint/yaml compose/test/styling compose/test/static
 
 compose/run: compose/build
 	docker-compose --profile testing run --rm algorithm-exercises-py make test
