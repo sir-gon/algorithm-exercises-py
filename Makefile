@@ -82,14 +82,17 @@ test/styling: dependencies
 	${RUNTIME_TOOL} -m pycodestyle --statistics src/
 
 test: env dependencies
-	${RUNTIME_TOOL} -m pytest --verbose -o log_cli=true --log-cli-level=${LOG_LEVEL} --full-trace src/
-
-coverage: dependencies
-	${RUNTIME_TOOL} -m coverage run -m pytest --verbose src/
-	${RUNTIME_TOOL} -m coverage lcov -o coverage/lcov.info
+	${RUNTIME_TOOL} -m coverage run -m \
+		pytest --verbose \
+		-o log_cli=true \
+		--log-cli-level=${LOG_LEVEL} \
+		--full-trace src/
 	${RUNTIME_TOOL} -m coverage report
 
-coverage/html: coverage
+coverage: test
+	${RUNTIME_TOOL} -m coverage lcov -o coverage/lcov.info
+
+coverage/html: test
 	${RUNTIME_TOOL} -m coverage html
 
 outdated:

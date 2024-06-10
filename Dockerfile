@@ -10,12 +10,43 @@ FROM base AS lint
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-COPY ./src ${WORKDIR}/src
 RUN apk add --update --no-cache make nodejs npm
 RUN apk add --update --no-cache yamllint
 
 RUN npm install -g --ignore-scripts markdownlint-cli
 RUN npm install -g --ignore-scripts pyright
+
+# [!TIP] Use a bind-mount to "/app" to override following "copys"
+# for lint and test against "current" sources in this stage
+
+# YAML sources
+COPY ./.github ${WORKDIR}/
+COPY ./compose.yaml ${WORKDIR}/
+
+# Markdown sources
+COPY ./docs ${WORKDIR}/
+COPY ./README.md ${WORKDIR}/
+COPY ./LICENSE.md ${WORKDIR}/
+COPY ./CODE_OF_CONDUCT.md ${WORKDIR}/
+
+# Code source
+COPY ./src ${WORKDIR}/
+COPY ./requirements.txt ${WORKDIR}/
+COPY ./setup.cfg ${WORKDIR}/
+COPY ./Makefile ${WORKDIR}/
+
+# markdownlint conf
+COPY ./.markdownlint.yaml ${WORKDIR}/
+
+# yamllint conf
+COPY ./.yamllint ${WORKDIR}/
+COPY ./.yamlignore ${WORKDIR}/
+
+# pylint and covergae
+COPY ./.pylintrc ${WORKDIR}/
+COPY ./.coveragerc ${WORKDIR}/
+
+CMD ["make", "lint"]
 
 ###############################################################################
 FROM base AS development
@@ -46,7 +77,6 @@ ENV BRUTEFORCE=false
 
 WORKDIR /app
 
-COPY ./.pylintrc ${WORKDIR}/
 COPY ./.coveragerc ${WORKDIR}/
 RUN ls -alh
 
@@ -68,8 +98,6 @@ RUN chown worker:worker /app
 
 WORKDIR /app
 
-COPY ./.pylintrc ${WORKDIR}/
-COPY ./.coveragerc ${WORKDIR}/
 RUN ls -alh
 
 USER worker
