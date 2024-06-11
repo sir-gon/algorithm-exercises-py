@@ -85,7 +85,7 @@ CMD ["make", "test", "-e", "{DEBUG}"]
 ###############################################################################
 ### In production stage
 ## in the production phase, "good practices" such as
-## WORKSPACE and USER are maintained
+## WORKDIR and USER are maintained
 ##
 FROM builder AS production
 
