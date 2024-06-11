@@ -10,9 +10,12 @@ on: # yamllint disable-line rule:truthy
 jobs:
   build:
     runs-on: ubuntu-latest
-    node-version: [20.x]
-    # See supported Node.js release
-    # schedule at https://nodejs.org/en/about/releases/
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+        # See supported Node.js release schedule
+        # at https://nodejs.org/en/about/releases/
 
     steps:
       - name: Checkout repository
