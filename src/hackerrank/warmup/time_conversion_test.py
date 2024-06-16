@@ -7,8 +7,8 @@ class TestTimeConversion(unittest.TestCase):
     def test_time_conversion_example(self):
 
         tests = [
-          {'input': '12:01:00PM', 'answer': '12:01:00'},
-          {'input': '12:01:00AM', 'answer': '00:01:00'}
+            {'input': '12:01:00PM', 'answer': '12:01:00'},
+            {'input': '12:01:00AM', 'answer': '00:01:00'}
         ]
 
         for _, _tt in enumerate(tests):

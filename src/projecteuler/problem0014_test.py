@@ -10,7 +10,7 @@ class TestProblem0014(unittest.TestCase):
         found = 837799
 
         tests = [
-          {'bottom': found - epsilon, 'top': found + epsilon, 'answer': found}
+            {'bottom': found - epsilon, 'top': found + epsilon, 'answer': found}
         ]
 
         for _, _tt in enumerate(tests):
@@ -23,7 +23,7 @@ class TestProblem0014(unittest.TestCase):
     def test_problem0014_border_case_bottom_negative(self):
 
         tests = [
-          {'bottom': -1, 'top': 1}
+            {'bottom': -1, 'top': 1}
         ]
 
         for _, _tt in enumerate(tests):
@@ -35,7 +35,7 @@ class TestProblem0014(unittest.TestCase):
     def test_problem0014_border_case_bottom_top_invertion(self):
 
         tests = [
-          {'bottom': 10, 'top': 0}
+            {'bottom': 10, 'top': 0}
         ]
 
         for _, _tt in enumerate(tests):

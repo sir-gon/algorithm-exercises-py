@@ -4,6 +4,8 @@ FROM python:3.12.4-alpine3.20 AS base
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
+RUN apk add --update --no-cache make
+
 ###############################################################################
 FROM base AS lint
 
@@ -35,6 +37,11 @@ COPY ./requirements.txt ${WORKDIR}/
 COPY ./setup.cfg ${WORKDIR}/
 COPY ./Makefile ${WORKDIR}/
 
+# code linting conf
+COPY ./.pylintrc ${WORKDIR}/
+COPY ./.coveragerc ${WORKDIR}/
+COPY ./setup.cfg ${WORKDIR}/
+
 # markdownlint conf
 COPY ./.markdownlint.yaml ${WORKDIR}/
 
@@ -42,27 +49,39 @@ COPY ./.markdownlint.yaml ${WORKDIR}/
 COPY ./.yamllint ${WORKDIR}/
 COPY ./.yamlignore ${WORKDIR}/
 
-# pylint and covergae
-COPY ./.pylintrc ${WORKDIR}/
-COPY ./.coveragerc ${WORKDIR}/
-
 CMD ["make", "lint"]
 
 ###############################################################################
 FROM base AS development
 
-RUN apk add --update --no-cache make
+COPY ./Makefile ${WORKDIR}/
+COPY ./requirements.txt ${WORKDIR}/
+COPY ./setup.cfg ${WORKDIR}/
+
+RUN make dependencies
+
+COPY ./src ${WORKDIR}/src
+
+RUN ls -alh
+
+# CMD []
 
 ###############################################################################
 FROM development AS builder
 
-COPY ./src ${WORKDIR}/src
-COPY ./requirements.txt ${WORKDIR}/
-COPY ./Makefile ${WORKDIR}/
-COPY ./setup.cfg ${WORKDIR}/
-RUN ls -alh
+ENV WORKDIR=/app
+WORKDIR ${WORKDIR}
 
-RUN pip install -r requirements.txt
+RUN apk add --update --no-cache rsync
+
+RUN rsync -av --prune-empty-dirs \
+  --exclude '*_test.py' \
+  --exclude '*.pyc' \
+  --exclude '.venv' \
+  --exclude '__pycache__' \
+  src/ build/
+
+# CMD []
 
 ###############################################################################
 ### In testing stage, can't use USER, due permissions issue
@@ -78,27 +97,36 @@ ENV BRUTEFORCE=false
 WORKDIR /app
 
 COPY ./.coveragerc ${WORKDIR}/
+COPY ./setup.cfg ${WORKDIR}/
+
 RUN ls -alh
 
-CMD ["make", "test", "-e", "{DEBUG}"]
+CMD ["make", "test"]
 
 ###############################################################################
 ### In production stage
 ## in the production phase, "good practices" such as
 ## WORKDIR and USER are maintained
 ##
-FROM builder AS production
+FROM python:3.12.4-alpine3.20 AS production
 
 ENV LOG_LEVEL=INFO
 ENV BRUTEFORCE=false
+ENV WORKDIR=/app
+WORKDIR ${WORKDIR}
 
 RUN adduser -D worker
 RUN mkdir -p /app
 RUN chown worker:worker /app
 
-WORKDIR /app
+RUN apk add --update --no-cache make
+COPY ./Makefile ${WORKDIR}/
+
+COPY --from=builder /app/build/ ${WORKDIR}/
 
 RUN ls -alh
 
 USER worker
-CMD ["make", "test", "-e", "{DEBUG}"]
+CMD ["make", "run"]
+
+# checkov:skip= CKV_DOCKER_2: production image isn't a service process (yet)

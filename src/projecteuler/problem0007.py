@@ -19,9 +19,9 @@ def problem0007(_top: int) -> int:
             primes.append(j)
             LOGGER.debug("Prime found %d put in position: %d", j, len(primes))
 
-        j = 2*i + 1
+        j = 2 * i + 1
 
-    answer = primes[len(primes)-1]
+    answer = primes[len(primes) - 1]
 
     cycles = i
 

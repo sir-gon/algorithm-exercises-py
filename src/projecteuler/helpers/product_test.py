@@ -8,10 +8,10 @@ class TestProduct(unittest.TestCase):
     def test_product(self):
 
         tests = [
-          {'input': [], 'answer': 0},
-          {'input': ['0', '2', '3', '4'], 'answer': 0},
-          {'input': ['1', '2', '3'], 'answer': 6},
-          {'input': ['1', '2', '3', '4'], 'answer': 24},
+            {'input': [], 'answer': 0},
+            {'input': ['0', '2', '3', '4'], 'answer': 0},
+            {'input': ['1', '2', '3'], 'answer': 6},
+            {'input': ['1', '2', '3', '4'], 'answer': 24},
         ]
 
         for _, _tt in enumerate(tests):

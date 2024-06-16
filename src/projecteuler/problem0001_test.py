@@ -7,7 +7,7 @@ class TestProblem0001(unittest.TestCase):
     def test_problem0001_basic(self):
 
         tests = [
-          {'input': 10, 'answer': 23}
+            {'input': 10, 'answer': 23}
         ]
 
         for _, _tt in enumerate(tests):
@@ -20,7 +20,7 @@ class TestProblem0001(unittest.TestCase):
     def test_problem0001_full(self):
 
         tests = [
-          {'input': 1000, 'answer': 233168}
+            {'input': 1000, 'answer': 233168}
         ]
 
         for _, _tt in enumerate(tests):

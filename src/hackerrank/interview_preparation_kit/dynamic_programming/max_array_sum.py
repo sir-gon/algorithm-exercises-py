@@ -18,7 +18,7 @@ def max_array_sum(arr_input: list[int]):
     arr[1] = t_max
 
     for i in range(2, n):
-        t_max = max(arr[i-2] + arr[i], t_max)  # Max uptill now
+        t_max = max(arr[i - 2] + arr[i], t_max)  # Max uptill now
         t_max = max(arr[i], t_max)  # Max in special case where
         # arr[i] + previous max is still less than arr[i]
         # update our inplace array with max for future calculations

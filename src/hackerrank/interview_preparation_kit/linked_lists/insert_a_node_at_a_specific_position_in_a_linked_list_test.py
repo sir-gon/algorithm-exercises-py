@@ -25,9 +25,9 @@ class TestInsertNodeAtPosition(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             insert_node_at_position(
-                    _tt['llist'].head,
-                    _tt['data'],
-                    _tt['position'])
+                _tt['llist'].head,
+                _tt['data'],
+                _tt['position'])
 
             result = singly_linked_list_to_text(_tt['llist'].head, ' ')
 
@@ -47,9 +47,9 @@ class TestInsertNodeAtPosition(unittest.TestCase):
         position = 0
 
         head = insert_node_at_position(
-                    llist.head,
-                    data,
-                    position)
+            llist.head,
+            data,
+            position)
 
         result = singly_linked_list_to_text(head, ' ')
 

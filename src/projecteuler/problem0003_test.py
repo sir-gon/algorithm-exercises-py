@@ -7,7 +7,7 @@ class TestProblem0003(unittest.TestCase):
     def test_problem0003(self):
 
         tests = [
-          {'input': 600851475143, 'answer': 6857}
+            {'input': 600851475143, 'answer': 6857}
         ]
 
         for _, _tt in enumerate(tests):
@@ -20,9 +20,9 @@ class TestProblem0003(unittest.TestCase):
     def test_problem0003_small_cases(self):
 
         tests = [
-          {'input': 6, 'answer': 3},
-          {'input': 10, 'answer': 5},
-          {'input': 17, 'answer': 17}
+            {'input': 6, 'answer': 3},
+            {'input': 10, 'answer': 5},
+            {'input': 17, 'answer': 17}
         ]
 
         for _, _tt in enumerate(tests):
@@ -35,7 +35,7 @@ class TestProblem0003(unittest.TestCase):
     def test_problem0003_basic(self):
 
         tests = [
-          {'input': 13195, 'answer': 29}
+            {'input': 13195, 'answer': 29}
         ]
 
         for _, _tt in enumerate(tests):
@@ -48,7 +48,7 @@ class TestProblem0003(unittest.TestCase):
     def test_problem0003_odd_divisors(self):
 
         tests = [
-          {'input': 16, 'answer': 2}
+            {'input': 16, 'answer': 2}
         ]
 
         for _, _tt in enumerate(tests):

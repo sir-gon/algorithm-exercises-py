@@ -7,7 +7,7 @@ class TestSolveMeFirst(unittest.TestCase):
     def test_solve_me_first(self):
 
         tests = [
-          {'a': 0, 'b': 0, 'answer': 0}
+            {'a': 0, 'b': 0, 'answer': 0}
         ]
 
         for _, _tt in enumerate(tests):

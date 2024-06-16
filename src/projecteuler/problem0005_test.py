@@ -8,7 +8,7 @@ class TestProblem0005(unittest.TestCase):
     def test_problem0005_basic(self):
 
         tests = [
-          {'input_bottom': 1, 'input_top': 10, 'start_from': 1, 'answer': 2520}
+            {'input_bottom': 1, 'input_top': 10, 'start_from': 1, 'answer': 2520}
         ]
 
         for _, _tt in enumerate(tests):
@@ -22,7 +22,7 @@ class TestProblem0005(unittest.TestCase):
     def test_problem0005_alt_basic(self):
 
         tests = [
-          {'input_bottom': 1, 'input_top': 10, 'answer': 2520}
+            {'input_bottom': 1, 'input_top': 10, 'answer': 2520}
         ]
 
         for _, _tt in enumerate(tests):
@@ -36,7 +36,7 @@ class TestProblem0005(unittest.TestCase):
     def test_problem0005_alt_full(self):
 
         tests = [
-          {'input_bottom': 1, 'input_top': 20, 'answer': 232792560}
+            {'input_bottom': 1, 'input_top': 20, 'answer': 232792560}
         ]
 
         for _, _tt in enumerate(tests):

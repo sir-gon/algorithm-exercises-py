@@ -14,7 +14,7 @@ def array_manipulation(n: int, queries: list[list[int]]) -> int:
     for [a, b, k] in queries:
 
         LOGGER.debug("start -> %s", result)
-        for j in range(a, b+1):
+        for j in range(a, b + 1):
             result[j] += k
             LOGGER.debug("result -> %s", result)
 

@@ -8,7 +8,7 @@ import math
 def sum_of_arithmetic_progression(n: int, d: int) -> int:
 
     # Number of terms
-    n = n//d
+    n = n // d
 
     return (n) * (1 + n) * d // 2
 
@@ -17,8 +17,8 @@ def sum_of_arithmetic_progression(n: int, d: int) -> int:
 def euler001(a, b, n) -> int:
 
     # Since, we need the sum of multiples less than N
-    n = n-1
-    lcm = (a*b)//math.gcd(a, b)
+    n = n - 1
+    lcm = (a * b) // math.gcd(a, b)
 
     return sum_of_arithmetic_progression(n, a) + \
         sum_of_arithmetic_progression(n, b) - \

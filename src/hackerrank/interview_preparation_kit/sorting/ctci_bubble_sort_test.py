@@ -10,31 +10,31 @@ ANSWER_TEMPLATE = f'Array is sorted in {NUM_SWAPS} swaps.{NL}' + \
                   f'Last Element: {LAST_ELEMENT}{NL}'
 
 TEST_CASES = [
-                {
-                    'input': [6, 4, 1],
-                    'sorted': [1, 4, 6],
-                    'answer': ANSWER_TEMPLATE[:]
-                    .replace(NUM_SWAPS, '3')
-                    .replace(FIRST_ELEMENT, '1')
-                    .replace(LAST_ELEMENT, '6')
-                },
-                {
-                    'input': [3, 2, 1],
-                    'sorted': [1, 2, 3],
-                    'answer': ANSWER_TEMPLATE[:]
-                    .replace(NUM_SWAPS, '3')
-                    .replace(FIRST_ELEMENT, '1')
-                    .replace(LAST_ELEMENT, '3')
-                },
-                {
-                    'input': [1, 2, 3],
-                    'sorted': [1, 2, 3],
-                    'answer': ANSWER_TEMPLATE[:]
-                    .replace(NUM_SWAPS, '0')
-                    .replace(FIRST_ELEMENT, '1')
-                    .replace(LAST_ELEMENT, '3')
-                }
-            ]
+    {
+        'input': [6, 4, 1],
+        'sorted': [1, 4, 6],
+        'answer': ANSWER_TEMPLATE[:]
+        .replace(NUM_SWAPS, '3')
+        .replace(FIRST_ELEMENT, '1')
+        .replace(LAST_ELEMENT, '6')
+    },
+    {
+        'input': [3, 2, 1],
+        'sorted': [1, 2, 3],
+        'answer': ANSWER_TEMPLATE[:]
+        .replace(NUM_SWAPS, '3')
+        .replace(FIRST_ELEMENT, '1')
+        .replace(LAST_ELEMENT, '3')
+    },
+    {
+        'input': [1, 2, 3],
+        'sorted': [1, 2, 3],
+        'answer': ANSWER_TEMPLATE[:]
+        .replace(NUM_SWAPS, '0')
+        .replace(FIRST_ELEMENT, '1')
+        .replace(LAST_ELEMENT, '3')
+    }
+]
 
 
 class TestBubleSort(unittest.TestCase):
