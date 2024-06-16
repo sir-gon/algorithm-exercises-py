@@ -81,6 +81,9 @@ test/static: dependencies
 test/styling: dependencies
 	${RUNTIME_TOOL} -m pycodestyle --statistics src/
 
+format:
+	autopep8 --in-place --recursive --aggressive --aggressive --verbose src/
+
 test: env dependencies
 	${RUNTIME_TOOL} -m coverage run -m \
 		pytest --verbose \
