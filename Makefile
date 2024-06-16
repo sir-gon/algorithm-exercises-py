@@ -82,7 +82,15 @@ test/styling: dependencies
 	${RUNTIME_TOOL} -m pycodestyle --statistics src/
 
 format:
-	autopep8 --in-place --recursive --aggressive --aggressive --verbose src/
+	${RUNTIME_TOOL} -m autopep8 --in-place --recursive --aggressive --aggressive --verbose src/
+
+build: env
+	rsync -av --prune-empty-dirs \
+  --exclude '*_test.py' \
+  --exclude '*.pyc' \
+  --exclude '.venv' \
+  --exclude '__pycache__' \
+  src/ build/
 
 test: env dependencies
 	${RUNTIME_TOOL} -m coverage run -m \
@@ -113,6 +121,7 @@ clean:
 	rm -fr .pytest_cache
 	rm -fr htmlcov
 	rm -fr coverage
+	rm -fr build
 	find . -path "*/*.pyc" -delete -print
 	find . -path "*/*.pyo" -delete -print
 	find . -path "*/__pycache__" -type d -print -exec rm -fr {} ';'
@@ -120,10 +129,12 @@ clean:
 compose/build: env
 	docker-compose --profile lint build
 	docker-compose --profile testing build
+	docker-compose --profile production build
 
 compose/rebuild: env
 	docker-compose --profile lint build --no-cache
 	docker-compose --profile testing build --no-cache
+	docker-compose --profile production build --no-cache
 
 compose/lint/markdown: compose/build
 	docker-compose --profile lint run --rm algorithm-exercises-py-lint make lint/markdown
@@ -139,7 +150,13 @@ compose/test/static: compose/build
 
 compose/lint: compose/lint/markdown compose/lint/yaml compose/test/styling compose/test/static
 
+compose/test: compose/build
+	docker-compose --profile testing run --rm algorithm-exercises-py-test make test
+
 compose/run: compose/build
-	docker-compose --profile testing run --rm algorithm-exercises-py make test
+	docker-compose --profile production run --rm algorithm-exercises-py make run
 
 all: lint coverage
+
+run:
+	ls -alh

@@ -1,8 +1,8 @@
 ---
 
 services:
-  algorithm-exercises-py:
-    image: algorithm-exercises-py:latest
+  algorithm-exercises-py-test:
+    image: algorithm-exercises-py:test
     build:
       context: .
       target: testing
@@ -36,6 +36,16 @@ services:
     volumes:
       - ./:/app
     profiles: ["development"]
+
+  algorithm-exercises-py:
+    image: algorithm-exercises-py:latest
+    build:
+      context: .
+      target: production
+    environment:
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}  ## (1) ## INFO | DEBUG
+      BRUTEFORCE: ${BRUTEFORCE:-false}  ## (1) ## true | false
+    profiles: ["production"]
 
 ## REFERENCES:
 ## (1) Passing Environment variable with fallback value:

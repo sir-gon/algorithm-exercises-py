@@ -17,9 +17,11 @@ jobs:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
       - name: Build the Docker image
         run: make compose/rebuild
-      - name: Run static checks in Docker image
+      - name: Lint in Docker image
         run: make compose/lint
-      - name: Run test in Docker image
+      - name: Test in Docker image
+        run: make compose/test
+      - name: Run in Docker image
         run: make compose/run
       - name: Tag Docker image
         run: >
