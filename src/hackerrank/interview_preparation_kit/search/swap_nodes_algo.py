@@ -48,11 +48,11 @@ def callback_collect_plain(
 
 
 def traverse_in_order_collector(
-            root: Node,
-            collect: Dict[int, list[Node]],
-            level: int,
-            callback: Callable[[Node, Dict[int, list[Node]], int], None]
-        ) -> Dict[int, list[Node]]:
+    root: Node,
+    collect: Dict[int, list[Node]],
+    level: int,
+    callback: Callable[[Node, Dict[int, list[Node]], int], None]
+) -> Dict[int, list[Node]]:
 
     if root.left is not None:
         traverse_in_order_collector(root.left, collect, level + 1, callback)

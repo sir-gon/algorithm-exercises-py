@@ -9,7 +9,7 @@ class RoadsAndLibraries:
 
     def __init__(self, n: int, cities: list[list[int]]):
 
-        self._paths = [-1 for _ in range(n+1)]
+        self._paths = [-1 for _ in range(n + 1)]
 
         for path in cities:
             a, b = path[0], path[1]

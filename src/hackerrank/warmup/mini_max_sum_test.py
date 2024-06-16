@@ -13,8 +13,8 @@ class TestMiniMaxSum(unittest.TestCase):
     def test_mini_max_sum(self):
 
         tests = [
-          {'input':  [1, 2, 3, 4, 5], 'answer': '10 14'},
-          {'input':  [5, 4, 3, 2, 1], 'answer': '10 14'}
+            {'input': [1, 2, 3, 4, 5], 'answer': '10 14'},
+            {'input': [5, 4, 3, 2, 1], 'answer': '10 14'}
         ]
 
         for _, _tt in enumerate(tests):

@@ -10,10 +10,10 @@ class TestDivisors(unittest.TestCase):
     def test_value(self):
 
         tests = [
-          {'input': 1, 'answer': 1},
-          {'input': 2, 'answer': 2},
-          {'input': 10, 'answer': 10},
-          {'input': 16, 'answer': 16}
+            {'input': 1, 'answer': 1},
+            {'input': 2, 'answer': 2},
+            {'input': 10, 'answer': 10},
+            {'input': 16, 'answer': 16}
         ]
 
         for _, _tt in enumerate(tests):
@@ -27,7 +27,7 @@ class TestDivisors(unittest.TestCase):
     def test_divisors_of_one(self):
 
         tests = [
-          {'input': 1, 'answer': [1], 'cycles': 0},
+            {'input': 1, 'answer': [1], 'cycles': 0},
         ]
 
         for _, _tt in enumerate(tests):
@@ -46,10 +46,10 @@ class TestDivisors(unittest.TestCase):
     def test_divisors(self):
 
         tests = [
-          {'input': 2, 'answer': [1, 2], 'cycles': 1},
-          {'input': 8, 'answer': [1, 2, 4, 8], 'cycles': 2},
-          {'input': 10, 'answer': [1, 2, 5, 10], 'cycles': 2},
-          {'input': 16, 'answer': [1, 2, 4, 8, 16], 'cycles': 3}
+            {'input': 2, 'answer': [1, 2], 'cycles': 1},
+            {'input': 8, 'answer': [1, 2, 4, 8], 'cycles': 2},
+            {'input': 10, 'answer': [1, 2, 5, 10], 'cycles': 2},
+            {'input': 16, 'answer': [1, 2, 4, 8, 16], 'cycles': 3}
         ]
 
         for _, _tt in enumerate(tests):
@@ -68,11 +68,11 @@ class TestDivisors(unittest.TestCase):
     def test_divisors_edge_cases(self):
 
         tests = [
-          {'input': 110, 'answer': [1, 2, 5, 10, 11, 22, 55, 110], 'cycles': 10},
-          {'input': 18632, 'answer': [
-              1, 2, 4, 8, 17, 34, 68, 136, 137,
-              274, 548, 1096, 2329, 4658, 9316, 18632],
-              'cycles': 136}
+            {'input': 110, 'answer': [1, 2, 5, 10, 11, 22, 55, 110], 'cycles': 10},
+            {'input': 18632, 'answer': [
+                1, 2, 4, 8, 17, 34, 68, 136, 137,
+                274, 548, 1096, 2329, 4658, 9316, 18632],
+             'cycles': 136}
         ]
 
         for _, _tt in enumerate(tests):
@@ -90,11 +90,11 @@ class TestDivisors(unittest.TestCase):
 
     def test_prime_factor(self):
         tests = [
-          {'input': 1, 'answer': 1, 'divisor': 1, 'cycles': 0},
-          {'input': 2, 'answer': 2, 'divisor': 1, 'cycles': 1},
-          {'input': 4, 'answer': 2, 'divisor': 2, 'cycles': 1},
-          {'input': 9, 'answer': 3, 'divisor': 3, 'cycles': 2},
-          {'input': 7, 'answer': 7, 'divisor': 1, 'cycles': 6},
+            {'input': 1, 'answer': 1, 'divisor': 1, 'cycles': 0},
+            {'input': 2, 'answer': 2, 'divisor': 1, 'cycles': 1},
+            {'input': 4, 'answer': 2, 'divisor': 2, 'cycles': 1},
+            {'input': 9, 'answer': 3, 'divisor': 3, 'cycles': 2},
+            {'input': 7, 'answer': 7, 'divisor': 1, 'cycles': 6},
         ]
 
         for _, _tt in enumerate(tests):
@@ -114,11 +114,11 @@ class TestDivisors(unittest.TestCase):
 
     def test_prime_factor_without_cache(self):
         tests = [
-          {'input': 1, 'answer': 1, 'divisor': 1, 'cycles': 0},
-          {'input': 2, 'answer': 2, 'divisor': 1, 'cycles': 1},
-          {'input': 4, 'answer': 2, 'divisor': 2, 'cycles': 1},
-          {'input': 9, 'answer': 3, 'divisor': 3, 'cycles': 2},
-          {'input': 7, 'answer': 7, 'divisor': 1, 'cycles': 6},
+            {'input': 1, 'answer': 1, 'divisor': 1, 'cycles': 0},
+            {'input': 2, 'answer': 2, 'divisor': 1, 'cycles': 1},
+            {'input': 4, 'answer': 2, 'divisor': 2, 'cycles': 1},
+            {'input': 9, 'answer': 3, 'divisor': 3, 'cycles': 2},
+            {'input': 7, 'answer': 7, 'divisor': 1, 'cycles': 6},
         ]
 
         for _, _tt in enumerate(tests):
@@ -130,11 +130,11 @@ class TestDivisors(unittest.TestCase):
 
     def test_prime_factor_cycles_without_cache(self):
         tests = [
-          {'input': 1, 'answer': 1, 'divisor': 1, 'cycles': 0},
-          {'input': 2, 'answer': 2, 'divisor': 1, 'cycles': 1},
-          {'input': 4, 'answer': 2, 'divisor': 2, 'cycles': 1},
-          {'input': 9, 'answer': 3, 'divisor': 3, 'cycles': 2},
-          {'input': 7, 'answer': 7, 'divisor': 1, 'cycles': 6},
+            {'input': 1, 'answer': 1, 'divisor': 1, 'cycles': 0},
+            {'input': 2, 'answer': 2, 'divisor': 1, 'cycles': 1},
+            {'input': 4, 'answer': 2, 'divisor': 2, 'cycles': 1},
+            {'input': 9, 'answer': 3, 'divisor': 3, 'cycles': 2},
+            {'input': 7, 'answer': 7, 'divisor': 1, 'cycles': 6},
         ]
 
         for _, _tt in enumerate(tests):
@@ -146,9 +146,9 @@ class TestDivisors(unittest.TestCase):
 
     def test_prime_and_cache(self):
         tests = [
-          {'input': 2, 'answer': True, 'cycles': 1},
-          {'input': 5, 'answer': True, 'cycles': 4},
-          {'input': 7, 'answer': True, 'cycles': 6}
+            {'input': 2, 'answer': True, 'cycles': 1},
+            {'input': 5, 'answer': True, 'cycles': 4},
+            {'input': 7, 'answer': True, 'cycles': 6}
         ]
 
         for _, _tt in enumerate(tests):
@@ -168,9 +168,9 @@ class TestDivisors(unittest.TestCase):
 
     def test_not_prime(self):
         tests = [
-          {'input': 1, 'answer': False},
-          {'input': 10, 'answer': False},
-          {'input': 16, 'answer': False}
+            {'input': 1, 'answer': False},
+            {'input': 10, 'answer': False},
+            {'input': 16, 'answer': False}
         ]
 
         for _, _tt in enumerate(tests):
@@ -182,10 +182,10 @@ class TestDivisors(unittest.TestCase):
 
     def test_prime_factors_and_cache(self):
         tests = [
-          {'input': 1, 'answer': [1], 'cycles': 0},
-          {'input': 2, 'answer': [2], 'cycles': 1},
-          {'input': 6, 'answer': [2, 3], 'cycles': 3},
-          {'input': 12, 'answer': [2, 2, 3], 'cycles': 4}
+            {'input': 1, 'answer': [1], 'cycles': 0},
+            {'input': 2, 'answer': [2], 'cycles': 1},
+            {'input': 6, 'answer': [2, 3], 'cycles': 3},
+            {'input': 12, 'answer': [2, 2, 3], 'cycles': 4}
         ]
 
         for _, _tt in enumerate(tests):

@@ -7,17 +7,17 @@ class TestStaircase(unittest.TestCase):
     def test_staircase(self):
 
         tests = [
-          {
-            'input': 6,
-            'answer': '\n'.join([
-                '     #',
-                '    ##',
-                '   ###',
-                '  ####',
-                ' #####',
-                '######'
+            {
+                'input': 6,
+                'answer': '\n'.join([
+                    '     #',
+                    '    ##',
+                    '   ###',
+                    '  ####',
+                    ' #####',
+                    '######'
                 ])
-          }
+            }
         ]
 
         for _, _tt in enumerate(tests):

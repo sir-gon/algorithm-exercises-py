@@ -15,7 +15,7 @@ class TestProblem0018(unittest.TestCase):
     def test_problem0018_small_case(self):
 
         tests = [
-          {'input': small_case, 'answer': 23}
+            {'input': small_case, 'answer': 23}
         ]
 
         for _, _tt in enumerate(tests):
@@ -28,7 +28,7 @@ class TestProblem0018(unittest.TestCase):
     def test_problem0018(self):
 
         tests = [
-          {'input': problem0018Data, 'answer': 1074}
+            {'input': problem0018Data, 'answer': 1074}
         ]
 
         for _, _tt in enumerate(tests):

@@ -35,7 +35,7 @@ class BinaryNodeBuilder(BinaryNode[T]):
             j: int = 0,
             root_value: int = 0,
             leaves_collector: List[int] | None = None
-            ):
+    ):
 
         if data_tree is None:
             return None

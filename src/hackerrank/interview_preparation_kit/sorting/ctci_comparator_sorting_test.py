@@ -7,12 +7,12 @@ class TestComparatorSorting(unittest.TestCase):
         {
             'title': 'Sample Test Case 0',
             'input': [
-                    SortablePlayer('amy', 100),
-                    SortablePlayer('david', 100),
-                    SortablePlayer('heraldo', 50),
-                    SortablePlayer('aakansha', 75),
-                    SortablePlayer('aleksa', 150)
-                ],
+                SortablePlayer('amy', 100),
+                SortablePlayer('david', 100),
+                SortablePlayer('heraldo', 50),
+                SortablePlayer('aakansha', 75),
+                SortablePlayer('aleksa', 150)
+            ],
             'answer': '\n'.join(['aleksa 150',
                                  'amy 100',
                                  'david 100',
@@ -22,10 +22,10 @@ class TestComparatorSorting(unittest.TestCase):
         {
             'title': 'Sample Test Case 6',
             'input': [
-                    SortablePlayer('smith', 20),
-                    SortablePlayer('jones', 15),
-                    SortablePlayer('jones', 20)
-                ],
+                SortablePlayer('smith', 20),
+                SortablePlayer('jones', 15),
+                SortablePlayer('jones', 20)
+            ],
             'answer': '\n'.join(['jones 20',
                                  'smith 20',
                                  'jones 15'])
@@ -33,11 +33,11 @@ class TestComparatorSorting(unittest.TestCase):
         {
             'title': 'Sample Test Case 7',
             'input': [
-                    SortablePlayer('davis', 15),
-                    SortablePlayer('davis', 20),
-                    SortablePlayer('davis', 10),
-                    SortablePlayer('edgehill', 15)
-                ],
+                SortablePlayer('davis', 15),
+                SortablePlayer('davis', 20),
+                SortablePlayer('davis', 10),
+                SortablePlayer('edgehill', 15)
+            ],
             'answer': '\n'.join(['davis 20',
                                  'davis 15',
                                  'edgehill 15',
@@ -46,9 +46,9 @@ class TestComparatorSorting(unittest.TestCase):
         {
             'title': 'Edge case: draw',
             'input': [
-                    SortablePlayer('kurt', 100),
-                    SortablePlayer('kurt', 100)
-                ],
+                SortablePlayer('kurt', 100),
+                SortablePlayer('kurt', 100)
+            ],
             'answer': '\n'.join(['kurt 100',
                                  'kurt 100'])
         },

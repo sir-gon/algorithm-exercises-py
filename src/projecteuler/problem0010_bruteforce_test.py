@@ -14,7 +14,7 @@ class TestProblem0010BruteForce(unittest.TestCase):
     def test_problem0010_bruteforce(self):
 
         tests = [
-          {'inputLimit': 2000000, 'answer': 142913828922}
+            {'inputLimit': 2000000, 'answer': 142913828922}
         ]
 
         for _, _tt in enumerate(tests):

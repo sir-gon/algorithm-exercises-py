@@ -8,15 +8,15 @@ class TestMinimumBribes(unittest.TestCase):
 
         tests = [
             {'title': "Test Case 0-0",
-                'input':  [2, 1, 5, 3, 4], 'answer': 3},
+                'input': [2, 1, 5, 3, 4], 'answer': 3},
             {'title': "Test Case 0-1",
-                'input':  [2, 5, 1, 3, 4], 'answer': TOO_CHAOTIC_ERROR},
+                'input': [2, 5, 1, 3, 4], 'answer': TOO_CHAOTIC_ERROR},
             {'title': "Test Case 1-1",
-                'input':  [5, 1, 2, 3, 7, 8, 6, 4], 'answer': TOO_CHAOTIC_ERROR},
+                'input': [5, 1, 2, 3, 7, 8, 6, 4], 'answer': TOO_CHAOTIC_ERROR},
             {'title': "Test Case 1-2",
-                'input':  [1, 2, 5, 3, 7, 8, 6, 4], 'answer': 7},
+                'input': [1, 2, 5, 3, 7, 8, 6, 4], 'answer': 7},
             {'title': "Test Case 2",
-                'input':  [1, 2, 5, 3, 4, 7, 8, 6], 'answer': 4},
+                'input': [1, 2, 5, 3, 4, 7, 8, 6], 'answer': 4},
         ]
 
         for _, _tt in enumerate(tests):

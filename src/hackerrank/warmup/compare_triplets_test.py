@@ -22,7 +22,7 @@ class TestCompareTriplets(unittest.TestCase):
     def test_compare_triplets_test_case0(self):
 
         tests = [
-          {'a':  [5, 6, 7], 'b': [3, 6, 10], 'answer': [1, 1]},
+            {'a': [5, 6, 7], 'b': [3, 6, 10], 'answer': [1, 1]},
         ]
 
         for _, _tt in enumerate(tests):

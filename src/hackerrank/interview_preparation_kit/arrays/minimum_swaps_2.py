@@ -7,7 +7,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 def minimum_swaps(group: list[int]) -> int:
-    q = [i-1 for i in group]
+    q = [i - 1 for i in group]
 
     swaps = 0
     index = 0

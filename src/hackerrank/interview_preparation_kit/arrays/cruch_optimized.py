@@ -19,7 +19,7 @@ def array_manipulation_optimized(n: int, queries: list[list[int]]) -> int:
     for [a, b, k] in queries:
         # Prefix
         result[a] += k
-        result[b+1] -= k
+        result[b + 1] -= k
 
     accum_sum = 0
     for value in result:

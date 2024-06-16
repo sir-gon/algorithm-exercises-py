@@ -7,10 +7,10 @@ class TestPlusMinus(unittest.TestCase):
     def test_plus_minus(self):
 
         tests = [
-          {
-            'input': [-4, 3, -9, 0, 4, 1],
-            'answer':  '\n'.join(['0.500000', '0.333333', '0.166667'])
-          }
+            {
+                'input': [-4, 3, -9, 0, 4, 1],
+                'answer': '\n'.join(['0.500000', '0.333333', '0.166667'])
+            }
         ]
 
         for _, _tt in enumerate(tests):

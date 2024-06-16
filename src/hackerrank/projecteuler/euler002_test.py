@@ -7,8 +7,8 @@ class TestEuler002(unittest.TestCase):
     def test_euler002(self):
 
         tests = [
-          {'n': 10, 'answer': 10},
-          {'n': 100, 'answer': 44}
+            {'n': 10, 'answer': 10},
+            {'n': 100, 'answer': 44}
         ]
 
         for _, _tt in enumerate(tests):

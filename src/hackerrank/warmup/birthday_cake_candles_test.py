@@ -8,8 +8,8 @@ class TestBirthdayCakeCandles(unittest.TestCase):
     def test_birthday_cake_candles(self):
 
         tests = [
-          {'input': [3, 2, 1, 3], 'answer': 2},
-          {'input': [1, 2, 3, 3], 'answer': 2},
+            {'input': [3, 2, 1, 3], 'answer': 2},
+            {'input': [1, 2, 3, 3], 'answer': 2},
         ]
 
         for _, _tt in enumerate(tests):

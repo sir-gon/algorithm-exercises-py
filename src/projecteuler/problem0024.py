@@ -13,7 +13,7 @@ def permute(symbols: str, target: int) -> str:
 
     while len(choices) > 0:
         index = 0
-        combos = math.factorial(len(choices)-1)
+        combos = math.factorial(len(choices) - 1)
         minimum += combos
         while target > minimum:
             index += 1

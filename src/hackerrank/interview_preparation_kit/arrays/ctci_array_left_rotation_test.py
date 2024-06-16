@@ -7,11 +7,11 @@ class TestArrayLeftRotation(unittest.TestCase):
     def test_rot_left_one(self):
 
         tests = [
-          {'input': [1, 2, 3, 4, 5], 'answer': [2, 3, 4, 5, 1]},
-          {'input': [2, 3, 4, 5, 1], 'answer': [3, 4, 5, 1, 2]},
-          {'input': [3, 4, 5, 1, 2], 'answer': [4, 5, 1, 2, 3]},
-          {'input': [4, 5, 1, 2, 3], 'answer': [5, 1, 2, 3, 4]},
-          {'input': [5, 1, 2, 3, 4], 'answer': [1, 2, 3, 4, 5]},
+            {'input': [1, 2, 3, 4, 5], 'answer': [2, 3, 4, 5, 1]},
+            {'input': [2, 3, 4, 5, 1], 'answer': [3, 4, 5, 1, 2]},
+            {'input': [3, 4, 5, 1, 2], 'answer': [4, 5, 1, 2, 3]},
+            {'input': [4, 5, 1, 2, 3], 'answer': [5, 1, 2, 3, 4]},
+            {'input': [5, 1, 2, 3, 4], 'answer': [1, 2, 3, 4, 5]},
         ]
 
         for _, _tt in enumerate(tests):
@@ -24,7 +24,7 @@ class TestArrayLeftRotation(unittest.TestCase):
     def test_rot_left(self):
 
         tests = [
-          {'input': [1, 2, 3, 4, 5], 'd': 4, 'answer': [5, 1, 2, 3, 4]},
+            {'input': [1, 2, 3, 4, 5], 'd': 4, 'answer': [5, 1, 2, 3, 4]},
         ]
 
         for _, _tt in enumerate(tests):

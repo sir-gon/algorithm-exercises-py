@@ -42,8 +42,8 @@ class TestSortedInsert(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             llist = sorted_insert(
-                    _tt['llist'].head,
-                    _tt['data'])
+                _tt['llist'].head,
+                _tt['data'])
 
             result = double_linked_list_to_text(llist, ' ')
 
@@ -61,8 +61,8 @@ class TestSortedInsert(unittest.TestCase):
         data = 1
 
         head = sorted_insert(
-                    llist.head,
-                    data)
+            llist.head,
+            data)
 
         result = double_linked_list_to_text(head, ' ')
 
