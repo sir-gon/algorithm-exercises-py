@@ -1,14 +1,15 @@
 # Algorithm Exercises (Python 3)
 
 [![Python CI](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/python.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/python.yml)
-[![codecov](https://codecov.io/gh/sir-gon/algorithm-exercises-py/branch/main/graph/badge.svg?token=U3N3HSC3YC)](https://codecov.io/gh/sir-gon/algorithm-exercises-py)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py?ref=badge_shield)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6404/badge)](https://bestpractices.coreinfrastructure.org/projects/6404)
 [![Markdown Lint](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/markdown-lint.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/markdown-lint.yml)
+[![YAML lint](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/yamllint.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/yamllint.yml)
 
 ![GitHub](https://img.shields.io/github/license/sir-gon/algorithm-exercises-py)
 ![GitHub language count](https://img.shields.io/github/languages/count/sir-gon/algorithm-exercises-py)
 ![GitHub top language](https://img.shields.io/github/languages/top/sir-gon/algorithm-exercises-py)
+[![codecov](https://codecov.io/gh/sir-gon/algorithm-exercises-py/branch/main/graph/badge.svg?token=U3N3HSC3YC)](https://codecov.io/gh/sir-gon/algorithm-exercises-py)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py?ref=badge_shield)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6404/badge)](https://bestpractices.coreinfrastructure.org/projects/6404)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-py&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-py)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-py&metric=coverage)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-py)
