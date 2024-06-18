@@ -16,18 +16,260 @@
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-py&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-py)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=sir-gon_algorithm-exercises-py&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=sir-gon_algorithm-exercises-py)
 
+## TL;DR
+
+[Install and run](#install-and-run)
+
 ## What is this?
 
-[Project Euler](https://algorithm-exercises.net/) provide some algorithms and
- mathematical problems to solve to be used as experience tests.
+This repository is part of a series that share and solve the same [objectives](#objetives),
+with the difference that each one is based on a different software ecosystem,
+depending on the chosen programming language:
 
-Use this answers to learn some tip and tricks for algorithms tests.
+- [Modern Javascript: algorithm-exercises-py](https://github.com/sir-gon/algorithm-exercises-py)
+- [Python 3.x: algorithm-exercises-py](https://github.com/sir-gon/algorithm-exercises-py)
+- [Typescript: algorithm-exercises-ts](https://github.com/sir-gon/algorithm-exercises-ts)
+- [Go / Golang: algorithm-exercises-go](https://github.com/sir-gon/algorithm-exercises-go)
+- [Java: algorithm-exercises-java](https://github.com/sir-gon/algorithm-exercises-java)
+- [.NET / C#: algorithm-exercises-csharp](https://github.com/sir-gon/algorithm-exercises-csharp)
 
-## Why I publish solutions?
+## Objetives
+
+### Functional
+
+- For academic purposes, it is an backup of some algorithm exercises
+(with their solutions), proposed by various sources:
+[leetcode, hackerrank, projecteuler](#algorithm-excersices-sources), ...
+
+- The solutions must be written on "vanilla code", that is,
+avoiding as much as possible the use of external libraries (in runtime).
+
+- Adoption of methodology and good practices.
+Each exercise is implemented as a unit test set,
+using TDD (Test-driven Development) and Clean Code ideas.
+
+### Technical
+
+Foundation of a project that supports:
+
+- Explicit **typing** when the language supports it, even when it is not mandatory.
+- Static Code Analysis (**Lint**) of code, scripts and documentation.
+- Uniform **Code Styling**.
+- **Unit Test** framework.
+- **Coverge** collection. High coverage percentage. Equal or close to 100%.
+- **Pipeline** (Github Actions). Each command must take care of its
+return status code.
+- **Docker**-based workflow to replicate behavior in any environment.
+- Other tools to support the reinforcement of software development **good practices**.
+
+## Install and Run
+
+You can run tests in the following ways:
+
+- [Install and run directly](#install-and-run-directly) require runtime tools
+installed in your SO.
+- [Install and run with make](#install-and-run-using-make) require runtime tools
+and "make" installed in your SO.
+- [Install and in Docker](#install-and-running-with-docker-) require Docker and
+docker-compose installed.
+- (⭐️)
+[Install and in Docker with make](#install-and-running-with-docker--using-make)
+require docker-compose and make installed.
+
+⭐️: Prefered way.
+
+### Install and Run directly
+
+Using a Python 3.x runtime in your SO.
+
+First, load virtual env environment:
+
+```bash
+source .venv/bin/activate
+```
+
+You must install dependencies:
+
+```bash
+pip3 install -r requirements.txt
+```
+
+Every problem is a function with unit test.
+
+Unit test has test cases and input data to solve the problem.
+
+Run all tests collectino coverage:
+
+```bash
+python3 -m coverage run -m pytest --verbose src/
+```
+
+#### Test run with alternative behaviors
+
+You can change test running behaviour using some environment variables as follows:
+
+| Variable | Values | Default |
+| ------ | ------ | ------ |
+| LOG_LEVEL  | `debug`, `warning`, `error`, `info` | `info` |
+| BRUTEFORCE | `true`, `false`| `false` |
+
+- `LOG_LEVEL`: change verbosity level in outputs.
+- `BRUTEFORCE`: enable or disable running large tests.
+(long time, large amount of data, high memory consumition).
+
+#### Examples running tests with alternative behaviors
+
+Log level in pytest require to pass a parameter.
+So, to pass it in a similar way as another sibling stacks,
+the following example is proposed to run tests with debug outputs:
+
+```bash
+LOG_LEVEL=debug python3 -m coverage run -m \
+  pytest --verbose \
+  -o log_cli=true \
+  --log-cli-level=${LOG_LEVEL} \
+  --full-trace src/
+```
+
+Run brute-force tests with debug outputs:
+
+```bash
+BRUTEFORCE=true LOG_LEVEL=debug python3 -m coverage run -m \
+  pytest --verbose \
+  -o log_cli=true \
+  --log-cli-level=${LOG_LEVEL} \
+  --full-trace src/
+```
+
+### Install and Run using make
+
+`make` tool is used to standardizes the commands for the same tasks
+across each sibling repository.
+
+Run tests (libraries are installed as dependency task in make):
+
+```bash
+make test
+```
+
+Run tests with debug outputs:
+
+```bash
+make test -e LOG_LEVEL=debug
+```
+
+Run brute-force tests with debug outputs:
+
+```bash
+make test -e BRUTEFORCE=true -e LOG_LEVEL=debug
+```
+
+Alternative way, use environment variables as prefix:
+
+```bash
+BRUTEFORCE=true LOG_LEVEL=debug make test
+```
+
+### Install and Running with Docker 🐳
+
+Build an image of the test stage.
+Then creates and ephemeral container an run tests.
+
+BRUTEFORCE and LOG_LEVEL environment variables are passing from current
+environment using docker-compose.
+
+```bash
+docker-compose --profile testing run --rm algorithm-exercises-py-test
+```
+
+To change behavior using environment variables, you can pass to containers
+in the following ways:
+
+From host using docker-compose (compose.yaml) mechanism:
+
+```bash
+BRUTEFORCE=true LOG_LEVEL=debug docker-compose --profile testing run --rm algorithm-exercises-py-test
+```
+
+Overriding docker CMD, as parameter of make "-e":
+
+```bash
+docker-compose --profile testing run --rm algorithm-exercises-py-test make test -e LOG_LEVEL=DEBUG -e BRUTEFORCE=true
+```
+
+### Install and Running with Docker 🐳 using make
+
+```bash
+make compose/build
+make compose/test
+```
+
+To pass environment variables you can use docker-compose
+or overriding CMD and passing to make as "-e" argument.
+
+Passing environment variables using docker-compose (compose.yaml mechanism):
+
+```bash
+BRUTEFORCE=true LOG_LEVEL=debug make compose/test
+```
+
+## Development workflow using Docker / docker-compose
+
+Running container with development target.
+Designed for development workflow on top of this image.
+All source application is mounted as a volume in **/app** directory.
+Dependencies should be installed to run so, you must
+install dependencies before run (or after a dependency add/change).
+
+```bash
+# Build development target image
+docker-compose build --compress algorithm-exercises-py-dev
+
+# Run ephemeral container and override CMD to run test
+docker-compose run --rm algorithm-exercises-py-dev python3 -m coverage run -m pytest --verbose src/
+```
+
+## Run complete workflow (Docker + make)
+
+Following command simulates a standarized pipeline across environments,
+using docker-compose and make.
+
+```bash
+make compose/build && make compose/lint && make compose/test && make compose/run
+```
+
+- Build all Docker stages and tag relevant images.
+- Run static analysis (lint) checks
+- Run unit tests
+- Run a "final" production ready image as a final container.
+Final "production" image just shows a minimal "production ready"
+build (with no tests).
+
+## About development
+
+Developed with runtime:
+
+```text
+python3 --version
+Python 3.12.3
+```
+
+## Algorithm excersices sources
+
+- [Leetcode](https://leetcode.com/) online platform for
+coding interview preparation.
+- [HackerRank](https://www.hackerrank.com/) competitive programming challenges
+for both consumers and businesses.
+- [Project Euler](https://projecteuler.net/) a series of computational problems
+intended to be solved with computer programs.
+
+Use these answers to learn some tip and tricks for algorithms tests.
+
+### Disclaimer. Why I publish solutions?
 
 As Project Euler says:
 
-<https://algorithm-exercises.net/about#publish>
+<https://projecteuler.net/about#publish>
 
 ```text
 I learned so much solving problem XXX, so is it okay to publish my solution elsewhere?
@@ -40,128 +282,7 @@ If you have better answers or optimal solutions, fork and PR-me
 
 Enjoy 😁 !
 
-## Using Python 3 native runtime
-
-## Requirements
-
-You must install dependencies:
-
-```text
-pip3 install -r requirements.txt
-```
-
-Or using make
-
-```text
-make dependencies
-```
-
-### Minimal dependencies
-
-Third party libraries for CI/CD pipeline and TDD cycle (not used in runtime):
-
-```text
-pip3 install coverage pylint pytest
-```
-
-### Testing silently
-
-Every problem is a function with unit test.
-Unit test has test cases and input data to solve the problem.
-
-Run all tests:
-
-```text
-pytest --verbose -o log_cli=true --log-cli-level=INFO --full-trace src/
-```
-
-### Testing with full logs
-
-Run all tests with debug outputs:
-
-```text
-pytest --verbose -o log_cli=true --log-cli-level=DEBUG --full-trace src/
-```
-
-### Testing using make
-
-```text
-make test
-```
-
-### Enable all large BRUTEFORCE tests
-
-Direct in host using a make:
-
-```text
-make test -e BRUTEFORCE=true
-```
-
-### Enable all DEBUG outputs
-
-```text
-make test -e LOG_LEVEL=debug
-```
-
-### Enable all large BRUTEFORCE tests and all DEBUG outputs
-
-```text
-make test -e LOG_LEVEL=debug -e BRUTEFORCE=true
-```
-
-## Running with Docker 🐳
-
-### Build a complete image with and run all tests
-
-Running container with testing (final) target.
-
-Designed to store all application files and dependencies as a complete runnable image.
-Coverage results will be stored in host **/coverage** directory (mounted as volume).
-
-```text
-# Build a complete image
-docker-compose build algorithm-exercises-py
-docker-compose run --rm algorithm-exercises-py make test coverage
-```
-
-### Enable BRUTEFORCE tests with full DEBUG output
-
-With docker-compose:
-
-```text
-docker-compose --profile testing run --rm algorithm-exercises-py make test -e LOG_LEVEL=debug -e BRUTEFORCE=true
-```
-
-Using make:
-
-```text
-make docker/compose-run -e LOG_LEVEL=DEBUG -e BRUTEFORCE=true
-```
-
-### Build and run a development image
-
-Running container with development target.
-Designed to develop on top of this image. All source application is mounted as
-a volume in **/app** directory.
-Dependencies should be installed to run (not present in this target) so, you
-must install dependencies before run (or after a dependency add/change).
-
-```text
-# install dependencies using docker runtime and store them in host directory
-docker-compose build algorithm-exercises-py-dev
-docker-compose run --rm algorithm-exercises-py-dev make dependencies
-docker-compose run --rm algorithm-exercises-py-dev make test
-
-```
-
-## About development
-
-Developed with runtime:
-
-```text
-python3 --version
-Python 3.12.1
-```
+## Status
 
 ### License
 
