@@ -1,31 +1,33 @@
 # @link Problem definition
 # [[docs/hackerrank/interview_preparation_kit/dictionaries_and_hashmaps/ctci-ransom-note.md]]
 
-from typing import Dict
+from typing import Dict, List
 
 __YES__ = 'Yes'
 __NO__ = 'No'
 
 
-def check_magazine_compute(magazine: str, note: str) -> bool:
+def check_magazine_compute(magazine: List[str], note: List[str]) -> bool:
     dictionary: Dict[str, int] = {}
 
-    for x in magazine:
+    word: str
 
-        if x in dictionary:
-            dictionary[x] += 1
+    for word in magazine:
+
+        if word in dictionary:
+            dictionary[word] += 1
         else:
-            dictionary[x] = 1
+            dictionary[word] = 1
 
-    for x in note:
+    for word in note:
 
-        if x in dictionary and dictionary[x] > 0:
-            dictionary[x] -= 1
+        if word in dictionary and dictionary[word] > 0:
+            dictionary[word] -= 1
         else:
             return False
 
     return True
 
 
-def check_magazine(magazine: str, note: str) -> str:
+def check_magazine(magazine: List[str], note: List[str]) -> str:
     return __YES__ if check_magazine_compute(magazine, note) else __NO__
