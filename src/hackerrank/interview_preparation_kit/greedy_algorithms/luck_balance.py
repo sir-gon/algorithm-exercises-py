@@ -34,8 +34,9 @@ def luck_balance(k, contests: list) -> int:
         key=lambda contest: (-contest['important'], -contest['luck'])
     )
 
-    total = 0
-    size = len(important_competitions)
+    total: int = 0
+    size: int = len(important_competitions)
+
     for i in range(0, min(k, size)):
         total += important_competitions[i].luck
 
