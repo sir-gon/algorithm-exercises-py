@@ -7,6 +7,7 @@
 ![GitHub](https://img.shields.io/github/license/sir-gon/algorithm-exercises-py)
 ![GitHub language count](https://img.shields.io/github/languages/count/sir-gon/algorithm-exercises-py)
 ![GitHub top language](https://img.shields.io/github/languages/top/sir-gon/algorithm-exercises-py)
+[![CodeFactor](https://www.codefactor.io/repository/github/sir-gon/algorithm-exercises-py/badge)](https://www.codefactor.io/repository/github/sir-gon/algorithm-exercises-py)
 [![codecov](https://codecov.io/gh/sir-gon/algorithm-exercises-py/branch/main/graph/badge.svg?token=U3N3HSC3YC)](https://codecov.io/gh/sir-gon/algorithm-exercises-py)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsir-gon%2Fprojecteuler-py?ref=badge_shield)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6404/badge)](https://bestpractices.coreinfrastructure.org/projects/6404)
