@@ -49,9 +49,9 @@ def max_circle(queries) -> list[int]:
     result: list[int] = []
     friends = GroupingFriends()
 
-    for x in queries:
+    for query in queries:
         # Computing friendship
-        friends.unite(x[0], x[1])
+        friends.unite(query[0], query[1])
 
         # Counting friends groups
         result.append(friends.count_groups())
