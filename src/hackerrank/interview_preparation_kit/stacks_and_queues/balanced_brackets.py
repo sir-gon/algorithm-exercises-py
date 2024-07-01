@@ -7,12 +7,12 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def is_balanced(s: str) -> bool:
+def is_balanced(text: str) -> bool:
 
     pairs = {'{': '}', '(': ')', '[': ']'}
     brackets = []
 
-    for letter in s:
+    for letter in text:
         if letter in pairs:
             brackets.append(letter)
         else:
