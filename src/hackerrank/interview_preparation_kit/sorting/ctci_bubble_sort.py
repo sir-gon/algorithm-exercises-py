@@ -5,6 +5,7 @@ from __future__ import annotations
 import logging
 
 LOGGER = logging.getLogger(__name__)
+SEPARATOR = "\n"
 
 
 # pylint: disable=R0903:too-few-public-methods
@@ -46,9 +47,10 @@ def count_swaps(group: list[int]) -> str:
     sortable_group = SortableGroup(group)
     sortable_group.bubble_sort()
 
-    nl = "\n"
-    output = f'Array is sorted in {sortable_group.count} swaps.{nl}' + \
-             f'First Element: {sortable_group.group[0]}{nl}' + \
-             f'Last Element: {sortable_group.group[len(sortable_group.group)-1]}{nl}'
+    last = len(sortable_group.group) - 1
+
+    output = f'Array is sorted in {sortable_group.count} swaps.{SEPARATOR}' + \
+             f'First Element: {sortable_group.group[0]}{SEPARATOR}' + \
+             f'Last Element: {sortable_group.group[last]}{SEPARATOR}'
 
     return output
