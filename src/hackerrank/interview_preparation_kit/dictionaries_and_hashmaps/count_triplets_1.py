@@ -28,9 +28,9 @@ def count_triplets(arr, r):
     for i in arr:
         j = i // r
         k = i * r
-        a[i] -= 1
-        if b[j] and a[k] and i % r == 0:
-            triplets += b[j] * a[k]
-        b[i] += 1
+        a_counter[i] -= 1
+        if b_counter[j] and a_counter[k] and i % r == 0:
+            triplets += b_counter[j] * a_counter[k]
+        b_counter[i] += 1
 
     return triplets
