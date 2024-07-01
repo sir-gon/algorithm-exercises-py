@@ -9,17 +9,17 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def array_manipulation_optimized(n: int, queries: list[list[int]]) -> int:
+def array_manipulation_optimized(n_operations: int, queries: list[list[int]]) -> int:
     # why adding 2?
     #   first slot to adjust 1-based index and
     #   last slot for storing accum_sum result
-    result = [0] * (n + 2)
+    result = [0] * (n_operations + 2)
     maximum = 0
 
-    for [a, b, k] in queries:
+    for [a_start, b_end, k_value] in queries:
         # Prefix
-        result[a] += k
-        result[b + 1] -= k
+        result[a_start] += k_value
+        result[b_end + 1] -= k_value
 
     accum_sum = 0
     for value in result:
