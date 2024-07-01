@@ -38,8 +38,8 @@ class TestTreeHeight(unittest.TestCase):
 
             tree: BinarySearchTree = BinarySearchTree()
 
-            for x in _tt['nodes']:
-                tree.create(x)
+            for nodes in _tt['nodes']:
+                tree.create(nodes)
 
             self.assertEqual(
                 height(tree.root), _tt['answer'],
@@ -52,8 +52,8 @@ class TestTreeHeight(unittest.TestCase):
 
             tree: BinarySearchTree = BinarySearchTree()
 
-            for x in _tt['nodes']:
-                tree.create(x)
+            for nodes in _tt['nodes']:
+                tree.create(nodes)
 
             self.assertEqual(
                 height(tree.root), _tt['answer'],
