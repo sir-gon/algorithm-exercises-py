@@ -6,16 +6,15 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def array_manipulation(n: int, queries: list[list[int]]) -> int:
-
-    result = [0] * (n + 1)
+def array_manipulation(n_operations: int, queries: list[list[int]]) -> int:
+    result = [0] * (n_operations + 1)
     maximum = 0
 
-    for [a, b, k] in queries:
+    for [a_start, b_end, k_value] in queries:
 
         LOGGER.debug("start -> %s", result)
-        for j in range(a, b + 1):
-            result[j] += k
+        for i in range(a_start, b_end + 1):
+            result[i] += k_value
             LOGGER.debug("result -> %s", result)
 
     for value in result:
