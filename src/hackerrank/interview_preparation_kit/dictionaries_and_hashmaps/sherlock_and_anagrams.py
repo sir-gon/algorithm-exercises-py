@@ -4,15 +4,15 @@
 import math
 
 
-def sherlock_and_anagrams(s: str) -> int:
+def sherlock_and_anagrams(s_word: str) -> int:
 
     candidates = {}
-    size = len(s)
+    size = len(s_word)
 
     # Calculate all substrings
     for i in range(0, size):
         for j in range(0, size - i):
-            substr = s[i:size - j]
+            substr = s_word[i:size - j]
             print(f'i: {i}, {size} size - j: {size - j} | substr: {substr}')
 
             # Add substrings to a candidate list.
