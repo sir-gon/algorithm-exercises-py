@@ -7,10 +7,10 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def char_to_dict(a: str) -> dict:
-    a_map = {char: (a.count(char)) for char in ''.join(sorted(a[:]))}
+def char_to_dict(word: str) -> dict:
+    word_map = {char: (word.count(char)) for char in ''.join(sorted(word[:]))}
 
-    return a_map
+    return word_map
 
 
 def make_anagram(a: str, b: str) -> int:
