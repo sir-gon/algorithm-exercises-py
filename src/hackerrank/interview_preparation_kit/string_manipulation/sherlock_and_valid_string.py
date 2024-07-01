@@ -5,14 +5,14 @@
 from collections import Counter
 
 
-def is_valid(s: str) -> bool:
+def is_valid(word: str) -> bool:
 
-    if len(s) <= 1:
+    if len(word) <= 1:
         return True
 
     string_map = {}
-    for c in s:
-        string_map[c] = 1 + string_map.get(c, 0)
+    for letter in word:
+        string_map[letter] = 1 + string_map.get(letter, 0)
 
     frequencies = Counter(string_map.values())
     frequencies = dict(sorted(frequencies.items(), key=lambda x: x[1]))
