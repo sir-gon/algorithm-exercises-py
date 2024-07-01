@@ -48,12 +48,12 @@ class SortablePlayer(Player):
         return 0
 
 
-def comparator_sorting(data: List[SortablePlayer]) -> str:
+def comparator_sorting(players: List[SortablePlayer]) -> str:
 
-    data = sorted(data, key=cmp_to_key(SortablePlayer.comparator))
+    players = sorted(players, key=cmp_to_key(SortablePlayer.comparator))
 
     output: List[str] = []
-    for x in data:
-        output.append(str(x))
+    for player in players:
+        output.append(str(player))
 
     return '\n'.join(output)
