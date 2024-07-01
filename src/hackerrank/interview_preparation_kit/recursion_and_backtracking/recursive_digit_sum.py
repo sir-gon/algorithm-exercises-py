@@ -6,11 +6,11 @@ import sys
 sys.set_int_max_str_digits(0)
 
 
-def super_digit_compute(p: int):
-    word = str(p)
+def super_digit_compute(p_number: int):
+    word = str(p_number)
 
     if len(word) == 1:
-        return p
+        return p_number
 
     partial = 0
     for x in word:
