@@ -57,12 +57,12 @@ class TestRecursionFibonacciNumbers(unittest.TestCase):
 
     def test_step_perms_alt_edge_case(self):
 
-        n: int = 0
+        n_input: int = 0
         answer: int = 0
         title: str = 'Edge Case 0'
 
         self.assertEqual(
-            step_perms(n), answer,
+            step_perms(n_input), answer,
             f"step_perms_alt({input}) must be "
             f"=> {answer} in {title}")
 
