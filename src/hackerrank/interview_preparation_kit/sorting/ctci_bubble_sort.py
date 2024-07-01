@@ -21,11 +21,11 @@ class SortableGroup:
 
         group = self.group[:]  # copy original list
 
-        n = len(group)
+        size: int = len(group)
         count = 0
         i = 0
 
-        while i < n:
+        while i < size:
 
             for j in range(0, len(group) - 1):
 
