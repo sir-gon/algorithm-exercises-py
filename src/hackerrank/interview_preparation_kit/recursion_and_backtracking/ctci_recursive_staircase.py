@@ -5,22 +5,22 @@
 from typing import Dict
 
 
-def step_perms_comput_with_cache(n: int, cache: Dict[int, int]) -> int:
-    if 0 <= n <= 2:
-        return n
-    if n == 3:
+def step_perms_comput_with_cache(n_steps: int, cache: Dict[int, int]) -> int:
+    if 0 <= n_steps <= 2:
+        return n_steps
+    if n_steps == 3:
         return 4
 
     result = 0
     for i in range(1, 4):
-        if n - i not in cache:
-            cache[n - i] = step_perms_comput_with_cache(n - i, cache)
+        if n_steps - i not in cache:
+            cache[n_steps - i] = step_perms_comput_with_cache(n_steps - i, cache)
 
-        result += cache[n - i]
+        result += cache[n_steps - i]
 
     return result
 
 
-def step_perms(n: int) -> int:
+def step_perms(n_steps: int) -> int:
     initial_cache: Dict[int, int] = {}
-    return step_perms_comput_with_cache(n, initial_cache) % (10 ** 10 + 7)
+    return step_perms_comput_with_cache(n_steps, initial_cache) % (10 ** 10 + 7)
