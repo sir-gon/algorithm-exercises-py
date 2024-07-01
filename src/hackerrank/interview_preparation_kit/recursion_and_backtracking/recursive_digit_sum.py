@@ -13,11 +13,11 @@ def super_digit_compute(p_number: int):
         return p_number
 
     partial = 0
-    for x in word:
-        partial += int(x)
+    for digit in word:
+        partial += int(digit)
 
     return super_digit_compute(partial)
 
 
-def super_digit(n: int | str, k: int):
-    return super_digit_compute(int(n) * k)
+def super_digit(n_number: int | str, k_times: int):
+    return super_digit_compute(int(n_number) * k_times)
