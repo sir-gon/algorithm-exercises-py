@@ -1,3 +1,6 @@
+# @link Problem definition
+# [[docs/hackerrank/interview_preparation_kit/dictionaries_and_hashmaps/count_triplets_1.md]]
+
 from collections import Counter
 
 
@@ -18,8 +21,8 @@ def count_triplets_brute_force(arr: list[int], r: int) -> int:
 
 
 def count_triplets(arr, r):
-    a = Counter(arr)
-    b = Counter()
+    a_counter = Counter(arr)
+    b_counter = Counter()
     triplets = 0
 
     for i in arr:
