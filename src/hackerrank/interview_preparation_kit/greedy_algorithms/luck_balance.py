@@ -20,9 +20,9 @@ def luck_balance(k, contests: list) -> int:
     important_competitions: list[Competition] = []
     nonimportant_competitions: list[Competition] = []
 
-    for x in contests:
-        luck = x[0]
-        important = x[1]
+    for contest in contests:
+        luck = contest[0]
+        important = contest[1]
 
         if important == 1:
             important_competitions.append(Competition(luck=luck, important=important))
