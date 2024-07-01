@@ -24,10 +24,10 @@ def find(node: Node | None, value: int, results: list[Node]) -> list[Node] | Non
     return None
 
 
-def lca(root: Node | None, v1: int, v2: int) -> Node | None:
+def lca(root: Node | None, v1_value: int, v2_value: int) -> Node | None:
 
-    paths1 = find(root, v1, []) or []
-    paths2 = find(root, v2, []) or []
+    paths1 = find(root, v1_value, []) or []
+    paths2 = find(root, v2_value, []) or []
 
     the_lca: Node | None = None
 
