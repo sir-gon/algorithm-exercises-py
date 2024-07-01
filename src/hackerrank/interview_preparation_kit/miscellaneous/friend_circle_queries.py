@@ -13,20 +13,22 @@ class GroupingFriends:
         self._friendship: Dict[int, int] = {}
         self._large_friendship = 0
 
-    def add(self, a: int):
-        if a not in self._friendship:
-            self._friendship[a] = -1
+    def add(self, point_a: int):
+        if point_a not in self._friendship:
+            self._friendship[point_a] = -1
 
-    def find(self, a: int) -> int:
-        return a if self._friendship[a] < 0 else self.find(self._friendship[a])
+    def find(self, point_a: int) -> int:
+        if self._friendship[point_a] < 0:
+            return point_a
+        return self.find(self._friendship[point_a])
 
-    def unite(self, a: int, b: int) -> bool:
+    def unite(self, point_a: int, point_b: int) -> bool:
 
-        self.add(a)
-        self.add(b)
+        self.add(point_a)
+        self.add(point_b)
 
-        _a = self.find(a)
-        _b = self.find(b)
+        _a = self.find(point_a)
+        _b = self.find(point_b)
 
         if _a == _b:
             return False
@@ -49,9 +51,9 @@ def max_circle(queries) -> list[int]:
     result: list[int] = []
     friends = GroupingFriends()
 
-    for x in queries:
+    for query in queries:
         # Computing friendship
-        friends.unite(x[0], x[1])
+        friends.unite(query[0], query[1])
 
         # Counting friends groups
         result.append(friends.count_groups())
