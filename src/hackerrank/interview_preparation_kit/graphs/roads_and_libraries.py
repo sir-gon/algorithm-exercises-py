@@ -12,8 +12,8 @@ class RoadsAndLibraries:
         self._paths = [-1 for _ in range(n + 1)]
 
         for path in cities:
-            a, b = path[0], path[1]
-            if self.unite(a, b):
+            city_a, city_b = path[0], path[1]
+            if self.unite(city_a, city_b):
                 self._unions += 1
 
     def find(self, a: int):
