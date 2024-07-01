@@ -56,15 +56,15 @@ class TestComparatorSorting(unittest.TestCase):
 
     def test_player(self):
 
-        a = Player('David', 100)
-        a_as_string = str(a)
+        a_player = Player('David', 100)
+        a_as_string = str(a_player)
         a_answer = ''
 
         self.assertEqual(a_as_string, a_answer)
 
-        b = Player('Kurt', 10)
+        b_player = Player('Kurt', 10)
         comparator_answer = 0
-        self.assertEqual(a.comparator(b), comparator_answer)
+        self.assertEqual(a_player.comparator(b_player), comparator_answer)
 
     def test_comparator_sorting(self):
 
