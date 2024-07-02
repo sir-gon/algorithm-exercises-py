@@ -4,15 +4,15 @@
 import math
 
 
-def sherlock_and_anagrams(s: str) -> int:
+def sherlock_and_anagrams(s_word: str) -> int:
 
     candidates = {}
-    size = len(s)
+    size = len(s_word)
 
     # Calculate all substrings
     for i in range(0, size):
         for j in range(0, size - i):
-            substr = s[i:size - j]
+            substr = s_word[i:size - j]
             print(f'i: {i}, {size} size - j: {size - j} | substr: {substr}')
 
             # Add substrings to a candidate list.
@@ -28,14 +28,16 @@ def sherlock_and_anagrams(s: str) -> int:
     count = 0
     # Final Anagram list
     for i in list(candidates):
-        n = len(candidates[i])
+        total = len(candidates[i])
         k = 2
 
         if len(candidates[i]) <= 1:
             del candidates[i]
         else:
             # Binomial coefficient: https://en.wikipedia.org/wiki/Binomial_coefficient
-            count += math.factorial(n) // (math.factorial(k) * math.factorial(n - k))
+            count += math.factorial(total) // (
+                math.factorial(k) * math.factorial(total - k)
+            )
 
     print(f'filtered candidates: {count}')
 

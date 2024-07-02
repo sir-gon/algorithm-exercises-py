@@ -13,10 +13,10 @@ def minimum_absolute_difference(arr: list[int]) -> int | None:
     result = None
 
     for i in range(len(sorted_nums) - 1):
-        a = sorted_nums[i]
-        b = sorted_nums[i + 1]
+        a_value = sorted_nums[i]
+        b_value = sorted_nums[i + 1]
 
-        diff = abs(a - b)
+        diff = abs(a_value - b_value)
 
         if result is None:
             result = diff

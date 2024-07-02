@@ -20,7 +20,7 @@ TEST_CASES = [
 ]
 
 
-class Test(unittest.TestCase):
+class TestFreqQuery(unittest.TestCase):
 
     def test_freq_query(self):
 

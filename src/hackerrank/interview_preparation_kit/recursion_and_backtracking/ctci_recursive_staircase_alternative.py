@@ -8,16 +8,16 @@ from functools import cache
 
 
 @cache
-def step_perms(n: int) -> int:
+def step_perms(n_steps: int) -> int:
     # Base cases
-    if n == 3:
+    if n_steps == 3:
         return 4
-    if 2 >= n >= 0:
-        return n
+    if 2 >= n_steps >= 0:
+        return n_steps
 
     # Recursion
     result = 0
     for i in range(1, 4):
-        result += step_perms(n - i)
+        result += step_perms(n_steps - i)
 
     return result

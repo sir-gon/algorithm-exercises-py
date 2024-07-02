@@ -7,16 +7,16 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def char_to_dict(a: str) -> dict:
-    a_map = {char: (a.count(char)) for char in ''.join(sorted(a[:]))}
+def char_to_dict(word: str) -> dict:
+    word_map = {char: (word.count(char)) for char in ''.join(sorted(word[:]))}
 
-    return a_map
+    return word_map
 
 
-def make_anagram(a: str, b: str) -> int:
+def make_anagram(word_a: str, word_b: str) -> int:
 
-    a_map = char_to_dict(a)
-    b_map = char_to_dict(b)
+    a_map = char_to_dict(word_a)
+    b_map = char_to_dict(word_b)
 
     diff = 0
     for key in a_map:

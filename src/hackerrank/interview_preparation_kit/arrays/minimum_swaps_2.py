@@ -7,19 +7,19 @@ LOGGER = logging.getLogger(__name__)
 
 
 def minimum_swaps(group: list[int]) -> int:
-    q = [i - 1 for i in group]
+    indexed_group = [i - 1 for i in group]
 
     swaps = 0
     index = 0
-    size = len(q)
+    size = len(indexed_group)
 
     while index < size:
-        if q[index] == index:
+        if indexed_group[index] == index:
             index += 1
         else:
-            temp = q[index]
-            q[index] = q[temp]
-            q[temp] = temp
+            temp = indexed_group[index]
+            indexed_group[index] = indexed_group[temp]
+            indexed_group[temp] = temp
             swaps += 1
 
     return swaps

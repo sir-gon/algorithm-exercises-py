@@ -8,16 +8,16 @@ def max_array_sum(arr_input: list[int]):
     if len(arr) == 0:
         return 0
 
-    n = len(arr)
+    total = len(arr)
 
-    if n == 1:  # Edge case
+    if total == 1:  # Edge case
         return arr[0]
 
     # Base case start from index 0 and 1
     t_max = max(arr[0], arr[1])
     arr[1] = t_max
 
-    for i in range(2, n):
+    for i in range(2, total):
         t_max = max(arr[i - 2] + arr[i], t_max)  # Max uptill now
         t_max = max(arr[i], t_max)  # Max in special case where
         # arr[i] + previous max is still less than arr[i]

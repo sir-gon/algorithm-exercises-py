@@ -15,11 +15,11 @@ def rot_left_one(group: list[int]) -> list[int]:
     return group
 
 
-def rot_left(group: list[int], d: int) -> list[int]:
+def rot_left(group: list[int], d_rotations: int) -> list[int]:
 
     output = group.copy()
     i = 1
-    while i <= d:
+    while i <= d_rotations:
         output = rot_left_one(output)
         i += 1
 

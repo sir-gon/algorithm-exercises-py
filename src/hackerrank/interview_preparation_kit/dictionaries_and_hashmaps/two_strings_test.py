@@ -24,9 +24,9 @@ TEST_CASES = [
 ]
 
 
-class TestSherlockAndAnagrams(unittest.TestCase):
+class TestTwoStrings(unittest.TestCase):
 
-    def test_sherlock_and_anagrams(self):
+    def test_two_strings(self):
 
         for _, _tt in enumerate(TEST_CASES):
 

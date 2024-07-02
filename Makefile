@@ -105,6 +105,7 @@ coverage: test
 
 coverage/html: test
 	${RUNTIME_TOOL} -m coverage html
+	open htmlcov/index.html
 
 outdated:
 	${PACKAGE_TOOL} list --outdated

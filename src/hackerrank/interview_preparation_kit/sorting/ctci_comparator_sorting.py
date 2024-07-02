@@ -17,9 +17,9 @@ class Player:
         # Given code
         return ''
 
-    def comparator(self, b: Player) -> int:
+    def comparator(self, b_player: Player) -> int:
         # Given code
-        return 0 * b.score
+        return 0 * b_player.score
 
 # End Given code
 
@@ -35,25 +35,25 @@ class SortablePlayer(Player):
     def __repr__(self) -> str:
         return f'{self.name} {self.score}'
 
-    def comparator(self: Player, b: Player) -> int:
-        if self.score > b.score:
+    def comparator(self: Player, b_player: Player) -> int:
+        if self.score > b_player.score:
             return -1
-        if self.score < b.score:
+        if self.score < b_player.score:
             return 1
-        if self.name < b.name:
+        if self.name < b_player.name:
             return -1
-        if self.name > b.name:
+        if self.name > b_player.name:
             return 1
 
         return 0
 
 
-def comparator_sorting(data: List[SortablePlayer]) -> str:
+def comparator_sorting(players: List[SortablePlayer]) -> str:
 
-    data = sorted(data, key=cmp_to_key(SortablePlayer.comparator))
+    players = sorted(players, key=cmp_to_key(SortablePlayer.comparator))
 
     output: List[str] = []
-    for x in data:
-        output.append(str(x))
+    for player in players:
+        output.append(str(player))
 
     return '\n'.join(output)

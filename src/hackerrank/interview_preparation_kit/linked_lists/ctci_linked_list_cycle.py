@@ -8,17 +8,13 @@ from .lib.singly_linked_list import SinglyLinkedListNode
 def has_cycle(head: SinglyLinkedListNode) -> bool:
     llindex: list[SinglyLinkedListNode] = []
 
-    result = False
-    node = head
-    resume = True
+    node: SinglyLinkedListNode | None = head
 
-    while node and resume:
+    while node is not None:
         if node in llindex:
-            resume = False
-            result = True
-            return result
+            return True
 
         llindex.append(node)
         node = node.next
 
-    return result
+    return False

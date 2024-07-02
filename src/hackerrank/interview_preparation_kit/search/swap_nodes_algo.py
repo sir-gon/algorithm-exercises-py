@@ -143,8 +143,8 @@ def swap_nodes(indexes: List[List[int]], queries: List[int]) -> List[List[int]]:
     for query in queries:
         for level, node_list in node_collector.items():
             if level % query == 0:
-                for x in node_list:
-                    swap_branch(x)
+                for node in node_list:
+                    swap_branch(node)
 
         plain = plain_tree(tree)
         output.append(plain)
