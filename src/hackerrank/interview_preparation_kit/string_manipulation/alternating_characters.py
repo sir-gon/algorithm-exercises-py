@@ -2,15 +2,15 @@
 # @link Problem definition [[docs/hackerrank/interview_preparation_kit/string_manipulation/alternating-characters.md]] # noqa
 # pylint: enable=line-too-long
 
-def alternating_characters(s: str):
+def alternating_characters(word: str):
 
     last: str = ''
     new_string: str = ''
 
-    for x in s:
-        if x != last:
-            new_string += x
+    for letter in word:
+        if letter != last:
+            new_string += letter
 
-        last = x
+        last = letter
 
-    return len(s) - len(new_string)
+    return len(word) - len(new_string)
