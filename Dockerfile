@@ -1,10 +1,20 @@
 ###############################################################################
-FROM python:3.12.4-alpine3.20 AS base
+FROM python:3.12.4-alpine3.20 AS init
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
 RUN apk add --update --no-cache make
+
+###############################################################################
+FROM init AS base
+
+ENV WORKDIR=/app
+WORKDIR ${WORKDIR}
+
+COPY ./Makefile ${WORKDIR}/
+COPY ./requirements.txt ${WORKDIR}/
+RUN make dependencies
 
 ###############################################################################
 FROM base AS lint
@@ -16,7 +26,6 @@ RUN apk add --update --no-cache make nodejs npm
 RUN apk add --update --no-cache yamllint
 
 RUN npm install -g --ignore-scripts markdownlint-cli
-RUN npm install -g --ignore-scripts pyright
 
 # [!TIP] Use a bind-mount to "/app" to override following "copys"
 # for lint and test against "current" sources in this stage
@@ -32,7 +41,7 @@ COPY ./LICENSE.md ${WORKDIR}/
 COPY ./CODE_OF_CONDUCT.md ${WORKDIR}/
 
 # Code source
-COPY ./src ${WORKDIR}/
+COPY ./src/ ${WORKDIR}/src
 COPY ./requirements.txt ${WORKDIR}/
 COPY ./setup.cfg ${WORKDIR}/
 COPY ./Makefile ${WORKDIR}/
@@ -55,12 +64,8 @@ CMD ["make", "lint"]
 FROM base AS development
 
 COPY ./Makefile ${WORKDIR}/
-COPY ./requirements.txt ${WORKDIR}/
 COPY ./setup.cfg ${WORKDIR}/
-
-RUN make dependencies
-
-COPY ./src ${WORKDIR}/src
+COPY ./src/ ${WORKDIR}/src
 
 RUN ls -alh
 
@@ -108,7 +113,7 @@ CMD ["make", "test"]
 ## in the production phase, "good practices" such as
 ## WORKDIR and USER are maintained
 ##
-FROM python:3.12.4-alpine3.20 AS production
+FROM init AS production
 
 ENV LOG_LEVEL=INFO
 ENV BRUTEFORCE=false
@@ -119,7 +124,6 @@ RUN adduser -D worker
 RUN mkdir -p /app
 RUN chown worker:worker /app
 
-RUN apk add --update --no-cache make
 COPY ./Makefile ${WORKDIR}/
 
 COPY --from=builder /app/build/ ${WORKDIR}/

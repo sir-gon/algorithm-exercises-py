@@ -1,4 +1,5 @@
 ---
+
 name: Docker Image CI
 
 on: # yamllint disable-line rule:truthy
@@ -7,27 +8,128 @@ on: # yamllint disable-line rule:truthy
   pull_request:
     branches: ["main"]
 
+env:
+  IMAGE_NAME: algorithm-exercises-py
+  ARTIFACT_NAME: algorithm-exercises-py_${{ github.sha }}
+
 jobs:
+
   build:
-    name: "Build & Test in Docker"
-
+    name: "Build Docker images"
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - name: Build the Docker image
-        run: make compose/rebuild
-      - name: Lint in Docker image
-        run: make compose/lint
-      - name: Test in Docker image
-        run: make compose/test
-      - name: Run in Docker image
-        run: make compose/run
-      - name: Tag Docker image
-        run: >
-          docker tag
-          algorithm-exercises-py:latest
-          algorithm-exercises-py:${{ github.sha }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: "LINT: Build and push"
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: lint
+          outputs: |
+            type=docker,dest=/tmp/${{ env.ARTIFACT_NAME }}_lint.tar
+          tags: |
+            ${{ env.IMAGE_NAME }}:lint
+      - name: "LINT: Upload artifact"
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}_lint
+          path: /tmp/${{ env.ARTIFACT_NAME }}_lint.tar
+
+      - name: "TEST: Build and push"
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: testing
+          outputs: |
+            type=docker,dest=/tmp/${{ env.ARTIFACT_NAME }}_test.tar
+          tags: |
+            ${{ env.IMAGE_NAME }}:test
+      - name: "TEST: Upload artifact"
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}_test
+          path: /tmp/${{ env.ARTIFACT_NAME }}_test.tar
+
+      - name: "PRODUCTION: Build and push"
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: production
+          outputs: |
+            type=docker,dest=/tmp/${{ env.ARTIFACT_NAME }}_prod.tar
+          tags: |
+            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+      - name: "PRODUCTION: Upload artifact"
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}_prod
+          path: /tmp/${{ env.ARTIFACT_NAME }}_prod.tar
+
+  lint:
+    name: "Run in docker: LINT"
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}_lint
+          path: /tmp/
+
+      - name: Load image
+        run: |
+          docker load --input /tmp/${{ env.ARTIFACT_NAME }}_lint.tar
+          docker image ls -a
+
+      - name: Run lint
+        run: |
+          docker run --rm ${{ env.IMAGE_NAME }}:lint make lint
+
+  test:
+    name: "Run in docker: TEST"
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}_test
+          path: /tmp/
+
+      - name: Load image
+        run: |
+          docker load --input /tmp/${{ env.ARTIFACT_NAME }}_test.tar
+          docker image ls -a
+
+      - name: Run test
+        run: |
+          docker run --rm ${{ env.IMAGE_NAME }}:test make test
+
+  security:
+    name: "Snyk Container"
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}_prod
+          path: /tmp/
+
+      - name: Load image
+        run: |
+          docker load --input /tmp/${{ env.ARTIFACT_NAME }}_prod.tar
+          docker image ls -a
+
       - name: Run Snyk to check Docker image for vulnerabilities
         # Snyk can be used to break the build when it detects vulnerabilities.
         # In this case we want to upload the issues to GitHub Code Scanning
@@ -35,18 +137,53 @@ jobs:
         uses: snyk/actions/docker@master
         env:
           # yamllint disable rule:line-length
-          # In order to use the Snyk Action you will need to have
-          #  a Snyk API token.
+          # In order to use the Snyk Action you will need to have a Snyk API token.
           # See https://docs.snyk.io/integrations/ci-cd-integrations/github-actions-integration#getting-your-snyk-token
           # or you can sign up for free at https://snyk.io/login
           # yamllint enable rule:line-length
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          image: algorithm-exercises-py:latest
+          image: ${{ env.IMAGE_NAME }}:${{ github.sha }}
           args: --file=Dockerfile
-      # yamllint disable rule:comments-indentation
-      # - name: Upload result to GitHub Code Scanning
-      #   uses: github/codeql-action/upload-sarif@v2
-      #   with:
-      #     sarif_file: snyk.sarif
-      # yamllint enable rule:comments-indentation
+      # yamllint disable rule:line-length
+      # https://github.com/github/codeql-action/issues/2187#issuecomment-2043220400
+      - name: Replace security-severity undefined for license-related findings
+        run: |
+          sed -i 's/"security-severity": "undefined"/"security-severity": "0"/g' snyk.sarif
+          sed -i 's/"security-severity": "null"/"security-severity": "0"/g' snyk.sarif
+      # yamllint enable rule:line-length
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'snyk.sarif'
+  scan:
+    name: "Trivy"
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}_prod
+          path: /tmp/
+
+      - name: Load image
+        run: |
+          docker load --input /tmp/${{ env.ARTIFACT_NAME }}_prod.tar
+          docker image ls -a
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.24.0
+        with:
+          image-ref: ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'trivy-results.sarif'
