@@ -36,11 +36,12 @@ def luck_balance(k, contests: list) -> int:
 
     total: int = 0
     size: int = len(important_contests)
+    cut: int = min(k, size)
 
-    for i in range(0, min(k, size)):
+    for i in range(0, cut):
         total += important_contests[i].luck
 
-    for i in range(min(k, size), size):
+    for i in range(cut, size):
         total -= important_contests[i].luck
 
     for contest in nonimportant_contests:
