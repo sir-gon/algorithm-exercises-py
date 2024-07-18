@@ -1,4 +1,4 @@
-# [Arrays: New Year Chaos](https://www.hackerrank.com/challenges/crush)
+# [Arrays: Array Manipulation](https://www.hackerrank.com/challenges/crush)
 
 Perform m operations on an array and print the maximum of the values.
 
