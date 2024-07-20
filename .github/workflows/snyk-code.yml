@@ -19,7 +19,11 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --sarif-file-output=snyk-code.sarif
+          args: >
+            --print-deps
+            --file=requirements.txt
+            --command=python3
+            --sarif-file-output=snyk-code.sarif
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v3
         with:
