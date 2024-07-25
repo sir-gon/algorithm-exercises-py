@@ -20,7 +20,13 @@
 
 ## TL;DR
 
-[Install and run](#install-and-run)
+Algorithms Exercises solved in [Python 3.x](https://www.python.org/),
+running with built-in unittest suit. Developed with TDD.
+
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+
+Go to [Install and run](#install-and-run)
 
 ## What is this?
 
