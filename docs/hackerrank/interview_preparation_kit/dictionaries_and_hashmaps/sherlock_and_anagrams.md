@@ -1,4 +1,4 @@
-# [Sherlock and Anagrams](https://www.hackerrank.com/challenges/mark-and-toys)
+# [Sherlock and Anagrams](https://www.hackerrank.com/challenges/sherlock-and-anagrams)
 
 - Difficulty:  `#medium`
 - Category: `#ProblemSolvingMedium` `#DictionariesAndHashmaps` `#Strings`
