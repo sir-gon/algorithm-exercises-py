@@ -1,7 +1,7 @@
 # [Sherlock and Anagrams](https://www.hackerrank.com/challenges/mark-and-toys)
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingMedium`
+- Category: `#ProblemSolvingMedium` `#DictionariesAndHashmaps` `#Strings`
 
 Two strings are [http://en.wikipedia.org/wiki/Anagram](anagrams) of each other
 if the letters of one string can be rearranged to form the other string.
