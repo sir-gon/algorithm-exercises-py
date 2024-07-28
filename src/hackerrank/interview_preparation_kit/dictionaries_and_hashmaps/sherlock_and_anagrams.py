@@ -4,6 +4,10 @@
 from typing import Dict, List
 import math
 
+import logging
+
+LOGGER = logging.getLogger(__name__)
+
 
 def sherlock_and_anagrams(s_word: str) -> int:
 
@@ -14,7 +18,8 @@ def sherlock_and_anagrams(s_word: str) -> int:
     for i in range(0, size):
         for j in range(0, size - i):
             substr = s_word[i:size - j]
-            print(f'i: {i}, {size} size - j: {size - j} | substr: {substr}')
+            LOGGER.debug('i: %i, size: %i, size - j: %i | substr: %s',
+                         i, size, size - j, substr)
 
             # Add substrings to a candidate list.
             # two strings are anagrams if sorted strings are the same.
@@ -40,6 +45,6 @@ def sherlock_and_anagrams(s_word: str) -> int:
                 math.factorial(k) * math.factorial(quantity_of_anagrams - k)
             )
 
-    print(f'filtered candidates: {count}')
+    LOGGER.debug('Sherlock_and_anagrams() Filtered candidates %i', count)
 
     return count
