@@ -3,10 +3,9 @@
 name: Snyk Code analysis
 
 on: # yamllint disable-line rule:truthy
-  push:
-    branches: ["main", "develop", "feature/*"]
   pull_request:
-    branches: ["main"]
+  push:
+  workflow_dispatch:
 
 jobs:
   security:
