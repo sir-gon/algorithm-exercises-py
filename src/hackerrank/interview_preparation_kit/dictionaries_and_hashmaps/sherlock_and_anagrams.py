@@ -31,7 +31,8 @@ def sherlock_and_anagrams(s_word: str) -> int:
             else:
                 candidates[anagram_candidate] = [substr]
 
-    count: int = 0
+    total: int = 0
+    q_candidates = 0
     # Final Anagram list
     for word in list(candidates):
         quantity_of_anagrams = len(candidates[word])
@@ -41,10 +42,18 @@ def sherlock_and_anagrams(s_word: str) -> int:
             del candidates[word]
         else:
             # Binomial coefficient: https://en.wikipedia.org/wiki/Binomial_coefficient
-            count += math.factorial(quantity_of_anagrams) // (
+            q_candidates += quantity_of_anagrams
+
+            count = math.factorial(quantity_of_anagrams) // (
                 math.factorial(k) * math.factorial(quantity_of_anagrams - k)
             )
+            total += count
 
-    LOGGER.debug('Sherlock_and_anagrams() Filtered candidates %i', count)
+            LOGGER.debug('Partial anagrams of %s: %i', word, count)
 
-    return count
+    LOGGER.debug(
+        'sherlock_and_anagrams(%s) Filtered # candidates: %i', s_word, q_candidates
+    )
+    LOGGER.debug('sherlock_and_anagrams(%s) # anagrams: %i', s_word, total)
+
+    return total
