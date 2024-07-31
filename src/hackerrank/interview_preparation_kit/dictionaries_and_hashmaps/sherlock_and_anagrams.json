@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Sample Test Case 0",
+    "tests": [
+      {
+        "input": "abba",
+        "expected": 4
+      },
+      {
+        "input": "abcd",
+        "expected": 0
+      }
+    ]
+  },
+  {
+    "title": "Sample Test Case 1",
+    "tests": [
+      {
+        "input": "ifailuhkqq",
+        "expected": 3
+      },
+      {
+        "input": "kkkk",
+        "expected": 10
+      }
+    ]
+  },
+  {
+    "title": "Sample Test Case 1",
+    "tests": [
+      {
+        "input": "cdcd",
+        "expected": 5
+      }
+    ]
+  },
+  {
+    "title": "Test case 3",
+    "tests": [
+      {
+        "input":
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "expected": 166650
+      },
+      {
+        "input":
+          "bbcaadacaacbdddcdbddaddabcccdaaadcadcbddadababdaaabcccdcdaacadcababbabbdbacabbdcbbbbbddacdbbcdddbaaa",
+        "expected": 4832
+      },
+      {
+        "input":
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "expected": 166650
+      },
+      {
+        "input":
+          "cacccbbcaaccbaacbbbcaaaababcacbbababbaacabccccaaaacbcababcbaaaaaacbacbccabcabbaaacabccbabccabbabcbba",
+        "expected": 13022
+      },
+      {
+        "input":
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "expected": 166650
+      },
+      {
+        "input":
+          "bbcbacaabacacaaacbbcaabccacbaaaabbcaaaaaaaccaccabcacabbbbabbbbacaaccbabbccccaacccccabcabaacaabbcbaca",
+        "expected": 9644
+      },
+      {
+        "input":
+          "cbaacdbaadbabbdbbaabddbdabbbccbdaccdbbdacdcabdbacbcadbbbbacbdabddcaccbbacbcadcdcabaabdbaacdccbbabbbc",
+        "expected": 6346
+      },
+      {
+        "input":
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "expected": 166650
+      },
+      {
+        "input":
+          "babacaccaaabaaaaaaaccaaaccaaccabcbbbabccbbabababccaabcccacccaaabaccbccccbaacbcaacbcaaaaaaabacbcbbbcc",
+        "expected": 8640
+      },
+      {
+        "input":
+          "bcbabbaccacbacaacbbaccbcbccbaaaabbbcaccaacaccbabcbabccacbaabbaaaabbbcbbbbbaababacacbcaabbcbcbcabbaba",
+        "expected": 11577
+      }
+    ]
+  }
+]

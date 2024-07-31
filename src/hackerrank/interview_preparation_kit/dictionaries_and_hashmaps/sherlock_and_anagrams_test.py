@@ -1,48 +1,13 @@
 import unittest
+import json
+from pathlib import Path
 
 from .sherlock_and_anagrams import sherlock_and_anagrams
 
-
-TEST_CASES = [
-    {
-        'title': 'Sample Test Case 0',
-        'tests':
-        [
-            {
-                'input': 'abba',
-                'answer': 4
-            },
-            {
-                'input': 'abcd',
-                'answer': 0
-            }
-        ]
-    },
-    {
-        'title': 'Sample Test Case 1',
-        'tests':
-        [
-            {
-                'input': 'ifailuhkqq',
-                'answer': 3
-            },
-            {
-                'input': 'kkkk',
-                'answer': 10
-            }
-        ]
-    },
-    {
-        'title': 'Sample Test Case 1',
-        'tests':
-        [
-            {
-                'input': 'cdcd',
-                'answer': 5
-            }
-        ]
-    }
-]
+FILE_PATH = str(Path(__file__).resolve().parent)
+JSON_DATA_FILE = FILE_PATH + '/sherlock_and_anagrams.json'
+with open(JSON_DATA_FILE, encoding="utf-8") as file:
+    TEST_CASES = json.load(file)
 
 
 class TestSherlockAndAnagrams(unittest.TestCase):
@@ -54,6 +19,6 @@ class TestSherlockAndAnagrams(unittest.TestCase):
             for _, _tt in enumerate(testset['tests']):
 
                 self.assertEqual(
-                    sherlock_and_anagrams(_tt['input']), _tt['answer'],
+                    sherlock_and_anagrams(_tt['input']), _tt['expected'],
                     f"{_} | sherlock_and_anagrams({_tt['input']}) must be "
-                    f"=> {_tt['answer']}")
+                    f"=> {_tt['expected']}")
