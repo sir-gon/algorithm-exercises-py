@@ -3,9 +3,11 @@ name: Python CI Coverage
 
 on: # yamllint disable-line rule:truthy
   push:
-    branches: ["main", "develop", "feature/*"]
-  pull_request:
     branches: ["main"]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: ["main"]
+  workflow_dispatch:
 
 env:
   LOG_LEVEL: INFO
