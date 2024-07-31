@@ -3,6 +3,15 @@
 
 from typing import Dict
 
+__INITIAL__ = 0
+
+__INSERT__ = 1
+__DELETE__ = 2
+__SELECT__ = 3
+
+__NOT_FOUND__ = 0
+__FOUND__ = 1
+
 
 def freq_query(queries):
     result = []
@@ -11,18 +20,19 @@ def freq_query(queries):
     for query in queries:
         operation = query[0]
         data = query[1]
+        current = data_map.get(data, __INITIAL__)
 
-        if operation == 1:  # insert
-            data_map[data] = data_map.get(data, 0) + 1
-        elif operation == 2 and data_map.get(data, 0) > 0:  # delete
-            data_map[data] -= 1
-        elif operation == 3:  # "select"
+        if operation == __INSERT__:
+            data_map[data] = current + 1
+        elif operation == __DELETE__:
+            data_map[data] = max(current - 1, 0)
+        elif operation == __SELECT__:
             for value in data_map.values():
                 if value == data:
-                    result.append(1)
+                    result.append(__FOUND__)
                     break
             else:
-                result.append(0)
+                result.append(__NOT_FOUND__)
         else:
             raise ValueError('Invalid operation')
 
