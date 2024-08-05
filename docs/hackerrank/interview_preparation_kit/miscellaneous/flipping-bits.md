@@ -1,4 +1,4 @@
-# [Miscellaneous: Flipping bits](https://www.hackerrank.com/challenges/flipping-bitse)
+# [Miscellaneous: Flipping bits](https://www.hackerrank.com/challenges/flipping-bits)
 
 - Difficulty:  `#easy`
 - Category: `#ProblemSolvingBasic`
