@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Own sample 1",
+    "tests": [
+      {
+        "input": 4,
+        "limit": 3,
+        "expected": 7
+      }
+    ]
+  },
+  {
+    "title": "Own sample 2",
+    "tests": [
+      {
+        "input": 5,
+        "limit": 4,
+        "expected": 15
+      }
+    ]
+  },
+  {
+    "title": "Own sample 3",
+    "tests": [
+      {
+        "input": 6,
+        "limit": 2,
+        "expected": 13
+      }
+    ]
+  }
+]

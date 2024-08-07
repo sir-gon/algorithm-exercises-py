@@ -1,5 +1,6 @@
 # pylint: disable=line-too-long
 # @link Problem definition [[docs/hackerrank/interview_preparation_kit/recursion_and_backtracking/ctci-recursive-staircase.md]] # noqa
+# @see Solution Notes: [[docs/hackerrank/interview_preparation_kit/recursion_and_backtracking/ctci-recursive-staircase-solution-notes.md]] # noqa
 # pylint: enable=line-too-long
 
 from typing import Dict
@@ -28,10 +29,7 @@ def step_perms_comput_with_cache(
                 steps_limit
             )
 
-        result += cache[n_steps - i]
-
-    # if n_steps <= steps_limit:
-    #     result += 1
+        result += cache[search_key]
 
     return (result + 1) if n_steps <= steps_limit else result
 
