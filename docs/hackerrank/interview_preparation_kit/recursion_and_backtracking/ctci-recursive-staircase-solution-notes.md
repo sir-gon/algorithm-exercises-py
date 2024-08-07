@@ -36,3 +36,35 @@ so that repeated cases are not recalculated.
 
 The trade-off is that the algorithm now requires
 more memory to run in less time.
+
+## Generalized solution
+
+In order to comply with some clean code best practices,
+I noticed that the step limit in the algorithm is a hard-coded number,
+so to comply with the "no magic numbers" rule,
+I was forced to find a more generalized solution.
+
+Then I found the following pattern:
+
+- First cases are:
+
+$$ \begin{matrix}
+    \text{stepPerms(0)} = 0 \\
+    \text{stepPerms(1)} = 1 \\
+    \text{stepPerms(2)} = 2 \\
+  \end{matrix}
+$$
+
+- Next step combinations above 2 and less than the step limit are:
+
+$$ \text{stepPerms(number of steps)} = 2^\text{number of steps} + 1 $$
+
+- When `number of steps` are above the limit, the pattern is
+the sum of latest `number of steps` previous calls of
+`stepPerms(x)` results as follows:
+
+$$ \displaystyle\sum_{
+  i=\text{number of steps} - \text{limit}}
+  ^\text{number of steps}
+  stepPerms(\text{number of steps} - i)
+$$
