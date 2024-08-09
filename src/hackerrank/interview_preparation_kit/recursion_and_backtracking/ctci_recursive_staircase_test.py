@@ -23,7 +23,7 @@ with open(
     TEST_CASES_GENERALIZED = json.load(file2)
 
 
-class TestRecursionFibonacciNumbers(unittest.TestCase):
+class TestStaircase(unittest.TestCase):
 
     def test_step_perms_alt_edge_case(self):
 
