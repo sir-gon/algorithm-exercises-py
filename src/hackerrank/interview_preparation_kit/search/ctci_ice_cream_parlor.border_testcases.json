@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Sample Test Case 0",
+    "tests": [
+      {
+        "costs": [1, 4, 5, 3, 2],
+        "money": 90,
+        "expected": null
+      }
+    ]
+  }
+]
