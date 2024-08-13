@@ -1,27 +1,13 @@
 import unittest
+from pathlib import Path
 
+from ....hackerrank.lib.loader import load_test_cases
 from .two_strings import two_strings
 
-TEST_CASES = [
-    {
-        'title': 'Example 1',
-        's1': "and",
-        's2': "art",
-        'answer': 'Yes'
-    },
-    {
-        'title': 'Example 2',
-        's1': "be",
-        's2': "cat",
-        'answer': 'No'
-    },
-    {
-        'title': 'Sample Test Case 0',
-        's1': "hello",
-        's2': "world",
-        'answer': 'Yes'
-    }
-]
+FILE_PATH = str(Path(__file__).resolve().parent)
+
+TEST_CASES = load_test_cases(
+    FILE_PATH + '/two_strings.testcases.json')
 
 
 class TestTwoStrings(unittest.TestCase):
@@ -31,6 +17,6 @@ class TestTwoStrings(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                two_strings(_tt['s1'], _tt['s2']), _tt['answer'],
+                two_strings(_tt['s1'], _tt['s2']), _tt['expected'],
                 f"{_} | two_strings({_tt['s1']}, {_tt['s2']}) must be "
-                f"=> {_tt['answer']} in {_tt['title']}")
+                f"=> {_tt['expected']} in {_tt['title']}")
