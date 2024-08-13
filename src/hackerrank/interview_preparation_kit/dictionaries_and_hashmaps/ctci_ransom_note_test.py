@@ -1,27 +1,13 @@
 import unittest
+from pathlib import Path
 
+from ....hackerrank.lib.loader import load_test_cases
 from .ctci_ransom_note import check_magazine
 
-TEST_CASES = [
-    {
-        'title': 'Sample Test Case 0',
-        'magazine': ['give', 'me', 'one', 'grand', 'today', 'night'],
-        'note': ['give', 'one', 'grand', 'today'],
-        'answer': 'Yes'
-    },
-    {
-        'title': 'Sample Test Case 1',
-        'magazine': ['two', 'times', 'three', 'is', 'not', 'four'],
-        'note': ['two', 'times', 'two', 'is', 'four'],
-        'answer': 'No'
-    },
-    {
-        'title': 'Sample Test',
-        'magazine': ['two', 'two', 'times', 'three', 'is', 'not', 'four'],
-        'note': ['two', 'times', 'two', 'is', 'four'],
-        'answer': 'Yes'
-    }
-]
+FILE_PATH = str(Path(__file__).resolve().parent)
+
+TEST_CASES = load_test_cases(
+    FILE_PATH + '/ctci_ransom_note.testcases.json')
 
 
 class TestCheckMagazine(unittest.TestCase):
@@ -31,6 +17,6 @@ class TestCheckMagazine(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                check_magazine(_tt['magazine'], _tt['note']), _tt['answer'],
+                check_magazine(_tt['magazine'], _tt['note']), _tt['expected'],
                 f"{_} | check_magazine({_tt['magazine']}, {_tt['note']}) must be "
-                f"=> {_tt['answer']}")
+                f"=> {_tt['expected']}")
