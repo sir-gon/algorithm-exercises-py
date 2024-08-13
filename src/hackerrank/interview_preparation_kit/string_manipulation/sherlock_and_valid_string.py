@@ -24,9 +24,10 @@ def is_valid(word: str) -> bool:
     if frequencies_size == 2:
         frequencies_list = list(frequencies.keys())
 
-        if frequencies[frequencies_list[0]] == 1 and \
-            (frequencies_list[0] - 1 == 0 or
-             frequencies_list[0] - 1 == frequencies_list[1]):
+        if frequencies[frequencies_list[0]] == 1 \
+            and (
+                frequencies_list[0] - 1 == 0
+                or frequencies_list[0] - 1 == frequencies_list[1]):
             return True
 
     return False

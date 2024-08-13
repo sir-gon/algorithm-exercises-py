@@ -9,17 +9,15 @@ from .ctci_recursive_staircase_alternative import step_perms as step_perms_alt
 FILE_PATH = str(Path(__file__).resolve().parent)
 
 with open(
-        FILE_PATH +
-        '/ctci_recursive_staircase.testcases.json',
-        encoding="utf-8"
-        ) as file1:
+    FILE_PATH + '/ctci_recursive_staircase.testcases.json',
+    encoding="utf-8"
+) as file1:
     TEST_CASES = json.load(file1)
 
 with open(
-        FILE_PATH +
-        '/ctci_recursive_staircase_generalized.testcases.json',
-        encoding="utf-8"
-        ) as file2:
+    FILE_PATH + '/ctci_recursive_staircase_generalized.testcases.json',
+    encoding="utf-8"
+) as file2:
     TEST_CASES_GENERALIZED = json.load(file2)
 
 
