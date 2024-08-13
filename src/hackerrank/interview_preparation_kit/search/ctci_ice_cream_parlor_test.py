@@ -1,67 +1,15 @@
 import unittest
+from pathlib import Path
 
+from ....hackerrank.lib.loader import load_test_cases
 from .ctci_ice_cream_parlor import what_flavors
 
 
-TEST_CASES = [
-    {
-        'title': 'Sample Test Case 0',
-        'tests':
-        [
-            {
-                'costs': [1, 4, 5, 3, 2],
-                'money': 4,
-                'answer': [1, 4]
-            },
-            {
-                'costs': [2, 2, 4, 3],
-                'money': 4,
-                'answer': [1, 2]
-            }
-        ]
-    },
-    {
-        'title': 'Sample Test Case 1',
-        'tests':
-        [
-            {
-                'costs': [1, 2, 3, 5, 6],
-                'money': 5,
-                'answer': [2, 3]
-            }
-        ]
-    },
-    {
-        'title': 'Sample Test Case 2',
-        'tests':
-        [
-            {
-                'costs': [4, 3, 2, 5, 7],
-                'money': 8,
-                'answer': [2, 4]
-            },
-            {
-                'costs': [7, 2, 5, 4, 11],
-                'money': 12,
-                'answer': [1, 3]
-            }
-        ]
-    }
-]
+FILE_PATH = str(Path(__file__).resolve().parent)
 
-TEST_CASES_BORDER_CASES = [
-    {
-        'title': 'Sample Test Case 0',
-        'tests':
-        [
-            {
-                'costs': [1, 4, 5, 3, 2],
-                'money': 90,
-                'answer': None
-            }
-        ]
-    }
-]
+TEST_CASES = load_test_cases(FILE_PATH + '/ctci_ice_cream_parlor.testcases.json')
+TEST_CASES_BORDER_CASES = load_test_cases(
+    FILE_PATH + '/ctci_ice_cream_parlor.border_testcases.json')
 
 
 class TestIceCreamParlor(unittest.TestCase):
@@ -73,9 +21,9 @@ class TestIceCreamParlor(unittest.TestCase):
             for _, _tt in enumerate(testset['tests']):
 
                 self.assertEqual(
-                    what_flavors(_tt['costs'], _tt['money']), _tt['answer'],
+                    what_flavors(_tt['costs'], _tt['money']), _tt['expected'],
                     f"{_} | what_flavors({_tt['costs']}, {_tt['money']}) must be "
-                    f"=> {_tt['answer']}")
+                    f"=> {_tt['expected']}")
 
     def test_what_flavors_border_case(self):
 
@@ -84,6 +32,6 @@ class TestIceCreamParlor(unittest.TestCase):
             for _, _tt in enumerate(testset['tests']):
 
                 self.assertEqual(
-                    what_flavors(_tt['costs'], _tt['money']), _tt['answer'],
+                    what_flavors(_tt['costs'], _tt['money']), _tt['expected'],
                     f"{_} | what_flavors({_tt['costs']}, {_tt['money']}) must be "
-                    f"=> {_tt['answer']}")
+                    f"=> {_tt['expected']}")

@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Sample Test Case 0",
+    "tests": [
+      {
+        "costs": [1, 4, 5, 3, 2],
+        "money": 4,
+        "expected": [1, 4]
+      },
+      {
+        "costs": [2, 2, 4, 3],
+        "money": 4,
+        "expected": [1, 2]
+      }
+    ]
+  },
+  {
+    "title": "Sample Test Case 1",
+    "tests": [
+      {
+        "costs": [1, 2, 3, 5, 6],
+        "money": 5,
+        "expected": [2, 3]
+      }
+    ]
+  },
+  {
+    "title": "Sample Test Case 2",
+    "tests": [
+      {
+        "costs": [4, 3, 2, 5, 7],
+        "money": 8,
+        "expected": [2, 4]
+      },
+      {
+        "costs": [7, 2, 5, 4, 11],
+        "money": 12,
+        "expected": [1, 3]
+      }
+    ]
+  }
+]
