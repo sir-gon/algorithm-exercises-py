@@ -1,23 +1,13 @@
 import unittest
+from pathlib import Path
+
+from ....hackerrank.lib.loader import load_test_cases
 from .max_array_sum import max_array_sum
 
-TEST_CASES = [
-    {
-        'title': 'Sample Test case 0',
-        'input': [3, 7, 4, 6, 5],
-        'answer': 13
-    },
-    {
-        'title': 'Sample Test case 1',
-        'input': [2, 1, 5, 8, 4],
-        'answer': 11
-    },
-    {
-        'title': 'Sample Test case 2',
-        'input': [3, 5, -7, 8, 10],
-        'answer': 15
-    }
-]
+FILE_PATH = str(Path(__file__).resolve().parent)
+
+TEST_CASES = load_test_cases(
+    FILE_PATH + '/max_array_sum.testcases.json')
 
 
 class TestMaxArraySum(unittest.TestCase):
@@ -27,26 +17,26 @@ class TestMaxArraySum(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                max_array_sum(_tt['input']), _tt['answer'],
+                max_array_sum(_tt['input']), _tt['expected'],
                 f"{_} | max_array_sum({_tt['input']}) must be "
-                f"=> {_tt['answer']}")
+                f"=> {_tt['expected']}")
 
     def test_max_array_sum_edge_case_zero(self):
 
         _input = []
-        _answer = 0
+        _expected = 0
 
         self.assertEqual(
-            max_array_sum(_input), _answer,
+            max_array_sum(_input), _expected,
             f"max_array_sum({_input}) must be "
-            f"=> {_answer}")
+            f"=> {_expected}")
 
     def test_max_array_sum_edge_case_one(self):
 
         _input = [1]
-        _answer = 1
+        _expected = 1
 
         self.assertEqual(
-            max_array_sum(_input), _answer,
+            max_array_sum(_input), _expected,
             f"max_array_sum({_input}) must be "
-            f"=> {_answer}")
+            f"=> {_expected}")
