@@ -1,60 +1,13 @@
 import unittest
+from pathlib import Path
+
+from ....hackerrank.lib.loader import load_test_cases
 from .flipping_bits import flipping_bits
 
-TEST_CASES = [
-    {
-        'title': 'Sample Test Case 0',
-        'tests':
-        [
-            {
-                'input': 2147483647,
-                'answer': 2147483648
-            },
-            {
-                'input': 1,
-                'answer': 4294967294
-            },
-            {
-                'input': 0,
-                'answer': 4294967295
-            }
-        ]
-    },
-    {
-        'title': 'Sample Test Case 1',
-        'tests':
-        [
+FILE_PATH = str(Path(__file__).resolve().parent)
 
-            {
-                'input': 4,
-                'answer': 4294967291
-            },
-            {
-                'input': 123456,
-                'answer': 4294843839
-            }
-        ]
-    },
-    {
-        'title': 'Sample Test Case 2',
-        'tests':
-        [
-
-            {
-                'input': 0,
-                'answer': 4294967295
-            },
-            {
-                'input': 802743475,
-                'answer': 3492223820
-            },
-            {
-                'input': 35601423,
-                'answer': 4259365872
-            }
-        ]
-    }
-]
+TEST_CASES = load_test_cases(
+    FILE_PATH + '/flipping_bits.testcases.json')
 
 
 class TestFlippingBits(unittest.TestCase):
