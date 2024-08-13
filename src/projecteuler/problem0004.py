@@ -29,8 +29,8 @@ def problem0004(_bottom: int, _top: int) -> 'None | int':
                 LOGGER.debug("FOUND %d x %d = %d is Palindrome",
                              i, j, found_palindrome)
 
-                if (large_found_palindrome is None or
-                        found_palindrome > large_found_palindrome):
+                if (large_found_palindrome is None
+                        or found_palindrome > large_found_palindrome):
                     foundi = i
                     foundj = j
                     large_found_palindrome = found_palindrome
