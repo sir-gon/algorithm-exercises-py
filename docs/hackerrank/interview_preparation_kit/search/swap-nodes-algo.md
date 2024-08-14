@@ -1,4 +1,4 @@
-# [Hash Tables: Ice Cream Parlor](https://www.hackerrank.com/challenges/ctci-ice-cream-parlor)
+# [Swap Nodes [Algo]](https://www.hackerrank.com/challenges/swap-nodes-algo)
 
 Given a tree and an integer, K, we have to swap the subtrees of
 all the nodes which are at a depth h
