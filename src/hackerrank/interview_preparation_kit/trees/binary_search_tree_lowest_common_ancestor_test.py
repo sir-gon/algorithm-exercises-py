@@ -1,23 +1,14 @@
 import unittest
+from pathlib import Path
+
+from ....hackerrank.lib.loader import load_test_cases
 from ...lib.tree import BinarySearchTree
 from .binary_search_tree_lowest_common_ancestor import lca, find
 
-TEST_CASES = [
-    {
-        'title': 'Test case 0',
-        'nodes': [4, 2, 3, 1, 7, 6],
-        'v1': 1,
-        'v2': 7,
-        'answer': 4
-    },
-    {
-        'title': 'Test case 4',
-        'nodes': [1, 2],
-        'v1': 1,
-        'v2': 2,
-        'answer': 1
-    }
-]
+FILE_PATH = str(Path(__file__).resolve().parent)
+
+TEST_CASES = load_test_cases(
+    FILE_PATH + '/binary_search_tree_lowest_common_ancestor.testcases.json')
 
 
 class TestLastCommonAncestor(unittest.TestCase):
@@ -30,9 +21,9 @@ class TestLastCommonAncestor(unittest.TestCase):
 
             self.assertEqual(
                 getattr(lca(tree.root, _tt['v1'], _tt['v2']), 'info', None),
-                _tt['answer'],
+                _tt['expected'],
                 f"{_} | lca({tree.root}, {_tt['v1']}, {_tt['v2']}) must be "
-                f"=> {_tt['answer']}"
+                f"=> {_tt['expected']}"
             )
 
     def test_find(self):
