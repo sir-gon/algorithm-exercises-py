@@ -1,7 +1,7 @@
 # [The Fibonacci Sequence](https://www.hackerrank.com/challenges/ctci-fibonacci-numbers)
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingBasic`
+- Category: `#ProblemSolvingBasic` `#recursion`
 
 ## The Fibonacci Sequence
 

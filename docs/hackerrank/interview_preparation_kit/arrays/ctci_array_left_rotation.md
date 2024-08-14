@@ -2,8 +2,8 @@
 
 Given an array and a number, d, perform d left rotations on the array.
 
-- Difficulty: #easy
-- Category: #ProblemSolvingBasic
+- Difficulty: `#easy`
+- Category: `#ProblemSolvingBasic` `#arrays`
 
 A left rotation operation on an array shifts each of the array's elements
 $ 1 $ unit to the left. For example, if $ 2 $ left rotations are performed

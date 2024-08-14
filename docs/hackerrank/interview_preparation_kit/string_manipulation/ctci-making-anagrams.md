@@ -4,7 +4,7 @@ How many characters should one delete to make two given strings anagrams
 of each other?
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingBasic`
+- Category: `#ProblemSolvingBasic` `#strings`
 
 A student is taking a cryptography class and has found anagrams to be very useful.
 Two strings are anagrams of each other if the first

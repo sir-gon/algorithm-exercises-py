@@ -1,7 +1,7 @@
 # [Two Strings](https://www.hackerrank.com/challenges/two-strings)
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingBasic`
+- Category: `#ProblemSolvingBasic` `#dictionaries` `#hashmaps`
 
 Given two strings, determine if they share a common substring.
 A substring may be as small as one character.

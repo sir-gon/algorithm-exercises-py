@@ -1,7 +1,7 @@
 # [Minimum Absolute Difference in an Array](https://www.hackerrank.com/challenges/minimum-absolute-difference-in-an-array)
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingBasic`
+- Category: `#ProblemSolvingBasic` `#greedyalgorithms`
 
 The absolute difference is the positive difference between two
 values `a` and `b`, is written $ \lvert a - b \rvert $

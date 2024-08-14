@@ -2,8 +2,8 @@
 
 Determine how many bribes took place to get a queue into its current state.
 
-- Difficulty:  ` #medium `
-- Category: ` #ProblemSolvingBasic `
+- Difficulty:  `#medium`
+- Category: `#ProblemSolvingBasic` `#arrays`
 
 It is New Year's Day and people are in line for the Wonderland rollercoaster ride.
 Each person wears a sticker indicating their initial position in

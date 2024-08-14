@@ -2,8 +2,8 @@
 
 Perform m operations on an array and print the maximum of the values.
 
-- Difficulty:  ` #hard `
-- Category: ` #ProblemSolvingIntermediate `
+- Difficulty:  `#hard`
+- Category: `#ProblemSolvingIntermediate` `#arrays`
 
 ## Solution sources
 

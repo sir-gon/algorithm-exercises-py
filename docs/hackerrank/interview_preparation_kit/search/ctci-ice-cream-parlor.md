@@ -1,7 +1,7 @@
 # [Search: Hash Tables: Ice Cream Parlor](https://www.hackerrank.com/challenges/ctci-ice-cream-parlor)
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingIntermediate` `#Hashtables` `#Search`
+- Category: `#ProblemSolvingIntermediate` `#search` `#hashtables`
 
 Each time Sunny and Johnny take a trip to the Ice Cream Parlor,
 they pool their money to buy ice cream.

@@ -3,7 +3,7 @@
 Create a node with a given value and insert it into a sorted doubly-linked list
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingIntermediate`
+- Category: `#ProblemSolvingIntermediate` `#linkedlists`
 
 Given a reference to the head of a doubly-linked list and an integer, `data`,
 create a new DoublyLinkedListNode object having data value `data` and insert

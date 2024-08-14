@@ -1,7 +1,7 @@
 # [Greedy Algorithms: Luck Balance](https://www.hackerrank.com/challenges/luck-balance)
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingBasic`
+- Category: `#ProblemSolvingBasic` `#greedyalgorithms`
 
 Lena is preparing for an important coding competition that is preceded
 by a number of sequential preliminary contests.

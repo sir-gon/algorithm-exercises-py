@@ -1,9 +1,9 @@
-# [Arrays: New Year Chaos](https://www.hackerrank.com/challenges/crush)
+# [Arrays: Array Manipulation](https://www.hackerrank.com/challenges/crush)
 
 Perform m operations on an array and print the maximum of the values.
 
-- Difficulty:  ` #hard `
-- Category: ` #ProblemSolvingIntermediate `
+- Difficulty:  `#hard`
+- Category: `#ProblemSolvingIntermediate` `#arrays`
 
 Starting with a 1-indexed array of zeros and a list of operations, for each
 operation add a value to each the array element between two given indices,

@@ -3,7 +3,7 @@
 You are Mark's best friend and have to help him buy as many toys as possible.
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingBasic`
+- Category: `#ProblemSolvingBasic` `#sorting`
 
 Mark and Jane are very happy after having their first child.
 Their son loves toys, so Mark wants to buy some.

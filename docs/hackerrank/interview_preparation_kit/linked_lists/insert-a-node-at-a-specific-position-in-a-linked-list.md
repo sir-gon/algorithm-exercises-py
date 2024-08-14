@@ -1,7 +1,7 @@
 # [Linked Lists: Insert a node at a specific position in a linked list](https://www.hackerrank.com/challenges/insert-a-node-at-a-specific-position-in-a-linked-list)
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingIntermediate`
+- Category: `#ProblemSolvingIntermediate` `#linkedlists`
 
 Given the pointer to the head node of a linked list and an integer
 to insert at a certain position, create a new node with the given

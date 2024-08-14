@@ -1,7 +1,7 @@
-# [Strings: Making Anagrams](https://www.hackerrank.com/challenges/alternating-characters)
+# [Strings: Alternating Characters](https://www.hackerrank.com/challenges/alternating-characters)
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingBasic`
+- Category: `#ProblemSolvingBasic` `#strings`
 
 You are given a string containing characters `A` and `B` only.
 Your task is to change it into a string such that there are

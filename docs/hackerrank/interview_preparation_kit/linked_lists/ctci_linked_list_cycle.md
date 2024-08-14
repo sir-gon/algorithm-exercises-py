@@ -1,7 +1,7 @@
 # [Linked Lists: Detect a Cycle](https://www.hackerrank.com/challenges/ctci-linked-list-cycle)
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingIntermediate`
+- Category: `#ProblemSolvingIntermediate` `#linkedlists`
 
 A linked list is said to contain a cycle if any node is visited more
 than once while traversing the list.

@@ -1,7 +1,7 @@
 # [Hash Tables: Ransom Notes](https://www.hackerrank.com/challenges/ctci-ransom-note)
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingIntermediate`
+- Category: `#ProblemSolvingIntermediate` `#dictionaries` `#hashmaps`
 
 Harold is a kidnapper who wrote a ransom note, but now he is worried it will be
 traced back to him through his handwriting. He found a magazine and wants to

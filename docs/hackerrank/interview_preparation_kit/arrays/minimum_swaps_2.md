@@ -1,9 +1,9 @@
-# [Arrays: New Year Chaos](https://www.hackerrank.com/challenges/minimum-swaps-2)
+# [Arrays: Minimum Swaps 2](https://www.hackerrank.com/challenges/minimum-swaps-2)
 
 Return the minimum number of swaps to sort the given array.
 
-- Difficulty:  ` #medium `
-- Category: ` #ProblemSolvingIntermediate `
+- Difficulty:  `#medium`
+- Category: `#ProblemSolvingIntermediate` `#arrays`
 
 You are given an unordered array consisting of consecutive integers
 [1, 2, 3, ..., n] without any duplicates. You are allowed to swap any
