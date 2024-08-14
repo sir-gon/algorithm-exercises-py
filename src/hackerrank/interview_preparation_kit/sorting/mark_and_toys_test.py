@@ -1,35 +1,20 @@
 import unittest
+from pathlib import Path
+
+from ....hackerrank.lib.loader import load_test_cases
 from .mark_and_toys import maximum_toys
+
+FILE_PATH = str(Path(__file__).resolve().parent)
+
+TEST_CASES = load_test_cases(FILE_PATH + '/mark_and_toys.testcases.json')
 
 
 class TestMarkAndToys(unittest.TestCase):
 
     def test_maximum_toys(self):
-
-        tests = [
-            {
-                'title': 'Sample Test Case 0',
-                'budget': 50,
-                'prices': [50, 1, 12, 5, 111, 200, 1000, 10],
-                'answer': 4
-            },
-            {
-                'title': 'Sample Test Case 1',
-                'budget': 7,
-                'prices': [1, 2, 3, 4],
-                'answer': 3
-            },
-            {
-                'title': 'Sample Test Case 2',
-                'budget': 15,
-                'prices': [3, 7, 2, 9, 4],
-                'answer': 3
-            },
-        ]
-
-        for _, _tt in enumerate(tests):
+        for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                maximum_toys(_tt['prices'], _tt['budget']), _tt['answer'],
+                maximum_toys(_tt['prices'], _tt['budget']), _tt['expected'],
                 f"{_} | maximum_toys({_tt['prices'], _tt['budget']}) must be "
-                f"=> {_tt['answer']}")
+                f"=> {_tt['expected']}")

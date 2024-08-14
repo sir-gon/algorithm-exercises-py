@@ -1,0 +1,53 @@
+[
+  {
+    "title": "Sample Test case 0",
+    "tests": [
+      {
+        "input": "AAAA",
+        "expected": 3
+      },
+      {
+        "input": "BBBBB",
+        "expected": 4
+      },
+      {
+        "input": "ABABABAB",
+        "expected": 0
+      },
+      {
+        "input": "BABABA",
+        "expected": 0
+      },
+      {
+        "input": "AAABBB",
+        "expected": 4
+      }
+    ]
+  },
+  {
+    "title": "Sample Test case 13",
+    "tests": [
+      {
+        "input": "AAABBBAABB",
+        "expected": 6
+      },
+      {
+        "input": "AABBAABB",
+        "expected": 4
+      },
+      {
+        "input": "ABABABAA",
+        "expected": 1
+      }
+    ]
+  },
+  {
+    "title": "Sample Test case 14",
+    "tests": [
+      {
+        "input": "ABBABBAA",
+        "expected": 3
+      }
+    ]
+  }
+]

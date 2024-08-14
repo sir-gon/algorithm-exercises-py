@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Sample Test case 0",
+    "k": 3,
+    "arr": [10, 100, 300, 200, 1000, 20, 30],
+    "expected": 20
+  },
+  {
+    "title": "Sample Test case 1",
+    "k": 4,
+    "arr": [1, 2, 3, 4, 10, 20, 30, 40, 100, 200],
+    "expected": 3
+  },
+  {
+    "title": "Sample Test case 2",
+    "k": 2,
+    "arr": [1, 2, 1, 2, 1],
+    "expected": 0
+  },
+  {
+    "title": "Sample Test case 16",
+    "k": 3,
+    "arr": [100, 200, 300, 350, 400, 401, 402],
+    "expected": 2
+  }
+]

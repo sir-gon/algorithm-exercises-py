@@ -1,14 +1,13 @@
 import unittest
+from pathlib import Path
+
+from ....hackerrank.lib.loader import load_test_cases
 from .luck_balance import luck_balance
 
-TEST_CASES = [
-    {
-        'title': 'Sample Test case 0',
-        'k': 3,
-        'contests': [[5, 1], [2, 1], [1, 1], [8, 1], [10, 0], [5, 0]],
-        'answer': 29
-    }
-]
+FILE_PATH = str(Path(__file__).resolve().parent)
+
+TEST_CASES = load_test_cases(
+    FILE_PATH + '/luck_balance.testcases.json')
 
 
 class TestLuckBalance(unittest.TestCase):
@@ -18,6 +17,6 @@ class TestLuckBalance(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                luck_balance(_tt['k'], _tt['contests']), _tt['answer'],
+                luck_balance(_tt['k'], _tt['contests']), _tt['expected'],
                 f"{_} | luck_balance({_tt['k']}, {_tt['contests']}) must be "
-                f"=> {_tt['answer']} in {_tt['title']}")
+                f"=> {_tt['expected']} in {_tt['title']}")

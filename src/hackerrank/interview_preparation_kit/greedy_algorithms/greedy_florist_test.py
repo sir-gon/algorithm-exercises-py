@@ -1,26 +1,13 @@
 import unittest
+from pathlib import Path
+
+from ....hackerrank.lib.loader import load_test_cases
 from .greedy_florist import get_minimum_cost
 
-TEST_CASES = [
-    {
-        'title': 'Sample Test case 0',
-        'k': 3,
-        'contests': [2, 5, 6],
-        'answer': 13
-    },
-    {
-        'title': 'Sample Test case 1',
-        'k': 2,
-        'contests': [2, 5, 6],
-        'answer': 15
-    },
-    {
-        'title': 'Sample Test case 2',
-        'k': 3,
-        'contests': [1, 3, 5, 7, 9],
-        'answer': 29
-    }
-]
+FILE_PATH = str(Path(__file__).resolve().parent)
+
+TEST_CASES = load_test_cases(
+    FILE_PATH + '/greedy_florist.testcases.json')
 
 
 class TestGreedyFlorist(unittest.TestCase):
@@ -30,6 +17,6 @@ class TestGreedyFlorist(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                get_minimum_cost(_tt['k'], _tt['contests']), _tt['answer'],
+                get_minimum_cost(_tt['k'], _tt['contests']), _tt['expected'],
                 f"{_} | get_minimum_cost({_tt['k']}, {_tt['contests']}) must be "
-                f"=> {_tt['answer']} in {_tt['title']}")
+                f"=> {_tt['expected']} in {_tt['title']}")

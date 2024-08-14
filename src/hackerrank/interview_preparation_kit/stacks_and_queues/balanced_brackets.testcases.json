@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Sample Test Case 0",
+    "tests":
+    [
+      {
+        "input": "{[()]}",
+        "answer": true
+      },
+      {
+        "input": "{[(])}",
+        "answer": false
+      },
+      {
+        "input": "{{[[(())]]}}",
+        "answer": true
+      }
+    ]
+  },
+  {
+    "title": "Sample Test Case 1",
+    "tests":
+    [
+      {
+        "input": "{{([])}}",
+        "answer": true
+      },
+      {
+        "input": "{{)[](}}",
+        "answer": false
+      }
+    ]
+  },
+  {
+    "title": "Sample Test Case 1",
+    "tests":
+    [
+      {
+        "input": "{(([])[])[]}",
+        "answer": true
+      },
+      {
+        "input": "{(([])[])[]]}",
+        "answer": false
+      },
+      {
+        "input": "{(([])[])[]}[]",
+        "answer": true
+      }
+    ]
+  }
+]

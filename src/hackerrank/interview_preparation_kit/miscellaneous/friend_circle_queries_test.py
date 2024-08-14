@@ -1,40 +1,14 @@
 import unittest
+from pathlib import Path
+
+from ....hackerrank.lib.loader import load_test_cases
 from .friend_circle_queries import max_circle
 
-TEST_CASES = [
-    {
-        'title': 'Sample Test case 0',
-        'arr': [[1, 2], [1, 3]],
-        'answer': [2, 3]
-    },
-    {
-        'title': 'Sample Test case 0',
-        'arr': [[1, 2], [1, 3], [1, 2], [1, 3]],
-        'answer': [2, 3, 3, 3],
-    },
-    {
-        'title': 'Sample Test case 1',
-        'arr': [
-            [1000000000, 23],
-            [11, 3778],
-            [7, 47],
-            [11, 1000000000]
-        ],
-        'answer': [2, 2, 2, 4]
-    },
-    {
-        'title': 'Sample Test case 2',
-        'arr': [
-            [1, 2],
-            [3, 4],
-            [1, 3],
-            [5, 7],
-            [5, 6],
-            [7, 4]
-        ],
-        'answer': [2, 2, 4, 4, 4, 7]
-    }
-]
+
+FILE_PATH = str(Path(__file__).resolve().parent)
+
+TEST_CASES = load_test_cases(
+    FILE_PATH + '/friend_circle_queries.testcases.json')
 
 
 class TestFriendCircle(unittest.TestCase):
