@@ -1,31 +1,21 @@
 import unittest
+from pathlib import Path
+
+from ....hackerrank.lib.loader import load_test_cases
 from ...lib.tree import BinarySearchTree
 from .tree_height_of_a_binary_tree import height
 
-TEST_CASES = [
-    {
-        'title': 'Test case 0',
-        'nodes': [3, 5, 2, 1, 4, 6, 7],
-        'answer': 3
-    },
-    {
-        'title': 'Test case 4',
-        'nodes': [15],
-        'answer': 0
-    },
-    {
-        'title': 'Test case 5',
-        'nodes': [3, 1, 7, 5, 4],
-        'answer': 3
-    }
-]
+FILE_PATH = str(Path(__file__).resolve().parent)
+
+TEST_CASES = load_test_cases(
+    FILE_PATH + '/tree_height_of_a_binary_tree.testcases.json')
 
 
 TEST_CASES_BORDER_CASE = [
     {
         'title': 'Test case 0',
         'nodes': [1, 1, 1],
-        'answer': 0
+        'expected': 0
     }
 ]
 
@@ -42,9 +32,9 @@ class TestTreeHeight(unittest.TestCase):
                 tree.create(nodes)
 
             self.assertEqual(
-                height(tree.root), _tt['answer'],
+                height(tree.root), _tt['expected'],
                 f"{_} | height({tree.root}) must be "
-                f"=> {_tt['answer']}")
+                f"=> {_tt['expected']}")
 
     def test_height_border_case(self):
 
@@ -56,6 +46,6 @@ class TestTreeHeight(unittest.TestCase):
                 tree.create(nodes)
 
             self.assertEqual(
-                height(tree.root), _tt['answer'],
+                height(tree.root), _tt['expected'],
                 f"{_} | height({tree.root}) must be "
-                f"=> {_tt['answer']}")
+                f"=> {_tt['expected']}")

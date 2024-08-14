@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Test case 0",
+    "nodes": [3, 5, 2, 1, 4, 6, 7],
+    "expected": 3
+  },
+  {
+    "title": "Test case 4",
+    "nodes": [15],
+    "expected": 0
+  },
+  {
+    "title": "Test case 5",
+    "nodes": [3, 1, 7, 5, 4],
+    "expected": 3
+  }
+]
