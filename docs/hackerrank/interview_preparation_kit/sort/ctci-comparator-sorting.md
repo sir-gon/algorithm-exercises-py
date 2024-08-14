@@ -3,7 +3,7 @@
 Write a Comparator for sorting elements in an array.
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingBasic`
+- Category: `#ProblemSolvingBasic` `#sorting`
 
 Comparators are used to compare two objects.
 In this challenge, you'll create a comparator and use it to sort an array.

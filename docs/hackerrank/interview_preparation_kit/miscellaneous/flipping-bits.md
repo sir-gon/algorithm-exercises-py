@@ -1,7 +1,7 @@
 # [Miscellaneous: Flipping bits](https://www.hackerrank.com/challenges/flipping-bits)
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingBasic`
+- Category: `#ProblemSolvingBasic` `#BitManipulation`
 
 You will be given a list of 32 bit unsigned integers.
 Flip all the bits ( `1 -> 0` and `0 -> 1`)

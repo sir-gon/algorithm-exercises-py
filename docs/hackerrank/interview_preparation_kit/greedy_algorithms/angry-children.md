@@ -1,8 +1,7 @@
-
 # [Greedy Algorithms: Max Min](https://www.hackerrank.com/challenges/angry-children)
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingBasic` `#greedy`
+- Category: `#ProblemSolvingBasic` `#greedyalgorithms`
 
 You will be given a list of integers, `arr`, and a single integer `k`.
 You must create an array of length `k` from elements of `arr` such that

@@ -3,7 +3,7 @@
 Given the head node of a doubly linked list, reverse it.
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingIntermediate`
+- Category: `#ProblemSolvingIntermediate` `#linkedlists`
 
 Given the pointer to the head node of a doubly linked list,
 reverse the order of the nodes in place.

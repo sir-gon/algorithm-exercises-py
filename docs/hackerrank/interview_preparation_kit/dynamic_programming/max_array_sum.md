@@ -1,7 +1,7 @@
 # [Dynamic Programming: Max Array Sum](https://www.hackerrank.com/challenges/max-array-sum)
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingIntermediate`
+- Category: `#ProblemSolvingIntermediate` `#dynamicprogramming`
 
 Given an array of integers, find the subset of
 non-adjacent elements with the maximum sum.

@@ -1,7 +1,7 @@
 # [Dictionaries and Hashmaps: Frequency Queries](https://www.hackerrank.com/challenges/frequency-queries)
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingIntermediate`
+- Category: `#ProblemSolvingIntermediate` `#dictionaries` `#hashmaps`
 
 You are given  queries. Each query is of the form two integers described below:
 

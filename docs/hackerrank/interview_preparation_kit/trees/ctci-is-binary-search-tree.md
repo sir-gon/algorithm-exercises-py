@@ -1,7 +1,7 @@
 # [Trees: Is This a Binary Search Tree?](https://www.hackerrank.com/challenges/ctci-is-binary-search-tree)
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingAdvanced`
+- Category: `#ProblemSolvingAdvanced` `#trees`
 
 For the purposes of this challenge,
 we define a binary search tree to be a binary tree with the following properties:

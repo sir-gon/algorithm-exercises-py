@@ -2,8 +2,8 @@
 
 Determine how many bribes took place to get a queue into its current state.
 
-- Difficulty:  ` #medium `
-- Category: ` #ProblemSolvingBasic `
+- Difficulty:  `#medium`
+- Category: `#ProblemSolvingBasic` `#arrays`
 
 ## Solution sources
 

@@ -1,7 +1,7 @@
 # [String Manipulation: Sherlock and the Valid String](https://www.hackerrank.com/challenges/sherlock-and-valid-string)
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvinIntermediate`
+- Category: `#ProblemSolvinIntermediate` `#strings`
 
 Sherlock considers a string to be valid if all characters of the string appear
 the same number of times.

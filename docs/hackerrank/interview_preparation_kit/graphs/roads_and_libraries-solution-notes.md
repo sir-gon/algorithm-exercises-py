@@ -4,7 +4,7 @@ Help the ruler of HackerLand determine the cheapest way to
 give his citizens access to libraries.
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingAdvanced`
+- Category: `#ProblemSolvingAdvanced` `#graphs`
 
 ## Solution research
 

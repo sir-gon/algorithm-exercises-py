@@ -1,7 +1,7 @@
 # [Dictionaries and Hashmaps: Count Triplets](https://www.hackerrank.com/challenges/count-triplets-1)
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingIntermediate`
+- Category: `#ProblemSolvingIntermediate` `#dictionaries` `#hashmaps`
 
 You are given an array and you need to find number of
 tripets of indices (i, j, k) such that the elements at

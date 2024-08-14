@@ -4,7 +4,7 @@ Find the number of ways to get from the bottom of a staircase
 to the top if you can jump 1, 2, or 3 stairs at a time.
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingIntermediate`
+- Category: `#ProblemSolvingIntermediate` `#recursion`
 
 ## Failed solution
 

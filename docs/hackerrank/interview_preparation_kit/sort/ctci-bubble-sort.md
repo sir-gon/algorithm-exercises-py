@@ -1,9 +1,9 @@
-# [Sorting: Bubble Sort](https://www.hackerrank.com/interview/interview-preparation-kit/sorting)
+# [Sorting: Bubble Sort](https://www.hackerrank.com/challenges/ctci-bubble-sort/)
 
 Find the minimum number of conditional checks taking place in Bubble Sort
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingBasic`
+- Category: `#ProblemSolvingBasic` `#sorting`
 
 Consider the following version of Bubble Sort:
 

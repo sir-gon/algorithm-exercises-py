@@ -4,7 +4,7 @@ Given a tree and an integer, K, we have to swap the subtrees of
 all the nodes which are at a depth h
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingAdvanced`
+- Category: `#ProblemSolvingAdvanced` `#search`
 
 A binary tree is a tree which is characterized by one of the following properties:
 

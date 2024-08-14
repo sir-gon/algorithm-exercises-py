@@ -1,7 +1,7 @@
 # [Linked Lists: Find Merge Point of Two Lists](https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-lists)
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingIntermediate`
+- Category: `#ProblemSolvingIntermediate` `#linkedlists`
 
 Given pointers to the head nodes of  linked lists that merge together
 at some point, find the node where the two lists merge.

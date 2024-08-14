@@ -2,8 +2,8 @@
 
 Perform m operations on an array and print the maximum of the values.
 
-- Difficulty:  ` #hard `
-- Category: ` #ProblemSolvingIntermediate `
+- Difficulty:  `#hard`
+- Category: `#ProblemSolvingIntermediate` `#arrays`
 
 Starting with a 1-indexed array of zeros and a list of operations, for each
 operation add a value to each the array element between two given indices,

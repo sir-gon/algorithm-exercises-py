@@ -1,7 +1,7 @@
 # [Recursive Digit Sum](https://www.hackerrank.com/challenges/recursive-digit-sum)
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingBasic`
+- Category: `#ProblemSolvingBasic` `#recursion`
 
 We define super digit of an integer `x` using the following rules:
 

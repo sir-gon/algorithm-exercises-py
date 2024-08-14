@@ -1,7 +1,7 @@
 # [Greedy Algorithms: Greedy Florist](https://www.hackerrank.com/challenges/greedy-florist)
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingBasic`
+- Category: `#ProblemSolvingBasic` `#greedyalgorithms`
 
 A group of friends want to buy a bouquet of flowers.
 The florist wants to maximize his number of new customers and the money he makes.

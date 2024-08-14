@@ -1,7 +1,7 @@
 # [Greedy Algorithms: Greedy Florist](https://www.hackerrank.com/challenges/greedy-florist)
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingBasic`
+- Category: `#ProblemSolvingBasic` `#greedyalgorithms`
 
 ## About the problem statement
 
