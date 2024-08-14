@@ -1,11 +1,11 @@
-# [Tree: Height of a Binary Tree](https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree)
+# [Binary Search Tree: Lowest Common Ancestor](https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor)
 
 - Difficulty:  `#easy`
-- Category: `#ProblemSolvingAdvanced`
+- Category: `#ProblemSolvingAdvanced` `#trees`
 
 You are given pointer to the root of the binary search tree and
 two values `v1` and `v2`.
-You need to return the lowest common ancestor ([LCA](https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor/copy-from/272004115#:~:text=lowest%20common%20ancestor%20(-,LCA,-)%20of))
+You need to return the lowest common ancestor ([LCA](https://en.wikipedia.org/wiki/Lowest_common_ancestor))
 of `v1` and `v2` in the binary search tree.
 
 ```mermaid
