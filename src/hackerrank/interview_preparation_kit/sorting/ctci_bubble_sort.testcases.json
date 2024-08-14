@@ -1,0 +1,17 @@
+[
+  {
+    "input": [6, 4, 1],
+    "sorted": [1, 4, 6],
+    "expected": "Array is sorted in 3 swaps.\nFirst Element: 1\nLast Element: 6\n"
+  },
+  {
+    "input": [3, 2, 1],
+    "sorted": [1, 2, 3],
+    "expected": "Array is sorted in 3 swaps.\nFirst Element: 1\nLast Element: 3\n"
+  },
+  {
+    "input": [1, 2, 3],
+    "sorted": [1, 2, 3],
+    "expected": "Array is sorted in 0 swaps.\nFirst Element: 1\nLast Element: 3\n"
+  }
+]

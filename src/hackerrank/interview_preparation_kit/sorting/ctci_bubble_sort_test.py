@@ -1,40 +1,12 @@
 import unittest
+from pathlib import Path
+
+from ....hackerrank.lib.loader import load_test_cases
 from .ctci_bubble_sort import SortableGroup, count_swaps
 
-NL = "\n"
-NUM_SWAPS = '#numSwaps#'
-FIRST_ELEMENT = '#firstElement#'
-LAST_ELEMENT = '#lastElement#'
-ANSWER_TEMPLATE = f'Array is sorted in {NUM_SWAPS} swaps.{NL}' + \
-                  f'First Element: {FIRST_ELEMENT}{NL}' + \
-                  f'Last Element: {LAST_ELEMENT}{NL}'
+FILE_PATH = str(Path(__file__).resolve().parent)
 
-TEST_CASES = [
-    {
-        'input': [6, 4, 1],
-        'sorted': [1, 4, 6],
-        'answer': ANSWER_TEMPLATE[:]
-        .replace(NUM_SWAPS, '3')
-        .replace(FIRST_ELEMENT, '1')
-        .replace(LAST_ELEMENT, '6')
-    },
-    {
-        'input': [3, 2, 1],
-        'sorted': [1, 2, 3],
-        'answer': ANSWER_TEMPLATE[:]
-        .replace(NUM_SWAPS, '3')
-        .replace(FIRST_ELEMENT, '1')
-        .replace(LAST_ELEMENT, '3')
-    },
-    {
-        'input': [1, 2, 3],
-        'sorted': [1, 2, 3],
-        'answer': ANSWER_TEMPLATE[:]
-        .replace(NUM_SWAPS, '0')
-        .replace(FIRST_ELEMENT, '1')
-        .replace(LAST_ELEMENT, '3')
-    }
-]
+TEST_CASES = load_test_cases(FILE_PATH + '/ctci_bubble_sort.testcases.json')
 
 
 class TestBubleSort(unittest.TestCase):
@@ -54,7 +26,9 @@ class TestBubleSort(unittest.TestCase):
 
         for _, _tt in enumerate(TEST_CASES):
 
+            expected: str = _tt['expected'].replace('\n', "\n")
+
             self.assertEqual(
-                count_swaps(_tt['input']), _tt['answer'],
+                count_swaps(_tt['input']), expected,
                 f"{_} | count_swaps({_tt['input']}) must be "
-                f"=> {_tt['answer']}")
+                f"=> {expected}")
