@@ -1,0 +1,47 @@
+[
+  {
+    "title": "counterexample",
+    "input": "aabbccc",
+    "expected": true
+  },
+  {
+    "title": "counterexample",
+    "input": "a",
+    "expected": true
+  },
+  {
+    "title": "counterexample",
+    "input": "aaa",
+    "expected": true
+  },
+  {
+    "title": "counterexample",
+    "input": "abbccc",
+    "expected": false
+  },
+  {
+    "title": "counterexample",
+    "input": "bbccc",
+    "expected": false
+  },
+  {
+    "title": "Sample Test case 0",
+    "input": "aabbcd",
+    "expected": false
+  },
+  {
+    "title": "Sample Test case 1",
+    "input": "aabbccddeefghi",
+    "expected": false
+  },
+  {
+    "title": "Sample Test case 2",
+    "input": "abcdefghhgfedecba",
+    "expected": true
+  },
+  {
+    "title": "Sample Test case 4",
+    "input": "aabbc",
+    "expected": true
+  }
+]
