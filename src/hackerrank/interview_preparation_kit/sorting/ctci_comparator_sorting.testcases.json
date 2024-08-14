@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Sample Test Case 0",
+    "input": [
+      {
+        "name": "amy",
+        "score": 100
+      },
+      {
+        "name": "david",
+        "score": 100
+      },
+      {
+        "name": "heraldo",
+        "score": 50
+      },
+      {
+        "name": "aakansha",
+        "score": 75
+      },
+      {
+        "name": "aleksa",
+        "score": 150
+      }
+    ],
+    "expected": "aleksa 150\namy 100\ndavid 100\naakansha 75\nheraldo 50"
+  },
+  {
+    "title": "Sample Test Case 6",
+    "input": [
+      {
+        "name": "smith",
+        "score": 20
+      },
+      {
+        "name": "jones",
+        "score": 15
+      },
+      {
+        "name": "jones",
+        "score": 20
+      }
+    ],
+    "expected": "jones 20\nsmith 20\njones 15"
+  },
+  {
+    "title": "Sample Test Case 7",
+    "input": [
+      {
+        "name": "davis",
+        "score": 15
+      },
+      {
+        "name": "davis",
+        "score": 20
+      },
+      {
+        "name": "davis",
+        "score": 10
+      },
+      {
+        "name": "edgehill",
+        "score": 15
+      }
+    ],
+    "expected": "davis 20\ndavis 15\nedgehill 15\ndavis 10"
+  },
+  {
+    "title": "Edge case: draw",
+    "input": [
+      {
+        "name": "kurt",
+        "score": 100
+      },
+      {
+        "name": "kurt",
+        "score": 100
+      }
+    ],
+    "expected": "kurt 100\nkurt 100"
+  }
+]
