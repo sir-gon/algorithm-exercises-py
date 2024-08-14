@@ -1,9 +1,9 @@
-# [Balanced Brackets](https://www.hackerrank.com/interview/interview-preparation-kit/sorting)
+# [Balanced Brackets](https://www.hackerrank.com/challenges/balanced-brackets/)
 
 Given a string containing three types of brackets, determine if it is balanced.
 
 - Difficulty:  `#medium`
-- Category: `#ProblemSolvingIntermediate`
+- Category: `#ProblemSolvingIntermediate` `#stacksAndQueues`
 
 A bracket is considered to be any one of the following characters:
 (, ), {, }, [, or ].
