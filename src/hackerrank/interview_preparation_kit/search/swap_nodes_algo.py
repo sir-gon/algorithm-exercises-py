@@ -91,7 +91,7 @@ def build_tree(indexes: List[List[int]]) -> Node:
     return root
 
 
-def plain_tree(root: Node) -> List[int]:
+def flatten_tree(root: Node) -> List[int]:
     node_collector: Dict[int, list[Node]] = {}
 
     node_collector = traverse_in_order_collector(
@@ -136,7 +136,7 @@ def swap_nodes(indexes: List[List[int]], queries: List[int]) -> List[List[int]]:
 
     node_collector = dict(sorted(node_collector.items()))
 
-    plain = plain_tree(tree)  # original
+    plain = flatten_tree(tree)  # original
 
     LOGGER.debug('Plain tree: %s', plain)
 
@@ -146,7 +146,7 @@ def swap_nodes(indexes: List[List[int]], queries: List[int]) -> List[List[int]]:
                 for node in node_list:
                     swap_branch(node)
 
-        plain = plain_tree(tree)
+        plain = flatten_tree(tree)
         output.append(plain)
 
     return output
