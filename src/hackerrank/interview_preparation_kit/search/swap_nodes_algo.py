@@ -67,21 +67,23 @@ def traverse_in_order_collector(
 
 def build_tree(indexes: List[List[int]]) -> Node:
 
+    indexes_copy = indexes[:]
     root: Node = Node(__ROOT_VALUE__)
-    node_collector: Dict[int, list[Node]] = {}
+    node_collector: Dict[int, list[Node]]
 
-    while len(indexes) > 0:
+    while len(indexes_copy) > 0:
+        node_collector = {}
         traverse_in_order_collector(
             root,
             node_collector,
             __INITIAL_LEVEL__,
             callback_collect_nodes)
 
-        last_level: int = list(node_collector)[-1]
+        last_level: int = sorted(list(node_collector))[-1]
 
-        for i in range(0, min(len(indexes), len(node_collector[last_level]))):
+        for i in range(0, min(len(indexes_copy), len(node_collector[last_level]))):
             current_node: Node = node_collector[last_level][i]
-            new_element: List[int] = indexes.pop(0)
+            new_element: List[int] = indexes_copy.pop(0)
 
             if new_element[0] != -1:
                 current_node.left = Node(new_element[0])
