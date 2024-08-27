@@ -1,3 +1,6 @@
+# @link Problem definition
+# [[docs/hackerrank/interview_preparation_kit/sort/ctci-comparator-sorting.md]]
+
 from __future__ import annotations
 from typing import List
 
