@@ -2,7 +2,7 @@
 # @link Problem definition [[docs/hackerrank/interview_preparation_kit/string_manipulation/alternating-characters.md]] # noqa
 # pylint: enable=line-too-long
 
-def alternating_characters(word: str):
+def alternating_characters(word: str) -> int:
 
     last: str = ''
     new_string: str = ''
