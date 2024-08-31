@@ -15,19 +15,21 @@ def is_valid(word: str) -> bool:
         string_map[letter] = 1 + string_map.get(letter, 0)
 
     frequencies = Counter(string_map.values())
-    frequencies = dict(sorted(frequencies.items(), key=lambda x: x[1]))
     frequencies_size = len(frequencies)
 
     if frequencies_size == 1:
         return True
 
     if frequencies_size == 2:
+        frequencies = dict(sorted(frequencies.items(), key=lambda x: x[1]))
         frequencies_list = list(frequencies.keys())
 
-        if frequencies[frequencies_list[0]] == 1 \
-            and (
-                frequencies_list[0] - 1 == 0
-                or frequencies_list[0] - 1 == frequencies_list[1]):
+        minor_freq = frequencies_list[0]
+        major_freq = frequencies_list[1]
+        tolerance = 1
+
+        if frequencies[minor_freq] == tolerance \
+           and tolerance in {minor_freq, (minor_freq - major_freq)}:
             return True
 
     return False
