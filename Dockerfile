@@ -22,10 +22,9 @@ FROM base AS lint
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-RUN apk add --update --no-cache make nodejs npm
-RUN apk add --update --no-cache yamllint
-
-RUN npm install -g --ignore-scripts markdownlint-cli
+RUN  apk add --update --no-cache make nodejs npm \
+  && apk add --update --no-cache yamllint \
+  && npm install -g --ignore-scripts markdownlint-cli
 
 # [!TIP] Use a bind-mount to "/app" to override following "copys"
 # for lint and test against "current" sources in this stage
@@ -74,10 +73,10 @@ RUN ls -alh
 ###############################################################################
 FROM development AS builder
 
+RUN apk add --update --no-cache rsync
+
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
-
-RUN apk add --update --no-cache rsync
 
 RUN rsync -av --prune-empty-dirs \
   --exclude '*_test.py' \
@@ -120,9 +119,9 @@ ENV BRUTEFORCE=false
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-RUN adduser -D worker
-RUN mkdir -p /app
-RUN chown worker:worker /app
+RUN  adduser -D worker \
+  && mkdir -p /app \
+  && chown worker:worker /app
 
 COPY ./Makefile ${WORKDIR}/
 
