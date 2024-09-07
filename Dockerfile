@@ -1,12 +1,11 @@
 ###############################################################################
 FROM python:3.12.5-alpine3.20 AS init
 
-RUN apk upgrade --update --no-cache expat libexpat # CVE-2024-45491 SNYK-ALPINE320-EXPAT-7908298
-
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-RUN apk add --update --no-cache make
+RUN  apk add --update --no-cache make \
+  && apk upgrade --update --no-cache expat libexpat # CVE-2024-45491 SNYK-ALPINE320-EXPAT-7908298
 
 ###############################################################################
 FROM init AS base
