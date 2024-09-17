@@ -14,7 +14,7 @@ def sum_of_arithmetic_progression(n: int, d: int) -> int:
 
 
 # Function to find the sum of all multiples of a and b below n
-def euler001(a, b, n) -> int:
+def euler001(a: int, b: int, n: int) -> int:
 
     # Since, we need the sum of multiples less than N
     n = n - 1
