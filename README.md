@@ -34,12 +34,15 @@ This repository is part of a series that share and solve the same [objectives](#
 with the difference that each one is based on a different software ecosystem,
 depending on the chosen programming language:
 
-- [Modern Javascript: algorithm-exercises-py](https://github.com/sir-gon/algorithm-exercises-py)
-- [Python 3.x: algorithm-exercises-py](https://github.com/sir-gon/algorithm-exercises-py)
+- [Modern Javascript: algorithm-exercises-js](https://github.com/sir-gon/algorithm-exercises-js)
 - [Typescript: algorithm-exercises-ts](https://github.com/sir-gon/algorithm-exercises-ts)
+
+- [Python 3.x: algorithm-exercises-py](https://github.com/sir-gon/algorithm-exercises-py)
 - [Go / Golang: algorithm-exercises-go](https://github.com/sir-gon/algorithm-exercises-go)
+
 - [Java: algorithm-exercises-java](https://github.com/sir-gon/algorithm-exercises-java)
 - [.NET / C#: algorithm-exercises-csharp](https://github.com/sir-gon/algorithm-exercises-csharp)
+- [C++17: algorithm-exercises-cpp](https://github.com/sir-gon/algorithm-exercises-csharp-cpp)
 
 ## Objetives
 
