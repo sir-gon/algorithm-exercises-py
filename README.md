@@ -42,7 +42,7 @@ depending on the chosen programming language:
 
 - [Java: algorithm-exercises-java](https://github.com/sir-gon/algorithm-exercises-java)
 - [.NET / C#: algorithm-exercises-csharp](https://github.com/sir-gon/algorithm-exercises-csharp)
-- [C++17: algorithm-exercises-cpp](https://github.com/sir-gon/algorithm-exercises-csharp-cpp)
+- [C++17: algorithm-exercises-cpp](https://github.com/sir-gon/algorithm-exercises-cpp)
 
 ## Objetives
 
