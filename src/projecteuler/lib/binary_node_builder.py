@@ -27,7 +27,7 @@ class BinaryNodeBuilder(BinaryNode[T]):
 
         return None
 
-    # pylint: disable-next=too-many-arguments
+    # pylint: disable-next=too-many-arguments, too-many-positional-arguments
     def build_binary_node_tree_weigth(
             self,
             data_tree: Any = None,
