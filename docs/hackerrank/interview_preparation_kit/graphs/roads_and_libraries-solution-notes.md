@@ -23,5 +23,4 @@ wrong the calculation formula by exchanging the cost variables of libraries and 
 Some sources about implementation in:
 
 - (*) [HackerRank “Roads and Libraries” Solution Using Disjoint Set Union Operations](https://medium.com/@gunnarbachelor/hackerrank-roads-and-libraries-solution-using-disjoint-set-union-operations-842f35d55fc9)
-- [1.12 Disjoint Sets Data Structure - Weighted Union and Collapsing Find
-](https://www.youtube.com/watch?v=wU6udHRIkcc)
+- [1.12 Disjoint Sets Data Structure - Weighted Union and Collapsing Find](https://www.youtube.com/watch?v=wU6udHRIkcc)
