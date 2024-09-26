@@ -189,6 +189,8 @@ jobs:
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy-results.sarif'
+        env:
+          ACTIONS_RUNTIME_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   report:
     name: "Trivy (report)"
@@ -211,3 +213,5 @@ jobs:
         with:
           image-ref: ${{ env.IMAGE_NAME }}:${{ github.sha }}
           format: 'table'
+        env:
+          ACTIONS_RUNTIME_TOKEN: ${{ secrets.GITHUB_TOKEN }}
