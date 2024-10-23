@@ -5,6 +5,9 @@ name: Snyk Code analysis
 on: # yamllint disable-line rule:truthy
   pull_request:
   push:
+    branches:
+      - '**'        # matches every branch
+      - '!dependabot/**'   # excludes master
   workflow_dispatch:
 
 jobs:
