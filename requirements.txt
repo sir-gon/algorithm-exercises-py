@@ -15,7 +15,7 @@ platformdirs==4.3.6
 pluggy==1.5.0
 pycodestyle==2.12.1
 pyflakes==3.2.0
-pylint==3.3.1
+pylint==3.3.2
 pyright==1.1.389
 pytest==8.3.3
 pytest-cov==6.0.0
