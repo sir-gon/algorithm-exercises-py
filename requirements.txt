@@ -1,7 +1,7 @@
 astroid==3.3.5
 attrs==24.2.0
 autopep8==2.3.1
-coverage==7.6.8
+coverage==7.6.9
 dill==0.3.9
 exceptiongroup==1.2.2
 flake8==7.1.1
