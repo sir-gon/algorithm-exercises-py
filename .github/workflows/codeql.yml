@@ -23,7 +23,7 @@ on: # yamllint disable-line rule:truthy
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       actions: read
       contents: read
