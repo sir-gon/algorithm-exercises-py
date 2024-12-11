@@ -12,7 +12,8 @@ on: # yamllint disable-line rule:truthy
 permissions: read-all
 
 jobs:
-  build:
+  markdownlint:
+    name: Markdown Lint
     runs-on: ubuntu-24.04
 
     strategy:

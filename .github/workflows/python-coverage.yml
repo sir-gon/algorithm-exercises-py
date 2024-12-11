@@ -13,8 +13,8 @@ env:
   LOG_LEVEL: INFO
 
 jobs:
-  build:
-    name: "Run CI"
+  coverage:
+    name: "Python CI Coverage"
     strategy:
       fail-fast: false
       matrix:
