@@ -61,8 +61,8 @@ jobs:
         run: |
           python3 -m coverage xml
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+      - name: Analyze with SonarQube / SonarCloud
+        uses: SonarSource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           # Needed to get PR information, if any
