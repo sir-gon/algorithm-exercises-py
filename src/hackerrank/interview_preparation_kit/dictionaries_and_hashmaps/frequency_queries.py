@@ -13,7 +13,7 @@ __NOT_FOUND__ = 0
 __FOUND__ = 1
 
 
-def freq_query(queries):
+def freqQuery(queries):
     result = []
     data_map: Dict[int, int] = {}
 

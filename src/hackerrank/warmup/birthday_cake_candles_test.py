@@ -1,6 +1,6 @@
 import unittest
 import pytest
-from .birthday_cake_candles import birthday_cake_candles
+from .birthday_cake_candles import birthdayCakeCandles
 
 
 class TestBirthdayCakeCandles(unittest.TestCase):
@@ -15,11 +15,11 @@ class TestBirthdayCakeCandles(unittest.TestCase):
         for _, _tt in enumerate(tests):
 
             self.assertEqual(
-                birthday_cake_candles(_tt['input']), _tt['answer'],
-                f"{_} | birthday_cake_candles({_tt['input']}) must be "
+                birthdayCakeCandles(_tt['input']), _tt['answer'],
+                f"{_} | birthdayCakeCandles({_tt['input']}) must be "
                 f"=> {_tt['answer']}")
 
     def test_birthday_cake_candles_wrong_input(self):
 
         with pytest.raises(Exception):
-            birthday_cake_candles([])
+            birthdayCakeCandles([])

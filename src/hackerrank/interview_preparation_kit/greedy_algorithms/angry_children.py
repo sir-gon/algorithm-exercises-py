@@ -2,7 +2,7 @@
 # @link Problem definition [[docs/hackerrank/interview_preparation_kit/greedy_algorithms/angry-children.md]] # noqa
 # pylint: enable=line-too-long
 
-def max_min(k: int, arr: list[int]):
+def maxMin(k: int, arr: list[int]):
 
     sortedlist = sorted(arr[:])
     result = sortedlist[len(arr) - 1] - sortedlist[0]

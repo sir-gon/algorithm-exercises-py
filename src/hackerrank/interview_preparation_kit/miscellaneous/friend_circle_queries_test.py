@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .friend_circle_queries import max_circle
+from .friend_circle_queries import maxCircle
 
 
 FILE_PATH = str(Path(__file__).resolve().parent)
@@ -18,6 +18,6 @@ class TestFriendCircle(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                max_circle(_tt['arr']), _tt['answer'],
-                f"{_} | max_circle({_tt['arr']}) must be "
+                maxCircle(_tt['arr']), _tt['answer'],
+                f"{_} | maxCircle({_tt['arr']}) must be "
                 f"=> {_tt['answer']} in {_tt['title']}")

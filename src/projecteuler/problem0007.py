@@ -1,7 +1,7 @@
 # @link Problem definition [[docs/projecteuler/problem0007.md]]
 
 import logging
-from .helpers.prime import is_prime
+from .helpers.prime import isPrime
 
 LOGGER = logging.getLogger(__name__)
 
@@ -15,7 +15,7 @@ def problem0007(_top: int) -> int:
     while len(primes) < _top:
         i += 1
 
-        if is_prime(j):
+        if isPrime(j):
             primes.append(j)
             LOGGER.debug("Prime found %d put in position: %d", j, len(primes))
 

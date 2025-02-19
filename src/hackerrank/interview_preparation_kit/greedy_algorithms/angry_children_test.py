@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .angry_children import max_min
+from .angry_children import maxMin
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -17,6 +17,6 @@ class TestGreedyFlorist(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                max_min(_tt['k'], _tt['arr']), _tt['expected'],
-                f"{_} | max_min({_tt['k']}, {_tt['arr']}) must be "
+                maxMin(_tt['k'], _tt['arr']), _tt['expected'],
+                f"{_} | maxMin({_tt['k']}, {_tt['arr']}) must be "
                 f"=> {_tt['expected']} in {_tt['title']}")

@@ -1,6 +1,6 @@
 import unittest
 
-from .lib.doubly_linked_list import DoublyLinkedList, double_linked_list_to_text
+from .lib.doubly_linked_list import DoublyLinkedList, doubleLinkedListToText
 from .reverse_a_doubly_linked_list import reverse
 
 
@@ -43,7 +43,7 @@ class TestDoubleLinkedListReverse(unittest.TestCase):
 
             llist = reverse(_tt['llist'].head)
 
-            result = double_linked_list_to_text(llist, ' ')
+            result = doubleLinkedListToText(llist, ' ')
 
             self.assertEqual(
                 result,

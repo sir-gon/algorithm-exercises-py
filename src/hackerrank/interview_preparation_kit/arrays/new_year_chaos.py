@@ -4,11 +4,10 @@
 import logging
 
 LOGGER = logging.getLogger(__name__)
-
 TOO_CHAOTIC_ERROR = 'Too chaotic'
 
 
-def minimum_bribes(queue: list[int]) -> 'int | None':
+def minimumBribesCompute(queue: list[int]) -> 'int | None':
     bribes = 0
 
     for i, value in enumerate(queue):
@@ -24,10 +23,14 @@ def minimum_bribes(queue: list[int]) -> 'int | None':
     return bribes
 
 
-def minimum_bribes_transform(queue: list[int]) -> 'int | str':
+def minimumBribesText(queue: list[int]) -> 'int | str':
 
-    result = minimum_bribes(queue)
+    result = minimumBribesCompute(queue)
     if result is None:
         return TOO_CHAOTIC_ERROR
 
     return result
+
+
+def minimumBribes(queue: list[int]):
+    print(minimumBribesText(queue))

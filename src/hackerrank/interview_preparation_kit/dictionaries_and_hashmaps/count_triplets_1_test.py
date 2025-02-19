@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .count_triplets_1 import count_triplets, count_triplets_brute_force
+from .count_triplets_1 import countTriplets, countTripletsBruteForce
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -19,7 +19,7 @@ class TestCountTriplets(unittest.TestCase):
         for _, _tt in enumerate(SMALL_TEST_CASES):
 
             self.assertEqual(
-                count_triplets_brute_force(_tt['input'], _tt['r']), _tt['expected'],
+                countTripletsBruteForce(_tt['input'], _tt['r']), _tt['expected'],
                 f"{_} | count_triplets_brute_force({_tt['input']}, {_tt['r']}) must be "
                 f"=> {_tt['expected']}")
 
@@ -28,7 +28,7 @@ class TestCountTriplets(unittest.TestCase):
         for _, _tt in enumerate(SMALL_TEST_CASES):
 
             self.assertEqual(
-                count_triplets(_tt['input'], _tt['r']), _tt['expected'],
+                countTriplets(_tt['input'], _tt['r']), _tt['expected'],
                 f"{_} | count_triplets({_tt['input']}, {_tt['r']}) must be "
                 f"=> {_tt['expected']} in {_tt['title']}")
 
@@ -37,6 +37,6 @@ class TestCountTriplets(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES_BIG):
 
             self.assertEqual(
-                count_triplets(_tt['input'], _tt['r']), _tt['expected'],
+                countTriplets(_tt['input'], _tt['r']), _tt['expected'],
                 f"{_} | count_triplets({_tt['input']}, {_tt['r']}) must be "
                 f"=> {_tt['expected']} in {_tt['title']}")

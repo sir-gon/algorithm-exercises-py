@@ -51,7 +51,7 @@ class SortablePlayer(Player):
         return 0
 
 
-def comparator_sorting(players: List[SortablePlayer]) -> str:
+def comparatorSorting(players: List[SortablePlayer]) -> str:
 
     players = sorted(players, key=cmp_to_key(SortablePlayer.comparator))
 

@@ -5,7 +5,7 @@
 from .lib.singly_linked_list import SinglyLinkedListNode
 
 
-def find_merge_node(
+def findMergeNode(
         head1: SinglyLinkedListNode,
         head2: SinglyLinkedListNode) -> int | None:
     llindex: list[SinglyLinkedListNode] = []

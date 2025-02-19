@@ -1,7 +1,7 @@
 import unittest
 
-from .lib.singly_linked_list import SinglyLinkedList, singly_linked_list_to_text
-from .insert_a_node_at_a_specific_position_in_a_linked_list import insert_node_at_position
+from .lib.singly_linked_list import SinglyLinkedList, singlyLinkedListToText
+from .insert_a_node_at_a_specific_position_in_a_linked_list import insertNodeAtPosition
 
 
 TEST_CASES = [
@@ -24,17 +24,17 @@ class TestInsertNodeAtPosition(unittest.TestCase):
 
         for _, _tt in enumerate(TEST_CASES):
 
-            insert_node_at_position(
+            insertNodeAtPosition(
                 _tt['llist'].head,
                 _tt['data'],
                 _tt['position'])
 
-            result = singly_linked_list_to_text(_tt['llist'].head, ' ')
+            result = singlyLinkedListToText(_tt['llist'].head, ' ')
 
             self.assertEqual(
                 result,
                 _tt['answer'],
-                f"{_} | insert_node_at_position("
+                f"{_} | insertNodeAtPosition("
                 f"{_tt['llist'].head},"
                 f"{_tt['data']},"
                 f"{_tt['position']},"
@@ -46,19 +46,19 @@ class TestInsertNodeAtPosition(unittest.TestCase):
         data = 2
         position = 0
 
-        head = insert_node_at_position(
+        head = insertNodeAtPosition(
             llist.head,
             data,
             position)
 
-        result = singly_linked_list_to_text(head, ' ')
+        result = singlyLinkedListToText(head, ' ')
 
         answer = '2 1'
 
         self.assertEqual(
             result,
             answer,
-            f"insert_node_at_position("
+            f"insertNodeAtPosition("
             f"{llist},"
             f"{data},"
             f"{position},"

@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .roads_and_libraries import roads_and_libraries
+from .roads_and_libraries import roadsAndLibraries
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -17,7 +17,7 @@ class TestRoadsAndLibraries(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                roads_and_libraries(
+                roadsAndLibraries(
                     _tt['n'],
                     _tt['c_lib'],
                     _tt['c_road'],

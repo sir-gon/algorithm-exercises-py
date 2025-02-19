@@ -5,7 +5,7 @@
 from collections import Counter
 
 
-def is_valid(word: str) -> bool:
+def isValid(word: str) -> bool:
 
     if len(word) <= 1:
         return True

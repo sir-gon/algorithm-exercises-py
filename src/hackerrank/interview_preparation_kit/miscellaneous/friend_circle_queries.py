@@ -47,7 +47,7 @@ class GroupingFriends:
         return self._large_friendship
 
 
-def max_circle(queries) -> list[int]:
+def maxCircle(queries) -> list[int]:
     result: list[int] = []
     friends = GroupingFriends()
 

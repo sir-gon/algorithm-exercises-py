@@ -7,7 +7,7 @@ from .lib.natural_number import NaturalNumber
 LOGGER = logging.getLogger(__name__)
 
 
-def _increase(element: int, group: dict[int, int]) -> dict[int, int]:
+def increase(element: int, group: dict[int, int]) -> dict[int, int]:
     elem = group.get(element, None)
     if elem is None:
         group.update({element: 1})
@@ -17,7 +17,7 @@ def _increase(element: int, group: dict[int, int]) -> dict[int, int]:
     return group
 
 
-def _replace_maximum(element: int, count: int, group: dict[int, int]) -> dict[int, int]:
+def replaceMaximum(element: int, count: int, group: dict[int, int]) -> dict[int, int]:
     elem = group.get(element, None)
     if elem is None:
         group.update({element: count})
@@ -27,16 +27,16 @@ def _replace_maximum(element: int, count: int, group: dict[int, int]) -> dict[in
     return group
 
 
-def prime_factors_collection(factors: list[int]) -> dict[int, int]:
+def primeFactorsCollection(factors: list[int]) -> dict[int, int]:
     collection = {}
 
     for factor in factors:
-        collection = _increase(factor, collection)
+        collection = increase(factor, collection)
 
     return collection
 
 
-def problem0005_alt(_bottom: int, _top: int) -> 'None | float':
+def problem0005(_bottom: int, _top: int) -> 'None | float':
 
     minimum_prime_factors = {}
     result: None | float = None
@@ -49,7 +49,7 @@ def problem0005_alt(_bottom: int, _top: int) -> 'None | float':
         primes = number.prime_factors()
         cycles += number.get_prime_factors_cycles()
 
-        factors = prime_factors_collection(primes)
+        factors = primeFactorsCollection(primes)
         cycles += len(primes)
 
         LOGGER.debug('Prime Factors of %d list    => %s', i, str(primes))
@@ -57,7 +57,7 @@ def problem0005_alt(_bottom: int, _top: int) -> 'None | float':
 
         for factor, quantity in factors.items():
             cycles += 1
-            _replace_maximum(factor, quantity, minimum_prime_factors)
+            replaceMaximum(factor, quantity, minimum_prime_factors)
 
         LOGGER.debug('Prime Factors of %d grouped => %s', i, str(minimum_prime_factors))
 

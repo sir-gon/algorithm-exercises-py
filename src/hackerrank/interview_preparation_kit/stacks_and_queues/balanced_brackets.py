@@ -7,7 +7,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def is_balanced(text: str) -> bool:
+def isBalanced(text: str) -> bool:
 
     pairs = {'{': '}', '(': ')', '[': ']'}
     brackets = []

@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .balanced_brackets import is_balanced
+from .balanced_brackets import isBalanced
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -18,6 +18,6 @@ class TestBalancedBrackets(unittest.TestCase):
             for _, _tt in enumerate(testset['tests']):
 
                 self.assertEqual(
-                    is_balanced(_tt['input']), _tt['answer'],
-                    f"{_} | is_balanced({_tt['input']}) must be "
+                    isBalanced(_tt['input']), _tt['answer'],
+                    f"{_} | isBalanced({_tt['input']}) must be "
                     f"=> {_tt['answer']}")

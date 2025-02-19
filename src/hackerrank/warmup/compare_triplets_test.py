@@ -1,6 +1,6 @@
 import unittest
 import pytest
-from .compare_triplets import compare_triplets
+from .compare_triplets import compareTriplets
 
 
 class TestCompareTriplets(unittest.TestCase):
@@ -11,13 +11,13 @@ class TestCompareTriplets(unittest.TestCase):
         _b = [2, 3]
 
         with pytest.raises(Exception):
-            compare_triplets(_a, _b)
+            compareTriplets(_a, _b)
 
         with pytest.raises(Exception):
-            compare_triplets([], _b)
+            compareTriplets([], _b)
 
         with pytest.raises(Exception):
-            compare_triplets(_a, [])
+            compareTriplets(_a, [])
 
     def test_compare_triplets_test_case0(self):
 
@@ -28,6 +28,6 @@ class TestCompareTriplets(unittest.TestCase):
         for _, _tt in enumerate(tests):
 
             self.assertEqual(
-                compare_triplets(_tt['a'], _tt['b']), _tt['answer'],
-                f"{_} | birthday_cake_candles({_tt['a']}, {_tt['b']}) must be "
+                compareTriplets(_tt['a'], _tt['b']), _tt['answer'],
+                f"{_} | compareTriplets({_tt['a']}, {_tt['b']}) must be "
                 f"=> {_tt['answer']}")

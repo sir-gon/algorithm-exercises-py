@@ -5,7 +5,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def time_conversion(_s: str) -> str:
+def timeConversion(_s: str) -> str:
     meridian = _s[-2:]
     meridian = meridian.lower()
 

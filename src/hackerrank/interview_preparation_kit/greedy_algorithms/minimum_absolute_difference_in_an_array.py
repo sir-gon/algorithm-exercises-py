@@ -8,7 +8,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def minimum_absolute_difference(arr: list[int]) -> int | None:
+def minimumAbsoluteDifference(arr: list[int]) -> int | None:
     sorted_nums = sorted(arr)
     result = None
 

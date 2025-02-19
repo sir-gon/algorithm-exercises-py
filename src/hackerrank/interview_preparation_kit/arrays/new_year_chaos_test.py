@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .new_year_chaos import minimum_bribes_transform
+from .new_year_chaos import minimumBribes, minimumBribesText
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -17,6 +17,8 @@ class TestMinimumBribes(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                minimum_bribes_transform(_tt['input']), _tt['expected'],
-                f"{_} | minimum_bribes_transform({_tt['input']}) must be "
+                minimumBribesText(_tt['input']), _tt['expected'],
+                f"{_} | minimumBribesText({_tt['input']}) must be "
                 f"=> {_tt['expected']}")
+
+            minimumBribes(_tt['input'])  # Print the result (for coverage)

@@ -5,7 +5,7 @@
 from .lib.singly_linked_list import SinglyLinkedListNode
 
 
-def insert_node_at_position(llist: SinglyLinkedListNode | None, data: int, position: int):
+def insertNodeAtPosition(llist: SinglyLinkedListNode | None, data: int, position: int):
 
     new_node = SinglyLinkedListNode(data)
 

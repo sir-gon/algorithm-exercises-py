@@ -1,7 +1,7 @@
 import unittest
 
-from .lib.doubly_linked_list import DoublyLinkedList, double_linked_list_to_text
-from .insert_a_node_into_a_sorted_doubly_linked_list import sorted_insert
+from .lib.doubly_linked_list import DoublyLinkedList, doubleLinkedListToText
+from .insert_a_node_into_a_sorted_doubly_linked_list import sortedInsert
 
 
 TEST_CASES = [
@@ -41,16 +41,16 @@ class TestSortedInsert(unittest.TestCase):
 
         for _, _tt in enumerate(TEST_CASES):
 
-            llist = sorted_insert(
+            llist = sortedInsert(
                 _tt['llist'].head,
                 _tt['data'])
 
-            result = double_linked_list_to_text(llist, ' ')
+            result = doubleLinkedListToText(llist, ' ')
 
             self.assertEqual(
                 result,
                 _tt['answer'],
-                f"{_} | sorted_insert("
+                f"{_} | sortedInsert("
                 f"{_tt['llist'].head},"
                 f"{_tt['data']},"
                 f") must be => {_tt['answer']}")
@@ -60,18 +60,18 @@ class TestSortedInsert(unittest.TestCase):
         llist = DoublyLinkedList()
         data = 1
 
-        head = sorted_insert(
+        head = sortedInsert(
             llist.head,
             data)
 
-        result = double_linked_list_to_text(head, ' ')
+        result = doubleLinkedListToText(head, ' ')
 
         answer = '1'
 
         self.assertEqual(
             result,
             answer,
-            f"sorted_insert("
+            f"sortedInsert("
             f"{llist},"
             f"{data}"
             f") must be => {answer}")

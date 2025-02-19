@@ -6,7 +6,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def array_manipulation(n_operations: int, queries: list[list[int]]) -> int:
+def arrayManipulation(n_operations: int, queries: list[list[int]]) -> int:
     result = [0] * (n_operations + 1)
     maximum = 0
 

@@ -9,7 +9,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def sherlock_and_anagrams(s_word: str) -> int:
+def sherlockAndAnagrams(s_word: str) -> int:
 
     candidates: Dict[str, List[str]] = {}
     size: int = len(s_word)

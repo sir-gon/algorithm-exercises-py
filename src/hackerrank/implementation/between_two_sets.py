@@ -5,7 +5,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def is_factor(_n: int, group: list[int]) -> bool:
+def isFactor(_n: int, group: list[int]) -> bool:
     result: bool = True
     i: int = 0
 
@@ -21,7 +21,7 @@ def is_factor(_n: int, group: list[int]) -> bool:
     return result
 
 
-def factor_of(_n: int, group: list[int]):
+def factorOf(_n: int, group: list[int]):
     result: bool = True
     i: int = 0
 
@@ -37,7 +37,7 @@ def factor_of(_n: int, group: list[int]):
     return result
 
 
-def get_total_x(_a: list[int], _b: list[int]) -> int:
+def getTotalX(_a: list[int], _b: list[int]) -> int:
     _max_ = 0
     for _, j in enumerate(_b):
         _max_ = max(_max_, j)
@@ -45,7 +45,7 @@ def get_total_x(_a: list[int], _b: list[int]) -> int:
     result: list[int] = []
 
     for i in range(2, _max_):
-        if is_factor(i, _a) and factor_of(i, _b):
+        if isFactor(i, _a) and factorOf(i, _b):
             result.append(i)
 
     output = len(result)

@@ -7,7 +7,7 @@ __YES__ = 'Yes'
 __NO__ = 'No'
 
 
-def check_magazine_compute(magazine: List[str], note: List[str]) -> bool:
+def checkMagazineCompute(magazine: List[str], note: List[str]) -> bool:
     dictionary: Dict[str, int] = {}
 
     word: str
@@ -29,5 +29,9 @@ def check_magazine_compute(magazine: List[str], note: List[str]) -> bool:
     return True
 
 
-def check_magazine(magazine: List[str], note: List[str]) -> str:
-    return __YES__ if check_magazine_compute(magazine, note) else __NO__
+def checkMagazineText(magazine: List[str], note: List[str]) -> str:
+    return __YES__ if checkMagazineCompute(magazine, note) else __NO__
+
+
+def checkMagazine(magazine: List[str], note: List[str]):
+    print(checkMagazineText(magazine, note))

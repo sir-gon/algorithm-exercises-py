@@ -1,7 +1,7 @@
 import unittest
 
 from .lib.singly_linked_list import SinglyLinkedListNode
-from .find_the_merge_point_of_two_joined_linked_lists import find_merge_node
+from .find_the_merge_point_of_two_joined_linked_lists import findMergeNode
 
 # Test Case 0
 #
@@ -60,8 +60,8 @@ class TestFindMergeNode(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                find_merge_node(_tt['llist1'], _tt['llist2']),
+                findMergeNode(_tt['llist1'], _tt['llist2']),
                 _tt['answer'],
-                f"{_} | find_merge_node("
+                f"{_} | findMergeNode("
                 f"{_tt['llist1']}, {_tt['llist2']})"
                 f") must be => {_tt['answer']}")

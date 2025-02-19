@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .minimum_swaps_2 import minimum_swaps
+from .minimum_swaps_2 import minimumSwaps
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -17,6 +17,6 @@ class TestMinimumSwaps(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                minimum_swaps(_tt['input']), _tt['expected'],
-                f"{_} | minimum_swaps({_tt['input']}) must be "
+                minimumSwaps(_tt['input']), _tt['expected'],
+                f"{_} | minimumSwaps({_tt['input']}) must be "
                 f"=> {_tt['expected']}")

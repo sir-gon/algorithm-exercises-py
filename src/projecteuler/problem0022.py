@@ -3,7 +3,7 @@
 import logging
 from typing import List
 
-from .helpers.word_score import word_score
+from .helpers.word_score import wordScore
 
 LOGGER = logging.getLogger(__name__)
 
@@ -18,7 +18,7 @@ def problem0022(list_of_names: List[str]) -> int:
 
     for name in names:
         counter += 1
-        result += counter * word_score(name)
+        result += counter * wordScore(name)
 
     LOGGER.info('Problem 0022 result: %i', result)
     return result

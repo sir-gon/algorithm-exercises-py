@@ -1,4 +1,4 @@
-# [Linked Lists: Insert a node at a specific position in a linked list](https://www.hackerrank.com/challenges/insert-a-node-at-a-specific-position-in-a-linked-list)
+# [Linked Lists: Insert a node at a specific position in a linked list](https://www.hackerrank.com/challenges/insert-a-node-into-a-sorted-doubly-linked-list)
 
 Create a node with a given value and insert it into a sorted doubly-linked list
 

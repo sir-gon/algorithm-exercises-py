@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .alternating_characters import alternating_characters
+from .alternating_characters import alternatingCharacters
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -18,6 +18,6 @@ class TestAlternatingCharacters(unittest.TestCase):
             for _, _tt in enumerate(testset['tests']):
 
                 self.assertEqual(
-                    alternating_characters(_tt['input']), _tt['expected'],
-                    f"{_} | alternating_characters({_tt['input']}) must be "
+                    alternatingCharacters(_tt['input']), _tt['expected'],
+                    f"{_} | alternatingCharacters({_tt['input']}) must be "
                     f"=> {_tt['expected']}")

@@ -32,7 +32,7 @@ class DoublyLinkedList:
         return self
 
 
-def double_linked_list_to_text(node, sep):
+def doubleLinkedListToText(node, sep):
     output: str = ''
 
     while node:

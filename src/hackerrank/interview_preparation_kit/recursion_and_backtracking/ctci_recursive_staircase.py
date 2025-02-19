@@ -9,7 +9,7 @@ TOP_LIMIT = 10 ** 10 + 7
 STEPS_LIMIT = 3
 
 
-def step_perms_comput_with_cache(
+def stepPermsComputWithCache(
         n_steps: int,
         cache: Dict[int, int],
         steps_limit: int) -> int:
@@ -23,7 +23,7 @@ def step_perms_comput_with_cache(
         search_key: int = n_steps - i
 
         if search_key not in cache:
-            cache[search_key] = step_perms_comput_with_cache(
+            cache[search_key] = stepPermsComputWithCache(
                 search_key,
                 cache,
                 steps_limit
@@ -34,6 +34,6 @@ def step_perms_comput_with_cache(
     return (result + 1) if n_steps <= steps_limit else result
 
 
-def step_perms(n_steps: int) -> int:
+def stepPerms(n_steps: int) -> int:
     initial_cache: Dict[int, int] = {}
-    return step_perms_comput_with_cache(n_steps, initial_cache, STEPS_LIMIT) % TOP_LIMIT
+    return stepPermsComputWithCache(n_steps, initial_cache, STEPS_LIMIT) % TOP_LIMIT

@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .flipping_bits import flipping_bits
+from .flipping_bits import flippingBits
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -19,6 +19,6 @@ class TestFlippingBits(unittest.TestCase):
             for _, _tt in enumerate(testset['tests']):
 
                 self.assertEqual(
-                    flipping_bits(_tt['input']), _tt['answer'],
-                    f"{_} | flipping_bits({_tt['input']}) must be "
+                    flippingBits(_tt['input']), _tt['answer'],
+                    f"{_} | flippingBits({_tt['input']}) must be "
                     f"=> {_tt['answer']}")

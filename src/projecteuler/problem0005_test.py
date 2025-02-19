@@ -1,6 +1,6 @@
 import unittest
 from .problem0005 import problem0005
-from .problem0005_alt import problem0005_alt
+from .problem0005_alt import problem0005 as problem0005_alt
 
 
 class TestProblem0005(unittest.TestCase):

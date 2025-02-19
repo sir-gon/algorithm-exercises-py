@@ -2,7 +2,7 @@ import unittest
 import json
 from pathlib import Path
 
-from .sherlock_and_anagrams import sherlock_and_anagrams
+from .sherlock_and_anagrams import sherlockAndAnagrams
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 JSON_DATA_FILE = FILE_PATH + '/sherlock_and_anagrams.json'
@@ -19,6 +19,6 @@ class TestSherlockAndAnagrams(unittest.TestCase):
             for _, _tt in enumerate(testset['tests']):
 
                 self.assertEqual(
-                    sherlock_and_anagrams(_tt['input']), _tt['expected'],
+                    sherlockAndAnagrams(_tt['input']), _tt['expected'],
                     f"{_} | sherlock_and_anagrams({_tt['input']}) must be "
                     f"=> {_tt['expected']}")

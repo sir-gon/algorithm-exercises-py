@@ -15,7 +15,7 @@ class Contest:
         return self.__dict__[item]
 
 
-def luck_balance(k, contests: list) -> int:
+def luckBalance(k, contests: list) -> int:
 
     important_contests: list[Contest] = []
     nonimportant_contests: list[Contest] = []

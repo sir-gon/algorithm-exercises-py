@@ -1,5 +1,5 @@
 import unittest
-from .a_very_big_sum import a_very_big_sum
+from .a_very_big_sum import aVeryBigSum
 
 
 class TestaVeryBigSum(unittest.TestCase):
@@ -16,6 +16,6 @@ class TestaVeryBigSum(unittest.TestCase):
         for _, _tt in enumerate(tests):
 
             self.assertEqual(
-                a_very_big_sum(_tt['input']), _tt['answer'],
-                f"{_} | a_very_big_sum({_tt['input']}) must be "
+                aVeryBigSum(_tt['input']), _tt['answer'],
+                f"{_} | aVeryBigSum({_tt['input']}) must be "
                 f"=> {_tt['answer']}")

@@ -1,5 +1,5 @@
 import unittest
-from .time_conversion import time_conversion
+from .time_conversion import timeConversion
 
 
 class TestTimeConversion(unittest.TestCase):
@@ -14,8 +14,8 @@ class TestTimeConversion(unittest.TestCase):
         for _, _tt in enumerate(tests):
 
             self.assertEqual(
-                time_conversion(_tt['input']), _tt['answer'],
-                f"{_} | time_conversion_({input}) must be "
+                timeConversion(_tt['input']), _tt['answer'],
+                f"{_} | timeConversion({input}) must be "
                 f"=> {_tt['answer']}")
 
     def test_time_conversion_case_0(self):
@@ -24,6 +24,6 @@ class TestTimeConversion(unittest.TestCase):
         solution_found = '19:05:45'
 
         self.assertEqual(
-            time_conversion(tinput), solution_found,
-            f"problem0000({input}) must be "
+            timeConversion(tinput), solution_found,
+            f"timeConversion({input}) must be "
             f"=> {solution_found}")

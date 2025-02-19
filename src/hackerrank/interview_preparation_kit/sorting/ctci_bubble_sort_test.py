@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .ctci_bubble_sort import SortableGroup, count_swaps
+from .ctci_bubble_sort import SortableGroup, countSwaps
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -29,6 +29,6 @@ class TestBubleSort(unittest.TestCase):
             expected: str = _tt['expected'].replace('\n', "\n")
 
             self.assertEqual(
-                count_swaps(_tt['input']), expected,
-                f"{_} | count_swaps({_tt['input']}) must be "
+                countSwaps(_tt['input']), expected,
+                f"{_} | countSwaps({_tt['input']}) must be "
                 f"=> {expected}")
