@@ -1,12 +1,12 @@
 import unittest
 from pathlib import Path
 
-from ....hackerrank.lib.loader import load_test_cases
+from ....lib.loader import loadTestCases
 from .minimum_absolute_difference_in_an_array import minimumAbsoluteDifference
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
-TEST_CASES = load_test_cases(
+TEST_CASES = loadTestCases(
     FILE_PATH + '/minimum_absolute_difference_in_an_array.testcases.json')
 
 

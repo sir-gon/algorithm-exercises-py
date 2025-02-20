@@ -1,12 +1,12 @@
 import unittest
 from pathlib import Path
 
-from ....hackerrank.lib.loader import load_test_cases
+from ....lib.loader import loadTestCases
 from .new_year_chaos import minimumBribes, minimumBribesText
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
-TEST_CASES = load_test_cases(
+TEST_CASES = loadTestCases(
     FILE_PATH + '/new_year_chaos.testcases.json')
 
 

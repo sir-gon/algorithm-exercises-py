@@ -1,12 +1,12 @@
 import unittest
 from pathlib import Path
 
-from ....hackerrank.lib.loader import load_test_cases
+from ....lib.loader import loadTestCases
 from .two_strings import twoStrings
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
-TEST_CASES = load_test_cases(
+TEST_CASES = loadTestCases(
     FILE_PATH + '/two_strings.testcases.json')
 
 

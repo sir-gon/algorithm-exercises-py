@@ -1,11 +1,11 @@
 import unittest
 from pathlib import Path
 
-from ....hackerrank.lib.loader import load_test_cases
+from ....lib.loader import loadTestCases
 from .swap_nodes_algo import swapNodes, swapBranch, buildTree, flattenTree
 
 FILE_PATH = str(Path(__file__).resolve().parent)
-TEST_CASES = load_test_cases(FILE_PATH + '/swap_nodes_algo.testcases.json')
+TEST_CASES = loadTestCases(FILE_PATH + '/swap_nodes_algo.testcases.json')
 
 
 class TestSwapNodesAlgo(unittest.TestCase):

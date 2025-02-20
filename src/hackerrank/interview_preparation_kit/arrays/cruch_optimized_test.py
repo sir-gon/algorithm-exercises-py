@@ -1,12 +1,12 @@
 import unittest
 from pathlib import Path
 
-from ....hackerrank.lib.loader import load_test_cases
+from ....lib.loader import loadTestCases
 from .cruch_optimized import arrayManipulation
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
-CRUCH_SMALL_TEST_CASES = load_test_cases(
+CRUCH_SMALL_TEST_CASES = loadTestCases(
     FILE_PATH + '/cruch.testcases.json')
 
 

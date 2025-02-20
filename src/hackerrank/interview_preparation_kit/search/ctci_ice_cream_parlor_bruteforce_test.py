@@ -2,7 +2,7 @@ import unittest
 import os
 from pathlib import Path
 
-from ....hackerrank.lib.loader import load_test_cases
+from ....lib.loader import loadTestCases
 from .ctci_ice_cream_parlor_bruteforce import whatFlavors
 
 BRUTEFORCE = os.getenv('BRUTEFORCE')
@@ -10,9 +10,9 @@ BRUTEFORCE = BRUTEFORCE.upper() == "TRUE" if BRUTEFORCE is not None else False
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
-TEST_CASES_SMALL_CASES = load_test_cases(
+TEST_CASES_SMALL_CASES = loadTestCases(
     FILE_PATH + '/ctci_ice_cream_parlor.testcases.json')
-TEST_CASES_BORDER_CASES = load_test_cases(
+TEST_CASES_BORDER_CASES = loadTestCases(
     FILE_PATH + '/ctci_ice_cream_parlor.border_testcases.json')
 
 

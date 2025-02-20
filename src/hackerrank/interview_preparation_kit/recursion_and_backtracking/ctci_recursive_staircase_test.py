@@ -1,24 +1,18 @@
 import unittest
-import json
 from pathlib import Path
 from typing import Dict
 
+from ....lib.loader import loadTestCases
 from .ctci_recursive_staircase import stepPerms, stepPermsComputWithCache
 from .ctci_recursive_staircase_alternative import stepPerms as stepPermsAlt
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
-with open(
-    FILE_PATH + '/ctci_recursive_staircase.testcases.json',
-    encoding="utf-8"
-) as file1:
-    TEST_CASES = json.load(file1)
+TEST_CASES = loadTestCases(
+    FILE_PATH + '/ctci_recursive_staircase.testcases.json')
 
-with open(
-    FILE_PATH + '/ctci_recursive_staircase_generalized.testcases.json',
-    encoding="utf-8"
-) as file2:
-    TEST_CASES_GENERALIZED = json.load(file2)
+TEST_CASES_GENERALIZED = loadTestCases(
+    FILE_PATH + '/ctci_recursive_staircase_generalized.testcases.json')
 
 
 class TestStaircase(unittest.TestCase):
