@@ -1,5 +1,5 @@
 import unittest
-from .plus_minus import plus_minus
+from .plus_minus import plusMinus
 
 
 class TestPlusMinus(unittest.TestCase):
@@ -16,6 +16,6 @@ class TestPlusMinus(unittest.TestCase):
         for _, _tt in enumerate(tests):
 
             self.assertEqual(
-                plus_minus(_tt['input']), _tt['answer'],
-                f"{_} | plus_minus({_tt['input']}) must be "
+                plusMinus(_tt['input']), _tt['answer'],
+                f"{_} | plusMinus({_tt['input']}) must be "
                 f"=> {_tt['answer']}")

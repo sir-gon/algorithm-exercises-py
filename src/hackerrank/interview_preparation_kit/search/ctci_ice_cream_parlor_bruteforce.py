@@ -1,4 +1,4 @@
-def what_flavors_brute_force(cost: list[int], money: int) -> list[int] | None:
+def whatFlavors(cost: list[int], money: int) -> list[int] | None:
 
     for i, price in enumerate(cost):
 

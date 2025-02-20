@@ -9,7 +9,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def array_manipulation_optimized(n_operations: int, queries: list[list[int]]) -> int:
+def arrayManipulation(n_operations: int, queries: list[list[int]]) -> int:
     # why adding 2?
     #   first slot to adjust 1-based index and
     #   last slot for storing accum_sum result

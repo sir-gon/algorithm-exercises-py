@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .ctci_ice_cream_parlor import what_flavors
+from .ctci_ice_cream_parlor import whatFlavors
 
 
 FILE_PATH = str(Path(__file__).resolve().parent)
@@ -21,8 +21,8 @@ class TestIceCreamParlor(unittest.TestCase):
             for _, _tt in enumerate(testset['tests']):
 
                 self.assertEqual(
-                    what_flavors(_tt['costs'], _tt['money']), _tt['expected'],
-                    f"{_} | what_flavors({_tt['costs']}, {_tt['money']}) must be "
+                    whatFlavors(_tt['costs'], _tt['money']), _tt['expected'],
+                    f"{_} | whatFlavors({_tt['costs']}, {_tt['money']}) must be "
                     f"=> {_tt['expected']}")
 
     def test_what_flavors_border_case(self):
@@ -32,6 +32,6 @@ class TestIceCreamParlor(unittest.TestCase):
             for _, _tt in enumerate(testset['tests']):
 
                 self.assertEqual(
-                    what_flavors(_tt['costs'], _tt['money']), _tt['expected'],
-                    f"{_} | what_flavors({_tt['costs']}, {_tt['money']}) must be "
+                    whatFlavors(_tt['costs'], _tt['money']), _tt['expected'],
+                    f"{_} | whatFlavors({_tt['costs']}, {_tt['money']}) must be "
                     f"=> {_tt['expected']}")

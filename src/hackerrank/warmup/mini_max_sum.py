@@ -5,7 +5,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def mini_max_sum(arr: list[int]) -> str:
+def miniMaxSum(arr: list[int]) -> str:
     if len(arr) == 0:
         raise ValueError('Empty input')
 

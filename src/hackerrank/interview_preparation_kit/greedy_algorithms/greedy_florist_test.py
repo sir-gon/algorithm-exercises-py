@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .greedy_florist import get_minimum_cost
+from .greedy_florist import getMinimumCost
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -17,6 +17,6 @@ class TestGreedyFlorist(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                get_minimum_cost(_tt['k'], _tt['contests']), _tt['expected'],
-                f"{_} | get_minimum_cost({_tt['k']}, {_tt['contests']}) must be "
+                getMinimumCost(_tt['k'], _tt['contests']), _tt['expected'],
+                f"{_} | getMinimumCost({_tt['k']}, {_tt['contests']}) must be "
                 f"=> {_tt['expected']} in {_tt['title']}")

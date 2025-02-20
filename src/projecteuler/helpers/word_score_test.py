@@ -1,6 +1,6 @@
 import unittest
 
-from .word_score import word_score
+from .word_score import wordScore
 
 
 class TestWordScore(unittest.TestCase):
@@ -14,11 +14,11 @@ class TestWordScore(unittest.TestCase):
         ]
 
         for _, _tt in enumerate(tests):
-            to_test = word_score(_tt['input'])
+            to_test = wordScore(_tt['input'])
 
             self.assertEqual(
                 to_test, _tt['answer'],
-                f"{_} | word_score({_tt['input']}) must be "
+                f"{_} | wordScore({_tt['input']}) must be "
                 f"=> {_tt['answer']}")
 
     def test_wordscore_with_scoreless_characters(self):
@@ -29,9 +29,9 @@ class TestWordScore(unittest.TestCase):
         ]
 
         for _, _tt in enumerate(tests):
-            to_test = word_score(_tt['input'])
+            to_test = wordScore(_tt['input'])
 
             self.assertEqual(
                 to_test, _tt['answer'],
-                f"{_} | word_score({_tt['input']}) must be "
+                f"{_} | wordScore({_tt['input']}) must be "
                 f"=> {_tt['answer']}")

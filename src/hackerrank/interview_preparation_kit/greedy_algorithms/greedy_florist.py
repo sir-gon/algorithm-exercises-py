@@ -3,7 +3,7 @@
 # pylint: enable=line-too-long
 
 
-def get_minimum_cost(k_customers: int, c_costs: list[int]):
+def getMinimumCost(k_customers: int, c_costs: list[int]):
 
     flowers = sorted(c_costs[:], reverse=True)
     total: int = 0

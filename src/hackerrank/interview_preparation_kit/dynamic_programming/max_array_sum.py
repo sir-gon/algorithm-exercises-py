@@ -1,7 +1,7 @@
 # @link Problem definition
 # [[docs/hackerrank/interview_preparation_kit/dynamic_programming/max_array_sum.md]]
 
-def max_array_sum(arr_input: list[int]):
+def maxSubsetSum(arr_input: list[int]):
     arr = arr_input[:]
 
     # Edge case

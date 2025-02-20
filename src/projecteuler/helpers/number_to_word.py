@@ -37,7 +37,7 @@ dictionary = {
 }
 
 
-def number_to_word(value: int) -> str:
+def numberToWord(value: int) -> str:
     big_value = str(value)
 
     # 1 to 19
@@ -61,7 +61,7 @@ def number_to_word(value: int) -> str:
         if rest == 0:
             return f'{dictionary[big_value[0]]} {_CENTS_}'
 
-        return f'{dictionary[big_value[0]]} {_CENTS_} and {number_to_word(rest)}'
+        return f'{dictionary[big_value[0]]} {_CENTS_} and {numberToWord(rest)}'
 
     # up to 1000
     if value == 1000:

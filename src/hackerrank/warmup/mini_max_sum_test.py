@@ -1,6 +1,6 @@
 import unittest
 import pytest
-from .mini_max_sum import mini_max_sum
+from .mini_max_sum import miniMaxSum
 
 
 class TestMiniMaxSum(unittest.TestCase):
@@ -8,7 +8,7 @@ class TestMiniMaxSum(unittest.TestCase):
     def test_mini_max_sum_wrong_data(self):
 
         with pytest.raises(Exception):
-            mini_max_sum([])
+            miniMaxSum([])
 
     def test_mini_max_sum(self):
 
@@ -20,6 +20,6 @@ class TestMiniMaxSum(unittest.TestCase):
         for _, _tt in enumerate(tests):
 
             self.assertEqual(
-                mini_max_sum(_tt['input']), _tt['answer'],
+                miniMaxSum(_tt['input']), _tt['answer'],
                 f"{_} | miniMaxSum({_tt['input']}) must be "
                 f"=> {_tt['answer']}")

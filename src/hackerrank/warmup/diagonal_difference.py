@@ -5,7 +5,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def diagonal_difference(arr: list[list[int]]) -> int:
+def diagonalDifference(arr: list[list[int]]) -> int:
     diag1 = 0
     diag2 = 0
     last = len(arr) - 1

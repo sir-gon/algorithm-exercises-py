@@ -1,7 +1,7 @@
 # @link Problem definition [[docs/projecteuler/problem0004.md]]
 
 import logging
-from .helpers.palindrome import is_palindrome
+from .helpers.palindrome import isPalindrome
 
 LOGGER = logging.getLogger(__name__)
 
@@ -23,7 +23,7 @@ def problem0004(_bottom: int, _top: int) -> 'None | int':
 
             cycles += 1
 
-            if is_palindrome(i * j):
+            if isPalindrome(i * j):
 
                 found_palindrome = i * j
                 LOGGER.debug("FOUND %d x %d = %d is Palindrome",

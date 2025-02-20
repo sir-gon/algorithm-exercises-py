@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .two_d_array import hourglass_sum
+from .two_d_array import hourglassSum
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -16,6 +16,6 @@ class Test2dArray(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                hourglass_sum(_tt['input']), _tt['expected'],
-                f"{_} | hourglass_sum({_tt['input']}) must be "
+                hourglassSum(_tt['input']), _tt['expected'],
+                f"{_} | hourglassSum({_tt['input']}) must be "
                 f"=> {_tt['expected']}")

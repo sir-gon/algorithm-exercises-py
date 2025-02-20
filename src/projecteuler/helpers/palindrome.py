@@ -1,5 +1,5 @@
 
-def is_palindrome(num):
+def isPalindrome(num):
     digits = str(num)
     reversed_num = "".join(reversed(digits))
 

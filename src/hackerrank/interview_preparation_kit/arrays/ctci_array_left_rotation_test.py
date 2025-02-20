@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .ctci_array_left_rotation import rot_left, rot_left_one
+from .ctci_array_left_rotation import rotLeft, rotLeftOne
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -16,8 +16,8 @@ class TestArrayLeftRotation(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                rot_left_one(_tt['input']), _tt['expected'],
-                f"{_} | rot_left({_tt['input']}) must be "
+                rotLeftOne(_tt['input']), _tt['expected'],
+                f"{_} | rotLeftOne({_tt['input']}) must be "
                 f"=> {_tt['expected']}")
 
     def test_rot_left(self):
@@ -29,6 +29,6 @@ class TestArrayLeftRotation(unittest.TestCase):
         for _, _tt in enumerate(tests):
 
             self.assertEqual(
-                rot_left(_tt['input'], _tt['d']), _tt['expected'],
-                f"{_} | rot_left({_tt['input']}) must be "
+                rotLeft(_tt['input'], _tt['d']), _tt['expected'],
+                f"{_} | rotLeft({_tt['input']}) must be "
                 f"=> {_tt['expected']}")

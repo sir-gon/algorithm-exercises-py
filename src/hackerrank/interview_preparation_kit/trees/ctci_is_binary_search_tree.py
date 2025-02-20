@@ -5,18 +5,18 @@
 from ...lib.node import Node
 
 
-def traverse_bst(root: Node | None, collect: list[int]) -> list[int] | None:
+def traverseBST(root: Node | None, collect: list[int]) -> list[int] | None:
     if root is not None:
-        traverse_bst(root.left, collect)
+        traverseBST(root.left, collect)
 
         collect.append(root.data)
 
-        traverse_bst(root.right, collect)
+        traverseBST(root.right, collect)
 
 
-def check_bst(root: Node | None) -> bool:
+def checkBST(root: Node | None) -> bool:
     plaint_tree = []
-    traverse_bst(root, plaint_tree)
+    traverseBST(root, plaint_tree)
     print(plaint_tree)
 
     result = True

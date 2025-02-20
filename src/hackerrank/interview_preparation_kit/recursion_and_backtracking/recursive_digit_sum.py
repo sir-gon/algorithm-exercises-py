@@ -6,7 +6,7 @@ import sys
 sys.set_int_max_str_digits(0)
 
 
-def super_digit_compute(p_number: int):
+def superDigitCompute(p_number: int):
     word = str(p_number)
 
     if len(word) == 1:
@@ -16,8 +16,8 @@ def super_digit_compute(p_number: int):
     for digit in word:
         partial += int(digit)
 
-    return super_digit_compute(partial)
+    return superDigitCompute(partial)
 
 
-def super_digit(n_number: int | str, k_times: int):
-    return super_digit_compute(int(n_number) * k_times)
+def superDigit(n_number: int | str, k_times: int):
+    return superDigitCompute(int(n_number) * k_times)

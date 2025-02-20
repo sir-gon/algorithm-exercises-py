@@ -181,3 +181,6 @@ cython_debug/
 
 # Sarif
 *.sarif
+
+# SonarQube sonar-scanner (cli)
+.scannerwork

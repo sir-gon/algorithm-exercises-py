@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .ctci_making_anagrams import make_anagram
+from .ctci_making_anagrams import makeAnagram
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -16,6 +16,6 @@ class TestMakeAnagram(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                make_anagram(_tt['a'], _tt['b']), _tt['expected'],
-                f"{_} | make_anagram({_tt['a']}, {_tt['b']}) must be "
+                makeAnagram(_tt['a'], _tt['b']), _tt['expected'],
+                f"{_} | makeAnagram({_tt['a']}, {_tt['b']}) must be "
                 f"=> {_tt['expected']}")

@@ -5,7 +5,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def a_very_big_sum(_input: list[int]) -> int:
+def aVeryBigSum(_input: list[int]) -> int:
     result: int = 0
 
     for i in _input:

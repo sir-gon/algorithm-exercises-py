@@ -5,7 +5,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def plus_minus(arr: list[int]) -> str:
+def plusMinus(arr: list[int]) -> str:
     positives: int = 0
     negatives: int = 0
     zeros: int = 0
@@ -26,5 +26,5 @@ def plus_minus(arr: list[int]) -> str:
 
     output: str = '\n'.join(result)
 
-    LOGGER.info('Problem 0000 result: %s', output)
+    LOGGER.info('plusMinus result: %s', output)
     return output

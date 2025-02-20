@@ -1,5 +1,5 @@
 import unittest
-from .recursive_digit_sum import super_digit
+from .recursive_digit_sum import superDigit
 
 TEST_CASES = [
     {
@@ -167,6 +167,6 @@ class TestRecursiveDigitSum(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                super_digit(_tt['n'], _tt['k']), _tt['answer'],
-                f"{_} | super_digit({_tt['n']}, {_tt['k']}) must be "
+                superDigit(_tt['n'], _tt['k']), _tt['answer'],
+                f"{_} | superDigit({_tt['n']}, {_tt['k']}) must be "
                 f"=> {_tt['answer']} in {_tt['title']}")

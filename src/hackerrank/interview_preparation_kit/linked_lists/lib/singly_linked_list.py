@@ -32,7 +32,7 @@ class SinglyLinkedList:
 
 
 # modified from original, this return a string instead of print
-def singly_linked_list_to_text(node, sep) -> str:
+def singlyLinkedListToText(node, sep) -> str:
     output: str = ''
 
     while node:

@@ -1,5 +1,5 @@
 import unittest
-from .solve_me_first import solve_me_first
+from .solve_me_first import solveMeFirst
 
 
 class TestSolveMeFirst(unittest.TestCase):
@@ -13,6 +13,6 @@ class TestSolveMeFirst(unittest.TestCase):
         for _, _tt in enumerate(tests):
 
             self.assertEqual(
-                solve_me_first(_tt['a'], _tt['b']), _tt['answer'],
-                f"{_} | solve_me_first({_tt['a'], _tt['b']}) must be "
+                solveMeFirst(_tt['a'], _tt['b']), _tt['answer'],
+                f"{_} | solveMeFirst({_tt['a'], _tt['b']}) must be "
                 f"=> {_tt['answer']}")

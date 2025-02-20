@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .cruch_optimized import array_manipulation_optimized
+from .cruch_optimized import arrayManipulation
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -17,6 +17,6 @@ class TestCrush(unittest.TestCase):
         for _, _tt in enumerate(CRUCH_SMALL_TEST_CASES):
 
             self.assertEqual(
-                array_manipulation_optimized(_tt['n'], _tt['queries']), _tt['expected'],
+                arrayManipulation(_tt['n'], _tt['queries']), _tt['expected'],
                 f"{_} | array_manipulation_optimized({_tt['n']}, {_tt['queries']}) "
                 f"must be => {_tt['expected']}")

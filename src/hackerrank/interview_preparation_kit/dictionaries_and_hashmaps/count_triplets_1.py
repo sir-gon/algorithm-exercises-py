@@ -4,7 +4,7 @@
 from collections import Counter
 
 
-def count_triplets_brute_force(arr: list[int], ratio: int) -> int:
+def countTripletsBruteForce(arr: list[int], ratio: int) -> int:
 
     size = len(arr)
     counter = 0
@@ -20,7 +20,7 @@ def count_triplets_brute_force(arr: list[int], ratio: int) -> int:
     return counter
 
 
-def count_triplets(arr: list[int], ratio: int) -> int:
+def countTriplets(arr: list[int], ratio: int) -> int:
     a_counter = Counter(arr)
     b_counter = Counter()
     triplets = 0

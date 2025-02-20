@@ -1,5 +1,5 @@
 import unittest
-from .diagonal_difference import diagonal_difference
+from .diagonal_difference import diagonalDifference
 
 
 class TestdiagonalDifference(unittest.TestCase):
@@ -15,6 +15,6 @@ class TestdiagonalDifference(unittest.TestCase):
         answer = 15
 
         self.assertEqual(
-            diagonal_difference(matrix), answer,
+            diagonalDifference(matrix), answer,
             f"diagonalDifference({matrix}) must be "
             f"=> {answer}")

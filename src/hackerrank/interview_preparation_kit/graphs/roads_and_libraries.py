@@ -36,7 +36,7 @@ class RoadsAndLibraries:
         return self._unions
 
 
-def roads_and_libraries(
+def roadsAndLibraries(
         q_paths: int,
         c_lib: int,
         c_road: int,

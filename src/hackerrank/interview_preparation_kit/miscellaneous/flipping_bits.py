@@ -2,7 +2,7 @@
 # @link Problem definition [[docs/hackerrank/interview_preparation_kit/miscellaneous/flipping-bits.md]] # noqa
 # pylint: enable=line-too-long
 
-def flipping_bits(number: int) -> int:
+def flippingBits(number: int) -> int:
     # print(n)
 
     n_bin = bin(number)

@@ -22,7 +22,7 @@ LOGGER = logging.getLogger(__name__)
 sys.setrecursionlimit(__HIGH_RECURSION_LIMIT__)
 
 
-def callback_collect_nodes(
+def callbackCollectNodes(
         root: Node,
         collect: Dict[int, list[Node]],
         level: int
@@ -33,7 +33,7 @@ def callback_collect_nodes(
         collect[level].append(root)
 
 
-def callback_collect_plain(
+def callbackCollectPlain(
         root: Node,
         collect: Dict[int, list[Node]],
         level: int
@@ -47,7 +47,7 @@ def callback_collect_plain(
         collect[_level].append(root)
 
 
-def traverse_in_order_collector(
+def traverseInOrderCollector(
     root: Node,
     collect: Dict[int, list[Node]],
     level: int,
@@ -55,17 +55,17 @@ def traverse_in_order_collector(
 ) -> Dict[int, list[Node]]:
 
     if root.left is not None:
-        traverse_in_order_collector(root.left, collect, level + 1, callback)
+        traverseInOrderCollector(root.left, collect, level + 1, callback)
 
     callback(root, collect, level)
 
     if root.right is not None:
-        traverse_in_order_collector(root.right, collect, level + 1, callback)
+        traverseInOrderCollector(root.right, collect, level + 1, callback)
 
     return collect
 
 
-def build_tree(indexes: List[List[int]]) -> Node:
+def buildTree(indexes: List[List[int]]) -> Node:
 
     indexes_copy = indexes[:]
     root: Node = Node(__ROOT_VALUE__)
@@ -73,11 +73,11 @@ def build_tree(indexes: List[List[int]]) -> Node:
 
     while len(indexes_copy) > 0:
         node_collector = {}
-        traverse_in_order_collector(
+        traverseInOrderCollector(
             root,
             node_collector,
             __INITIAL_LEVEL__,
-            callback_collect_nodes)
+            callbackCollectNodes)
 
         last_level: int = sorted(list(node_collector))[-1]
 
@@ -93,14 +93,14 @@ def build_tree(indexes: List[List[int]]) -> Node:
     return root
 
 
-def flatten_tree(root: Node) -> List[int]:
+def flattenTree(root: Node) -> List[int]:
     node_collector: Dict[int, list[Node]] = {}
 
-    node_collector = traverse_in_order_collector(
+    node_collector = traverseInOrderCollector(
         root,
         node_collector,
         __INITIAL_LEVEL__,
-        callback_collect_plain
+        callbackCollectPlain
     )
 
     output: List[int] = []
@@ -113,7 +113,7 @@ def flatten_tree(root: Node) -> List[int]:
     return output
 
 
-def swap_branch(root: Node | None) -> Node | None:
+def swapBranch(root: Node | None) -> Node | None:
     if root is not None:
         temp: Node | None = root.left
         root.left = root.right
@@ -122,23 +122,23 @@ def swap_branch(root: Node | None) -> Node | None:
     return root
 
 
-def swap_nodes(indexes: List[List[int]], queries: List[int]) -> List[List[int]]:
-    tree: Node = build_tree(indexes)
+def swapNodes(indexes: List[List[int]], queries: List[int]) -> List[List[int]]:
+    tree: Node = buildTree(indexes)
 
     plain: List[int]
     output: List[List[int]] = []
 
     node_collector: Dict[int, list[Node]] = {}
 
-    traverse_in_order_collector(
+    traverseInOrderCollector(
         tree,
         node_collector,
         __INITIAL_LEVEL__,
-        callback_collect_nodes)
+        callbackCollectNodes)
 
     node_collector = dict(sorted(node_collector.items()))
 
-    plain = flatten_tree(tree)  # original
+    plain = flattenTree(tree)  # original
 
     LOGGER.debug('Plain tree: %s', plain)
 
@@ -146,9 +146,9 @@ def swap_nodes(indexes: List[List[int]], queries: List[int]) -> List[List[int]]:
         for level, node_list in node_collector.items():
             if level % query == 0:
                 for node in node_list:
-                    swap_branch(node)
+                    swapBranch(node)
 
-        plain = flatten_tree(tree)
+        plain = flattenTree(tree)
         output.append(plain)
 
     return output

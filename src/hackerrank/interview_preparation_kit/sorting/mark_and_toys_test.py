@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .mark_and_toys import maximum_toys
+from .mark_and_toys import maximumToys
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -15,6 +15,6 @@ class TestMarkAndToys(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                maximum_toys(_tt['prices'], _tt['budget']), _tt['expected'],
-                f"{_} | maximum_toys({_tt['prices'], _tt['budget']}) must be "
+                maximumToys(_tt['prices'], _tt['budget']), _tt['expected'],
+                f"{_} | maximumToys({_tt['prices'], _tt['budget']}) must be "
                 f"=> {_tt['expected']}")

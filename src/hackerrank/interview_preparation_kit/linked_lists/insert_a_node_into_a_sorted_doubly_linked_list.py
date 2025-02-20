@@ -1,5 +1,5 @@
 # pylint: disable=line-too-long
-# @link Problem definition [[docs/hackerrank/interview_preparation_kit/linked_lists/insert-a-current-into-a-sorted-doubly-linked-list.md]] # noqa: E501
+# @link Problem definition [[docs/hackerrank/interview_preparation_kit/linked_lists/insert-a-node-into-a-sorted-doubly-linked-list.md]] # noqa: E501
 # pylint: enable=line-too-long
 
 import logging
@@ -8,7 +8,7 @@ from .lib.doubly_linked_list import DoublyLinkedListNode
 LOGGER = logging.getLogger(__name__)
 
 
-def sorted_insert(
+def sortedInsert(
         llist: DoublyLinkedListNode | None,
         data: int) -> DoublyLinkedListNode | None:
 

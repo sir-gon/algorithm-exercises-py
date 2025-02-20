@@ -42,7 +42,7 @@ class SortableGroup:
         return self
 
 
-def count_swaps(group: list[int]) -> str:
+def countSwaps(group: list[int]) -> str:
 
     sortable_group = SortableGroup(group)
     sortable_group.bubble_sort()

@@ -1,6 +1,6 @@
 import unittest
 from ...lib.node import Node
-from .ctci_is_binary_search_tree import check_bst
+from .ctci_is_binary_search_tree import checkBST
 
 
 class TestIsBinarySearchTree(unittest.TestCase):
@@ -11,8 +11,8 @@ class TestIsBinarySearchTree(unittest.TestCase):
         answer = True
 
         self.assertTrue(
-            check_bst(root),
-            f"check_bst({root}) must be "
+            checkBST(root),
+            f"checkBST({root}) must be "
             f"=> {answer}"
         )
 
@@ -35,8 +35,8 @@ class TestIsBinarySearchTree(unittest.TestCase):
         answer = False
 
         self.assertFalse(
-            check_bst(root),
-            f"check_bst({root}) must be "
+            checkBST(root),
+            f"checkBST({root}) must be "
             f"=> {answer}"
         )
 
@@ -60,8 +60,8 @@ class TestIsBinarySearchTree(unittest.TestCase):
         answer = True
 
         self.assertTrue(
-            check_bst(root),
-            f"check_bst({root}) must be "
+            checkBST(root),
+            f"checkBST({root}) must be "
             f"=> {answer}"
         )
 
@@ -85,8 +85,8 @@ class TestIsBinarySearchTree(unittest.TestCase):
         answer = False
 
         self.assertFalse(
-            check_bst(root),
-            f"check_bst({root}) must be "
+            checkBST(root),
+            f"checkBST({root}) must be "
             f"=> {answer}"
         )
 
@@ -110,7 +110,7 @@ class TestIsBinarySearchTree(unittest.TestCase):
         answer = True
 
         self.assertTrue(
-            check_bst(root),
-            f"check_bst({root}) must be "
+            checkBST(root),
+            f"checkBST({root}) must be "
             f"=> {answer}"
         )

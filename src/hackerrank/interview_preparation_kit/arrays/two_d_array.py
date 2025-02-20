@@ -25,7 +25,7 @@ def gethourglass(arr: list[list[int]], position_x: int, position_y: int) -> list
     return result
 
 
-def hourglass_sum(arr: list[list[int]]) -> int | None:
+def hourglassSum(arr: list[list[int]]) -> int | None:
     matrix_size: int = len(arr)
 
     matrix_start_index: int = 1

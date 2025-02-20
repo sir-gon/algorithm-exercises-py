@@ -28,7 +28,7 @@ _scoreLetter = {
 }
 
 
-def word_score(word: str) -> int:
+def wordScore(word: str) -> int:
     result = 0
 
     for letter in list(word):

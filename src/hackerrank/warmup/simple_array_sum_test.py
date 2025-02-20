@@ -1,5 +1,5 @@
 import unittest
-from .simple_array_sum import simple_array_sum
+from .simple_array_sum import simpleArraySum
 
 
 class TestSimpleArraySum(unittest.TestCase):
@@ -13,6 +13,6 @@ class TestSimpleArraySum(unittest.TestCase):
         for _, _tt in enumerate(tests):
 
             self.assertEqual(
-                simple_array_sum(_tt['input']), _tt['answer'],
-                f"{_} | simple_array_sum({_tt['input']}) must be "
+                simpleArraySum(_tt['input']), _tt['answer'],
+                f"{_} | simpleArraySum({_tt['input']}) must be "
                 f"=> {_tt['answer']}")

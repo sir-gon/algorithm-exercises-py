@@ -3,8 +3,8 @@ import json
 from pathlib import Path
 from typing import Dict
 
-from .ctci_recursive_staircase import step_perms, step_perms_comput_with_cache
-from .ctci_recursive_staircase_alternative import step_perms as step_perms_alt
+from .ctci_recursive_staircase import stepPerms, stepPermsComputWithCache
+from .ctci_recursive_staircase_alternative import stepPerms as stepPermsAlt
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -30,8 +30,8 @@ class TestStaircase(unittest.TestCase):
         title: str = 'Edge Case 0'
 
         self.assertEqual(
-            step_perms(n_input), answer,
-            f"step_perms_alt({input}) must be "
+            stepPermsAlt(n_input), answer,
+            f"stepPermsAlt({input}) must be "
             f"=> {answer} in {title}")
 
     def test_step_perms(self):
@@ -41,8 +41,8 @@ class TestStaircase(unittest.TestCase):
             for _, _tt in enumerate(testset['tests']):
 
                 self.assertEqual(
-                    step_perms(_tt['input']), _tt['expected'],
-                    f"{_} | step_perms({_tt['input']}) must be "
+                    stepPerms(_tt['input']), _tt['expected'],
+                    f"{_} | stepPerms({_tt['input']}) must be "
                     f"=> {_tt['expected']} in {testset['title']}")
 
     def test_step_perms_comput_with_cache(self):
@@ -54,11 +54,11 @@ class TestStaircase(unittest.TestCase):
                 initial_cache: Dict[int, int] = {}
 
                 self.assertEqual(
-                    step_perms_comput_with_cache(
+                    stepPermsComputWithCache(
                         _tt['input'], initial_cache,
                         _tt['limit']),
                     _tt['expected'],
-                    f"{_} | step_perms_comput_with_cache("
+                    f"{_} | stepPermsComputWithCache("
                     f"{_tt['input']}, {initial_cache}, {_tt['limit']}) must be "
                     f"=> {_tt['expected']} in {testset['title']}")
 
@@ -69,6 +69,6 @@ class TestStaircase(unittest.TestCase):
             for _, _tt in enumerate(testset['tests']):
 
                 self.assertEqual(
-                    step_perms_alt(_tt['input']), _tt['expected'],
-                    f"{_} | step_perms_alt({_tt['input']}) must be "
+                    stepPermsAlt(_tt['input']), _tt['expected'],
+                    f"{_} | stepPermsAlt({_tt['input']}) must be "
                     f"=> {_tt['expected']} in {testset['title']}")

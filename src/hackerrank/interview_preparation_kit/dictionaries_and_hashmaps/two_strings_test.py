@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .two_strings import two_strings
+from .two_strings import twoStrings
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -17,6 +17,6 @@ class TestTwoStrings(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                two_strings(_tt['s1'], _tt['s2']), _tt['expected'],
-                f"{_} | two_strings({_tt['s1']}, {_tt['s2']}) must be "
+                twoStrings(_tt['s1'], _tt['s2']), _tt['expected'],
+                f"{_} | twoStrings({_tt['s1']}, {_tt['s2']}) must be "
                 f"=> {_tt['expected']} in {_tt['title']}")

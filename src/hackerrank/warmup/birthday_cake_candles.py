@@ -5,7 +5,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def birthday_cake_candles(_ar: list[int]) -> int:
+def birthdayCakeCandles(_ar: list[int]) -> int:
     if len(_ar) == 0:
         raise ValueError('Empty input')
 

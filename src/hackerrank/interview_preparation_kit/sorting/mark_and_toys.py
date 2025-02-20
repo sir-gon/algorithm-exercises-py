@@ -1,7 +1,7 @@
 # @link Problem definition
 # [[docs/hackerrank/interview_preparation_kit/sort/mark-and-toys.md]]
 
-def maximum_toys(prices: list[int], k: int):
+def maximumToys(prices: list[int], k: int):
 
     group = prices[:]
     group.sort()

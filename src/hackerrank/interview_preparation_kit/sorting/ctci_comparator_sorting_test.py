@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .ctci_comparator_sorting import Player, SortablePlayer, comparator_sorting
+from .ctci_comparator_sorting import Player, SortablePlayer, comparatorSorting
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -32,6 +32,6 @@ class TestComparatorSorting(unittest.TestCase):
                 players.append(SortablePlayer(player['name'], player['score']))
 
             self.assertEqual(
-                comparator_sorting(players), _tt['expected'],
-                f"{_} | comparator_sorting({_tt['input']}) must be "
+                comparatorSorting(players), _tt['expected'],
+                f"{_} | comparatorSorting({_tt['input']}) must be "
                 f"=> {_tt['expected']}")

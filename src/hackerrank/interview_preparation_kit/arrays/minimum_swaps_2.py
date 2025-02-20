@@ -6,7 +6,7 @@ import logging
 LOGGER = logging.getLogger(__name__)
 
 
-def minimum_swaps(group: list[int]) -> int:
+def minimumSwaps(group: list[int]) -> int:
     indexed_group = [i - 1 for i in group]
 
     swaps = 0

@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .ctci_ransom_note import check_magazine
+from .ctci_ransom_note import checkMagazine, checkMagazineText
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -17,6 +17,9 @@ class TestCheckMagazine(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                check_magazine(_tt['magazine'], _tt['note']), _tt['expected'],
-                f"{_} | check_magazine({_tt['magazine']}, {_tt['note']}) must be "
+                checkMagazineText(_tt['magazine'], _tt['note']), _tt['expected'],
+                f"{_} | checkMagazineText({_tt['magazine']}, {_tt['note']}) must be "
                 f"=> {_tt['expected']}")
+
+            # Print the result (for coverage)
+            checkMagazine(_tt['magazine'], _tt['note'])

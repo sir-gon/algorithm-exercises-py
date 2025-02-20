@@ -118,15 +118,15 @@ upgrade:
 	${PACKAGE_TOOL} list --outdated | cut -f1 -d' ' | tr " " "\n" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip3 install -U
 
 clean:
-	${PACKAGE_TOOL} freeze > unins ; pip3 uninstall -y -r unins ; rm unins
+	${PACKAGE_TOOL} freeze > unins ; ${PACKAGE_TOOL} uninstall -y -r unins ; rm unins
 	rm -f .coverage
 	rm -fr .pytest_cache
 	rm -fr htmlcov
 	rm -fr coverage
 	rm -fr build
-	find . -path "*/*.pyc" -delete -print
-	find . -path "*/*.pyo" -delete -print
-	find . -path "*/__pycache__" -type d -print -exec rm -fr {} ';'
+	find . -path "*/*.pyc" -delete -print || true
+	find . -path "*/*.pyo" -delete -print || true
+	find . -path "*/__pycache__" -type d -print -exec rm -fr {} ';' || true
 
 compose/build: env
 	${DOCKER_COMPOSE} --profile lint build

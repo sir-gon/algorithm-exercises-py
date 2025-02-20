@@ -5,7 +5,7 @@ __YES__ = 'Yes'
 __NO__ = 'No'
 
 
-def two_strings_compute(s1_word: str, s2_word: str) -> bool:
+def twoStringsCompute(s1_word: str, s2_word: str) -> bool:
     for letter in s1_word:
         if letter in s2_word:
             return True
@@ -13,5 +13,5 @@ def two_strings_compute(s1_word: str, s2_word: str) -> bool:
     return False
 
 
-def two_strings(s1_word: str, s2_word: str) -> str:
-    return __YES__ if two_strings_compute(s1_word, s2_word) else __NO__
+def twoStrings(s1_word: str, s2_word: str) -> str:
+    return __YES__ if twoStringsCompute(s1_word, s2_word) else __NO__

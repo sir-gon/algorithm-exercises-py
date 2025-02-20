@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 
 from ....hackerrank.lib.loader import load_test_cases
-from .sherlock_and_valid_string import is_valid
+from .sherlock_and_valid_string import isValid
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -16,6 +16,6 @@ class TestSherklockAndValidString(unittest.TestCase):
         for _, _tt in enumerate(TEST_CASES):
 
             self.assertEqual(
-                is_valid(_tt['input']), _tt['expected'],
-                f"{_} | is_valid({_tt['input']}) must be "
+                isValid(_tt['input']), _tt['expected'],
+                f"{_} | isValid({_tt['input']}) must be "
                 f"=> {_tt['expected']}")
