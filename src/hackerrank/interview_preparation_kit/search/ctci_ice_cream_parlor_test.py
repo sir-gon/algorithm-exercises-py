@@ -1,14 +1,14 @@
 import unittest
 from pathlib import Path
 
-from ....hackerrank.lib.loader import load_test_cases
+from ....lib.loader import loadTestCases
 from .ctci_ice_cream_parlor import whatFlavors
 
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
-TEST_CASES = load_test_cases(FILE_PATH + '/ctci_ice_cream_parlor.testcases.json')
-TEST_CASES_BORDER_CASES = load_test_cases(
+TEST_CASES = loadTestCases(FILE_PATH + '/ctci_ice_cream_parlor.testcases.json')
+TEST_CASES_BORDER_CASES = loadTestCases(
     FILE_PATH + '/ctci_ice_cream_parlor.border_testcases.json')
 
 

@@ -1,15 +1,15 @@
 import unittest
 from pathlib import Path
 
-from ....hackerrank.lib.loader import load_test_cases
+from ....lib.loader import loadTestCases
 from .count_triplets_1 import countTriplets, countTripletsBruteForce
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
-SMALL_TEST_CASES = load_test_cases(
+SMALL_TEST_CASES = loadTestCases(
     FILE_PATH + '/count_triplets_1.small.testcases.json')
 
-TEST_CASES_BIG = load_test_cases(
+TEST_CASES_BIG = loadTestCases(
     FILE_PATH + '/count_triplets_1.big.testcases.json')
 
 

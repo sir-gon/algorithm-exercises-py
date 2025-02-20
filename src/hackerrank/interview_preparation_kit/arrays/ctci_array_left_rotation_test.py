@@ -1,12 +1,12 @@
 import unittest
 from pathlib import Path
 
-from ....hackerrank.lib.loader import load_test_cases
+from ....lib.loader import loadTestCases
 from .ctci_array_left_rotation import rotLeft, rotLeftOne
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
-TEST_CASES = load_test_cases(
+TEST_CASES = loadTestCases(
     FILE_PATH + '/ctci_array_left_rotation.testcases.json')
 
 

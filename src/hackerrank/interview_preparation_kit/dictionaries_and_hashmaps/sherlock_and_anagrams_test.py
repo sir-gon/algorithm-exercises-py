@@ -1,13 +1,13 @@
 import unittest
-import json
 from pathlib import Path
 
+from ....lib.loader import loadTestCases
 from .sherlock_and_anagrams import sherlockAndAnagrams
 
 FILE_PATH = str(Path(__file__).resolve().parent)
-JSON_DATA_FILE = FILE_PATH + '/sherlock_and_anagrams.json'
-with open(JSON_DATA_FILE, encoding="utf-8") as file:
-    TEST_CASES = json.load(file)
+
+TEST_CASES = loadTestCases(
+    FILE_PATH + '/sherlock_and_anagrams.testcases.json')
 
 
 class TestSherlockAndAnagrams(unittest.TestCase):

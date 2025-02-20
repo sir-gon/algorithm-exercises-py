@@ -1,12 +1,12 @@
 import unittest
 from pathlib import Path
 
-from ....hackerrank.lib.loader import load_test_cases
+from ....lib.loader import loadTestCases
 from .ctci_ransom_note import checkMagazine, checkMagazineText
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
-TEST_CASES = load_test_cases(
+TEST_CASES = loadTestCases(
     FILE_PATH + '/ctci_ransom_note.testcases.json')
 
 
