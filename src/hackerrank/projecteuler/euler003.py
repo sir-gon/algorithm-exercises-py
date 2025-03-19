@@ -6,7 +6,7 @@
 import math
 
 
-def prime_factor(n: int) -> 'int | None':
+def primeFactor(n: int) -> 'int | None':
 
     if n < 2:
         return None
@@ -30,4 +30,4 @@ def prime_factor(n: int) -> 'int | None':
 
 def euler003(n: int) -> 'int | None':
 
-    return prime_factor(n)
+    return primeFactor(n)

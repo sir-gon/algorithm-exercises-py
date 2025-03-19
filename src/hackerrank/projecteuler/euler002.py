@@ -1,7 +1,7 @@
 # @link Problem definition [[docs/hackerrank/projecteuler/euler002.md]]
 # pylint: disable=C0103:invalid-name
 
-def fibo_even_sum(n: int) -> int:
+def fiboEvenSum(n: int) -> int:
     total = 0
     fibo = 0
     fibo1 = 1
@@ -20,4 +20,4 @@ def fibo_even_sum(n: int) -> int:
 
 def euler002(n: int) -> int:
 
-    return fibo_even_sum(n)
+    return fiboEvenSum(n)
