@@ -1,5 +1,5 @@
 import unittest
-from .num_cells import num_cells
+from .num_cells import numCells
 
 
 class TestNumCells(unittest.TestCase):
@@ -14,6 +14,6 @@ class TestNumCells(unittest.TestCase):
         solution_found = 2
 
         self.assertEqual(
-            num_cells(grid), solution_found,
+            numCells(grid), solution_found,
             f"num_cells({grid}) must be "
             f"=> {solution_found}")
