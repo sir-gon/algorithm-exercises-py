@@ -1,5 +1,7 @@
+ARG BASE_IMAGE=python:3.13.3-alpine3.20
+
 ###############################################################################
-FROM python:3.13.3-alpine3.20 AS init
+FROM ${BASE_IMAGE} AS init
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
