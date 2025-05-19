@@ -79,11 +79,22 @@ test/static: dependencies
 	${RUNTIME_TOOL} -m flake8 --verbose src/
 	${RUNTIME_TOOL} -m pyright --verbose src/
 
-test/styling: dependencies
+
+test/styling/json: dependencies
+	prettier --check ./src/**/*.json
+
+test/styling/sources: dependencies
 	${RUNTIME_TOOL} -m pycodestyle --statistics src/
 
-format:
+test/styling: dependencies test/styling/sources test/styling/json
+
+format/json:
+	prettier --write ./src/**/*.json
+
+format/sources:
 	${RUNTIME_TOOL} -m autopep8 --in-place --recursive --aggressive --aggressive --verbose src/
+
+format: format/sources format/json
 
 build: env
 	rsync -av --prune-empty-dirs \
