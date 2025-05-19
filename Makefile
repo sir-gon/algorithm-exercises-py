@@ -85,6 +85,7 @@ test/styling/json: dependencies
 
 test/styling/sources: dependencies
 	${RUNTIME_TOOL} -m pycodestyle --statistics src/
+	${RUNTIME_TOOL} -m autopep8  --diff --recursive --exit-code --verbose .
 
 test/styling: dependencies test/styling/sources test/styling/json
 

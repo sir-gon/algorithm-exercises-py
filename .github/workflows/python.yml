@@ -3,10 +3,10 @@ name: Python CI Tests
 
 on: # yamllint disable-line rule:truthy
   push:
-    branches: ["main"]
+    branches: ['main']
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: ["main"]
+    branches: ['main']
   workflow_dispatch:
 
 env:
@@ -14,12 +14,12 @@ env:
 
 jobs:
   build:
-    name: "Run CI"
+    name: 'Run CI'
     strategy:
       fail-fast: false
       matrix:
-        os: ["ubuntu-24.04", "macos-14", "windows-2022"]
-        python: ["3.10", "3.11", "3.12"]
+        os: ['ubuntu-24.04', 'macos-14', 'windows-2022']
+        python: ['3.10', '3.11', '3.12']
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -49,6 +49,9 @@ jobs:
         run: |
           python3 -m pycodestyle --statistics src/
 
+      - name: Styling (autopep8)
+        run: |
+          python3 -m autopep8  --diff --recursive --exit-code --verbose .
       - name: Test
         run: >
           coverage run -m pytest --verbose
