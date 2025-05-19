@@ -1,8 +1,7 @@
 [
   {
     "title": "Sample Test Case 0",
-    "tests":
-    [
+    "tests": [
       {
         "input": "{[()]}",
         "answer": true
@@ -19,8 +18,7 @@
   },
   {
     "title": "Sample Test Case 1",
-    "tests":
-    [
+    "tests": [
       {
         "input": "{{([])}}",
         "answer": true
@@ -33,8 +31,7 @@
   },
   {
     "title": "Sample Test Case 1",
-    "tests":
-    [
+    "tests": [
       {
         "input": "{(([])[])[]}",
         "answer": true

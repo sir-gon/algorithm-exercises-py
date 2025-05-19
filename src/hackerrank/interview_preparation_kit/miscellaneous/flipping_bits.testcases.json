@@ -1,8 +1,7 @@
 [
   {
     "title": "Sample Test Case 0",
-    "tests":
-    [
+    "tests": [
       {
         "input": 2147483647,
         "answer": 2147483648
@@ -19,9 +18,7 @@
   },
   {
     "title": "Sample Test Case 1",
-    "tests":
-    [
-
+    "tests": [
       {
         "input": 4,
         "answer": 4294967291
@@ -34,9 +31,7 @@
   },
   {
     "title": "Sample Test Case 2",
-    "tests":
-    [
-
+    "tests": [
       {
         "input": 0,
         "answer": 4294967295

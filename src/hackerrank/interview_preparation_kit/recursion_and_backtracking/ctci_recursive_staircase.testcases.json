@@ -1,49 +1,49 @@
 [
-    {
-        "title": "Sample Test case 0",
-        "tests": [
-            {
-                "input": 1,
-                "expected": 1
-            },
-            {
-                "input": 3,
-                "expected": 4
-            },
-            {
-                "input": 7,
-                "expected": 44
-            }
-        ]
-    },
-    {
-        "title": "Sample Test case 9",
-        "tests": [
-            {
-                "input": 5,
-                "expected": 13
-            },
-            {
-                "input": 8,
-                "expected": 81
-            }
-        ]
-    },
-    {
-        "title": "Sample Test case 10",
-        "tests": [
-            {
-                "input": 15,
-                "expected": 5768
-            },
-            {
-                "input": 20,
-                "expected": 121415
-            },
-            {
-                "input": 27,
-                "expected": 8646064
-            }
-        ]
-    }
+  {
+    "title": "Sample Test case 0",
+    "tests": [
+      {
+        "input": 1,
+        "expected": 1
+      },
+      {
+        "input": 3,
+        "expected": 4
+      },
+      {
+        "input": 7,
+        "expected": 44
+      }
+    ]
+  },
+  {
+    "title": "Sample Test case 9",
+    "tests": [
+      {
+        "input": 5,
+        "expected": 13
+      },
+      {
+        "input": 8,
+        "expected": 81
+      }
+    ]
+  },
+  {
+    "title": "Sample Test case 10",
+    "tests": [
+      {
+        "input": 15,
+        "expected": 5768
+      },
+      {
+        "input": 20,
+        "expected": 121415
+      },
+      {
+        "input": 27,
+        "expected": 8646064
+      }
+    ]
+  }
 ]

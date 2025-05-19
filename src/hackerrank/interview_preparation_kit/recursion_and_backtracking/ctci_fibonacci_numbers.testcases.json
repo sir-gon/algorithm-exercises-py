@@ -1,17 +1,17 @@
 [
-    {
-        "title": "Sample Test case 0",
-        "input": 5,
-        "expected": 5
-    },
-    {
-        "title": "Sample Test case 1",
-        "input": 12,
-        "expected": 144
-    },
-    {
-        "title": "Sample Test case 2",
-        "input": 17,
-        "expected": 1597
-    }
+  {
+    "title": "Sample Test case 0",
+    "input": 5,
+    "expected": 5
+  },
+  {
+    "title": "Sample Test case 1",
+    "input": 12,
+    "expected": 144
+  },
+  {
+    "title": "Sample Test case 2",
+    "input": 17,
+    "expected": 1597
+  }
 ]
