@@ -1,10 +1,56 @@
 [
-  {"title": "Own 0", "input": [1, 2, 3, 4, 5], "d_rotations": 1, "expected": [2, 3, 4, 5, 1]},
-  {"title": "Own 1", "input": [2, 3, 4, 5, 1], "d_rotations": 1, "expected": [3, 4, 5, 1, 2]},
-  {"title": "Own 2", "input": [3, 4, 5, 1, 2], "d_rotations": 1, "expected": [4, 5, 1, 2, 3]},
-  {"title": "Own 3", "input": [4, 5, 1, 2, 3], "d_rotations": 1, "expected": [5, 1, 2, 3, 4]},
-  {"title": "Own 4", "input": [5, 1, 2, 3, 4], "d_rotations": 1, "expected": [1, 2, 3, 4, 5]},
-  {"title": "Sample Test case 0", "input": [1, 2, 3, 4, 5], "d_rotations": 4, "expected": [5, 1, 2, 3, 4]},
-  {"title": "Sample Test case 1", "input": [41, 73, 89, 7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86, 51], "d_rotations": 10, "expected": [77, 97, 58, 1, 86, 58, 26, 10, 86, 51, 41, 73, 89, 7, 10, 1, 59, 58, 84, 77]},
-  {"title": "Sample Test case 2", "input": [33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60, 87, 97], "d_rotations": 13, "expected": [87, 97, 33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60]}
+  {
+    "title": "Own 0",
+    "input": [1, 2, 3, 4, 5],
+    "d_rotations": 1,
+    "expected": [2, 3, 4, 5, 1]
+  },
+  {
+    "title": "Own 1",
+    "input": [2, 3, 4, 5, 1],
+    "d_rotations": 1,
+    "expected": [3, 4, 5, 1, 2]
+  },
+  {
+    "title": "Own 2",
+    "input": [3, 4, 5, 1, 2],
+    "d_rotations": 1,
+    "expected": [4, 5, 1, 2, 3]
+  },
+  {
+    "title": "Own 3",
+    "input": [4, 5, 1, 2, 3],
+    "d_rotations": 1,
+    "expected": [5, 1, 2, 3, 4]
+  },
+  {
+    "title": "Own 4",
+    "input": [5, 1, 2, 3, 4],
+    "d_rotations": 1,
+    "expected": [1, 2, 3, 4, 5]
+  },
+  {
+    "title": "Sample Test case 0",
+    "input": [1, 2, 3, 4, 5],
+    "d_rotations": 4,
+    "expected": [5, 1, 2, 3, 4]
+  },
+  {
+    "title": "Sample Test case 1",
+    "input": [
+      41, 73, 89, 7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86,
+      51
+    ],
+    "d_rotations": 10,
+    "expected": [
+      77, 97, 58, 1, 86, 58, 26, 10, 86, 51, 41, 73, 89, 7, 10, 1, 59, 58, 84,
+      77
+    ]
+  },
+  {
+    "title": "Sample Test case 2",
+    "input": [33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60, 87, 97],
+    "d_rotations": 13,
+    "expected": [87, 97, 33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60]
+  }
 ]

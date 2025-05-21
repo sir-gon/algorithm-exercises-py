@@ -27,7 +27,8 @@ WORKDIR ${WORKDIR}
 
 RUN  apk add --update --no-cache make nodejs npm \
   && apk add --update --no-cache yamllint \
-  && npm install -g --ignore-scripts markdownlint-cli
+  && npm install -g --ignore-scripts markdownlint-cli \
+  && npm install -g --ignore-scripts markdownlint-cli prettier
 
 # [!TIP] Use a bind-mount to "/app" to override following "copys"
 # for lint and test against "current" sources in this stage

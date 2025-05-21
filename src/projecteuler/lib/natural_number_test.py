@@ -88,15 +88,15 @@ class TestDivisors(unittest.TestCase):
             to_test = NaturalNumber(_tt['input'])
 
             message = f"{_} | NaturalNumber({_tt['input']}).get_prime_factor() "\
-                      f"must be => {_tt['answer']}"
+                f"must be => {_tt['answer']}"
             self.assertEqual(to_test.get_prime_factor(), _tt['answer'], message)
 
             message = f"{_} | NaturalNumber({_tt['input']}).get_divisor() "\
-                      f"must be => {_tt['divisor']}"
+                f"must be => {_tt['divisor']}"
             self.assertEqual(to_test.get_divisor(), _tt['divisor'], message)
 
             message = f"{_} | NaturalNumber({_tt['input']}).get_prime_factor_cycles() "\
-                      f"must be => {_tt['cycles']}"
+                f"must be => {_tt['cycles']}"
             self.assertEqual(to_test.get_prime_factor_cycles(), _tt['cycles'], message)
 
     def test_prime_factor_without_cache(self):
@@ -112,7 +112,7 @@ class TestDivisors(unittest.TestCase):
             to_test = NaturalNumber(_tt['input'])
 
             message = f"{_} | NaturalNumber({_tt['input']}).get_divisor() "\
-                      f"must be => {_tt['divisor']}"
+                f"must be => {_tt['divisor']}"
             self.assertEqual(to_test.get_divisor(), _tt['divisor'], message)
 
     def test_prime_factor_cycles_without_cache(self):
@@ -128,7 +128,7 @@ class TestDivisors(unittest.TestCase):
             to_test = NaturalNumber(_tt['input'])
 
             message = f"{_} | NaturalNumber({_tt['input']}).get_prime_factor_cycles() "\
-                      f"must be => {_tt['cycles']}"
+                f"must be => {_tt['cycles']}"
             self.assertEqual(to_test.get_prime_factor_cycles(), _tt['cycles'], message)
 
     def test_prime_and_cache(self):
@@ -142,15 +142,15 @@ class TestDivisors(unittest.TestCase):
             to_test = NaturalNumber(_tt['input'])
 
             message = f"{_} | NaturalNumber({_tt['input']}).is_prime()"\
-                      f" first time must be => {_tt['answer']}"
+                f" first time must be => {_tt['answer']}"
             self.assertEqual(to_test.is_prime(), _tt['answer'], message)
 
             message = f"{_} | NaturalNumber({_tt['input']}).is_prime()"\
-                      f" with cache must be => {_tt['answer']}"
+                f" with cache must be => {_tt['answer']}"
             self.assertEqual(to_test.is_prime(), _tt['answer'], message)
 
             message = f"{_} | NaturalNumber({_tt['input']}).get_prime_cycles() must be "\
-                      f"=> {_tt['cycles']}"
+                f"=> {_tt['cycles']}"
             self.assertEqual(to_test.get_prime_cycles(), _tt['cycles'], message)
 
     def test_not_prime(self):
@@ -164,7 +164,7 @@ class TestDivisors(unittest.TestCase):
             to_test = NaturalNumber(_tt['input'])
 
             message = f"{_} | NaturalNumber({_tt['input']}).is_prime() must be "\
-                      f"=> {_tt['answer']}"
+                f"=> {_tt['answer']}"
             self.assertEqual(to_test.is_prime(), _tt['answer'], message)
 
     def test_prime_factors_and_cache(self):
@@ -179,13 +179,13 @@ class TestDivisors(unittest.TestCase):
             to_test = NaturalNumber(_tt['input'])
 
             message = f"{_} | NaturalNumber({_tt['input']}).prime_factors()"\
-                      f" fisrt time must be => {_tt['answer']}"
+                f" fisrt time must be => {_tt['answer']}"
             self.assertEqual(to_test.prime_factors(), _tt['answer'], message)
 
             message = f"{_} | NaturalNumber({_tt['input']}).prime_factors()"\
-                      f" with cache must be => {_tt['answer']}"
+                f" with cache must be => {_tt['answer']}"
             self.assertEqual(to_test.prime_factors(), _tt['answer'], message)
 
             message = f"{_} | NaturalNumber({_tt['input']}).get_prime_factors_cycles()"\
-                      f" must be => {_tt['cycles']}"
+                f" must be => {_tt['cycles']}"
             self.assertEqual(to_test.get_prime_factors_cycles(), _tt['cycles'], message)

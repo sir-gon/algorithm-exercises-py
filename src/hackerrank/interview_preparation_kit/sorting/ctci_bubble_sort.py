@@ -50,7 +50,7 @@ def countSwaps(group: list[int]) -> str:
     last = len(sortable_group.group) - 1
 
     output = f'Array is sorted in {sortable_group.count} swaps.{SEPARATOR}' + \
-             f'First Element: {sortable_group.group[0]}{SEPARATOR}' + \
-             f'Last Element: {sortable_group.group[last]}{SEPARATOR}'
+        f'First Element: {sortable_group.group[0]}{SEPARATOR}' + \
+        f'Last Element: {sortable_group.group[last]}{SEPARATOR}'
 
     return output
