@@ -1,5 +1,5 @@
 ---
-name: Python CI Tests
+name: Python CI Test
 
 on: # yamllint disable-line rule:truthy
   push:
@@ -13,8 +13,8 @@ env:
   LOG_LEVEL: INFO
 
 jobs:
-  build:
-    name: 'Run CI'
+  test:
+    name: 'Python CI Test'
     strategy:
       fail-fast: false
       matrix:
@@ -33,25 +33,6 @@ jobs:
         run: |
           pip3 install -r requirements.txt
 
-      - name: Lint (pylint)
-        run: |
-          pylint --verbose --recursive yes src/
-
-      - name: Lint (flake8)
-        run: |
-          python3 -m flake8 --verbose src/
-
-      - name: Lint (pyright) static type checker
-        run: |
-          python3 -m pyright --verbose src/
-
-      - name: Styling (pycodestyle)
-        run: |
-          python3 -m pycodestyle --statistics src/
-
-      - name: Styling (autopep8)
-        run: |
-          python3 -m autopep8  --diff --recursive --exit-code --verbose .
       - name: Test
         run: >
           coverage run -m pytest --verbose
