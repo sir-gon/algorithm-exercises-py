@@ -67,27 +67,25 @@ dependencies:
 	${PACKAGE_TOOL} install -r requirements.txt
 	@echo "################################################################################"
 
+lint/json:
+	prettier --check ./src/**/*.json
+
 lint/markdown:
 	markdownlint '**/*.md' --ignore node_modules && echo '✔  Your code looks good.'
+
 lint/yaml:
 	yamllint --stric . && echo '✔  Your code looks good.'
 
-lint: lint/markdown lint/yaml test/styling test/static
+lint: lint/markdown lint/yaml lint/json test/styling test/static
 
 test/static: dependencies
 	${RUNTIME_TOOL} -m pylint --verbose --recursive yes src/
 	${RUNTIME_TOOL} -m flake8 --verbose src/
 	${RUNTIME_TOOL} -m pyright --verbose src/
 
-
-test/styling/json: dependencies
-	prettier --check ./src/**/*.json
-
-test/styling/sources: dependencies
+test/styling: dependencies
 	${RUNTIME_TOOL} -m pycodestyle --statistics src/
 	${RUNTIME_TOOL} -m autopep8  --diff --recursive --exit-code --verbose .
-
-test/styling: dependencies test/styling/sources test/styling/json
 
 format/json:
 	prettier --write ./src/**/*.json
