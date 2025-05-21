@@ -1,0 +1,51 @@
+---
+name: Python CI Lint
+
+on: # yamllint disable-line rule:truthy
+  push:
+    branches: ['main']
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: ['main']
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: 'Python CI Lint'
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ['ubuntu-24.04', 'macos-14', 'windows-2022']
+        python: ['3.10', '3.11', '3.12']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
+      - name: Setup Python
+        uses: actions/setup-python@master
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install
+        run: |
+          pip3 install -r requirements.txt
+
+      - name: Lint (pylint)
+        run: |
+          pylint --verbose --recursive yes src/
+
+      - name: Lint (flake8)
+        run: |
+          python3 -m flake8 --verbose src/
+
+      - name: Lint (pyright) static type checker
+        run: |
+          python3 -m pyright --verbose src/
+
+      - name: Styling (pycodestyle)
+        run: |
+          python3 -m pycodestyle --statistics src/
+
+      - name: Styling (autopep8)
+        run: |
+          python3 -m autopep8  --diff --recursive --exit-code --verbose .
