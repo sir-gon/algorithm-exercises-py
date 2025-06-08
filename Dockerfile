@@ -61,6 +61,9 @@ COPY ./.markdownlint.yaml ${WORKDIR}/
 COPY ./.yamllint ${WORKDIR}/
 COPY ./.yamlignore ${WORKDIR}/
 
+# JSON linting conf
+COPY ./.prettierrc.yaml ${WORKDIR}/
+
 CMD ["make", "lint"]
 
 ###############################################################################
