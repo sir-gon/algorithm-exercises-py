@@ -60,63 +60,13 @@ env:
 
 install: dependencies
 
+## Dependency management
 dependencies:
 	@echo "################################################################################"
 	@echo "## Dependencies: ###############################################################"
 	@echo "################################################################################"
 	${PACKAGE_TOOL} install -r requirements.txt
 	@echo "################################################################################"
-
-lint/json:
-	prettier --check ./src/**/*.json
-
-lint/markdown:
-	markdownlint '**/*.md' --ignore node_modules && echo '✔  Your code looks good.'
-
-lint/yaml:
-	yamllint --stric . && echo '✔  Your code looks good.'
-
-lint: lint/markdown lint/yaml lint/json test/styling test/static
-
-test/static: dependencies
-	${RUNTIME_TOOL} -m pylint --verbose --recursive yes src/
-	${RUNTIME_TOOL} -m flake8 --verbose src/
-	${RUNTIME_TOOL} -m pyright --verbose src/
-
-test/styling: dependencies
-	${RUNTIME_TOOL} -m pycodestyle --statistics src/
-	${RUNTIME_TOOL} -m autopep8  --diff --recursive --exit-code --verbose .
-
-format/json:
-	prettier --write ./src/**/*.json
-
-format/sources:
-	${RUNTIME_TOOL} -m autopep8 --in-place --recursive --aggressive --aggressive --verbose src/
-
-format: format/sources format/json
-
-build: env
-	rsync -av --prune-empty-dirs \
-  --exclude '*_test.py' \
-  --exclude '*.pyc' \
-  --exclude '.venv' \
-  --exclude '__pycache__' \
-  src/ build/
-
-test: env dependencies
-	${RUNTIME_TOOL} -m coverage run -m \
-		pytest --verbose \
-		-o log_cli=true \
-		--log-cli-level=${LOG_LEVEL} \
-		--full-trace src/
-	${RUNTIME_TOOL} -m coverage report
-
-coverage: test
-	${RUNTIME_TOOL} -m coverage lcov -o coverage/lcov.info
-
-coverage/html: test
-	${RUNTIME_TOOL} -m coverage html
-	open htmlcov/index.html
 
 outdated:
 	${PACKAGE_TOOL} list --outdated
@@ -138,6 +88,62 @@ clean:
 	find . -path "*/*.pyo" -delete -print || true
 	find . -path "*/__pycache__" -type d -print -exec rm -fr {} ';' || true
 
+## Building process
+build: env
+	rsync -av --prune-empty-dirs \
+  --exclude '*_test.py' \
+  --exclude '*.pyc' \
+  --exclude '.venv' \
+  --exclude '__pycache__' \
+  src/ build/
+
+## Source code linting and formatting
+lint/json:
+	prettier --check ./src/**/*.json
+
+lint/markdown:
+	markdownlint '**/*.md' --ignore node_modules && echo '✔  Your code looks good.'
+
+lint/yaml:
+	yamllint --stric . && echo '✔  Your code looks good.'
+
+lint: lint/markdown lint/yaml lint/json test/styling test/static
+
+format/json:
+	prettier --write ./src/**/*.json
+
+format/sources:
+	${RUNTIME_TOOL} -m autopep8 --in-place --recursive --aggressive --aggressive --verbose src/
+
+format: format/sources format/json
+
+## Static code analysis
+test/static: dependencies
+	${RUNTIME_TOOL} -m pylint --verbose --recursive yes src/
+	${RUNTIME_TOOL} -m flake8 --verbose src/
+	${RUNTIME_TOOL} -m pyright --verbose src/
+
+test/styling: dependencies
+	${RUNTIME_TOOL} -m pycodestyle --statistics src/
+	${RUNTIME_TOOL} -m autopep8  --diff --recursive --exit-code --verbose .
+
+## Unit tests and coverage
+test: env dependencies
+	${RUNTIME_TOOL} -m coverage run -m \
+		pytest --verbose \
+		-o log_cli=true \
+		--log-cli-level=${LOG_LEVEL} \
+		--full-trace src/
+	${RUNTIME_TOOL} -m coverage report
+
+coverage: test
+	${RUNTIME_TOOL} -m coverage lcov -o coverage/lcov.info
+
+coverage/html: test
+	${RUNTIME_TOOL} -m coverage html
+	open htmlcov/index.html
+
+## Docker Compose commands
 compose/build: env
 	${DOCKER_COMPOSE} --profile lint build
 	${DOCKER_COMPOSE} --profile testing build
