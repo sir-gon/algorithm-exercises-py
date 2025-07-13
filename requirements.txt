@@ -1,4 +1,4 @@
-astroid==3.3.10
+astroid==3.3.11
 attrs==25.3.0
 autopep8==2.3.2
 coverage==7.9.2
