@@ -79,7 +79,7 @@ def buildTree(indexes: List[List[int]]) -> Node:
             __INITIAL_LEVEL__,
             callbackCollectNodes)
 
-        last_level: int = sorted(list(node_collector))[-1]
+        last_level: int = sorted(node_collector)[-1]
 
         for i in range(0, min(len(indexes_copy), len(node_collector[last_level]))):
             current_node: Node = node_collector[last_level][i]
