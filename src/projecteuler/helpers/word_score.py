@@ -31,7 +31,7 @@ _scoreLetter = {
 def wordScore(word: str) -> int:
     result = 0
 
-    for letter in list(word):
+    for letter in word:
         if letter in _scoreLetter:
             result += _scoreLetter[letter]
 

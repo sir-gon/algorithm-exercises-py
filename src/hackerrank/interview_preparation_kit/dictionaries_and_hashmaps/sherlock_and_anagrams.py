@@ -34,13 +34,12 @@ def sherlockAndAnagrams(s_word: str) -> int:
     total: int = 0
     q_candidates = 0
     # Final Anagram list
-    for word in list(candidates):
-        quantity_of_anagrams = len(candidates[word])
+
+    for word, candidates_of in candidates.items():
+        quantity_of_anagrams = len(candidates_of)
         k = 2
 
-        if quantity_of_anagrams <= 1:
-            del candidates[word]
-        else:
+        if quantity_of_anagrams > 1:
             # Binomial coefficient: https://en.wikipedia.org/wiki/Binomial_coefficient
             q_candidates += quantity_of_anagrams
 
