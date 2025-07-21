@@ -3,6 +3,7 @@ from pathlib import Path
 
 from ....lib.loader import loadTestCases
 from .flipping_bits import flippingBits
+from .flipping_bits_alt import flippingBitsAlt
 
 FILE_PATH = str(Path(__file__).resolve().parent)
 
@@ -21,4 +22,9 @@ class TestFlippingBits(unittest.TestCase):
                 self.assertEqual(
                     flippingBits(_tt['input']), _tt['answer'],
                     f"{_} | flippingBits({_tt['input']}) must be "
+                    f"=> {_tt['answer']}")
+
+                self.assertEqual(
+                    flippingBitsAlt(_tt['input']), _tt['answer'],
+                    f"{_} | flippingBitsAlt({_tt['input']}) must be "
                     f"=> {_tt['answer']}")
