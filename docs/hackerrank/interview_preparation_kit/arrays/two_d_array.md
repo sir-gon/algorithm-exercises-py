@@ -57,7 +57,7 @@ at row `1`, column `2`:
 0 4 3
   1
 8 6 6
-````
+```
 
 **Note**: If you have already solved the Java domain's Java 2D Array challenge,
 you may wish to skip this challenge.
