@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Sample Test case 0",
+    "tests": [
+      {
+        "input": 12,
+        "answer": "Not prime"
+      },
+      {
+        "input": 5,
+        "answer": "Prime"
+      },
+      {
+        "input": 7,
+        "answer": "Prime"
+      }
+    ]
+  },
+  {
+    "title": "Sample Test case 1",
+    "tests": [
+      {
+        "input": 31,
+        "answer": "Prime"
+      },
+      {
+        "input": 33,
+        "answer": "Not prime"
+      }
+    ]
+  },
+  {
+    "title": "Sample Test case 2",
+    "tests": [
+      {
+        "input": 2,
+        "answer": "Prime"
+      },
+      {
+        "input": 7,
+        "answer": "Prime"
+      },
+      {
+        "input": 1982,
+        "answer": "Not prime"
+      },
+      {
+        "input": 14582734,
+        "answer": "Not prime"
+      },
+      {
+        "input": 9891,
+        "answer": "Not prime"
+      }
+    ]
+  }
+]
