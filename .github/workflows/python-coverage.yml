@@ -78,7 +78,7 @@ jobs:
           path: coverage
 
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@3cb13a12348ef4ffcf9783ac0f74954f92113e33
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           verbose: true
@@ -101,7 +101,8 @@ jobs:
           path: coverage
 
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@master
+        # yamllint disable-line rule:line-length
+        uses: SonarSource/sonarqube-scan-action@8c71dc039c2dd71d3821e89a2b58ecc7fee6ced9
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
