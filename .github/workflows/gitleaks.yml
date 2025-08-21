@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
-      - uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7
+      - uses: gitleaks/gitleaks-action@bf2dc8e55639c1e091e9b45970152e4313705814
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Only required for Organizations, not personal accosunts.
