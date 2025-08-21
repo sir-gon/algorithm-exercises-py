@@ -139,6 +139,9 @@ test: env dependencies
 coverage: test
 	${RUNTIME_TOOL} -m coverage lcov -o coverage/lcov.info
 
+coverage/xml: test
+	${RUNTIME_TOOL} -m coverage xml -o coverage/coverage.xml
+
 coverage/html: test
 	${RUNTIME_TOOL} -m coverage html
 	open htmlcov/index.html
