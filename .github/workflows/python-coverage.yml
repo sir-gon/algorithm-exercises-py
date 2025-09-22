@@ -102,7 +102,7 @@ jobs:
 
       - name: SonarQube Scan
         # yamllint disable-line rule:line-length
-        uses: SonarSource/sonarqube-scan-action@fd88b7d7ccbaefd23d8f36f73b59db7a3d246602
+        uses: SonarSource/sonarqube-scan-action@5ffbad44543237d1b339a5ed57a774432e19f3e4
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
