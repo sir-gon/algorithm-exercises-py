@@ -19,7 +19,7 @@ pylint==3.3.9
 pyright==1.1.406
 pytest==8.4.2
 pytest-cov==7.0.0
-tomli==2.2.1
+tomli==2.3.0
 tomlkit==0.13.3
 typing_extensions==4.15.0
 wrapt==1.17.3
