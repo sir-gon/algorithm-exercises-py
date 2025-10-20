@@ -1,4 +1,4 @@
-_scoreLetter = {
+SCORE_LETTER = {
     'A': 1,
     'B': 2,
     'C': 3,
@@ -32,7 +32,7 @@ def wordScore(word: str) -> int:
     result = 0
 
     for letter in word:
-        if letter in _scoreLetter:
-            result += _scoreLetter[letter]
+        if letter in SCORE_LETTER:
+            result += SCORE_LETTER[letter]
 
     return result
