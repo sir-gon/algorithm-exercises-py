@@ -1,4 +1,4 @@
-astroid==3.3.11
+astroid==4.0.1
 attrs==25.4.0
 autopep8==2.3.2
 coverage==7.11.0
@@ -15,7 +15,7 @@ platformdirs==4.5.0
 pluggy==1.6.0
 pycodestyle==2.14.0
 pyflakes==3.4.0
-pylint==3.3.9
+pylint==4.0.1
 pyright==1.1.406
 pytest==8.4.2
 pytest-cov==7.0.0
