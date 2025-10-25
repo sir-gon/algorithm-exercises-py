@@ -35,7 +35,7 @@ jobs:
           tags: |
             ${{ env.IMAGE_NAME }}:lint
       - name: "LINT: Upload artifact"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ env.ARTIFACT_NAME }}_lint
           path: /tmp/${{ env.ARTIFACT_NAME }}_lint.tar
@@ -50,7 +50,7 @@ jobs:
           tags: |
             ${{ env.IMAGE_NAME }}:test
       - name: "TEST: Upload artifact"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ env.ARTIFACT_NAME }}_test
           path: /tmp/${{ env.ARTIFACT_NAME }}_test.tar
@@ -66,7 +66,7 @@ jobs:
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
       - name: "PRODUCTION: Upload artifact"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ env.ARTIFACT_NAME }}_prod
           path: /tmp/${{ env.ARTIFACT_NAME }}_prod.tar
@@ -77,7 +77,7 @@ jobs:
     needs: build
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: ${{ env.ARTIFACT_NAME }}_lint
           path: /tmp/
@@ -97,7 +97,7 @@ jobs:
     needs: build
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: ${{ env.ARTIFACT_NAME }}_test
           path: /tmp/
@@ -171,7 +171,7 @@ jobs:
       security-events: write
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: ${{ env.ARTIFACT_NAME }}_prod
           path: /tmp/
