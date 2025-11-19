@@ -121,8 +121,8 @@ You can change test running behaviour using some environment variables as follow
 
 | Variable | Values | Default |
 | ------ | ------ | ------ |
-| LOG_LEVEL  | `debug`, `warning`, `error`, `info` | `info` |
-| BRUTEFORCE | `true`, `false`| `false` |
+| LOG_LEVEL | `debug`, `warning`, `error`, `info` | `info` |
+| BRUTEFORCE | `true`, `false` | `false` |
 
 - `LOG_LEVEL`: change verbosity level in outputs.
 - `BRUTEFORCE`: enable or disable running large tests.
