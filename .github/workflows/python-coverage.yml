@@ -22,7 +22,7 @@ jobs:
         python: ["3.14"]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v5
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
         with:
           # Shallow clones should be disabled for a better relevancy of analysis
           fetch-depth: 0
