@@ -49,7 +49,8 @@ The third line contains `n` space-separated strings, each `node[i]`.
 
 - $ 1 \leq m, n \leq 30000 $
 - $ 1 \leq $ length of `magazine[i]` and `note[i]` $ \leq 5 $
-- Each word consists of English alphabetic letters (i.e., `a` to `z` and `A` to `Z`).
+- Each word consists of English alphabetic letters (i.e., `a` to `z` and `A`
+  to `Z`).
 
 ## Sample Input 0
 

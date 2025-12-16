@@ -33,7 +33,8 @@ The first solution, using the algorithm taught in school, is:
 > Using some test entries, quickly broke the solution at all. So, don't use it.
 > This note is just to record the failed idea.
 
-Since by going through and proving the divisibility of a number $ i $ up to $ n $
+Since by going through and proving the divisibility of a number $ i $ up to
+$ n $
 there are also "remainder" numbers that are also divisible by their opposite,
 let's call it $ j $.
 

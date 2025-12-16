@@ -74,7 +74,8 @@ the original price of each flower.
 
 ## Explanation 0
 
-There are `n = 3` flowers with costs `c = [2, 5, ,6]` and `k = 3` people in the group.
+There are `n = 3` flowers with costs `c = [2, 5, ,6]` and `k = 3` people in the
+group.
 If each person buys one flower,
 the total cost of prices paid is `2 + 5 + 6 = 13` dollars.
 Thus, we print `13` as our answer.

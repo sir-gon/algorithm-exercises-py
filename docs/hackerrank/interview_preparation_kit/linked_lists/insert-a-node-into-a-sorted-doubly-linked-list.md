@@ -21,10 +21,11 @@ Complete the sortedInsert function in the editor below.
 
 sortedInsert has two parameters:
 
-- DoublyLinkedListNode pointer head: a reference to the head of a doubly-linked list
+- DoublyLinkedListNode pointer head: a reference to the head of a doubly-linked
+  list
 
 - int data: An integer denoting the value of the `data`  field for the
-DoublyLinkedListNode you must insert into the list.
+  DoublyLinkedListNode you must insert into the list.
 
 ## Returns
 
