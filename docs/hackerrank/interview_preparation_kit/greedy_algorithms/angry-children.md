@@ -140,4 +140,5 @@ max(1,2,3,4) - min(1,2,3,4) = 4 - 1 = 3
 
 ## Explanation 2
 
-Here `k = 2`. `arr' = [2, 2]` or `arr' = [1, 1]` give the minimum unfairness of `0`.
+Here `k = 2`. `arr' = [2, 2]` or `arr' = [1, 1]` give the minimum unfairness
+of `0`.

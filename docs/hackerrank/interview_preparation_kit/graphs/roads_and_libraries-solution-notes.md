@@ -16,7 +16,8 @@ implemented in C++ that are a little more difficult to understand.
 
 Even so, in the solution found in the article (*), it will not work directly by
 copying and pasting the code since the author (apparently on purpose) wrote
-wrong the calculation formula by exchanging the cost variables of libraries and paths.
+wrong the calculation formula by exchanging the cost variables of libraries and
+paths.
 
 ## Solution sources
 

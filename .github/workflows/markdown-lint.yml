@@ -24,7 +24,8 @@ jobs:
         with:
           node-version: 24.x
       - name: Install dependencies
-        run: npm install -g markdownlint-cli
+        run: >
+          npm install -g --ignore-scripts markdownlint-cli@0.47.0
 
       - name: Lint
         run: >

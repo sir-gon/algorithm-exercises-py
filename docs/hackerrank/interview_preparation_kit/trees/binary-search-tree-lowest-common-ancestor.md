@@ -35,7 +35,8 @@ Node `3` is the lowest node which has nodes  and  as descendants.
 ## Function Description
 
 Complete the function lca in the editor below.
-It should return a pointer to the lowest common ancestor node of the two values given.
+It should return a pointer to the lowest common ancestor node of the two values
+given.
 
 lca has the following parameters:
 
