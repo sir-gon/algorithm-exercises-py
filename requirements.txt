@@ -9,7 +9,7 @@ iniconfig==2.3.0
 isort==7.0.0
 lazy-object-proxy==1.12.0
 mccabe==0.7.0
-nodeenv==1.9.1
+nodeenv==1.10.0
 packaging==25.0
 platformdirs==4.5.1
 pluggy==1.6.0
