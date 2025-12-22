@@ -23,7 +23,7 @@ jobs:
 
       - name: Install Prettier
         run: |
-          npm install -g prettier@3.5.3
+          npm install -g --ignore-scripts prettier@3.7.4
 
       - name: Prettier LINT / Style JSON
         run: >
