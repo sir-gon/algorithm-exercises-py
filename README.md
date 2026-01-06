@@ -1,6 +1,7 @@
 # Algorithm Exercises (Python 3)
 
-[![Python CI](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/python.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/python.yml)
+[![Python CI Test](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/python-test.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/python-test.yml)
+[![Python CI Lint](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/python-test.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/python-test.yml)
 [![Markdown Lint](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/markdown-lint.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/markdown-lint.yml)
 [![YAML lint](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/yamllint.yml/badge.svg)](https://github.com/sir-gon/algorithm-exercises-py/actions/workflows/yamllint.yml)
 
