@@ -22,5 +22,5 @@ pytest-cov==7.0.0
 tomli==2.4.0
 tomlkit==0.14.0
 typing_extensions==4.15.0
-wrapt==2.1.0
+wrapt==2.1.1
 zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
