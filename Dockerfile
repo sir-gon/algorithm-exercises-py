@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=python:3.14.2-alpine3.23
+ARG BASE_IMAGE=python:3.14.3-alpine3.23
 
 ###############################################################################
 FROM ${BASE_IMAGE} AS init
