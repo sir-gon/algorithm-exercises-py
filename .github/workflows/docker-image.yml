@@ -26,7 +26,7 @@ jobs:
         uses: docker/setup-buildx-action@v4
 
       - name: "LINT: Build and push"
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           target: lint
@@ -41,7 +41,7 @@ jobs:
           path: /tmp/${{ env.ARTIFACT_NAME }}_lint.tar
 
       - name: "TEST: Build and push"
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           target: testing
@@ -56,7 +56,7 @@ jobs:
           path: /tmp/${{ env.ARTIFACT_NAME }}_test.tar
 
       - name: "PRODUCTION: Build and push"
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           target: production
