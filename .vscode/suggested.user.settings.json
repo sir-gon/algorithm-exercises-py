@@ -1,0 +1,17 @@
+{
+  "python.testing.pytestEnabled": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.terminal.activateEnvironment": true,
+  "python.testing.pytestArgs": [
+      "src"
+  ],
+  "python.testing.unittestEnabled": false,
+    "snyk.advanced.additionalParameters": "--command=.venv/bin/python --exclude=.trunk,coverage,htmlcov",
+  "sonarlint.rules": {
+    "python:S1542": {
+      "format": "^[a-z][a-zA-Z0-9]*$"
+    }
+  }
+}
