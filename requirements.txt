@@ -1,5 +1,5 @@
 astroid==4.0.3
-attrs==25.4.0
+attrs==26.1.0
 autopep8==2.3.2
 coverage==7.13.5
 dill==0.4.1
