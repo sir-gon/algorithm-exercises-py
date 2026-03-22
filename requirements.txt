@@ -18,7 +18,7 @@ pyflakes==3.4.0
 pylint==4.0.5
 pyright==1.1.408
 pytest==9.0.2
-pytest-cov==7.0.0
+pytest-cov==7.1.0
 tomli==2.4.0
 tomlkit==0.14.0
 typing_extensions==4.15.0
