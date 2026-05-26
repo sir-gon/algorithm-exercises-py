@@ -27,7 +27,7 @@ BRUTEFORCE :=$(shell echo '${BRUTEFORCE}'| tr '[:lower:]' '[:upper:]'| tr -d '[:
 .EXPORT_ALL_VARIABLES: # (2)
 
 RUNTIME_TOOL=python3
-PACKAGE_TOOL=pip3
+PACKAGE_TOOL=pipenv
 
 # DOCKER
 BUILDKIT_PROGRESS=plain
@@ -36,11 +36,10 @@ DOCKER_COMPOSE=docker compose
 help: list
 	@echo ""
 	@echo "Note: create and activate the environment in your local shell type (example):"
-	@echo "   python3 -m venv ./.venv"
-	@echo "   source .venv/bin/activate"
+	@echo "   pipenv install --dev"
+	@echo "   pipenv shell"
 	@echo "See: "
-	@echo "   https://docs.python.org/3/library/venv.html#creating-virtual-environments"
-	@echo "   https://docs.python.org/3/library/venv.html#how-venvs-work"
+	@echo "   https://pipenv.pypa.io/en/latest/"
 
 list:
 	@LC_ALL=C $(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | sort | egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
@@ -65,20 +64,20 @@ dependencies:
 	@echo "################################################################################"
 	@echo "## Dependencies: ###############################################################"
 	@echo "################################################################################"
-	${PACKAGE_TOOL} install -r requirements.txt
+	${PACKAGE_TOOL} install --dev
 	@echo "################################################################################"
 
 outdated:
-	${PACKAGE_TOOL} list --outdated
+	${PACKAGE_TOOL} update --outdated
 
 update:
-	${PACKAGE_TOOL} freeze > requirements.txt
+	${PACKAGE_TOOL} lock --requirements > requirements.txt
 
 upgrade:
-	${PACKAGE_TOOL} list --outdated | cut -f1 -d' ' | tr " " "\n" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip3 install -U
+	${PACKAGE_TOOL} update --dev
 
 clean:
-	${PACKAGE_TOOL} freeze > unins ; ${PACKAGE_TOOL} uninstall -y -r unins ; rm unins
+	${PACKAGE_TOOL} --rm || true
 	rm -f .coverage
 	rm -fr .pytest_cache
 	rm -fr htmlcov
