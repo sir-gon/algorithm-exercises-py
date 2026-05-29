@@ -35,4 +35,4 @@ wrapt = "==2.1.2"
 zipp = ">=3.23.1"
 
 [requires]
-python_version = "3.12"
+python_version = "3"

@@ -45,7 +45,7 @@ jobs:
       - name: Install tooling on Windows
         if: runner.os == 'Windows'
         run: |
-          choco install pipenv -y
+          python -m pip install --user pipenv==2026.6.1
         shell: pwsh
 
       - name: Tooling check
@@ -61,11 +61,11 @@ jobs:
 
       - name: Test
         run: >
-          coverage run -m pytest --verbose
+          pipenv run coverage run -m pytest --verbose
           -o log_cli=true
           --log-cli-level=INFO
           src/
 
       - name: Coverage
         run: |
-          coverage report
+          pipenv run coverage report

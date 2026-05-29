@@ -44,22 +44,22 @@ jobs:
 
       - name: Test an coverage collect
         run: >
-          python3 -m coverage run -m pytest --verbose
+          pipenv run coverage run -m pytest --verbose
           -o log_cli=true
           --log-cli-level=INFO
           src/
 
       - name: Coverage Report
         run: |
-          python3 -m coverage report
+          pipenv run coverage report
 
       - name: Coverage lcov (codecov)
         run: |
-          python3 -m coverage lcov -o coverage/lcov.info
+          pipenv run coverage lcov -o coverage/lcov.info
 
       - name: Coverage xml (sonarcloud)
         run: |
-          python3 -m coverage xml -o coverage/coverage.xml
+          pipenv run coverage xml -o coverage/coverage.xml
 
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v7
