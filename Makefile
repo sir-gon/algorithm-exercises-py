@@ -112,37 +112,37 @@ format/json:
 	prettier --write ./src/**/*.json
 
 format/sources:
-	${RUNTIME_TOOL} -m autopep8 --in-place --recursive --aggressive --aggressive --verbose src/
+	${PACKAGE_TOOL} run autopep8 --in-place --recursive --aggressive --aggressive --verbose src/
 
 format: format/sources format/json
 
 ## Static code analysis
 test/static: dependencies
-	${RUNTIME_TOOL} -m pylint --verbose --recursive yes src/
-	${RUNTIME_TOOL} -m flake8 --verbose src/
-	${RUNTIME_TOOL} -m pyright --verbose src/
+	${PACKAGE_TOOL} run pylint --verbose --recursive yes src/
+	${PACKAGE_TOOL} run flake8 --verbose src/
+	${PACKAGE_TOOL} run pyright --verbose src/
 
 test/styling: dependencies
-	${RUNTIME_TOOL} -m pycodestyle --statistics src/
-	${RUNTIME_TOOL} -m autopep8  --diff --recursive --exit-code --verbose .
+	${PACKAGE_TOOL} run pycodestyle --statistics src/
+	${PACKAGE_TOOL} run autopep8  --diff --recursive --exit-code --verbose .
 
 ## Unit tests and coverage
 test: env dependencies
-	${RUNTIME_TOOL} -m coverage run -m \
+	${PACKAGE_TOOL} run coverage run -m \
 		pytest --verbose \
 		-o log_cli=true \
 		--log-cli-level=${LOG_LEVEL} \
 		--full-trace src/
-	${RUNTIME_TOOL} -m coverage report
+	${PACKAGE_TOOL} run coverage report
 
 coverage: test
-	${RUNTIME_TOOL} -m coverage lcov -o coverage/lcov.info
+	${PACKAGE_TOOL} run coverage lcov -o coverage/lcov.info
 
 coverage/xml: test
-	${RUNTIME_TOOL} -m coverage xml -o coverage/coverage.xml
+	${PACKAGE_TOOL} run coverage xml -o coverage/coverage.xml
 
 coverage/html: test
-	${RUNTIME_TOOL} -m coverage html
+	${PACKAGE_TOOL} run coverage html
 	open htmlcov/index.html
 
 ## Docker Compose commands
