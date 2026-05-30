@@ -7,7 +7,7 @@ name = "pypi"
 
 [dev-packages]
 yamllint = "==1.38.0"
-astroid = "==4.0.4"
+astroid = "==4.1.2"
 attrs = "==26.1.0"
 autopep8 = "==2.3.2"
 coverage = "==7.14.1"
