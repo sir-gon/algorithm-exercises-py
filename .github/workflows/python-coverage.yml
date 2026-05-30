@@ -15,12 +15,7 @@ env:
 jobs:
   coverage:
     name: "Python CI Coverage"
-    strategy:
-      fail-fast: false
-      matrix:
-        os: ["ubuntu-24.04"]
-        python: ["3.14"]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
@@ -30,30 +25,41 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@master
         with:
-          python-version: ${{ matrix.python }}
+          python-version: 3.14
+
+      - name: Install tooling
+        run: >
+          sudo apt install pipenv
+
+      - name: Tooling check
+        run: |
+          python3 --version
+          pipenv --version
+          make --version
 
       - name: Install
         run: |
-          pip3 install -r requirements.txt
+          # Use the lockfile to install deterministic, audited dependencies
+          pipenv sync --dev
 
       - name: Test an coverage collect
         run: >
-          python3 -m coverage run -m pytest --verbose
+          pipenv run coverage run -m pytest --verbose
           -o log_cli=true
           --log-cli-level=INFO
           src/
 
       - name: Coverage Report
         run: |
-          python3 -m coverage report
+          pipenv run coverage report
 
       - name: Coverage lcov (codecov)
         run: |
-          python3 -m coverage lcov -o coverage/lcov.info
+          pipenv run coverage lcov -o coverage/lcov.info
 
       - name: Coverage xml (sonarcloud)
         run: |
-          python3 -m coverage xml -o coverage/coverage.xml
+          pipenv run coverage xml -o coverage/coverage.xml
 
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v7
