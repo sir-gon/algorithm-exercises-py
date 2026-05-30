@@ -30,6 +30,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
+          command: code test
           args: >
             --print-deps
             --file=Pipfile.lock
@@ -37,5 +38,6 @@ jobs:
             --sarif-file-output=snyk-code.sarif
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v4
+
         with:
           sarif_file: 'snyk-code.sarif'
