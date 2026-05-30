@@ -49,7 +49,8 @@ COPY ./CODE_OF_CONDUCT.md ${WORKDIR}/
 
 # Code source
 COPY ./src/ ${WORKDIR}/src
-COPY ./requirements.txt ${WORKDIR}/
+COPY Pipfile ${WORKDIR}/
+COPY Pipfile.lock ${WORKDIR}/
 COPY ./setup.cfg ${WORKDIR}/
 COPY ./Makefile ${WORKDIR}/
 

@@ -10,11 +10,20 @@ on: # yamllint disable-line rule:truthy
       - '!dependabot/**'   # excludes master
   workflow_dispatch:
 
+env:
+  LANG: C.UTF-8
+
 jobs:
   security:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@master
+      - name: Install Pipenv
+        run: >
+          sudo apt install pipenv
+      - name: Install dependencies with Pipenv
+        run: |
+          pipenv sync --dev
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/python@9adf32b1121593767fc3c057af55b55db032dc04
         continue-on-error: true # To make sure that SARIF upload gets called
