@@ -31,7 +31,7 @@ pytest-cov = "==7.1.0"
 tomli = "==2.4.1"
 tomlkit = "==0.14.0"
 typing-extensions = "==4.15.0"
-wrapt = "==2.1.2"
+wrapt = "==2.2.1"
 zipp = ">=3.23.1"
 
 [requires]
