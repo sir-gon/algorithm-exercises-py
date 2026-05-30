@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 
 [dev-packages]
-yamllint = "==1.32.0"
+yamllint = "==1.38.0"
 astroid = "==4.0.3"
 attrs = "==26.1.0"
 autopep8 = "==2.3.2"
