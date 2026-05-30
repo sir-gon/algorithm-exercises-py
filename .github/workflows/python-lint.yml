@@ -26,26 +26,52 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
 
+      - name: Install tooling on Ubuntu
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pipenv
+        shell: bash
+
+      - name: Install tooling on macOS
+        if: runner.os == 'macOS'
+        run: |
+          brew install pipenv
+        shell: bash
+
+      - name: Install tooling on Windows
+        if: runner.os == 'Windows'
+        run: |
+          python -m pip install --user pipenv==2026.6.1
+        shell: pwsh
+
+      - name: Tooling check
+        run: |
+          python3 --version
+          pipenv --version
+          make --version
+
       - name: Install
         run: |
-          pip3 install -r requirements.txt
+          # Use the lockfile to install deterministic, audited dependencies
+          pipenv sync --dev
 
       - name: Lint (pylint)
         run: |
-          pylint --verbose --recursive yes src/
+          pipenv run pylint --verbose --recursive yes src/
 
       - name: Lint (flake8)
         run: |
-          python3 -m flake8 --verbose src/
+          pipenv run flake8 --verbose src/
 
       - name: Lint (pyright) static type checker
         run: |
-          python3 -m pyright --verbose src/
+          pipenv run pyright --verbose src/
 
       - name: Styling (pycodestyle)
         run: |
-          python3 -m pycodestyle --statistics src/
+          pipenv run pycodestyle --statistics src/
 
       - name: Styling (autopep8)
         run: |
-          python3 -m autopep8  --diff --recursive --exit-code --verbose .
+          pipenv run autopep8  --diff --recursive --exit-code --verbose .

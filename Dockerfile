@@ -13,11 +13,15 @@ RUN  apk add --update --no-cache make \
 FROM init AS base
 
 ENV WORKDIR=/app
+ENV LANG=C.UTF-8
 WORKDIR ${WORKDIR}
 
 COPY ./Makefile ${WORKDIR}/
-COPY ./requirements.txt ${WORKDIR}/
-RUN make dependencies
+COPY Pipfile ${WORKDIR}/
+COPY Pipfile.lock ${WORKDIR}/
+
+RUN python -m pip install --no-cache-dir --root-user-action=ignore pipenv==2026.6.1
+RUN pipenv sync --dev --python=$(which python)
 
 ###############################################################################
 FROM base AS lint
@@ -45,7 +49,8 @@ COPY ./CODE_OF_CONDUCT.md ${WORKDIR}/
 
 # Code source
 COPY ./src/ ${WORKDIR}/src
-COPY ./requirements.txt ${WORKDIR}/
+COPY Pipfile ${WORKDIR}/
+COPY Pipfile.lock ${WORKDIR}/
 COPY ./setup.cfg ${WORKDIR}/
 COPY ./Makefile ${WORKDIR}/
 

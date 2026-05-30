@@ -93,17 +93,18 @@ require docker-compose and make installed.
 ### Install and Run directly
 
 Using a Python 3.x runtime in your SO.
+[Pipenv](https://pipenv.pypa.io/en/latest/) is required.
 
 First, load virtual env environment:
 
 ```bash
-source .venv/bin/activate
+pipenv shell
 ```
 
 You must install dependencies:
 
 ```bash
-pip3 install -r requirements.txt
+pipenv install
 ```
 
 Every problem is a function with unit test.
