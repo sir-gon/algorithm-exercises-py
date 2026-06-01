@@ -33,6 +33,3 @@ tomlkit = "==0.15.0"
 typing-extensions = "==4.15.0"
 wrapt = "==2.2.1"
 zipp = ">=3.23.1"
-
-[requires]
-python_version = "3"
