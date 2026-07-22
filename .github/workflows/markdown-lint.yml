@@ -9,6 +9,10 @@ on: # yamllint disable-line rule:truthy
     branches: ["main"]
   workflow_dispatch:
 
+env:
+  node-version: 26.x
+  markdownlint-version: 0.49.1
+
 permissions:
   contents: read
 
@@ -17,26 +21,23 @@ jobs:
     name: Markdown Lint
     runs-on: ubuntu-24.04
 
-    strategy:
-      matrix:
-        node-version: [26.x]
-        # See supported Node.js release schedule
-        # at https://nodejs.org/en/about/releases/
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Set up Node.js ${{ matrix.node-version }}
+      - name: Set up Node.js ${{ env.node-version }}
         uses: actions/setup-node@v7
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ env.node-version }}
 
-      - name: Install dependencies
-        run: npm install -g --ignore-scripts markdownlint-cli@v0.49.1
+      - name: Install tool
+        run: >
+          npm install -g --ignore-scripts
+          markdownlint-cli@${{ env.markdownlint-version }}
 
-      - name: Check tools
-        run: markdownlint --version
+      - name: Check tool
+        run: >
+          markdownlint --version
 
       - name: Lint
         run: >
