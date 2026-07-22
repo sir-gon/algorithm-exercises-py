@@ -96,7 +96,8 @@ def count_triplets_doenst_work_with_unsorted_input(arr: list[int], r: int) -> in
             next_next_elem_cnt = counter[knext_next]
             count += v * (next_elem_cnt * next_next_elem_cnt)
         elif r == 1:
-            count += math.factorial(v) // (math.factorial(3) * math.factorial(v - 3))
+            count += math.factorial(v) //
+              (math.factorial(3) * math.factorial(v - 3))
 
         i += 1
 

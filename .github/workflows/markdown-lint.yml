@@ -16,17 +16,27 @@ jobs:
   markdownlint:
     name: Markdown Lint
     runs-on: ubuntu-24.04
+
+    strategy:
+      matrix:
+        node-version: [26.x]
+        # See supported Node.js release schedule
+        # at https://nodejs.org/en/about/releases/
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Set up Node.js
+      - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v7
         with:
-          node-version: 24.x
+          node-version: ${{ matrix.node-version }}
+
       - name: Install dependencies
-        run: >
-          npm install -g --ignore-scripts markdownlint-cli@0.47.0
+        run: npm install -g --ignore-scripts markdownlint-cli@v0.49.1
+
+      - name: Check tools
+        run: markdownlint --version
 
       - name: Lint
         run: >
