@@ -62,7 +62,7 @@ flowchart LR
 
     classDef default color:#000,fill:#97FE9C,stroke:#488A53,stroke-width:4px;
 
-    classDef none color: #DDD, fill:#FFFFFF00,fill:#FFFFFF00, stroke:#FFFFFF00, stroke-width: 0;
+    classDef none color:#DDD,fill:#FFFFFF00,fill:#FFFFFF00,stroke:#FFFFFF00,stroke-width:0;
 
     class NULL none
 ```
@@ -80,7 +80,7 @@ flowchart LR
 
     classDef default color:#000,fill:#97FE9C,stroke:#488A53,stroke-width:4px;
 
-    classDef none color: #DDD, fill:#FFFFFF00,fill:#FFFFFF00, stroke:#FFFFFF00, stroke-width: 0;
+    classDef none color: #DDD,fill:#FFFFFF00,fill:#FFFFFF00,stroke:#FFFFFF00,stroke-width:0;
 
     class NULL none
 ```
