@@ -104,7 +104,7 @@ lint/markdown:
 	markdownlint --config .markdownlint.json '**/*.md' --ignore node_modules && echo '✔  Your code looks good.'
 
 lint/yaml:
-	yamllint --stric . && echo '✔  Your code looks good.'
+	yamllint --strict . && echo '✔  Your code looks good.'
 
 lint: lint/markdown lint/yaml lint/json test/styling test/static
 
