@@ -41,5 +41,5 @@ jobs:
 
       - name: Lint
         run: >
-          markdownlint '**/*.md' --ignore node_modules
+          markdownlint --config .markdownlint.json '**/*.md'
           && echo '✔  Your code looks good.'
