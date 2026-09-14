@@ -25,6 +25,20 @@ services:
       - ./:/app
     profiles: ["lint"]
 
+  markdownlint:
+    image: goncl/markdownlint-cli:latest
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    profiles: ["lint"]
+
+  yamllint:
+    image: goncl/yamllint:latest
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    profiles: ["lint"]
+
   algorithm-exercises-py-dev:
     image: algorithm-exercises-py:dev
     build:
