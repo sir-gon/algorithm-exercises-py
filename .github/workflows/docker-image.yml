@@ -1,5 +1,4 @@
 ---
-
 name: Docker Image CI
 
 on: # yamllint disable-line rule:truthy
@@ -15,10 +14,9 @@ env:
   ARTIFACT_NAME: algorithm-exercises-py_${{ github.sha }}
 
 jobs:
-
-  build:
-    name: "Build Docker images"
-    runs-on: ubuntu-24.04
+  build-lint:
+    name: "Build Docker LINT image"
+    runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
@@ -39,6 +37,14 @@ jobs:
         with:
           name: ${{ env.ARTIFACT_NAME }}_lint
           path: /tmp/${{ env.ARTIFACT_NAME }}_lint.tar
+  build-test:
+    name: "Build Docker TEST image"
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
 
       - name: "TEST: Build and push"
         uses: docker/build-push-action@v7
@@ -55,6 +61,14 @@ jobs:
           name: ${{ env.ARTIFACT_NAME }}_test
           path: /tmp/${{ env.ARTIFACT_NAME }}_test.tar
 
+  build-prod:
+    name: "Build Docker PRODUCTION image"
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
       - name: "PRODUCTION: Build and push"
         uses: docker/build-push-action@v7
         with:
@@ -71,11 +85,33 @@ jobs:
           name: ${{ env.ARTIFACT_NAME }}_prod
           path: /tmp/${{ env.ARTIFACT_NAME }}_prod.tar
 
-  lint:
-    name: "Run in docker: LINT"
-    runs-on: ubuntu-24.04
-    needs: build
+  run-lint-markdown:
+    name: "Run in docker: Markdown LINT"
+    runs-on: ubuntu-26.04
     steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Run markdown lint
+        run: >
+          make compose/lint/markdown
+
+  run-lint-yaml:
+    name: "Run in docker: YAML LINT"
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Run YAML lint
+        run: >
+          make compose/lint/yaml
+
+  run-lint:
+    name: "Run in docker: LINT"
+    runs-on: ubuntu-26.04
+    needs: build-lint
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
       - name: Download artifact
         uses: actions/download-artifact@v8
         with:
@@ -88,14 +124,19 @@ jobs:
           docker image ls -a
 
       - name: Run lint
-        run: |
-          docker run --rm ${{ env.IMAGE_NAME }}:lint make lint
+        run: >
+          docker
+          compose --profile lint
+          run --rm ${{ env.IMAGE_NAME }}-lint
+          make lint
 
-  test:
+  run-test:
     name: "Run in docker: TEST"
-    runs-on: ubuntu-24.04
-    needs: build
+    runs-on: ubuntu-26.04
+    needs: build-test
     steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
       - name: Download artifact
         uses: actions/download-artifact@v8
         with:
@@ -108,14 +149,17 @@ jobs:
           docker image ls -a
 
       - name: Run test
-        run: |
-          docker run --rm ${{ env.IMAGE_NAME }}:test make test
+        run: >
+          docker
+          compose --profile test
+          run --rm ${{ env.IMAGE_NAME }}-test
+          make test
 
   # yamllint disable rule:line-length
   # security:
   #   name: "Snyk Container"
-  #   runs-on: ubuntu-24.04
-  #   needs: build
+  #   runs-on: ubuntu-26.04
+  #   needs: build-prod
   #   permissions:
   #     actions: read
   #     contents: read
@@ -163,8 +207,8 @@ jobs:
 
   scan:
     name: "Trivy"
-    runs-on: ubuntu-24.04
-    needs: build
+    runs-on: ubuntu-26.04
+    needs: build-prod
     permissions:
       actions: read
       contents: read
@@ -185,7 +229,7 @@ jobs:
         uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: ${{ env.IMAGE_NAME }}:${{ github.sha }}
-          format: 'table'
+          format: "table"
         env:
           TRIVY_DB_REPOSITORY: ${{ vars.TRIVY_DB_REPOSITORY }}
 
@@ -193,12 +237,12 @@ jobs:
         uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: ${{ env.IMAGE_NAME }}:${{ github.sha }}
-          format: 'sarif'
-          output: 'trivy-results.sarif'
+          format: "sarif"
+          output: "trivy-results.sarif"
         env:
           TRIVY_DB_REPOSITORY: ${{ vars.TRIVY_DB_REPOSITORY }}
 
       - name: Upload Trivy scan results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v4
+        uses: github/codeql-action/upload-sarif@v4.38.0
         with:
-          sarif_file: 'trivy-results.sarif'
+          sarif_file: "trivy-results.sarif"

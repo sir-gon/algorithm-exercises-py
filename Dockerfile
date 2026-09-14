@@ -27,10 +27,8 @@ FROM base AS lint
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-RUN  apk add --update --no-cache make nodejs npm \
-  && apk add --update --no-cache yamllint \
-  && npm install -g --ignore-scripts markdownlint-cli@0.49.1 \
-  && npm install -g --ignore-scripts prettier@3.7.4
+# Node.js required by pyright as dependency
+RUN  apk add --update --no-cache nodejs
 
 # [!TIP] Use a bind-mount to "/app" to override following "copys"
 # for lint and test against "current" sources in this stage
@@ -56,16 +54,6 @@ COPY ./Makefile ${WORKDIR}/
 COPY ./.pylintrc ${WORKDIR}/
 COPY ./.coveragerc ${WORKDIR}/
 COPY ./setup.cfg ${WORKDIR}/
-
-# markdownlint conf
-COPY ./.markdownlint.json ${WORKDIR}/
-
-# yamllint conf
-COPY ./.yamllint ${WORKDIR}/
-COPY ./.yamlignore ${WORKDIR}/
-
-# JSON linting conf
-COPY ./.prettierrc.yaml ${WORKDIR}/
 
 CMD ["make", "lint"]
 
