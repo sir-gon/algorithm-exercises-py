@@ -1,5 +1,5 @@
 ###############################################################################
-FROM python:3.14.7-alpine3.24 AS init
+FROM python:3.15.0rc1-alpine3.24 AS init
 
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
