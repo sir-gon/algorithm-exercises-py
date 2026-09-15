@@ -164,6 +164,13 @@ compose/rebuild: env
 	${DOCKER_COMPOSE} --profile testing build --no-cache
 	${DOCKER_COMPOSE} --profile production build --no-cache
 
+compose/lint/json:
+	${DOCKER_COMPOSE} --profile lint run --rm \
+    --workdir /workspace \
+    -v "$$(pwd):/workspace" \
+    prettier --check '/workspace/**/*.json' \
+		&& echo '✔  Your code looks good.'
+
 compose/lint/markdown:
 	${DOCKER_COMPOSE} --profile lint run --rm \
     --workdir /workspace \
@@ -184,7 +191,7 @@ compose/test/styling: compose/build
 compose/test/static: compose/build
 	${DOCKER_COMPOSE} --profile lint run --rm algorithm-exercises-py-lint make test/static
 
-compose/lint: compose/lint/markdown compose/lint/yaml compose/test/styling compose/test/static
+compose/lint: compose/lint/json compose/lint/markdown compose/lint/yaml compose/test/styling compose/test/static
 
 compose/test: compose/build
 	${DOCKER_COMPOSE} --profile testing run --rm algorithm-exercises-py-test make test

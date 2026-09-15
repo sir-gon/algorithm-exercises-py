@@ -25,6 +25,13 @@ services:
       - ./:/app
     profiles: ["lint"]
 
+  prettier:
+    image: goncl/prettier:latest
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    profiles: ["lint"]
+
   markdownlint:
     image: goncl/markdownlint-cli:latest
     working_dir: /workspace
