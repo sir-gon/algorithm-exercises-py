@@ -12,7 +12,7 @@ on: # yamllint disable-line rule:truthy
 jobs:
   json-lint:
     name: 'Prettier JSON Lint'
-    runs-on: ['ubuntu-24.04']
+    runs-on: ['ubuntu-26.04']
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
@@ -23,7 +23,7 @@ jobs:
 
       - name: Install Prettier
         run: |
-          npm install -g --ignore-scripts prettier@3.7.4
+          npm install -g --ignore-scripts prettier@3.9.6
 
       - name: Prettier LINT / Style JSON
         run: >
