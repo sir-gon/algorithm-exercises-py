@@ -108,7 +108,7 @@ lint/yaml:
 
 lint: test/styling test/static
 
-lint/all: lint/markdown lint/yaml test/styling test/static
+lint/all: lint/markdown lint/yaml lint/json test/styling test/static
 
 format/json:
 	prettier --write ./src/**/*.json
