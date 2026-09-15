@@ -26,6 +26,14 @@ BRUTEFORCE :=$(shell echo '${BRUTEFORCE}'| tr '[:lower:]' '[:upper:]'| tr -d '[:
 .PHONY: all clean dependencies help list test
 .EXPORT_ALL_VARIABLES: # (2)
 
+define crono
+	@start=$$(date +%s); \
+		$(1); \
+		end=$$(date +%s); \
+		diff=$$((end - start)); \
+		printf "Total time: %02d:%02d:%02d\n" $$((diff/3600)) $$((diff%3600/60)) $$((diff%60))
+endef
+
 RUNTIME_TOOL=python3
 PACKAGE_TOOL=pipenv
 
@@ -199,7 +207,10 @@ compose/test: compose/build
 compose/run: compose/build
 	${DOCKER_COMPOSE} --profile production run --rm algorithm-exercises-py make run
 
-all: lint coverage
+compose/all: compose/rebuild compose/test compose/lint
+
+all:
+	$(call crono, make clean; make dependencies; make build; make test; make lint; make coverage/html)
 
 run:
 	ls -alh
