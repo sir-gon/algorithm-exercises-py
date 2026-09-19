@@ -15,7 +15,7 @@ env:
 jobs:
   coverage:
     name: "Python CI Coverage"
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -69,7 +69,7 @@ jobs:
 
   codecov:
     name: Upload to Codecov
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     needs: coverage
 
     steps:
@@ -91,7 +91,7 @@ jobs:
 
   sonarqube:
     name: Analyze with SonarQube
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     needs: coverage
 
     steps:
