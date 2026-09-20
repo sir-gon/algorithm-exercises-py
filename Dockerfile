@@ -18,7 +18,11 @@ COPY ./Makefile ${WORKDIR}/
 COPY Pipfile ${WORKDIR}/
 COPY Pipfile.lock ${WORKDIR}/
 
-RUN python -m pip install --no-cache-dir --root-user-action=ignore pipenv==2026.6.1
+RUN python -m pip install \
+  --only-binary :all: \
+  --no-cache-dir \
+  --root-user-action=ignore \
+  pipenv==2026.6.1
 RUN pipenv sync --dev --python=$(which python)
 
 ###############################################################################
