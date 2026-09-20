@@ -119,7 +119,7 @@ lint: test/styling test/static
 lint/all: lint/markdown lint/yaml lint/json test/styling test/static
 
 format/json:
-	prettier --write ./src/**/*.json
+	prettier --write ./**/*.json
 
 format/sources:
 	${PACKAGE_TOOL} run autopep8 --in-place --recursive --aggressive --aggressive --verbose src/
@@ -193,6 +193,13 @@ compose/lint/yaml:
  	yamllint --strict . \
   && echo '✔  Your code looks good.'
 
+compose/lint/json:
+	${DOCKER_COMPOSE} --profile lint run --rm \
+    --workdir /workspace \
+    -v "$$(pwd):/workspace" \
+    prettier --check /workspace/**/*.json \
+		&& echo '✔  Your code looks good.'
+
 compose/test/styling: compose/build
 	${DOCKER_COMPOSE} --profile lint run --rm algorithm-exercises-py-lint make test/styling
 
@@ -207,7 +214,9 @@ compose/test: compose/build
 compose/run: compose/build
 	${DOCKER_COMPOSE} --profile production run --rm algorithm-exercises-py make run
 
-compose/all: compose/rebuild compose/test compose/lint
+compose/lint: compose/test/styling compose/test/static
+
+compose/lint/all: compose/lint/markdown compose/lint/yaml compose/lint/json compose/test/styling compose/test/static
 
 all:
 	$(call crono, make clean; make dependencies; make build; make test; make lint; make coverage/html)

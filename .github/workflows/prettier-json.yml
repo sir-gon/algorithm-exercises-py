@@ -3,28 +3,30 @@ name: Prettier JSON Lint
 
 on: # yamllint disable-line rule:truthy
   push:
-    branches: ['main']
+    branches: ["main"]
   pull_request:
-    # The branches below must be a subset of the branches above
-    branches: ['main']
   workflow_dispatch:
 
 jobs:
   json-lint:
-    name: 'Prettier JSON Lint'
-    runs-on: ['ubuntu-26.04']
+    name: "Prettier JSON Lint"
+    runs-on: ["ubuntu-26.04"]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: 24.x
+          node-version: 26.x
 
       - name: Install Prettier
         run: |
-          npm install -g --ignore-scripts prettier@3.9.6
+          npm install -g --ignore-scripts prettier@3.9.8
+
+      - name: Tool check
+        run: |
+          prettier --version
 
       - name: Prettier LINT / Style JSON
         run: >
-          prettier --check ./src/**/*.json
+          prettier --check ./**/*.json
