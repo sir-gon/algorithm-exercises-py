@@ -172,13 +172,6 @@ compose/rebuild: env
 	${DOCKER_COMPOSE} --profile testing build --no-cache
 	${DOCKER_COMPOSE} --profile production build --no-cache
 
-compose/lint/json:
-	${DOCKER_COMPOSE} --profile lint run --rm \
-    --workdir /workspace \
-    -v "$$(pwd):/workspace" \
-    prettier --check '/workspace/**/*.json' \
-		&& echo '✔  Your code looks good.'
-
 compose/lint/markdown:
 	${DOCKER_COMPOSE} --profile lint run --rm \
     --workdir /workspace \
