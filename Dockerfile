@@ -4,7 +4,7 @@ FROM python:3.14.7-alpine3.24 AS init
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-RUN  apk add --update --no-cache make \
+RUN apk add --update --no-cache "make=4.4.1-r4" \
   && apk upgrade --update --no-cache expat libexpat # CVE-2024-45491 SNYK-ALPINE320-EXPAT-7908298
 
 ###############################################################################
@@ -23,7 +23,7 @@ RUN python -m pip install \
   --no-cache-dir \
   --root-user-action=ignore \
   pipenv==2026.6.1
-RUN pipenv sync --dev --python=$(which python)
+RUN pipenv sync --dev --python="$(which python)"
 
 ###############################################################################
 FROM base AS lint
@@ -32,7 +32,7 @@ ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
 # Node.js required by pyright as dependency
-RUN  apk add --update --no-cache nodejs
+RUN apk add --update --no-cache "nodejs=24.18.1-r0"
 
 # [!TIP] Use a bind-mount to "/app" to override following "copys"
 # for lint and test against "current" sources in this stage
@@ -75,17 +75,17 @@ RUN ls -alh
 ###############################################################################
 FROM development AS builder
 
-RUN apk add --update --no-cache rsync
-
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-RUN rsync -av --prune-empty-dirs \
-  --exclude '*_test.py' \
-  --exclude '*.pyc' \
-  --exclude '.venv' \
-  --exclude '__pycache__' \
-  src/ build/
+RUN apk add --update --no-cache "rsync=3.5.0-r0" \
+  && rsync -av --prune-empty-dirs \
+    --exclude '*_test.py' \
+    --exclude '*.pyc' \
+    --exclude '.venv' \
+    --exclude '__pycache__' \
+    src/ build/ \
+  && apk del rsync
 
 # CMD []
 
@@ -95,7 +95,7 @@ RUN rsync -av --prune-empty-dirs \
 ##
 ## https://docs.github.com/en/actions/creating-actions/dockerfile-support-for-github-actions
 ##
-FROM builder AS testing
+FROM development AS testing
 
 ENV LOG_LEVEL=INFO
 ENV BRUTEFORCE=false
@@ -121,7 +121,7 @@ ENV BRUTEFORCE=false
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-RUN  adduser -D worker \
+RUN adduser -D -u 1000 worker \
   && mkdir -p /app \
   && chown worker:worker /app
 
@@ -131,7 +131,7 @@ COPY --from=builder /app/build/ ${WORKDIR}/
 
 RUN ls -alh
 
-USER worker
+USER 1000
 CMD ["make", "run"]
 
 # checkov:skip= CKV_DOCKER_2: production image isn't a service process (yet)
