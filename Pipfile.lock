@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "192449bf081501e30ec1dbd492ecb41183a5841f7b022c505a43ab130e2c0c50"
+            "sha256": "4f4889d9e102207ad792bf9e3e3461c072e952221cf5982d4c69fa26660c7464"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -273,11 +273,11 @@
         },
         "platformdirs": {
             "hashes": [
-                "sha256:52f2f181bbfde907966932cc8312d967d02976422d66d537ea16092b8e291081",
-                "sha256:f23abafea7dd4276d1f29104b83598d7dcc567cafd07c9c951e66665645437fc"
+                "sha256:b1ba966ac76153d9985a0787ffab951e7c18416189873d4e4ddb2c8a04a0a254",
+                "sha256:e8dc1cb58f1153fd7f61db1374317770baababec2480b37b8f01c6cc25b45267"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==4.11.8"
+            "version": "==4.11.12"
         },
         "pluggy": {
             "hashes": [
@@ -315,12 +315,12 @@
         },
         "pylint": {
             "hashes": [
-                "sha256:1c1b2128bde5ff5e966801413080b6384d42a5782718d528c906dbb6beab94ed",
-                "sha256:3341c08c0aabaa4adc71516de0969f3ba5c692b56c75af4dcb4d242823fbe363"
+                "sha256:6f1305780229ae720e89b8aff2b3ff857cbb268fbab98c8b586960267667ad34",
+                "sha256:c4ba5bbaf1e70ecf05f08cd7d6091ea04824b79a2b2d9f5b10dc25fc34cb1124"
             ],
             "index": "pypi",
             "markers": "python_full_version >= '3.10.0'",
-            "version": "==4.0.8"
+            "version": "==4.0.9"
         },
         "pyright": {
             "hashes": [
