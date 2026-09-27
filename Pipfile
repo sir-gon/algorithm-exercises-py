@@ -7,7 +7,7 @@ name = "pypi"
 
 [dev-packages]
 autopep8 = "==2.3.2"
-coverage = "==7.16.1"
+coverage = "==7.16.2"
 flake8 = "==7.4.1"
 pycodestyle = "==2.15.0"
 pyflakes = "==4.0.0"
