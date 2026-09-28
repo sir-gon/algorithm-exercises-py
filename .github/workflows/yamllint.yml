@@ -9,6 +9,9 @@ on: # yamllint disable-line rule:truthy
     branches: ["main"]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     name: YAML lint
