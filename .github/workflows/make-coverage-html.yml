@@ -16,6 +16,9 @@ on: # yamllint disable-line rule:truthy
     branches: ["main"]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   make-coverage-html:
     name: "Run make coverage/html and verify coverage HTML"

@@ -12,6 +12,9 @@ on: # yamllint disable-line rule:truthy
 env:
   LOG_LEVEL: INFO
 
+permissions:
+  contents: read
+
 jobs:
   test:
     name: 'Python CI Test'

@@ -9,6 +9,9 @@ on: # yamllint disable-line rule:truthy
     branches: ["main"]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     name: YAML lint
@@ -22,12 +25,9 @@ jobs:
         with:
           python-version: 3.14
 
-      - name: Install pipenv
-        run: >
-          sudo apt install pipenv
       - name: Install yamllint
-        run: >
-          pipenv sync --dev
+        run: |
+          pip install --only-binary :all: yamllint==1.38.0
 
       - name: Lint YAML files
         run: >

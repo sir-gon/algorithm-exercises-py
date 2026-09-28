@@ -13,6 +13,10 @@ on: # yamllint disable-line rule:truthy
 env:
   LANG: C.UTF-8
 
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   security:
     runs-on: ubuntu-26.04
