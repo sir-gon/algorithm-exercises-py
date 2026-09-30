@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "7964ac601d4013e4d685fcb856dfb3e3a1ce0f28020b1f272226e5b9d36cefda"
+            "sha256": "1cf852318521e021ed71493262e99a6871ec930f5f1f03e9786acc4d0e4c9d74"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -17,11 +17,11 @@
     "develop": {
         "astroid": {
             "hashes": [
-                "sha256:52f39653876c7dec3e3afd4c2696920e05c83832b9737afc21928f2d2eb7a753",
-                "sha256:986fed8bcf79fb82c78b18a53352a0b287a73817d6dbcfba3162da36667c49a0"
+                "sha256:6d7b483f37281a697fa0878a9eaaa3dbefb302970e90c680712bf746a4ebb3a1",
+                "sha256:8cdaf5b7f3f4f39557ae05ed8b0852136b43a04ab686db7d39255b206233677a"
             ],
             "markers": "python_full_version >= '3.10.0'",
-            "version": "==4.0.4"
+            "version": "==4.3.2"
         },
         "autopep8": {
             "hashes": [
@@ -273,11 +273,11 @@
         },
         "platformdirs": {
             "hashes": [
-                "sha256:38da801a4af303033cbffccb39030db22bf0473e6414309b02acebeee7ca8bf1",
-                "sha256:7f251621befae78b2cb74616f9fc99d3fa3db0afba5035987731f8dcd430337d"
+                "sha256:29dbf06d96c500bc6bdbce75fb0a14d63279c93b1842f97e72a135b33e856983",
+                "sha256:eab5f70271a490ef74618bb314fbb86e3c7e82fa3b9c922c2ea0e0a1a155d329"
             ],
             "markers": "python_version >= '3.10'",
-            "version": "==4.12.1"
+            "version": "==4.12.2"
         },
         "pluggy": {
             "hashes": [
@@ -315,12 +315,12 @@
         },
         "pylint": {
             "hashes": [
-                "sha256:bf19280b10f2185bfbc898a28ac0b85c958af2e6d684a94984e12d3ac975d9f4",
-                "sha256:c259421f734e6262407b6a421a26f9513b13ac2c5ac2c160775c1658afb57fea"
+                "sha256:47538540de0a563ff0b6cb781330944b0c9c1a130986ad1c183116ed37ec4538",
+                "sha256:84901850af1c67240afbe7b0ef696b7ab391ed4838e4ffc48511661026ebc565"
             ],
             "index": "pypi",
             "markers": "python_full_version >= '3.10.0'",
-            "version": "==4.0.10"
+            "version": "==4.1.1"
         },
         "pyright": {
             "hashes": [
