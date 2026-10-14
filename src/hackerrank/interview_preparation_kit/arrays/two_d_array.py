@@ -9,18 +9,20 @@ LOGGER = logging.getLogger(__name__)
 def gethourglass(arr: list[list[int]], position_x: int, position_y: int) -> list[int]:
     result: list[int] = []
 
-    # top
-    result.append(arr[position_x - 1][position_y - 1])
-    result.append(arr[position_x - 1][position_y])
-    result.append(arr[position_x - 1][position_y + 1])
-
-    # middle
-    result.append(arr[position_x][position_y])
-
-    # bottom
-    result.append(arr[position_x + 1][position_y - 1])
-    result.append(arr[position_x + 1][position_y])
-    result.append(arr[position_x + 1][position_y + 1])
+    result.extend(
+        [
+            # top
+            arr[position_x - 1][position_y - 1],
+            arr[position_x - 1][position_y],
+            arr[position_x - 1][position_y + 1],
+            # middle
+            arr[position_x][position_y],
+            # bottom
+            arr[position_x + 1][position_y - 1],
+            arr[position_x + 1][position_y],
+            arr[position_x + 1][position_y + 1]
+        ]
+    )
 
     return result
 
