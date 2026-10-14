@@ -18,11 +18,11 @@ def plusMinus(arr: list[int]) -> str:
         if value == 0:
             zeros += 1
 
-    result: list[str] = []
-
-    result.append(f'{positives / len(arr):.6f}')
-    result.append(f'{negatives / len(arr):.6f}')
-    result.append(f'{zeros / len(arr):.6f}')
+    result: list[str] = [
+        f'{positives / len(arr):.6f}',
+        f'{negatives / len(arr):.6f}',
+        f'{zeros / len(arr):.6f}'
+    ]
 
     output: str = '\n'.join(result)
 
