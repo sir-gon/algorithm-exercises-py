@@ -153,7 +153,7 @@ coverage/xml: test
 
 coverage/html: test
 	${PACKAGE_TOOL} run coverage html
-		@if [ "$$(uname)" = "Darwin" ]; then \
+	@if [ "$$(uname)" = "Darwin" ]; then \
 		open ./htmlcov/index.html; \
 	elif [ "$$(uname | tr '[:upper:]' '[:lower:]')" = "mingw32" ] || [ "$$(uname | tr '[:upper:]' '[:lower:]')" = "mingw64" ] || [ "$$(uname | tr '[:upper:]' '[:lower:]')" = "cygwin" ]; then \
 		cmd /c start ./htmlcov/index.html; \
