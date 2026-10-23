@@ -32,7 +32,7 @@ ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
 # Node.js required by pyright as dependency
-RUN apk add --update --no-cache "nodejs=24.18.1-r0"
+RUN apk add --update --no-cache "nodejs=24.22.1-r0"
 
 # [!TIP] Use a bind-mount to "/app" to override following "copys"
 # for lint and test against "current" sources in this stage
