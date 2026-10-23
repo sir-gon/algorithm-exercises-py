@@ -20,11 +20,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
-      - name: Set up Python
-        uses: actions/setup-python@v7
-        with:
-          python-version: 3.14
-
       - name: Install yamllint
         run: |
           pip install --only-binary :all: yamllint==1.38.0
