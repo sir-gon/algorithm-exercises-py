@@ -97,12 +97,17 @@ clean:
 
 ## Building process
 build: env
-	rsync -av --prune-empty-dirs \
-  --exclude '*_test.py' \
-  --exclude '*.pyc' \
-  --exclude '.venv' \
-  --exclude '__pycache__' \
-  src/ build/
+build:
+	mkdir -p build
+	cd src && find . \
+		-type f \
+		! -name '*_test.py' \
+		! -name '*.json' \
+		! -name '*.txt' \
+		! -name '*.pyc' \
+		! -path './.venv/*' \
+		! -path '*/__pycache__/*' \
+		-exec sh -c 'for f do mkdir -p "../build/$$(dirname "$$f")"; cp -p "$$f" "../build/$$f"; done' sh {} +
 
 ## Source code linting and formatting
 lint/json:

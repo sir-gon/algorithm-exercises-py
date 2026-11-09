@@ -78,14 +78,7 @@ FROM development AS builder
 ENV WORKDIR=/app
 WORKDIR ${WORKDIR}
 
-RUN apk add --update --no-cache "rsync=3.5.0-r0" \
-  && rsync -av --prune-empty-dirs \
-    --exclude '*_test.py' \
-    --exclude '*.pyc' \
-    --exclude '.venv' \
-    --exclude '__pycache__' \
-    src/ build/ \
-  && apk del rsync
+RUN make build
 
 # CMD []
 
